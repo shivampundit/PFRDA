@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Grade A - Commerce &amp; Accountancy Comprehensive Master Study Notes - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-dark: #172554;
+            --secondary: #0d9488;
+            --accent: #d97706;
+            --danger: #b91c1c;
+            --success: #15803d;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray-border: #cbd5e1;
+            --text-main: #334155;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f1f5f9;
+            color: var(--text-main);
+            line-height: 1.68;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: white;
+            padding: 45px 20px;
+            text-align: center;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+        }
+        .header h1 {
+            margin: 0 0 12px 0;
+            font-size: 2.3rem;
+            letter-spacing: 0.5px;
+        }
+        .header p {
+            margin: 0;
+            font-size: 1.15rem;
+            color: #93c5fd;
+            font-weight: 500;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .container {
+            max-width: 1240px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--gray-border);
+        }
+        h2 {
+            color: var(--primary);
+            border-bottom: 3px solid #bfdbfe;
+            padding-bottom: 12px;
+            margin-top: 0;
+            font-size: 1.65rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        h3 {
+            color: var(--dark);
+            margin-top: 28px;
+            font-size: 1.3rem;
+            border-left: 5px solid var(--secondary);
+            padding-left: 12px;
+        }
+        h4 {
+            color: #1e40af;
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 22px 0;
+            font-size: 0.95rem;
+        }
+        th, td {
+            border: 1px solid var(--gray-border);
+            padding: 12px 15px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background: #f8fafc;
+            color: var(--dark);
+            font-weight: 700;
+        }
+        tr:nth-child(even) td {
+            background: #fafbfc;
+        }
+        .formula-box {
+            background: #eff6ff;
+            border-left: 5px solid var(--primary);
+            padding: 18px 22px;
+            margin: 18px 0;
+            border-radius: 0 8px 8px 0;
+            font-family: 'Consolas', monospace;
+            font-size: 1.02rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        .highlight {
+            background: #fef3c7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #92400e;
+        }
+        .tag-green {
+            background: #dcfce7;
+            color: #166534;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .tag-blue {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .tag-red {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .callout-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-left: 5px solid var(--success);
+            padding: 18px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .callout-title {
+            font-weight: 700;
+            color: #166534;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+        .alert-box {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-left: 5px solid var(--accent);
+            padding: 18px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .alert-title {
+            font-weight: 700;
+            color: #b45309;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+        .pyq-box {
+            background: #f5f3ff;
+            border: 1px solid #ddd6fe;
+            border-left: 5px solid #7c3aed;
+            padding: 18px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .pyq-title {
+            font-weight: 700;
+            color: #5b21b6;
+            margin-bottom: 6px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .svg-container {
+            text-align: center;
+            margin: 25px 0;
+            background: #ffffff;
+            padding: 20px;
+            border: 1px solid var(--gray-border);
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+        .footer {
+            text-align: center;
+            padding: 35px;
+            color: #64748b;
+            font-size: 0.92rem;
+            border-top: 1px solid var(--gray-border);
+            margin-top: 45px;
+        }
+        ul, ol {
+            padding-left: 24px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject C: Commerce & Accountancy</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Commerce_Accountancy_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Commerce_Accountancy_Master_Revision_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Commerce_Accountancy_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Commerce_Accountancy_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Commerce_Accountancy_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Commerce_Accountancy_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Commerce_Accountancy_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<div class="header">
+    <div class="badge">PFRDA &#183; SHIVAM &#183; EXAM EXCELLENCE</div>
+    <h1>PFRDA Grade A / SEBI Grade A &#183; Paper 2</h1>
+    <p>Comprehensive Master Study Notes: Subject C &#8212; Commerce &amp; Accountancy</p>
+</div>
+
+<div class="container">
+
+    <!-- Card 1: Accounting as an Information System -->
+    <div class="card">
+        <h2>1. Accounting as a Financial Information System &amp; Theoretical Framework</h2>
+        <p>Accounting is a formal measurement, communication, and decision-support discipline that identifies, records, classifies, summarizes, and interprets economic events to enable informed decision-making by diverse internal and external stakeholders.</p>
+
+        <div class="svg-container">
+            <svg width="820" height="140" viewBox="0 0 820 140" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="10" width="800" height="120" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+                <text x="410" y="32" text-anchor="middle" font-weight="bold" font-size="14" fill="#1e3a8a">The Accounting Cycle as a Closed-Loop Information System</text>
+                
+                <rect x="25" y="55" width="105" height="50" rx="5" fill="#eff6ff" stroke="#3b82f6"/>
+                <text x="77" y="78" text-anchor="middle" font-weight="bold" font-size="11" fill="#1e40af">1. Source Doc</text>
+                <text x="77" y="93" text-anchor="middle" font-size="10" fill="#64748b">Vouchers/Invoices</text>
+
+                <text x="140" y="83" font-size="16" fill="#3b82f6">→</text>
+
+                <rect x="155" y="55" width="105" height="50" rx="5" fill="#eff6ff" stroke="#3b82f6"/>
+                <text x="207" y="78" text-anchor="middle" font-weight="bold" font-size="11" fill="#1e40af">2. Journal</text>
+                <text x="207" y="93" text-anchor="middle" font-size="10" fill="#64748b">Original Entry</text>
+
+                <text x="270" y="83" font-size="16" fill="#3b82f6">→</text>
+
+                <rect x="285" y="55" width="105" height="50" rx="5" fill="#eff6ff" stroke="#3b82f6"/>
+                <text x="337" y="78" text-anchor="middle" font-weight="bold" font-size="11" fill="#1e40af">3. Ledger</text>
+                <text x="337" y="93" text-anchor="middle" font-size="10" fill="#64748b">Classification</text>
+
+                <text x="400" y="83" font-size="16" fill="#3b82f6">→</text>
+
+                <rect x="415" y="55" width="115" height="50" rx="5" fill="#eff6ff" stroke="#3b82f6"/>
+                <text x="472" y="78" text-anchor="middle" font-weight="bold" font-size="11" fill="#1e40af">4. Trial Balance</text>
+                <text x="472" y="93" text-anchor="middle" font-size="10" fill="#64748b">Arith. Accuracy</text>
+
+                <text x="540" y="83" font-size="16" fill="#3b82f6">→</text>
+
+                <rect x="555" y="55" width="115" height="50" rx="5" fill="#eff6ff" stroke="#3b82f6"/>
+                <text x="612" y="78" text-anchor="middle" font-weight="bold" font-size="11" fill="#1e40af">5. Adjustments</text>
+                <text x="612" y="93" text-anchor="middle" font-size="10" fill="#64748b">Accruals/Prepaids</text>
+
+                <text x="680" y="83" font-size="16" fill="#3b82f6">→</text>
+
+                <rect x="695" y="55" width="105" height="50" rx="5" fill="#1e3a8a"/>
+                <text x="747" y="78" text-anchor="middle" font-weight="bold" font-size="11" fill="#ffffff">6. Final A/cs</text>
+                <text x="747" y="93" text-anchor="middle" font-size="10" fill="#bfdbfe">BS / P&amp;L / CFS</text>
+            </svg>
+        </div>
+
+        <h3>Foundational Accounting Concepts &amp; Conventions</h3>
+        <table>
+            <tr>
+                <th>Concept / Convention</th>
+                <th>Core Regulatory &amp; Conceptual Principle</th>
+                <th>High-Yield Exam Trap &amp; Application</th>
+            </tr>
+            <tr>
+                <td><b>Going Concern</b></td>
+                <td>Enterprise will continue operational existence for the foreseeable future (no intent to liquidate).</td>
+                <td>Fixed assets recorded at historical cost less depreciation, NOT at current net realisable liquidation value.</td>
+            </tr>
+            <tr>
+                <td><b>Accrual Concept</b></td>
+                <td>Revenues and expenses recognized as earned or incurred, regardless of cash receipt or payment.</td>
+                <td>Underlies all period-end adjustments: Outstanding Expenses, Prepaid Expenses, Accrued Incomes.</td>
+            </tr>
+            <tr>
+                <td><b>Conservatism / Prudence</b></td>
+                <td>Anticipate all prospective losses, but anticipate zero prospective or unrealized gains.</td>
+                <td><b>Inventory valued at Cost or NRV, whichever is lower</b>; Provision for doubtful debts created; contingent assets ignored.</td>
+            </tr>
+            <tr>
+                <td><b>Materiality</b></td>
+                <td>Financial statements disclose all items significant enough to influence economic decisions.</td>
+                <td>Small expense items (e.g. ₹500 waste basket) expensed immediately rather than capitalized over multi-year useful life.</td>
+            </tr>
+            <tr>
+                <td><b>Money Measurement</b></td>
+                <td>Only transactions capable of expression in monetary terms are recorded in financial accounting.</td>
+                <td>Human capital, employee morale, brand reputation cannot appear on historical balance sheet.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Card 2: Accounting Standards Matrix -->
+    <div class="card">
+        <h2>2. Accounting Standards Master Guide (AS vs. Ind AS vs. IFRS)</h2>
+        <p>Accounting Standards standardize financial reporting across corporate India. Under Section 133 of the Companies Act, 2013, the Ministry of Corporate Affairs (MCA) notifies Indian Accounting Standards (Ind AS), converged with International Financial Reporting Standards (IFRS).</p>
+
+        <h3>Core Prescribed Standards Master Comparison</h3>
+        <table>
+            <tr>
+                <th>Subject Area</th>
+                <th>Indian AS (Traditional)</th>
+                <th>Converged Ind AS</th>
+                <th>Core Measurement Principles &amp; Differences</th>
+            </tr>
+            <tr>
+                <td><b>Inventories</b></td>
+                <td><b>AS 2</b></td>
+                <td><b>Ind AS 2</b></td>
+                <td>&#8226; Valued at <b>Lower of Cost and Net Realizable Value (NRV)</b>.<br />&#8226; Cost formulas permitted: <b>FIFO</b> or <b>Weighted Average Cost (WAC)</b>.<br />&#8226; <span class="tag-red">LIFO is strictly prohibited</span> under both AS 2 and Ind AS 2!</td>
+            </tr>
+            <tr>
+                <td><b>Cash Flow Statement</b></td>
+                <td><b>AS 3</b></td>
+                <td><b>Ind AS 7</b></td>
+                <td>&#8226; Classifies into <b>Operating, Investing, and Financing Activities</b>.<br />&#8226; Cash and Cash Equivalents = High liquidity investments readily convertible with insignificant risk of change in value (maturity &#8804; 3 months).<br />&#8226; Bank overdrafts repayable on demand are part of Cash &amp; Cash Equivalents under Ind AS 7.</td>
+            </tr>
+            <tr>
+                <td><b>Depreciation &amp; Fixed Assets</b></td>
+                <td><b>AS 10 / AS 6</b> (Withdrawn)</td>
+                <td><b>Ind AS 16</b> (PPE)</td>
+                <td>&#8226; PPE recognized if future economic benefits probable and cost reliably measurable.<br />&#8226; Depreciation is systematic allocation of depreciable amount over useful life.<br />&#8226; <b>Component Depreciation mandatory</b> under Ind AS 16 and Schedule II of Companies Act.<br />&#8226; Revaluation Model vs Cost Model options.</td>
+            </tr>
+            <tr>
+                <td><b>Revenue Recognition</b></td>
+                <td><b>AS 9</b></td>
+                <td><b>Ind AS 115</b></td>
+                <td>&#8226; AS 9 relies on transfer of significant risks and rewards of ownership.<br />&#8226; <b>Ind AS 115 (5-Step Model):</b> 1. Identify Contract → 2. Identify Performance Obligations → 3. Determine Transaction Price → 4. Allocate Price → 5. Recognize Revenue upon satisfaction of Performance Obligations.</td>
+            </tr>
+            <tr>
+                <td><b>Foreign Exchange</b></td>
+                <td><b>AS 11</b></td>
+                <td><b>Ind AS 21</b></td>
+                <td>&#8226; Monetary items reported using closing rate; non-monetary at historical rate.<br />&#8226; Functional currency concept established under Ind AS 21.<br />&#8226; Exchange differences recognized in P&amp;L (except qualifying long-term monetary assets/liabilities under FCMITDA).</td>
+            </tr>
+            <tr>
+                <td><b>Investments</b></td>
+                <td><b>AS 13</b></td>
+                <td><b>Ind AS 109 / Ind AS 32</b></td>
+                <td>&#8226; <b>AS 13:</b> Current Investments at Lower of Cost and Fair Value; Long-term at Cost less permanent diminution.<br />&#8226; <b>Ind AS 109:</b> Classified into: Amortized Cost, FVTOCI (Fair Value through OCI), and FVTPL (Fair Value through P&amp;L) based on business model test and SPPI test.</td>
+            </tr>
+        </table>
+
+        <div class="pyq-box">
+            <div class="pyq-title">&#x1F4CA; Frequently Tested Concept: Ind AS 115 5-Step Model</div>
+            <p>1. <b>Identify the contract</b> with the customer.<br />
+            2. <b>Identify the separate performance obligations</b> in the contract.<br />
+            3. <b>Determine the transaction price</b> (accounting for variable consideration, financing component).<br />
+            4. <b>Allocate the transaction price</b> to performance obligations based on relative standalone selling prices.<br />
+            5. <b>Recognize revenue</b> when (or as) the entity satisfies a performance obligation (over time vs at a point in time).</p>
+        </div>
+    </div>
+
+    <!-- Card 3: Financial Statement Analysis & Cash Flow Statement -->
+    <div class="card">
+        <h2>3. Cash Flow Statement (AS 3 / Ind AS 7), Funds Flow &amp; Financial Ratio Analysis</h2>
+        
+        <h3>Cash Flow Statement Mechanics: Operating, Investing &amp; Financing</h3>
+        <div class="svg-container">
+            <svg width="800" height="150" viewBox="0 0 800 150" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="10" width="780" height="130" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+                <text x="400" y="32" text-anchor="middle" font-weight="bold" font-size="14" fill="#1e3a8a">The Three Cash Flow Streams under AS 3 / Ind AS 7</text>
+                
+                <rect x="30" y="50" width="220" height="75" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+                <text x="140" y="72" text-anchor="middle" font-weight="bold" font-size="12" fill="#1e40af">1. Operating Activities (CFO)</text>
+                <text x="140" y="90" text-anchor="middle" font-size="10" fill="#334155">Principal revenue activities</text>
+                <text x="140" y="105" text-anchor="middle" font-size="10" fill="#64748b">Working capital adjustments</text>
+                <text x="140" y="118" text-anchor="middle" font-size="9" fill="#15803d">Direct or Indirect Method</text>
+
+                <rect x="290" y="50" width="220" height="75" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+                <text x="400" y="72" text-anchor="middle" font-weight="bold" font-size="12" fill="#1e40af">2. Investing Activities (CFI)</text>
+                <text x="400" y="90" text-anchor="middle" font-size="10" fill="#334155">Acquisition &amp; disposal of PPE</text>
+                <text x="400" y="105" text-anchor="middle" font-size="10" fill="#64748b">Purchase/Sale of shares/debt</text>
+                <text x="400" y="118" text-anchor="middle" font-size="9" fill="#15803d">Interest/Dividend received</text>
+
+                <rect x="550" y="50" width="220" height="75" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+                <text x="660" y="72" text-anchor="middle" font-weight="bold" font-size="12" fill="#1e40af">3. Financing Activities (CFF)</text>
+                <text x="660" y="90" text-anchor="middle" font-size="10" fill="#334155">Equity &amp; Borrowing structure</text>
+                <text x="660" y="105" text-anchor="middle" font-size="10" fill="#64748b">Issue of shares, debentures</text>
+                <text x="660" y="118" text-anchor="middle" font-size="9" fill="#b91c1c">Dividends &amp; Interest paid</text>
+            </svg>
+        </div>
+
+        <div class="callout-box">
+            <div class="callout-title">&#x26A0; Treatment of Interest &amp; Dividend (Non-Financial Company vs Financial Company)</div>
+            <p><b>Non-Financial Company:</b><br />
+            &#8226; <b>Dividend Paid:</b> Always <span class="highlight">Financing Activity</span>.<br />
+            &#8226; <b>Interest Paid:</b> Always <span class="highlight">Financing Activity</span>.<br />
+            &#8226; <b>Dividend Received:</b> Always <span class="highlight">Investing Activity</span>.<br />
+            &#8226; <b>Interest Received:</b> Always <span class="highlight">Investing Activity</span>.<br />
+            <b>Financial Company (Banks / NBFCs):</b> Interest paid, interest received, and dividend received are treated as <span class="highlight">Operating Activities</span>. Dividend paid remains Financing Activity.</p>
+        </div>
+
+        <h3>Comprehensive Ratio Analysis &amp; DuPont Framework</h3>
+        <div class="formula-box">
+            1. Current Ratio = Current Assets / Current Liabilities (Benchmark 2:1)<br />
+            2. Quick Ratio (Acid Test) = (Current Assets - Inventory - Prepaid Expenses) / Current Liabilities (Benchmark 1:1)<br />
+            3. Debt to Equity Ratio = Total Long-Term Debt / Shareholders' Equity (Benchmark 2:1)<br />
+            4. Interest Coverage Ratio = EBIT / Interest Expense<br />
+            5. Inventory Turnover Ratio = Cost of Goods Sold (COGS) / Average Inventory<br />
+            6. Debtors Turnover Ratio = Net Credit Sales / Average Accounts Receivable<br />
+            7. DuPont Return on Equity (ROE 3-Step Decomposition):<br />
+                ROE = Net Profit Margin &#215; Asset Turnover &#215; Equity Multiplier<br />
+                ROE = (Net Profit / Sales) &#215; (Sales / Total Assets) &#215; (Total Assets / Equity)
+        </div>
+
+        <h3>Funds Flow Statement vs Cash Flow Statement</h3>
+        <table>
+            <tr>
+                <th>Parameter</th>
+                <th>Funds Flow Statement</th>
+                <th>Cash Flow Statement</th>
+            </tr>
+            <tr>
+                <td><b>Concept of Funds</b></td>
+                <td>Broader concept: <b>Net Working Capital</b> (Current Assets − Current Liabilities).</td>
+                <td>Narrower concept: <b>Cash &amp; Cash Equivalents</b> (Liquid cash and short-term paper &#8804; 3 months).</td>
+            </tr>
+            <tr>
+                <td><b>Accounting Basis</b></td>
+                <td>Accrual basis of accounting.</td>
+                <td>Strict cash basis of accounting.</td>
+            </tr>
+            <tr>
+                <td><b>Schedule Required</b></td>
+                <td>Mandatory Statement of Changes in Working Capital.</td>
+                <td>No separate schedule; changes absorbed into operating cash flow.</td>
+            </tr>
+            <tr>
+                <td><b>Statutory Requirement</b></td>
+                <td>Not mandatory under Companies Act, 2013; used for internal management analysis.</td>
+                <td><b>Statutory mandatory component</b> of financial statements under Section 2(40) (except OPC, Small Co, Dormant Co).</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Card 4: Corporate Actions & Share Capital Transactions -->
+    <div class="card">
+        <h2>4. Share Capital Transactions, Forfeiture, Bonus, Rights, ESOPs &amp; Buy-Back</h2>
+        
+        <h3>Share Forfeiture &amp; Reissue Mechanics</h3>
+        <p>When a shareholder defaults on allotment or call money, the Board of Directors can forfeit the shares after serving a 14-day notice under Articles of Association.</p>
+        
+        <div class="formula-box">
+            At Forfeiture:<br />
+            Share Capital A/c (Called-up Amount) ................. Dr.<br />
+                To Share Allotment / Call A/c (Unpaid Amount)<br />
+                To Share Forfeiture A/c (Actual Amount Paid by Shareholder)<br /><br />
+            At Reissue at Discount:<br />
+            Bank A/c (Actual Cash Received) ....................... Dr.<br />
+            Share Forfeiture A/c (Discount on Reissue) ............ Dr.<br />
+                To Share Capital A/c (Paid-up Amount)<br /><br />
+            Transfer of Balance to Capital Reserve:<br />
+            Share Forfeiture A/c ................................. Dr.<br />
+                To Capital Reserve A/c (Net Profit on Reissued Shares)
+        </div>
+
+        <div class="pyq-box">
+            <div class="pyq-title">&#x1F4CA; Crucial Statutory Law on Reissue Discount</div>
+            <p>Under the Companies Act, 2013, the discount allowed on reissue of forfeited shares <b>cannot exceed the amount already collected</b> on those specific shares credited to the Share Forfeiture Account. The net gain on reissue of forfeited shares is a capital gain and must be transferred to <span class="highlight">Capital Reserve Account</span>.</p>
+        </div>
+
+        <h3>Statutory Rules for Corporate Actions under Companies Act, 2013</h3>
+        <table>
+            <tr>
+                <th>Corporate Action</th>
+                <th>Section of Co. Act, 2013</th>
+                <th>Permitted Sources &amp; Key Statutory Restrictions</th>
+            </tr>
+            <tr>
+                <td><b>Bonus Shares</b></td>
+                <td><b>Section 63</b></td>
+                <td>&#8226; Permitted sources: <b>Free Reserves, Securities Premium, Capital Redemption Reserve (CRR)</b>.<br />&#8226; <span class="tag-red">Cannot be issued out of Revaluation Reserve</span> created by revaluation of assets.<br />&#8226; Cannot be issued in lieu of dividend.<br />&#8226; Company must not have defaulted on debt/deposits/statutory dues.</td>
+            </tr>
+            <tr>
+                <td><b>Right Shares</b></td>
+                <td><b>Section 62(1)(a)</b></td>
+                <td>&#8226; Pre-emptive rights offered to existing equity shareholders in proportion to paid-up share capital.<br />&#8226; Offer period: <b>15 to 30 days</b>.<br />&#8226; Shareholders have statutory right to renounce unless Articles state otherwise.</td>
+            </tr>
+            <tr>
+                <td><b>ESOPs</b></td>
+                <td><b>Section 62(1)(b)</b></td>
+                <td>&#8226; Special resolution approval required.<br />&#8226; <b>Minimum vesting period: 1 year</b>.<br />&#8226; Ineligible: Promoters, directors holding &gt;10% shares (except startup companies for 10 years).</td>
+            </tr>
+            <tr>
+                <td><b>Buy-Back of Securities</b></td>
+                <td><b>Sections 68, 69, 70</b></td>
+                <td>&#8226; Permitted sources: Free reserves, Securities Premium, proceeds of earlier issue of different class.<br />&#8226; <span class="highlight">Board Approval Limit:</span> Up to <b>10%</b> of paid-up capital + free reserves.<br />&#8226; <span class="highlight">Special Resolution Limit:</span> Up to <b>25%</b> of paid-up capital + free reserves in a financial year.<br />&#8226; <b>Post Buy-Back Debt-Equity Ratio &#8804; 2:1</b>.<br />&#8226; Creation of <b>Capital Redemption Reserve (CRR)</b> equal to nominal value of shares bought back out of free reserves.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Card 5: Company Final Accounts & Schedule III -->
+    <div class="card">
+        <h2>5. Company Final Accounts under Schedule III of Companies Act, 2013</h2>
+        <p>Section 129 of the Companies Act, 2013 mandates that financial statements must comply with Accounting Standards and follow the format prescribed in <b>Schedule III</b> (Division I for Non-Ind AS, Division II for Ind AS, Division III for NBFCs).</p>
+
+        <h3>Structure of Balance Sheet (Part I of Schedule III)</h3>
+        <table>
+            <tr>
+                <th>Equity and Liabilities</th>
+                <th>Assets</th>
+            </tr>
+            <tr>
+                <td>
+                    <b>1. Shareholders' Funds:</b><br />
+                      &#8226; (a) Share Capital<br />
+                      &#8226; (b) Reserves and Surplus<br />
+                      &#8226; (c) Money received against share warrants<br /><br />
+                    <b>2. Share Application Money Pending Allotment</b><br /><br />
+                    <b>3. Non-Current Liabilities:</b><br />
+                      &#8226; (a) Long-term borrowings<br />
+                      &#8226; (b) Deferred tax liabilities (Net)<br />
+                      &#8226; (c) Other Long-term liabilities<br />
+                      &#8226; (d) Long-term provisions<br /><br />
+                    <b>4. Current Liabilities:</b><br />
+                      &#8226; (a) Short-term borrowings<br />
+                      &#8226; (b) Trade payables (MSME vs Others disclosure)<br />
+                      &#8226; (c) Other current liabilities<br />
+                      &#8226; (d) Short-term provisions
+                </td>
+                <td>
+                    <b>1. Non-Current Assets:</b><br />
+                      &#8226; (a) Property, Plant and Equipment and Intangible Assets:<br />
+                        − (i) Property, Plant and Equipment<br />
+                        − (ii) Intangible assets<br />
+                        − (iii) Capital work-in-progress (CWIP)<br />
+                        − (iv) Intangible assets under development<br />
+                      &#8226; (b) Non-current investments<br />
+                      &#8226; (c) Deferred tax assets (Net)<br />
+                      &#8226; (d) Long-term loans and advances<br />
+                      &#8226; (e) Other non-current assets<br /><br />
+                    <b>2. Current Assets:</b><br />
+                      &#8226; (a) Current investments<br />
+                      &#8226; (b) Inventories<br />
+                      &#8226; (c) Trade receivables<br />
+                      &#8226; (d) Cash and cash equivalents<br />
+                      &#8226; (e) Short-term loans and advances<br />
+                      &#8226; (f) Other current assets
+                </td>
+            </tr>
+        </table>
+
+        <h3>Operating Cycle Rule &amp; Current vs Non-Current Distinction</h3>
+        <ul>
+            <li><b>Operating Cycle:</b> The time between the acquisition of assets for processing and their realization in cash or cash equivalents. When the normal operating cycle cannot be identified, it is assumed to have a duration of <span class="highlight">12 months</span>.</li>
+            <li><b>Current Asset:</b> Expected to be realized, sold, or consumed in normal operating cycle, or held primarily for trading, or realized within 12 months after reporting date, or cash/cash equivalent without restrictions.</li>
+            <li><b>Current Liability:</b> Settled in normal operating cycle, held primarily for trading, due to be settled within 12 months, or company has no unconditional right to defer settlement for &#8805; 12 months.</li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- PFRDA VISUAL & EXPANSION PACK -->
+<div class="visual-diagram-box" style="background:#ffffff;border:1.5px solid #cbd5e1;border-radius:12px;padding:18px;margin:22px 0;box-shadow:0 2px 10px rgba(15,23,42,0.05);">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;border-bottom:1px solid #e2e8f0;padding-bottom:8px;">
+<span style="font-weight:800;color:#0f4c81;font-size:1.02rem;">📊 DuPont 3-Step & 5-Step Return on Equity (ROE) Decomposition Framework</span>
+<span style="background:#e0f2fe;color:#0369a1;font-size:0.75rem;font-weight:700;padding:3px 10px;border-radius:12px;">Financial Ratio Analysis Master Model</span>
+</div>
+<svg viewBox="0 0 900 230" style="width:100%;height:auto;display:block;font-family:'Segoe UI',system-ui,sans-serif;">
+<defs><linearGradient id="grad_8172" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0f4c81"/><stop offset="100%" stop-color="#0d9488"/></linearGradient></defs>
+<rect x="0" y="0" width="900" height="230" rx="10" fill="#f8fafc"/>
+<rect x="30" y="22" width="189" height="186" rx="8" fill="#ffffff" stroke="#0f4c81" stroke-width="1.8"/>
+<rect x="30" y="22" width="189" height="38" rx="8" fill="url(#grad_8172)"/>
+<text x="124.5" y="46" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12.5">Net Profit Margin</text>
+<text x="124.5" y="94" text-anchor="middle" fill="#1e293b" font-weight="600" font-size="11.5">Operating Efficiency</text>
+<text x="124.5" y="120" text-anchor="middle" fill="#475569" font-size="11">PAT ÷ Net Sales</text>
+<rect x="42" y="147" width="165" height="42" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+<text x="124.5" y="172" text-anchor="middle" fill="#15803d" font-weight="700" font-size="11.5">5-Step: Tax × Interest × EBIT%</text>
+<line x1="222" y1="115.0" x2="244" y2="115.0" stroke="#0d9488" stroke-width="2.5"/>
+<polygon points="244,115.0 237,110.0 237,120.0" fill="#0d9488"/>
+<rect x="247" y="22" width="189" height="186" rx="8" fill="#ffffff" stroke="#0f4c81" stroke-width="1.8"/>
+<rect x="247" y="22" width="189" height="38" rx="8" fill="url(#grad_8172)"/>
+<text x="341.5" y="46" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12.5">Total Asset Turnover</text>
+<text x="341.5" y="94" text-anchor="middle" fill="#1e293b" font-weight="600" font-size="11.5">Asset Utilization</text>
+<text x="341.5" y="120" text-anchor="middle" fill="#475569" font-size="11">Net Sales ÷ Avg Assets</text>
+<rect x="259" y="147" width="165" height="42" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+<text x="341.5" y="172" text-anchor="middle" fill="#15803d" font-weight="700" font-size="11.5">Measures Capital Velocity</text>
+<line x1="439" y1="115.0" x2="461" y2="115.0" stroke="#0d9488" stroke-width="2.5"/>
+<polygon points="461,115.0 454,110.0 454,120.0" fill="#0d9488"/>
+<rect x="464" y="22" width="189" height="186" rx="8" fill="#ffffff" stroke="#0f4c81" stroke-width="1.8"/>
+<rect x="464" y="22" width="189" height="38" rx="8" fill="url(#grad_8172)"/>
+<text x="558.5" y="46" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12.5">Equity Multiplier</text>
+<text x="558.5" y="94" text-anchor="middle" fill="#1e293b" font-weight="600" font-size="11.5">Financial Leverage</text>
+<text x="558.5" y="120" text-anchor="middle" fill="#475569" font-size="11">Avg Assets ÷ Avg Equity</text>
+<rect x="476" y="147" width="165" height="42" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+<text x="558.5" y="172" text-anchor="middle" fill="#15803d" font-weight="700" font-size="11.5">1 + Debt-to-Equity Ratio</text>
+<line x1="656" y1="115.0" x2="678" y2="115.0" stroke="#0d9488" stroke-width="2.5"/>
+<polygon points="678,115.0 671,110.0 671,120.0" fill="#0d9488"/>
+<rect x="681" y="22" width="189" height="186" rx="8" fill="#ffffff" stroke="#0f4c81" stroke-width="1.8"/>
+<rect x="681" y="22" width="189" height="38" rx="8" fill="url(#grad_8172)"/>
+<text x="775.5" y="46" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12.5">Return on Equity (ROE)</text>
+<text x="775.5" y="94" text-anchor="middle" fill="#1e293b" font-weight="600" font-size="11.5">PAT ÷ Shareholders' Equity</text>
+<text x="775.5" y="120" text-anchor="middle" fill="#475569" font-size="11">NPM × TAT × Multiplier</text>
+<rect x="693" y="147" width="165" height="42" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+<text x="775.5" y="172" text-anchor="middle" fill="#15803d" font-weight="700" font-size="11.5">Ultimate Owner Return</text>
+</svg></div>
+<div class="visual-diagram-box" style="background:#ffffff;border:1.5px solid #cbd5e1;border-radius:12px;padding:18px;margin:22px 0;box-shadow:0 2px 10px rgba(15,23,42,0.05);">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;border-bottom:1px solid #e2e8f0;padding-bottom:8px;">
+<span style="font-weight:800;color:#0f4c81;font-size:1.02rem;">📊 Cash Flow Statement Classification Matrix (AS 3 / Ind AS 7)</span>
+<span style="background:#e0f2fe;color:#0369a1;font-size:0.75rem;font-weight:700;padding:3px 10px;border-radius:12px;">Non-Financial vs Financial Enterprises</span>
+</div>
+<svg viewBox="0 0 900 230" style="width:100%;height:auto;display:block;font-family:'Segoe UI',system-ui,sans-serif;">
+<defs><linearGradient id="grad_8856" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0f4c81"/><stop offset="100%" stop-color="#0d9488"/></linearGradient></defs>
+<rect x="0" y="0" width="900" height="230" rx="10" fill="#f8fafc"/>
+<rect x="30" y="22" width="189" height="186" rx="8" fill="#ffffff" stroke="#0f4c81" stroke-width="1.8"/>
+<rect x="30" y="22" width="189" height="38" rx="8" fill="url(#grad_8856)"/>
+<text x="124.5" y="46" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12.5">Operating Activities</text>
+<text x="124.5" y="94" text-anchor="middle" fill="#1e293b" font-weight="600" font-size="11.5">Principal Revenue Gen.</text>
+<text x="124.5" y="120" text-anchor="middle" fill="#475569" font-size="11">Cash from Sales, Wages, Tax</text>
+<rect x="42" y="147" width="165" height="42" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+<text x="124.5" y="172" text-anchor="middle" fill="#15803d" font-weight="700" font-size="11.5">Interest/Div (Financial Co.)</text>
+<line x1="222" y1="115.0" x2="244" y2="115.0" stroke="#0d9488" stroke-width="2.5"/>
+<polygon points="244,115.0 237,110.0 237,120.0" fill="#0d9488"/>
+<rect x="247" y="22" width="189" height="186" rx="8" fill="#ffffff" stroke="#0f4c81" stroke-width="1.8"/>
+<rect x="247" y="22" width="189" height="38" rx="8" fill="url(#grad_8856)"/>
+<text x="341.5" y="46" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12.5">Investing Activities</text>
+<text x="341.5" y="94" text-anchor="middle" fill="#1e293b" font-weight="600" font-size="11.5">Long-Term Asset Capex</text>
+<text x="341.5" y="120" text-anchor="middle" fill="#475569" font-size="11">PPE Purchase/Sale, M&A</text>
+<rect x="259" y="147" width="165" height="42" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+<text x="341.5" y="172" text-anchor="middle" fill="#15803d" font-weight="700" font-size="11.5">Interest & Div Received (Non-Fin)</text>
+<line x1="439" y1="115.0" x2="461" y2="115.0" stroke="#0d9488" stroke-width="2.5"/>
+<polygon points="461,115.0 454,110.0 454,120.0" fill="#0d9488"/>
+<rect x="464" y="22" width="189" height="186" rx="8" fill="#ffffff" stroke="#0f4c81" stroke-width="1.8"/>
+<rect x="464" y="22" width="189" height="38" rx="8" fill="url(#grad_8856)"/>
+<text x="558.5" y="46" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12.5">Financing Activities</text>
+<text x="558.5" y="94" text-anchor="middle" fill="#1e293b" font-weight="600" font-size="11.5">Capital & Debt Structure</text>
+<text x="558.5" y="120" text-anchor="middle" fill="#475569" font-size="11">Issue/Buyback Shares, Loans</text>
+<rect x="476" y="147" width="165" height="42" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+<text x="558.5" y="172" text-anchor="middle" fill="#15803d" font-weight="700" font-size="11.5">Interest & Div Paid (Non-Fin)</text>
+<line x1="656" y1="115.0" x2="678" y2="115.0" stroke="#0d9488" stroke-width="2.5"/>
+<polygon points="678,115.0 671,110.0 671,120.0" fill="#0d9488"/>
+<rect x="681" y="22" width="189" height="186" rx="8" fill="#ffffff" stroke="#0f4c81" stroke-width="1.8"/>
+<rect x="681" y="22" width="189" height="38" rx="8" fill="url(#grad_8856)"/>
+<text x="775.5" y="46" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12.5">Cash & Equivalents</text>
+<text x="775.5" y="94" text-anchor="middle" fill="#1e293b" font-weight="600" font-size="11.5">Short-Term Liquid</text>
+<text x="775.5" y="120" text-anchor="middle" fill="#475569" font-size="11">Maturity ≤ 3 Months</text>
+<rect x="693" y="147" width="165" height="42" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+<text x="775.5" y="172" text-anchor="middle" fill="#15803d" font-weight="700" font-size="11.5">Excludes Long-Term Deposits</text>
+</svg></div>
+<div class="visual-diagram-box" style="background:#ffffff;border:1.5px solid #cbd5e1;border-radius:12px;padding:18px;margin:22px 0;box-shadow:0 2px 10px rgba(15,23,42,0.05);">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;border-bottom:1px solid #e2e8f0;padding-bottom:8px;">
+<span style="font-weight:800;color:#0f4c81;font-size:1.02rem;">📈 Share Capital Lifecycle & Statutory Accounting Thresholds (Companies Act, 2013)</span>
+<span style="background:#fef3c7;color:#b45309;font-size:0.75rem;font-weight:700;padding:3px 10px;border-radius:12px;">Sections 52, 53, 54, 62, 63 & 68</span>
+</div>
+<svg viewBox="0 0 900 240" style="width:100%;height:auto;display:block;font-family:'Segoe UI',system-ui,sans-serif;">
+<rect x="0" y="0" width="900" height="240" rx="10" fill="#f8fafc"/>
+<text x="20" y="40" fill="#0f172a" font-weight="700" font-size="12">Min Application Money</text>
+<rect x="240" y="25" width="420" height="22" rx="5" fill="#e2e8f0"/>
+<rect x="240" y="25" width="105" height="22" rx="5" fill="#0f4c81"/>
+<text x="353" y="40" fill="#0f172a" font-weight="800" font-size="11.5">≥ 5% of Nominal Value</text>
+<text x="735" y="40" fill="#475569" font-size="11">Sec 39(2) (SEBI ICDR: 25%)</text>
+<text x="20" y="80" fill="#0f172a" font-weight="700" font-size="12">Sweat Equity Annual Cap</text>
+<rect x="240" y="65" width="420" height="22" rx="5" fill="#e2e8f0"/>
+<rect x="240" y="65" width="189" height="22" rx="5" fill="#0d9488"/>
+<text x="437" y="80" fill="#0f172a" font-weight="800" font-size="11.5">≤ 15% of Paid-up or ₹5 Cr</text>
+<text x="735" y="80" fill="#475569" font-size="11">Sec 54: Overall Cap 25% (Startup 50%)</text>
+<text x="20" y="120" fill="#0f172a" font-weight="700" font-size="12">Buy-Back Board Limit</text>
+<rect x="240" y="105" width="420" height="22" rx="5" fill="#e2e8f0"/>
+<rect x="240" y="105" width="147" height="22" rx="5" fill="#0f4c81"/>
+<text x="395" y="120" fill="#0f172a" font-weight="800" font-size="11.5">≤ 10% of Paid-up Eq + Free Res</text>
+<text x="735" y="120" fill="#475569" font-size="11">Sec 68: Up to 25% with Special Res</text>
+<text x="20" y="160" fill="#0f172a" font-weight="700" font-size="12">Post Buy-Back Debt:Eq</text>
+<rect x="240" y="145" width="420" height="22" rx="5" fill="#e2e8f0"/>
+<rect x="240" y="145" width="336" height="22" rx="5" fill="#0d9488"/>
+<text x="584" y="160" fill="#0f172a" font-weight="800" font-size="11.5">≤ 2 : 1 Statutory Ratio</text>
+<text x="735" y="160" fill="#475569" font-size="11">Sec 68(2)(d) Mandatory Ceiling</text>
+<text x="20" y="200" fill="#0f172a" font-weight="700" font-size="12">Min Re-issue Price</text>
+<rect x="240" y="185" width="420" height="22" rx="5" fill="#e2e8f0"/>
+<rect x="240" y="185" width="252" height="22" rx="5" fill="#0f4c81"/>
+<text x="500" y="200" fill="#0f172a" font-weight="800" font-size="11.5">≥ Unpaid Amount on Share</text>
+<text x="735" y="200" fill="#475569" font-size="11">Max Discount = Forfeited Amount</text>
+</svg></div>
+<div class="visual-diagram-box" style="background:#ffffff;border:1.5px solid #cbd5e1;border-radius:12px;padding:18px;margin:22px 0;box-shadow:0 2px 10px rgba(15,23,42,0.05);">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;border-bottom:1px solid #e2e8f0;padding-bottom:8px;">
+<span style="font-weight:800;color:#0f4c81;font-size:1.02rem;">📊 Accounting Standards (AS) vs. Ind AS High-Yield Convergence Map</span>
+<span style="background:#e0f2fe;color:#0369a1;font-size:0.75rem;font-weight:700;padding:3px 10px;border-radius:12px;">ICAI / MCA Corporate Reporting</span>
+</div>
+<svg viewBox="0 0 900 230" style="width:100%;height:auto;display:block;font-family:'Segoe UI',system-ui,sans-serif;">
+<defs><linearGradient id="grad_6299" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0f4c81"/><stop offset="100%" stop-color="#0d9488"/></linearGradient></defs>
+<rect x="0" y="0" width="900" height="230" rx="10" fill="#f8fafc"/>
+<rect x="30" y="22" width="189" height="186" rx="8" fill="#ffffff" stroke="#0f4c81" stroke-width="1.8"/>
+<rect x="30" y="22" width="189" height="38" rx="8" fill="url(#grad_6299)"/>
+<text x="124.5" y="46" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12.5">Inventories (AS 2 / Ind AS 2)</text>
+<text x="124.5" y="94" text-anchor="middle" fill="#1e293b" font-weight="600" font-size="11.5">Lower of Cost or NRV</text>
+<text x="124.5" y="120" text-anchor="middle" fill="#475569" font-size="11">FIFO & Weighted Avg Only</text>
+<rect x="42" y="147" width="165" height="42" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+<text x="124.5" y="172" text-anchor="middle" fill="#15803d" font-weight="700" font-size="11.5">LIFO Strictly Prohibited</text>
+<line x1="222" y1="115.0" x2="244" y2="115.0" stroke="#0d9488" stroke-width="2.5"/>
+<polygon points="244,115.0 237,110.0 237,120.0" fill="#0d9488"/>
+<rect x="247" y="22" width="189" height="186" rx="8" fill="#ffffff" stroke="#0f4c81" stroke-width="1.8"/>
+<rect x="247" y="22" width="189" height="38" rx="8" fill="url(#grad_6299)"/>
+<text x="341.5" y="46" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12.5">PPE (AS 10 / Ind AS 16)</text>
+<text x="341.5" y="94" text-anchor="middle" fill="#1e293b" font-weight="600" font-size="11.5">Cost or Revaluation Model</text>
+<text x="341.5" y="120" text-anchor="middle" fill="#475569" font-size="11">Component Accounting Mandatory</text>
+<rect x="259" y="147" width="165" height="42" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+<text x="341.5" y="172" text-anchor="middle" fill="#15803d" font-weight="700" font-size="11.5">Decommissioning PV Capitalized</text>
+<line x1="439" y1="115.0" x2="461" y2="115.0" stroke="#0d9488" stroke-width="2.5"/>
+<polygon points="461,115.0 454,110.0 454,120.0" fill="#0d9488"/>
+<rect x="464" y="22" width="189" height="186" rx="8" fill="#ffffff" stroke="#0f4c81" stroke-width="1.8"/>
+<rect x="464" y="22" width="189" height="38" rx="8" fill="url(#grad_6299)"/>
+<text x="558.5" y="46" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12.5">Revenue (AS 9 / Ind AS 115)</text>
+<text x="558.5" y="94" text-anchor="middle" fill="#1e293b" font-weight="600" font-size="11.5">5-Step Contract Model</text>
+<text x="558.5" y="120" text-anchor="middle" fill="#475569" font-size="11">Transaction Price Allocation</text>
+<rect x="476" y="147" width="165" height="42" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+<text x="558.5" y="172" text-anchor="middle" fill="#15803d" font-weight="700" font-size="11.5">Recognized on Control Transfer</text>
+<line x1="656" y1="115.0" x2="678" y2="115.0" stroke="#0d9488" stroke-width="2.5"/>
+<polygon points="678,115.0 671,110.0 671,120.0" fill="#0d9488"/>
+<rect x="681" y="22" width="189" height="186" rx="8" fill="#ffffff" stroke="#0f4c81" stroke-width="1.8"/>
+<rect x="681" y="22" width="189" height="38" rx="8" fill="url(#grad_6299)"/>
+<text x="775.5" y="46" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12.5">Forex (AS 11 / Ind AS 21)</text>
+<text x="775.5" y="94" text-anchor="middle" fill="#1e293b" font-weight="600" font-size="11.5">Functional Currency</text>
+<text x="775.5" y="120" text-anchor="middle" fill="#475569" font-size="11">Monetary Items: Closing Rate</text>
+<rect x="693" y="147" width="165" height="42" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+<text x="775.5" y="172" text-anchor="middle" fill="#15803d" font-weight="700" font-size="11.5">Non-Monetary: Historical Rate</text>
+</svg></div>
+
+<div class="section-card module-card" style="background:white;border-radius:12px;padding:28px;margin-bottom:28px;border:1px solid #cbd5e1;box-shadow:0 2px 10px rgba(0,0,0,0.04);">
+  <h2 style="color:#1e3a8a;border-bottom:2px solid #e0f2fe;padding-bottom:10px;margin-top:0;">6. Deep-Dive Numerical Worked Examples &amp; SEBI/PFRDA Exam Traps (2026 Edition)</h2>
+  <h3>6.1 Ind AS 115 (5-Step Revenue Recognition Model) vs. AS 9</h3>
+  <p>Under <strong>Ind AS 115</strong> (converged with IFRS 15), revenue is recognized when control of promised goods or services is transferred to the customer through the mandatory <strong>5-Step Framework</strong>: (1) Identify the contract with a customer; (2) Identify distinct performance obligations; (3) Determine the transaction price (adjusting for variable consideration, time value of money, and non-cash consideration); (4) Allocate the transaction price to performance obligations based on <em>Standalone Selling Prices (SSP)</em>; and (5) Recognize revenue when (or as) each performance obligation is satisfied (over time or at a point in time). By contrast, legacy <strong>AS 9</strong> relies on the transfer of significant risks and rewards of ownership (completed service or proportionate completion method).</p>
+  <h3>6.2 Worked Numerical: Share Forfeiture, Re-issue &amp; Capital Reserve Transfer</h3>
+  <div style="background:#f0fdf4;border-left:4px solid #15803d;padding:14px 18px;border-radius:8px;margin:14px 0;">
+    <strong>Worked Example (PFRDA/SEBI Pattern):</strong> Alpha Ltd. forfeited 1,000 equity shares of ₹10 each (issued at a 20% premium of ₹2) for non-payment of allotment money of ₹5 (including ₹2 premium) and final call of ₹3. The application money of ₹4 per share had been duly received. Out of these, 600 shares were re-issued to Ramesh as fully paid-up for ₹8 per share.<br/>
+    • <strong>Step 1 (Amount Forfeited per Share):</strong> Since Securities Premium (₹2) was not received, Section 52 permits debiting Securities Premium A/c on forfeiture. Amount actually received towards share capital = ₹4 per share.<br/>
+    • <strong>Step 2 (Re-issue Discount per Share):</strong> Paid-up value ₹10 − Re-issue price ₹8 = ₹2 discount per share (debited to Share Forfeiture A/c).<br/>
+    • <strong>Step 3 (Transfer to Capital Reserve on 600 Re-issued Shares):</strong> 600 × (₹4 forfeited per share − ₹2 discount used per share) = <strong>₹1,200</strong> transferred to Capital Reserve! The balance of 400 × ₹4 = ₹1,600 remains in the Share Forfeiture Account until those 400 shares are re-issued.
+  </div>
+  <h3>6.3 Worked Numerical: Buy-Back of Shares (Section 68 Resource, Shares &amp; Debt-Equity Tests)</h3>
+  <p>When computing the <strong>Maximum Permissible Buy-Back</strong> under Section 68 of the Companies Act, 2013, a company must take the <strong>lowest</strong> of three statutory limits: (1) <strong>Shares Outstanding Test:</strong> Maximum 25% of existing paid-up equity shares in a financial year; (2) <strong>Resource Test:</strong> Maximum 25% of total paid-up capital and free reserves (including Securities Premium Account for Section 68 purposes); and (3) <strong>Debt-Equity Ratio Test:</strong> Post-buy-back ratio of secured and unsecured debt owed by the company must not exceed <strong>2:1</strong> of post-buy-back paid-up capital and free reserves (keeping in mind that an amount equal to the nominal value of shares bought back out of free reserves/securities premium must also be transferred to the <strong>Capital Redemption Reserve [CRR]</strong> under Section 69, reducing free reserves doubly!).</p>
+</div>
+
+<div class="section-card module-card" style="background:white;border-radius:12px;padding:28px;margin-bottom:28px;border:1px solid #cbd5e1;box-shadow:0 2px 10px rgba(0,0,0,0.04);"><h2 style="color:#0f4c81;border-bottom:2px solid #e0f2fe;padding-bottom:10px;margin-top:0;">📊 Master Comparative Tables, Statutory Thresholds &amp; Formula Reference</h2><table>
+            <tr>
+                <th style="width: 25%;">Concept / Convention</th>
+                <th style="width: 45%;">Core Theoretical Meaning</th>
+                <th style="width: 30%;">Exam Practical Application</th>
+            </tr>
+            <tr>
+                <td><b>Business Entity</b></td>
+                <td>Business is distinct and separate from its owners/proprietors.</td>
+                <td>Proprietor's capital is a liability; owner's personal expenses debited to <code>Drawings Account</code>.</td>
+            </tr>
+            <tr>
+                <td><b>Money Measurement</b></td>
+                <td>Only transactions capable of being expressed in monetary terms are recorded.</td>
+                <td>Employee morale, management skill, brand loyalty are excluded from balance sheets.</td>
+            </tr>
+            <tr>
+                <td><b>Periodicity (Time Period)</b></td>
+                <td>Indefinite life of enterprise is split into artificial regular time intervals.</td>
+                <td>Preparation of annual financial statements, quarterly interim reporting.</td>
+            </tr>
+            <tr>
+                <td><b>Historical Cost</b></td>
+                <td>Assets are recorded at their original acquisition price.</td>
+                <td>Depreciation charged on acquisition cost; ignores inflation unless revalued under AS 10.</td>
+            </tr>
+            <tr>
+                <td><b>Dual Aspect (Duality)</b></td>
+                <td>Every transaction has a dual effect: <code>Assets = Liabilities + Owner's Equity</code>.</td>
+                <td>Basis of double-entry bookkeeping; debits always equal credits.</td>
+            </tr>
+            <tr>
+                <td><b>Matching Principle</b></td>
+                <td>Expenses incurred to generate revenue of a period must be matched in that period.</td>
+                <td>Recognition of outstanding expenses, prepaid expenses, and unearned revenue.</td>
+            </tr>
+            <tr>
+                <td><b>Prudence (Conservatism)</b></td>
+                <td>Do not anticipate profits, but provide for all possible future losses.</td>
+                <td>Valuation of inventory at lower of cost or NRV; provision for bad &amp; doubtful debts.</td>
+            </tr>
+            <tr>
+                <td><b>Substance over Form</b></td>
+                <td>Transactions are recorded based on their financial and economic reality, not merely legal form.</td>
+                <td>Capitalization of assets acquired under finance lease / hire purchase.</td>
+            </tr>
+            <tr>
+                <td><b>Materiality</b></td>
+                <td>Only items that meaningfully influence economic decisions of users need strict accounting.</td>
+                <td>Expensing low-cost durable assets (staplers, paperweights) immediately to P&amp;L.</td>
+            </tr>
+        </table>
+<hr style='border:0;border-top:1px dashed #cbd5e1;margin:20px 0;'/>
+<table>
+            <tr>
+                <th>Error Category</th>
+                <th>Trial Balance Balances?</th>
+                <th>Examples &amp; Rectification Approach</th>
+            </tr>
+            <tr>
+                <td><b>Error of Complete Omission</b></td>
+                <td>YES (Balances)</td>
+                <td>Transaction omitted from both debit and credit. Rectification: Record the journal entry normally.</td>
+            </tr>
+            <tr>
+                <td><b>Error of Principle</b></td>
+                <td>YES (Balances)</td>
+                <td>Violates capital vs revenue rules (e.g., machinery purchased debited to Purchases). Rectification: Debit Machinery, Credit Purchases.</td>
+            </tr>
+            <tr>
+                <td><b>Compensating Error</b></td>
+                <td>YES (Balances)</td>
+                <td>Two or more independent errors cancel each other out arithmetically.</td>
+            </tr>
+            <tr>
+                <td><b>Error of Commission (Two-sided)</b></td>
+                <td>YES (Balances)</td>
+                <td>Wrong amount entered in primary subsidiary book and posted to both accounts equally.</td>
+            </tr>
+            <tr>
+                <td><b>One-Sided Errors</b></td>
+                <td><b>NO (Imbalance)</b></td>
+                <td>Undercast/overcast of subsidiary books; posting to wrong side or wrong amount in one ledger account. Rectification involves <b>Suspense Account</b>.</td>
+            </tr>
+            <tr>
+                <td><b>Prior Period Errors</b></td>
+                <td>Detected after year-end</td>
+                <td>Rectified in next FY via <b>Profit &amp; Loss Adjustment Account</b> to protect current year's operating results.</td>
+            </tr>
+        </table>
+<hr style='border:0;border-top:1px dashed #cbd5e1;margin:20px 0;'/>
+<table>
+            <tr>
+                <th>Classification</th>
+                <th>Definition &amp; Examples</th>
+                <th>Balance Sheet Translation &amp; Gain/Loss Treatment</th>
+            </tr>
+            <tr>
+                <td><b>Monetary Items</b></td>
+                <td>Units of currency held, receivables, payables, loans in fixed/determinable amounts.</td>
+                <td>Translated at <b>Closing Rate</b>. Exchange differences recognized in <b>Profit &amp; Loss</b>.</td>
+            </tr>
+            <tr>
+                <td><b>Non-Monetary at Historical Cost</b></td>
+                <td>Fixed assets, inventories, investments in equity shares.</td>
+                <td>Translated at <b>Exchange Rate on the Date of Transaction</b> (no subsequent exchange gain/loss).</td>
+            </tr>
+            <tr>
+                <td><b>Non-Monetary at Fair Value</b></td>
+                <td>Revalued assets, investments carried at fair value.</td>
+                <td>Translated at <b>Exchange Rate on the Date Fair Value was Determined</b>.</td>
+            </tr>
+            <tr>
+                <td><b>Non-Integral Foreign Operation (NIFO)</b></td>
+                <td>Overseas branch/subsidiary operating with autonomy and independent cash flows.</td>
+                <td>Exchange differences accumulated in <b>Foreign Currency Translation Reserve (FCTR)</b> in Equity.</td>
+            </tr>
+            <tr>
+                <td><b>Hedging Forward Contract</b></td>
+                <td>Contract to hedge existing foreign currency monetary item.</td>
+                <td>Premium/Discount amortized over contract life; exchange diff recognized in P&amp;L.</td>
+            </tr>
+            <tr>
+                <td><b>Speculative Forward Contract</b></td>
+                <td>Contract entered into for trading or speculation.</td>
+                <td>No premium amortization; <b>Marked to Market</b> at balance sheet date with gain/loss in P&amp;L.</td>
+            </tr>
+        </table>
+<hr style='border:0;border-top:1px dashed #cbd5e1;margin:20px 0;'/>
+<table>
+            <tr>
+                <th style="width: 25%;">Activity</th>
+                <th style="width: 45%;">Definition &amp; Inclusions</th>
+                <th style="width: 30%;">Exam Special Cases</th>
+            </tr>
+            <tr>
+                <td><b>Operating Activities</b></td>
+                <td>Principal revenue-producing activities and other non-investing/financing activities. Cash from customers, payments to suppliers and employees.</td>
+                <td>Interest/dividends paid &amp; received are <b>Operating</b> for financial enterprises. Direct taxes paid are Operating unless specifically identifiable.</td>
+            </tr>
+            <tr>
+                <td><b>Investing Activities</b></td>
+                <td>Acquisition and disposal of long-term assets and other investments not included in cash equivalents. Purchase/sale of PPE, intangibles, purchase/sale of shares/debentures of other firms.</td>
+                <td>Dividend and interest <b>received</b> by non-financial entities is Investing. Insurance claims for building/plant damage are extraordinary Investing inflows.</td>
+            </tr>
+            <tr>
+                <td><b>Financing Activities</b></td>
+                <td>Activities that alter the size and composition of owner's equity and borrowings. Issue of shares/debentures, bank loans, redemption of preference shares, buy-back.</td>
+                <td>Dividend and interest <b>paid</b> by non-financial entities is Financing. Bank overdrafts repayable on demand forming part of cash management are <b>Cash Equivalents</b>.</td>
+            </tr>
+        </table>
+<hr style='border:0;border-top:1px dashed #cbd5e1;margin:20px 0;'/>
+<table>
+            <tr>
+                <th>Ratio Name</th>
+                <th>Standard Formula</th>
+                <th>Benchmark / Ideal</th>
+                <th>Core Significance</th>
+            </tr>
+            <tr>
+                <td><b>Current Ratio</b></td>
+                <td><code>Current Assets / Current Liabilities</code></td>
+                <td>2.0 : 1</td>
+                <td>Measures short-term debt-paying ability.</td>
+            </tr>
+            <tr>
+                <td><b>Quick Ratio (Acid-Test)</b></td>
+                <td><code>(Current Assets - Inventory - Prepaid Exp) / Current Liabilities</code></td>
+                <td>1.0 : 1</td>
+                <td>Strict instant liquidity test without relying on inventory sale.</td>
+            </tr>
+            <tr>
+                <td><b>Absolute Cash Ratio</b></td>
+                <td><code>(Cash + Marketable Securities) / Current Liabilities</code></td>
+                <td>0.5 : 1</td>
+                <td>Measures immediate cash liquidity against payables.</td>
+            </tr>
+            <tr>
+                <td><b>Debt-Equity Ratio</b></td>
+                <td><code>Total Long-Term Debt / Shareholders' Funds</code></td>
+                <td>2.0 : 1 (Sec 68)</td>
+                <td>Capital structure leverage; high ratio = highly geared.</td>
+            </tr>
+            <tr>
+                <td><b>Proprietary Ratio</b></td>
+                <td><code>Shareholders' Funds / Total Assets</code></td>
+                <td>Higher is safer</td>
+                <td>Proportion of assets financed by owners rather than creditors.</td>
+            </tr>
+            <tr>
+                <td><b>Capital Gearing Ratio</b></td>
+                <td><code>Fixed-Cost Capital / Equity Shareholder Funds</code></td>
+                <td>&#8212;</td>
+                <td>(Preference Capital + Debentures) / (Equity Capital + Reserves).</td>
+            </tr>
+            <tr>
+                <td><b>Interest Coverage (ICR)</b></td>
+                <td><code>EBIT / Annual Interest Expense</code></td>
+                <td>&gt; 3.0 times</td>
+                <td>Margin of safety for interest servicing.</td>
+            </tr>
+            <tr>
+                <td><b>DSCR</b></td>
+                <td><code>(EAT + Dep + Int + Non-Cash) / (Interest + Principal Repayment)</code></td>
+                <td>1.5 &#8211; 2.0</td>
+                <td>Critical bank project loan solvency test.</td>
+            </tr>
+            <tr>
+                <td><b>Inventory Turnover (ITR)</b></td>
+                <td><code>COGS / Average Inventory</code></td>
+                <td>Higher is faster</td>
+                <td>Velocity of inventory conversion; Days = 365 / ITR.</td>
+            </tr>
+            <tr>
+                <td><b>Debtors Turnover (DTR)</b></td>
+                <td><code>Net Credit Sales / Average Debtors</code></td>
+                <td>&#8212;</td>
+                <td>Speed of collection; Collection Period (DSO) = 365 / DTR.</td>
+            </tr>
+            <tr>
+                <td><b>Working Capital Turnover</b></td>
+                <td><code>Net Sales / Net Working Capital</code></td>
+                <td>&#8212;</td>
+                <td>Efficiency of working capital utilization.</td>
+            </tr>
+            <tr>
+                <td><b>Operating Relationship</b></td>
+                <td><code>Operating Ratio + Operating Profit Ratio = 100%</code></td>
+                <td>Sum = 100%</td>
+                <td>Operating Cost + Operating Profit = Net Sales.</td>
+            </tr>
+        </table>
+<hr style='border:0;border-top:1px dashed #cbd5e1;margin:20px 0;'/>
+<table>
+            <tr>
+                <th>Feature</th>
+                <th>Bonus Shares (Section 63)</th>
+                <th>Rights Issue (Section 62)</th>
+            </tr>
+            <tr>
+                <td><b>Permissible Sources</b></td>
+                <td>Free Reserves, Securities Premium, Capital Redemption Reserve (CRR).</td>
+                <td>Existing shareholders subscribing fresh capital at issue price.</td>
+            </tr>
+            <tr>
+                <td><b>Prohibited Sources</b></td>
+                <td><b>Revaluation Reserve</b> created by asset revaluation is strictly prohibited!</td>
+                <td>&#8212;</td>
+            </tr>
+            <tr>
+                <td><b>Key Conditions</b></td>
+                <td>Must be fully paid-up; no default in debt/deposits/statutory dues; cannot issue in lieu of dividend.</td>
+                <td>Offer open for <b>min 15 days to max 30 days</b>. Right of <b>renunciation</b> exists unless articles say otherwise.</td>
+            </tr>
+            <tr>
+                <td><b>Key Formula</b></td>
+                <td>Bonus Ratio: e.g. 1:2 bonus means 1 free share for every 2 shares held.</td>
+                <td>
+                    Ex-Rights Price = [ (N &#215; Cum Price) + Rights Price ] / (N + 1)<br />
+                    Value of Right = Cum Price - Ex-Rights Price = (Cum Price - Issue Price) / (N + 1)
+                </td>
+            </tr>
+        </table>
+<hr style='border:0;border-top:1px dashed #cbd5e1;margin:20px 0;'/>
+<table>
+            <tr>
+                <th>Mandatory Disclosure</th>
+                <th>Regulatory Requirement &amp; Format</th>
+            </tr>
+            <tr>
+                <td><b>Trade Receivables &amp; Payables Ageing</b></td>
+                <td>Bucketed into: &lt; 1 yr, 1-2 yrs, 2-3 yrs, &gt; 3 yrs. Separated between MSME vs Others, and Disputed vs Undisputed.</td>
+            </tr>
+            <tr>
+                <td><b>CWIP &amp; Intangible Assets Under Dev</b></td>
+                <td>Ageing schedule separating: (i) Projects in progress, and (ii) Projects temporarily suspended. Overdue timeline/cost details.</td>
+            </tr>
+            <tr>
+                <td><b>11 Mandatory Ratios &amp; Variance</b></td>
+                <td>Current Ratio, Debt-Equity, DSCR, ROE, Inventory Turnover, Trade Receivables Turnover, Trade Payables Turnover, Net Capital Turnover, Net Profit Margin, ROCE, Return on Investment. <b>Mandatory explanation if variance &gt; 25%</b> compared to previous year!</td>
+            </tr>
+            <tr>
+                <td><b>Promoters' Shareholding</b></td>
+                <td>Disclose promoter name, number of shares, % of total shares, and % change during the financial year.</td>
+            </tr>
+            <tr>
+                <td><b>Title Deeds of Immovable Property</b></td>
+                <td>Disclose whether title deeds of immovable properties are held in the name of the company or promoters/relatives.</td>
+            </tr>
+            <tr>
+                <td><b>Special Governance Disclosures</b></td>
+                <td>Wilful Defaulter declarations, Benami property proceedings, transactions with Struck-off companies, crypto/virtual currency trading, undisclosed income surrendered in tax assessments.</td>
+            </tr>
+            <tr>
+                <td><b>Downstream &amp; Upstream Funding</b></td>
+                <td>Disclosure of loans/investments given to Intermediaries to fund Ultimate Beneficiaries, with FEMA and PMLA compliance declarations.</td>
+            </tr>
+            <tr>
+                <td><b>CSR Disclosures (Section 135)</b></td>
+                <td>Amount required to be spent, amount spent, shortfall/excess, reasons for shortfall, related party CSR transactions.</td>
+            </tr>
+        </table></div>
+
+<div class="section-card module-card" style="background:#f8fafc;border-radius:12px;padding:24px;margin-top:28px;margin-bottom:28px;border:1.5px solid #93c5fd;">
+  <h3 style="margin-top:0;color:#1e3a8a;">🔗 Practice CBT Mock Tests &amp; Authoritative Regulatory Sources (Subject C)</h3>
+  <p style="margin-bottom:12px;">Test your mastery of <strong>Commerce & Accountancy</strong> with 5 full-length 50-question CBT Mock Tests featuring balanced option lengths and detailed explanations:</p>
+  <div style="margin-bottom:16px;"><a href="PFRDA_Commerce_Accountancy_Mock_1.html" style="display:inline-block;background:#1e3a8a;color:white;text-decoration:none;padding:8px 16px;border-radius:6px;font-weight:700;font-size:0.86rem;margin:4px;">🚀 Launch Mock Test 1 (50 Qs)</a> <a href="PFRDA_Commerce_Accountancy_Mock_2.html" style="display:inline-block;background:#1e3a8a;color:white;text-decoration:none;padding:8px 16px;border-radius:6px;font-weight:700;font-size:0.86rem;margin:4px;">🚀 Launch Mock Test 2 (50 Qs)</a> <a href="PFRDA_Commerce_Accountancy_Mock_3.html" style="display:inline-block;background:#1e3a8a;color:white;text-decoration:none;padding:8px 16px;border-radius:6px;font-weight:700;font-size:0.86rem;margin:4px;">🚀 Launch Mock Test 3 (50 Qs)</a> <a href="PFRDA_Commerce_Accountancy_Mock_4.html" style="display:inline-block;background:#1e3a8a;color:white;text-decoration:none;padding:8px 16px;border-radius:6px;font-weight:700;font-size:0.86rem;margin:4px;">🚀 Launch Mock Test 4 (50 Qs)</a> <a href="PFRDA_Commerce_Accountancy_Mock_5.html" style="display:inline-block;background:#1e3a8a;color:white;text-decoration:none;padding:8px 16px;border-radius:6px;font-weight:700;font-size:0.86rem;margin:4px;">🚀 Launch Mock Test 5 (50 Qs)</a></div>
+  <div style="font-size:0.86rem;color:#475569;border-top:1px solid #cbd5e1;padding-top:10px;">
+    <strong>Verified Regulatory &amp; Statutory Sources (Updated October 2026):</strong>
+    <a href="https://www.pfrda.org.in" target="_blank" rel="noopener" style="color:#2563eb;margin-left:8px;">PFRDA Official Portal</a> ·
+    <a href="https://npstrust.org.in/act-and-regulations" target="_blank" rel="noopener" style="color:#2563eb;margin-left:8px;">NPS Trust Regulations (2025–26)</a> ·
+    <a href="https://www.sebi.gov.in" target="_blank" rel="noopener" style="color:#2563eb;margin-left:8px;">SEBI Circulars &amp; Regulations</a> ·
+    <a href="https://www.rbi.org.in" target="_blank" rel="noopener" style="color:#2563eb;margin-left:8px;">RBI Monetary Policy (Oct 2026)</a> ·
+    <a href="https://www.indiabudget.gov.in" target="_blank" rel="noopener" style="color:#2563eb;margin-left:8px;">Union Budget 2026–27 &amp; Economic Survey 2025–26</a> ·
+    <a href="https://prsindia.org/policy/report-summaries/report-of-the-16th-finance-commission-for-2026-31" target="_blank" rel="noopener" style="color:#2563eb;margin-left:8px;">16th Finance Commission Report (2026–31)</a> ·
+    <a href="https://www.mca.gov.in" target="_blank" rel="noopener" style="color:#2563eb;margin-left:8px;">MCA Companies Act, 2013</a>
+  </div>
+</div>
+
+<!-- END PFRDA VISUAL & EXPANSION PACK -->
+<div class="footer">
+    <p><b>PFRDA &#183; SHIVAM &#183; EXAM EXCELLENCE</b></p>
+    <p>PFRDA Grade A / SEBI Grade A &#183; Subject C &#8212; Commerce &amp; Accountancy Comprehensive Master Study Notes</p>
+    <p>© 2026 SHIVAM PFRDA. Strictly aligned with syllabus and formatted for web view and clean print.</p>
+</div>
+
+</body>
+</html>

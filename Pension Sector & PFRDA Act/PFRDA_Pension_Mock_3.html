@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Pension Sector &amp; PFRDA Act Mock Test 3 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subjects A & I: Pension Sector & PFRDA Act</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Pension_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Pension_Master_Revision_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Pension_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Pension_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Pension_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Pension_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Pension_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &#183; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &#183; Paper 2 &#183; Pension Sector Mock 3</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Pension Sector &amp; PFRDA Act - Mock 3</h1>
+    <p class="start-subheading">Full 50 Questions &#183; Updated 2024–2026 Regulations (MSF, 2025 Exits, UPS, Vatsalya) &#183; PFRDA Grade A Level</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme (Updated 2024–2026):</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>PFRDA Act, 2013 &amp; Statutory Framework:</b> Preamble, Sections 1–54, Composition (Chairperson + max 6 members), Powers &amp; Functions (Sec 14), Adjudication &amp; SAT Appeals (Sec 28–38), CAG Audit (Sec 46).</li>
+                <li><b>Pension Architecture &amp; Intermediaries:</b> Unbundled structure (NPS Trust, CRA, PFM, Custodian, Trustee Bank, POP, ASP).</li>
+                <li><b>2025 Exits &amp; Withdrawals Regulations:</b> Normal Exit ₹8 Lakh 100% lump sum; Premature Exit ₹5 Lakh threshold; ₹8L–₹12L slab (₹6L / 80% lump sum + balance SUR &#8805; 6 years or annuity); Above ₹12L (80% lump sum : 20% annuity); Exit age extended to 85 years; Lien/Loan up to 25%; Partial withdrawals up to 4 times (4-year gap).</li>
+                <li><b>Multiple Scheme Framework (MSF):</b> Multiple schemes under single PRAN, Categories A to E, Category A up to 100% equity.</li>
+                <li><b>Unified Pension Scheme (UPS):</b> Operationalised April 1, 2025; 50% assured pension (min 25 yrs service, min 10 yrs prorated); ₹10,000 assured minimum floor; 60% family pension; 18.5% Govt contribution (8.5% pool); Lump sum on superannuation (1/10th basic+DA per 6 months).</li>
+                <li><b>NPS Vatsalya:</b> Min ₹250 contribution; minor account opened by guardian; automatic seamless transition at age 18.</li>
+                <li><b>Taxation Framework:</b> Section 80CCD(1), 80CCD(1B) ₹50k extra, 80CCD(2) 14% for all under New Tax Regime, Section 10(12A) 60% tax-free lump sum, Section 10(12B) 25% tax-free partial withdrawal.</li>
+                <li><b>Atal Pension Yojana (APY), Annuity Plans &amp; Investment Basics:</b> ₹1k–₹5k guaranteed pension slabs, Oct 1 2022 income taxpayer exclusion, Duration, Convexity, MPT, Sharpe, Treynor, Sortino ratios.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 101,
+    "question": "A government servant who joined service in 2012 retires on superannuation at age 60 under the NPS with a total accumulated pension wealth of ₹7.50 Lakh in 2025. Under the PFRDA (Exits and Withdrawals) Amendment Regulations, 2025, which of the following options is available to them?",
+    "options": [
+      "They must mandatorily purchase an annuity of at least ₹3 Lakh (40%) in accordance with PFRDA (Exits and Withdrawals) Regulations",
+      "They can only withdraw ₹2.5 Lakh as lump sum and the rest must be transferred to the Consolidated Fund of India subject to oversight by the National Pension System Trust",
+      "They must invest the entire ₹7.5 Lakh in a Systematic Unit Redemption plan for 10 years under the prescribed asset allocation and investment guidelines",
+      "Since the total accumulated corpus is less than or equal to ₹8 Lakh, they are entitled to withdraw 100% of the corpus as a lump sum",
+      "They must defer their exit until their corpus reaches ₹10 Lakh through empanelled Annuity Service Providers (ASPs)"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Since the total accumulated corpus is less than or equal to ₹8 Lakh, they are entitled to withdraw 100% of the corpus as a lump sum without purchasing an annuity. Under the 2025 Exit Amendment Regulations, the small corpus threshold for 100% lump sum withdrawal at normal exit has been enhanced to ₹8 Lakh for both Government and Non-Government subscribers. Since ₹7.50 Lakh is below ₹8 Lakh, the subscriber can withdraw the entire 100% corpus as a lump sum."
+  },
+  {
+    "id": 102,
+    "question": "An employee in the private sector aged 52 with 12 years of NPS subscription decides to voluntarily exit prematurely from the NPS in 2025 with an accumulated corpus of ₹4.80 Lakh. What is the applicable withdrawal rule under the 2025 regulations?",
+    "options": [
+      "They can withdraw 100% of the corpus as a lump sum because their total corpus does not exceed the revised premature exit threshold of ₹5 Lakh",
+      "They must purchase an annuity of at least 80% of the corpus by registered Pension Fund Managers and Points of Presence",
+      "They cannot exit prematurely before completing 15 years of subscription upon attaining superannuation or completing the lock-in tenure",
+      "They are allowed to withdraw only 20% (₹96,000) and 80% is forfeited linked to the subscriber's Permanent Retirement Account Number",
+      "They can only withdraw if certified by a medical board under the PFRDA Act, 2013 and notified regulations"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: They can withdraw 100% of the corpus as a lump sum because their total corpus does not exceed the revised premature exit threshold of ₹5 Lakh. Under the 2025 Exit Regulations, the small corpus limit for voluntary / premature exit has been raised from ₹2.5 Lakh to ₹5 Lakh (with non-government rules allowing up to ₹8 Lakh). Since the subscriber's corpus of ₹4.80 Lakh is below the ₹5 Lakh threshold, 100% lump sum withdrawal is permissible without purchasing an annuity."
+  },
+  {
+    "id": 103,
+    "question": "Under the Multiple Scheme Framework (MSF), which category represents the LOWEST equity exposure (conservative, debt-oriented risk profile)?",
+    "options": [
+      "Category A",
+      "Category B",
+      "Category E",
+      "Category C",
+      "Category D"
+    ],
+    "answer": 2,
+    "explanation": "Under MSF guidelines, schemes are categorized from A to E in descending order of equity allocation. Category A has the highest equity exposure (up to 100%), while Category E represents the lowest equity exposure, focusing primarily on government securities and high-grade corporate bonds for capital preservation."
+  },
+  {
+    "id": 104,
+    "question": "Under the NPS Vatsalya scheme, who is the registered legal holder of the PRAN and who operates the account until the minor attains majority?",
+    "options": [
+      "The parent is the sole legal owner of the PRAN, and the child's name is added only as a nominee",
+      "The Central Recordkeeping Agency (CRA) acts as the legal guardian through the Central Recordkeeping Agency (CRA) system",
+      "The employer of the parent operates the account through corporate payroll across Tier-I and Tier-II National Pension System accounts",
+      "The local municipal corporation operates the account by registered Pension Fund Managers and Points of Presence",
+      "The minor is the registered PRAN holder, and the account is operated by the natural or legal parent/guardian on behalf of the minor until age 18"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The minor is the registered PRAN holder, and the account is operated by the natural or legal parent/guardian on behalf of the minor until age 18. In NPS Vatsalya, the PRAN is issued in the name of the minor child (the beneficiary). The account is opened and operated by the parent or legal guardian until the minor turns 18, at which point the PRAN belongs entirely to the adult subscriber upon submission of fresh KYC."
+  },
+  {
+    "id": 105,
+    "question": "Can a parent contributing to an NPS Vatsalya account claim an additional ₹50,000 deduction under Section 80CCD(1B) in addition to their own personal ₹50,000 deduction under Section 80CCD(1B)?",
+    "options": [
+      "Yes, the parent gets an additional separate ₹50,000 deduction for each minor child",
+      "No, the ₹50,000 deduction under Section 80CCD(1B) is a shared cumulative ceiling per individual taxpayer in the Old Tax Regime, covering both own NPS contributions and contributions to NPS Vatsalya",
+      "NPS Vatsalya contributions are eligible for a separate deduction under Section 80D subject to oversight by the National Pension System Trust",
+      "Deductions on NPS Vatsalya are uncapped and 100% tax-free up to ₹5 Lakh under the prescribed asset allocation and investment guidelines",
+      "NPS Vatsalya contributions are not eligible for any tax deduction under any regime through empanelled Annuity Service Providers (ASPs)"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: No, the ₹50,000 deduction under Section 80CCD(1B) is a shared cumulative ceiling per individual taxpayer in the Old Tax Regime, covering both own NPS contributions and contributions to NPS Vatsalya. Under the Income-tax Act provisions governing NPS Vatsalya, the deduction under Section 80CCD(1B) (available in the Old Tax Regime) is subject to an overall cumulative limit of ₹50,000 per individual assessee, which is shared between the parent's own voluntary NPS contributions and contributions made to the minor's NPS Vatsalya account."
+  },
+  {
+    "id": 106,
+    "question": "Under the Unified Pension Scheme (UPS), if a central government employee has completed 16 years of qualifying service at the time of voluntary retirement, how is their assured pension calculated?",
+    "options": [
+      "They receive zero pension because 25 years of service is mandatory by registered Pension Fund Managers and Points of Presence",
+      "They receive 100% of the assured 50% pension regardless of service length upon attaining superannuation or completing the lock-in tenure",
+      "They receive a flat ₹10,000 per month without indexation linked to the subscriber's Permanent Retirement Account Number",
+      "They receive a proportionate assured pension calculated as: $(16 / 25) \\times [50\\% \\text{ of last 12 months average basic pay}]$",
+      "They are paid only a lump sum severance and no monthly pension"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: They receive a proportionate assured pension calculated as: $(16 / 25) \\times [50\\% \\text{ of last 12 months average basic pay}]$, subject to the minimum pension floor of ₹10,000/month. Under UPS, full assured pension (50% of last 12 months' average basic pay) requires a minimum qualifying service of 25 years. For employees with qualifying service between 10 and 25 years, the assured pension is calculated on a proportionate basis: $\\text{Pension} = \\frac{\\text{Service Years}}{25} \\times [50\\% \\times \\text{Average Basic Pay}]$, with a statutory minimum guarantee of ₹10,000 per month."
+  },
+  {
+    "id": 107,
+    "question": "Under the PFRDA Act, 2013, which of the following duties is NOT within the statutory functions of the Pension Fund Regulatory and Development Authority under Section 14?",
+    "options": [
+      "Fixing commercial lending interest rates for public and private sector commercial banks",
+      "Regulating the National Pension System and other pension schemes to which the Act applies",
+      "Approving the schemes, terms and conditions, and norms for management of pension funds by Pension Fund Managers",
+      "Protecting the interests of subscribers to schemes of pension funds",
+      "Promoting professional organizations connected with the pension industry"
+    ],
+    "answer": 0,
+    "explanation": "Fixing commercial lending interest rates is the exclusive monetary policy and regulatory domain of the Reserve Bank of India (RBI), not PFRDA. Under Section 14 of the PFRDA Act, PFRDA's powers are focused on regulating the pension sector, registering intermediaries, approving pension schemes, and protecting subscriber interests."
+  },
+  {
+    "id": 108,
+    "question": "What is the minimum age requirement for a person to be appointed as a Whole-Time Member or Chairperson of PFRDA?",
+    "options": [
+      "Minimum 35 years",
+      "Minimum 45 years",
+      "No minimum age is specified in the Act",
+      "Minimum 50 years",
+      "Minimum 55 years"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: No minimum age is specified in the Act. The PFRDA Act, 2013 does not prescribe a specific minimum age floor in Section 3, but mandates that members must be persons of ability, integrity, and standing with at least 25 years (for Chairperson) or 20 years (for Whole-Time Members) of professional experience in finance, economics, or pensions."
+  },
+  {
+    "id": 109,
+    "question": "What is the tenure and maximum age limit for the Chairperson and Whole-Time Members of PFRDA under Section 5 of the PFRDA Act?",
+    "options": [
+      "Chairperson: 3 years or age 70; Members: 3 years or age 65",
+      "Chairperson: 5 years or age 65; Members: 5 years or age 65 (eligible for reappointment)",
+      "Chairperson: 6 years or age 65; Members: 6 years or age 62",
+      "Chairperson holds office at the pleasure of the President of India without age limit",
+      "Chairperson: 5 years or age 65; Members: 5 years or age 62"
+    ],
+    "answer": 4,
+    "explanation": "Under Section 5 of the PFRDA Act, 2013, the Chairperson holds office for a term of 5 years and is eligible for re-appointment, but cannot hold office after attaining the age of 65 years. A Whole-Time Member holds office for a term of 5 years and cannot hold office after attaining the age of 62 years."
+  },
+  {
+    "id": 110,
+    "question": "Under Section 23 of the PFRDA Act, what power does the Authority have in relation to conducting inquiries and investigations into registered intermediaries?",
+    "options": [
+      "It can order the arrest of company directors without a magistrate's warrant by registered Pension Fund Managers and Points of Presence",
+      "It has the same powers as are vested in a Civil Court under the Code of Civil Procedure, 1908 (CPC)",
+      "It must take prior permission from the local police station before issuing summons upon attaining superannuation or completing the lock-in tenure",
+      "It can only investigate entities with annual revenues exceeding ₹1,000 Crore linked to the subscriber's Permanent Retirement Account Number",
+      "It has zero investigative powers and must refer all matters to the CBI under the PFRDA Act, 2013 and notified regulations"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: It has the same powers as are vested in a Civil Court under the Code of Civil Procedure, 1908 (CPC) while trying a suit in respect of discovery of documents, summoning persons, and examining on oath. Section 23 of the PFRDA Act vests the Authority with the powers of a Civil Court under the Code of Civil Procedure, 1908 while trying a suit in respect of: summoning and enforcing attendance, discovery and production of books of account, inspecting registers, and issuing commissions for examination of witnesses."
+  },
+  {
+    "id": 111,
+    "question": "What is the primary function of the 'National Pension System Trust' (NPS Trust) Board of Trustees under PFRDA Regulations?",
+    "options": [
+      "Managing the physical security of bank branches across India",
+      "Determining the repo rate of the Reserve Bank of India",
+      "Issuing passports to overseas citizen subscribers",
+      "Exercising fiduciary oversight over Pension Fund Managers",
+      "Auditing the central tax revenue collections of the Ministry of Finance"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Exercising fiduciary oversight over Pension Fund Managers, ensuring adherence to investment guidelines, monitoring operational performance of CRAs, and protecting subscriber assets. The NPS Trust is governed by a Board of Trustees appointed by PFRDA. As the fiduciary guardian of subscribers' wealth, the Trust monitors the investment performance and compliance of all Pension Fund Managers, evaluates CRA operational efficiency, and ensures that the provisions of the Trust Deed and PFRDA regulations are strictly upheld."
+  },
+  {
+    "id": 112,
+    "question": "Under PFRDA investment guidelines for Government Sector NPS schemes (Central & State Govt employees), what is the maximum percentage that can be invested in Equity (Asset Class E)?",
+    "options": [
+      "Up to 15% (default) or up to 50% under choice of investment patterns",
+      "Up to 75% unconditionally",
+      "100% in any stock listed on BSE",
+      "Zero percent; government funds are restricted strictly to 100% G-Secs",
+      "Up to 25% in public sector bank shares only"
+    ],
+    "answer": 0,
+    "explanation": "For government sector employees, the default investment pattern historically allocated up to 15% in equities. Following PFRDA circulars, government employees can also exercise choice to opt for up to 50% equity allocation (Asset Class E) under Active Choice or choose lifecycle funds like LC50 or LC25."
+  },
+  {
+    "id": 113,
+    "question": "Under the 2025 Exit Regulations, what is the rule regarding the 'Lien / Loan facility' on an individual pension account?",
+    "options": [
+      "Subscribers can borrow 100% of their total corpus directly from PFRDA in accordance with PFRDA (Exits and Withdrawals) Regulations",
+      "Loans can be taken only after attaining the age of 60",
+      "Subscribers can create a lien or charge on their individual pension account up to 25% of their own contributions for availing credit/loans from regulated financial institutions",
+      "The loan interest rate is fixed at 0% by statute under the prescribed asset allocation and investment guidelines",
+      "Lien creation is allowed only for central government employees through empanelled Annuity Service Providers (ASPs)"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Subscribers can create a lien or charge on their individual pension account up to 25% of their own contributions for availing credit/loans from regulated financial institutions. The 2025 amendment regulations introduced a facility enabling subscribers to create a lien/charge on their NPS account up to 25% of their own contributions to secure loans from regulated financial institutions (banks, housing finance companies, NBFCs) for permitted purposes (e.g. medical, housing, education)."
+  },
+  {
+    "id": 114,
+    "question": "What is 'Jensen's Alpha' ($\u0007lpha$) in the performance evaluation of a Pension Fund Manager?",
+    "options": [
+      "The ratio of corporate bonds to government bonds in the portfolio by registered Pension Fund Managers and Points of Presence",
+      "The dividend yield divided by portfolio duration upon attaining superannuation or completing the lock-in tenure",
+      "The total brokerage expenses incurred during equity trades linked to the subscriber's Permanent Retirement Account Number",
+      "The percentage of bad debts in the portfolio under the PFRDA Act, 2013 and notified regulations",
+      "The excess return generated by the portfolio over and above the return predicted by the Capital Asset Pricing Model (CAPM) given the portfolio's systematic risk (Beta)"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The excess return generated by the portfolio over and above the return predicted by the Capital Asset Pricing Model (CAPM) given the portfolio's systematic risk (Beta): $\\alpha_p = R_p - [R_f + \\beta_p (R_m - R_f)]$. Jensen's Alpha measures the abnormal rate of return of a portfolio over its theoretical expected return predicted by the Capital Asset Pricing Model (CAPM): $\\alpha_p = R_p - [R_f + \\beta_p (R_m - R_f)]$. A positive alpha indicates that the fund manager generated excess returns through superior asset selection and market timing."
+  },
+  {
+    "id": 115,
+    "question": "What is the 'Modigliani-Modigliani Measure' ($M^2$) in pension portfolio risk-adjusted performance evaluation?",
+    "options": [
+      "It measures the ratio of corporate debt to sovereign debt through empanelled Annuity Service Providers (ASPs)",
+      "It measures the return that the portfolio would achieve if it were levered or delevered to have the same total risk as the benchmark market index",
+      "It measures the tax liability of the pension fund in compliance with PFRDA subscriber protection norms",
+      "It measures the tracking error of passive index funds for Government and Non-Government NPS subscribers",
+      "It measures the maximum drawdown of alternative assets in accordance with PFRDA (Exits and Withdrawals) Regulations"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: It measures the return that the portfolio would achieve if it were levered or delevered to have the same total risk (standard deviation) as the benchmark market index: $M^2 = R_f + \\text{Sharpe Ratio} \\times \\sigma_m$. The $M^2$ (Modigliani-Modigliani) measure restates the Sharpe Ratio in percentage return units by equating the portfolio's volatility to that of the benchmark market index: $M^2 = R_f + \\left( \\frac{R_p - R_f}{\\sigma_p} \\right) \\sigma_m$. It allows intuitive comparison of portfolios with different risk profiles in percentage points."
+  },
+  {
+    "id": 116,
+    "question": "Under the PFRDA (Exits and Withdrawals) Regulations, what is the rule regarding exit on grounds of 'Permanent Total Disability' or Invalidation?",
+    "options": [
+      "The subscriber is prohibited from withdrawing until age 60 under the PFRDA Act, 2013 and notified regulations",
+      "The subscriber receives only 20% lump sum and 80% is locked in annuity through the Central Recordkeeping Agency (CRA) system",
+      "The account is transferred to the State Disability Board across Tier-I and Tier-II National Pension System accounts",
+      "The subscriber is entitled to withdraw 100% of the accumulated pension corpus as a lump sum",
+      "The subscriber must continue contributing for another 5 years by registered Pension Fund Managers and Points of Presence"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The subscriber is entitled to withdraw 100% of the accumulated pension corpus as a lump sum without any requirement of mandatory annuity purchase, upon certified proof from a notified medical authority. Under PFRDA exit regulations, if a subscriber is medically boarded out or incapacitated due to 100% permanent disability that prevents them from continuing in service or employment, they are permitted to withdraw 100% of their accumulated pension wealth as a lump sum without purchasing an annuity."
+  },
+  {
+    "id": 117,
+    "question": "Under the PFRDA Act, 2013, can an attachment order issued by a civil court attach the subscriber's accumulated pension wealth in an NPS Tier-I account for settlement of debts?",
+    "options": [
+      "Under Section 6(4) of the PFRDA Act, no amount standing to the credit of any subscriber in the National Pension System shall be liable to attachment under any decree or order of any court in respect of any debt or liability incurred by the subscriber",
+      "Yes, any commercial creditor can attach the entire NPS corpus in accordance with PFRDA (Exits and Withdrawals) Regulations",
+      "Only income tax authorities can attach the account, not civil courts subject to oversight by the National Pension System Trust",
+      "Attachment is permitted if the debt exceeds ₹10 Lakh under the prescribed asset allocation and investment guidelines",
+      "Attachment is allowed only during bankruptcy proceedings under IBC through empanelled Annuity Service Providers (ASPs)"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Under Section 6(4) of the PFRDA Act, no amount standing to the credit of any subscriber in the National Pension System shall be liable to attachment under any decree or order of any court in respect of any debt or liability incurred by the subscriber. Section 6(4) of the PFRDA Act provides strong statutory asset protection: no amount standing to the credit of any subscriber in the NPS shall be liable to attachment under any decree or order of any court in respect of any debt or liability incurred by the subscriber, safeguarding retirement savings from civil execution."
+  },
+  {
+    "id": 118,
+    "question": "What is the 'Modified Duration' ($D_{mod}$) of a bond, and how is it related to Macaulay Duration ($D_{mac}$)?",
+    "options": [
+      "$D_{mod} = D_{mac} \\times (1 + y)$",
+      "$D_{mod} = D_{mac} / \\text{Convexity}$",
+      "$D_{mod} = \\frac{D_{mac}}{1 + y}$",
+      "$D_{mod} = \\text{Maturity} - \\text{Coupon Rate}$",
+      "$D_{mod} = D_{mac} \\times \\text{Coupon Rate}$"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: $D_{mod} = \\frac{D_{mac}}{1 + y}$, where $y$ is the yield to maturity per compounding period; it measures the percentage change in bond price for a 100 basis point change in yield. Modified Duration measures the price sensitivity of a bond to interest rate changes: $\\frac{\\Delta P}{P} \\approx -D_{mod} \\Delta y$, where $D_{mod} = \\frac{D_{mac}}{1 + y/m}$. For example, if $D_{mod} = 7$ years, a 1% (100 bps) increase in yield results in approximately a 7% decline in bond price."
+  },
+  {
+    "id": 119,
+    "question": "Under PFRDA guidelines, which credit rating agencies are registered and recognized for rating debt instruments eligible for pension fund investment?",
+    "options": [
+      "Only credit rating agencies headquartered in the United States through empanelled Annuity Service Providers (ASPs)",
+      "Only the Reserve Bank of India Rating Division",
+      "Credit rating is not required for any debt instrument for Government and Non-Government NPS subscribers",
+      "Only international agencies: Moody's, S&P, and Fitch in accordance with PFRDA (Exits and Withdrawals) Regulations",
+      "All Credit Rating Agencies registered with the Securities and Exchange Board of India (SEBI) under SEBI Regulations, 1999"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: All Credit Rating Agencies registered with the Securities and Exchange Board of India (SEBI) under SEBI (Credit Rating Agencies) Regulations, 1999 (e.g. CRISIL, ICRA, CARE, India Ratings, Infomerics). PFRDA recognizes all credit rating agencies that are formally registered and regulated by SEBI under the SEBI (Credit Rating Agencies) Regulations, 1999, such as CRISIL, ICRA, CARE Ratings, and India Ratings."
+  },
+  {
+    "id": 120,
+    "question": "What is the primary role of the 'PFRDA (Procedure for Inquiry by Adjudicating Officer) Regulations, 2015'?",
+    "options": [
+      "Regulating the recruitment of civil service officers under the PFRDA Act, 2013 and notified regulations",
+      "Laying down the quasi-judicial procedure for appointment of Adjudicating Officers by PFRDA, issuing show cause notices, conducting inquiries, examining evidence, and imposing monetary penalties under Section 30 of the Act",
+      "Fixing the daily bus fares of municipal transport corporations through the Central Recordkeeping Agency (CRA) system",
+      "Auditing the accounts of political parties across Tier-I and Tier-II National Pension System accounts",
+      "Approving the foreign travel expenses of central ministers by registered Pension Fund Managers and Points of Presence"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Laying down the quasi-judicial procedure for appointment of Adjudicating Officers by PFRDA, issuing show cause notices, conducting inquiries, examining evidence, and imposing monetary penalties under Section 30 of the Act. These regulations prescribe the transparent statutory procedure for inquiries conducted by an Adjudicating Officer appointed by PFRDA to determine whether an intermediary or entity has contravened provisions of the Act, rules, or regulations, ensuring compliance with the principles of natural justice before imposing monetary penalties."
+  },
+  {
+    "id": 121,
+    "question": "Under the 2025 Exit Regulations, if a subscriber opts to defer their lump sum withdrawal, what is the maximum age up to which they can defer it, and how does the invested corpus behave during deferment?",
+    "options": [
+      "Deferred up to age 70; corpus is transferred to cash in accordance with PFRDA (Exits and Withdrawals) Regulations",
+      "Deferred up to age 75; no investment returns are credited subject to oversight by the National Pension System Trust",
+      "Deferred up to age 90; mandatory 100% investment in government securities under the prescribed asset allocation and investment guidelines",
+      "Deferred up to age 85; the unwithdrawn corpus remains invested with the chosen Pension Fund Manager(s) across selected asset classes, earning market returns and unit NAV growth",
+      "Deferment is completely prohibited under the 2025 regulations through empanelled Annuity Service Providers (ASPs)"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Deferred up to age 85; the unwithdrawn corpus remains invested with the chosen Pension Fund Manager(s) across selected asset classes, earning market returns and unit NAV growth. Under the 2025 regulations, an NPS subscriber can defer the withdrawal of their lump sum amount up to the age of 85 years (or draw it systematically via SLW). During this deferment period, the corpus remains fully invested in the market under their chosen PFM and asset allocation, continuing to earn NAV growth."
+  },
+  {
+    "id": 122,
+    "question": "Can an NPS subscriber defer the purchase of their mandatory annuity at the time of normal exit under PFRDA regulations?",
+    "options": [
+      "Yes, a subscriber can defer the purchase of an annuity for a maximum period of up to 3 years from the date of superannuation / attaining age 60",
+      "No, annuity must be purchased on the exact day of retirement by registered Pension Fund Managers and Points of Presence",
+      "Annuity can be deferred for up to 25 years unconditionally upon attaining superannuation or completing the lock-in tenure",
+      "Annuity can be deferred only if approved by the President of India linked to the subscriber's Permanent Retirement Account Number",
+      "Deferment of annuity is allowed only in corporate NPS accounts under the PFRDA Act, 2013 and notified regulations"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Yes, a subscriber can defer the purchase of an annuity for a maximum period of up to 3 years from the date of superannuation / attaining age 60. Under PFRDA exit regulations, subscribers have the flexibility to defer the purchase of annuity for a period of up to 3 years from the date of attaining age 60 or superannuation, allowing them to time annuity purchase when prevailing interest/annuity rates are more favorable."
+  },
+  {
+    "id": 123,
+    "question": "What is an 'Immediate Annuity' compared to a 'Deferred Annuity'?",
+    "options": [
+      "An immediate annuity starts paying income after 10 years; deferred pays immediately through empanelled Annuity Service Providers (ASPs)",
+      "Immediate annuities are issued only to armed forces personnel in compliance with PFRDA subscriber protection norms",
+      "In an Immediate Annuity, pension payouts commence immediately following the single lump sum premium deposit; in a Deferred Annuity, the payout starts after a specified accumulation/deferment period in the future",
+      "Deferred annuities cannot be purchased in India for Government and Non-Government NPS subscribers",
+      "There is no difference; both start on the date of policy application in accordance with PFRDA (Exits and Withdrawals) Regulations"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: In an Immediate Annuity, pension payouts commence immediately (in the next payment frequency cycle, e.g., next month) following the single lump sum premium deposit; in a Deferred Annuity, the payout starts after a specified accumulation/deferment period in the future. An Immediate Annuity is purchased with a single lump-sum premium (such as the 40% or 20% NPS exit corpus), and regular income payments begin immediately (monthly, quarterly, or annually). A Deferred Annuity accumulates capital over a deferment period before the annuity payout phase begins."
+  },
+  {
+    "id": 124,
+    "question": "Under the Income-tax Act, 1961, what is the tax treatment of the regular monthly pension (annuity) received by an individual from an Annuity Service Provider post-exit from NPS?",
+    "options": [
+      "100% Tax-Exempt under Section 10(10D) under the PFRDA Act, 2013 and notified regulations",
+      "Taxed at a concessional flat rate of 5% through the Central Recordkeeping Agency (CRA) system",
+      "Taxed under Long-Term Capital Gains @ 12.5% across Tier-I and Tier-II National Pension System accounts",
+      "Tax-free up to ₹10 Lakh per year and taxable thereafter by registered Pension Fund Managers and Points of Presence",
+      "Treated as taxable income and taxed at the individual's applicable marginal income tax slab rate in both Old and New Tax Regimes"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Treated as taxable income (under the head 'Salaries' or 'Income from Other Sources') and taxed at the individual's applicable marginal income tax slab rate in both Old and New Tax Regimes. While the 60% lump sum withdrawal at exit is completely tax-exempt under Section 10(12A), the regular monthly annuity pension payouts received from the Annuity Service Provider are treated as normal taxable income and taxed at the pensioner's marginal income-tax slab rate in the year of receipt."
+  },
+  {
+    "id": 125,
+    "question": "What is the 'National Pension System - Corporate Sector' model?",
+    "options": [
+      "A scheme where private corporations own 100% of the subscriber's PRAN in accordance with PFRDA (Exits and Withdrawals) Regulations",
+      "A structured employer-employee co-contribution model where corporate entities adopt NPS for their workforce",
+      "A scheme that invests only in corporate debt and zero government securities subject to oversight by the National Pension System Trust",
+      "A mandatory scheme replacing all private health insurance policies under the prescribed asset allocation and investment guidelines",
+      "An offshore pension trust registered in international financial centers through empanelled Annuity Service Providers (ASPs)"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A structured employer-employee co-contribution model where corporate entities adopt NPS for their workforce, allowing employers to contribute towards employee retirement under Section 80CCD(2) and claim business expense deduction under Section 36(1)(iv). The NPS Corporate Sector model enables registered companies, public/private corporate entities, and LLPs to provide retirement benefits to employees. Employer contributions up to 14% of Basic + DA are deductible in the employee's hands under 80CCD(2), and the employer can claim up to 10% of salary as a deductible business expense under Section 36(1)(iv)."
+  },
+  {
+    "id": 126,
+    "question": "Under Section 36(1)(iv) of the Income-tax Act, 1961, what tax deduction is available to an Employer for contributions made to an employee's NPS account?",
+    "options": [
+      "Up to 5% of salary by registered Pension Fund Managers and Points of Presence",
+      "100% of corporate profits",
+      "Up to ₹50,000 flat per employee linked to the subscriber's Permanent Retirement Account Number",
+      "Up to 10% of the employee's salary is allowed as a deductible business expense in the Profit & Loss statement of the employer",
+      "No deduction is allowed to corporate employers under the PFRDA Act, 2013 and notified regulations"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Up to 10% of the employee's salary (Basic Pay + DA) is allowed as a deductible business expense in the Profit & Loss statement of the employer. Section 36(1)(iv) of the Income-tax Act allows an employer to claim a deduction for contributions made to the NPS account of an employee up to 10% of the salary (Basic Pay + DA) as an allowable business expenditure in computing business profits."
+  },
+  {
+    "id": 127,
+    "question": "What is the maximum entry age for joining the National Pension System under the 'All Citizens of India' model?",
+    "options": [
+      "70 years",
+      "55 years",
+      "60 years",
+      "65 years",
+      "75 years"
+    ],
+    "answer": 0,
+    "explanation": "PFRDA revised the upper entry age limit for joining NPS under the All-Citizens and Corporate models from 65 years to 70 years. Any Indian citizen (resident or non-resident/NRI/OCI) aged between 18 and 70 years can join the NPS."
+  },
+  {
+    "id": 128,
+    "question": "Can Non-Resident Indians (NRIs) and Overseas Citizens of India (OCIs) open an NPS account?",
+    "options": [
+      "NRIs and OCIs are strictly prohibited from opening an NPS account under the PFRDA Act, 2013 and notified regulations",
+      "Only NRIs can open, OCIs cannot through the Central Recordkeeping Agency (CRA) system",
+      "Yes, both NRIs and OCIs aged 18–70 years are eligible to open NPS accounts, contributing from their NRE or NRO banking accounts",
+      "Only OCIs can open, NRIs cannot across Tier-I and Tier-II National Pension System accounts",
+      "Allowed only if they surrender foreign citizenship by registered Pension Fund Managers and Points of Presence"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Yes, both NRIs and OCIs aged 18–70 years are eligible to open NPS accounts, contributing from their NRE or NRO banking accounts, subject to FEMA regulations. Both Non-Resident Indians (NRIs) and Overseas Citizens of India (OCIs) between 18 and 70 years of age are fully eligible to join the NPS. Contributions must be remitted through normal banking channels from their NRE or NRO accounts in accordance with FEMA regulations."
+  },
+  {
+    "id": 129,
+    "question": "What is the consequence if an NRI subscriber subsequently changes their citizenship?",
+    "options": [
+      "The entire corpus is confiscated by PFRDA",
+      "The account continues indefinitely regardless of any status",
+      "The subscriber must pay a 50% penalty to the Ministry of External Affairs",
+      "The PRAN is transferred to an international commercial bank",
+      "The account will continue if they obtain OCI status"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The account will continue if they obtain OCI status; if they become a foreign citizen without OCI status, the NPS account must be closed in accordance with PFRDA exit regulations. Under PFRDA regulations, if an NRI subscriber gives up Indian citizenship, they can maintain the account if they acquire Overseas Citizen of India (OCI) status. If they become a foreign national without OCI eligibility, the account must be closed and settled under exit rules."
+  },
+  {
+    "id": 130,
+    "question": "Under PFRDA regulations, what is the 'eNPS' platform?",
+    "options": [
+      "A stock exchange trading platform for electronic derivatives by registered Pension Fund Managers and Points of Presence",
+      "An online web and mobile portal developed and managed by CRAs allowing citizens to directly onboard, generate PRAN via Aadhaar/DigiLocker, make online contributions via net banking/UPI, and manage portfolio allocations",
+      "An electronic voting platform for retired pensioners upon attaining superannuation or completing the lock-in tenure",
+      "An emergency messaging application for life insurance agents linked to the subscriber's Permanent Retirement Account Number",
+      "A portal that generates virtual credit cards for retirees under the PFRDA Act, 2013 and notified regulations"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: An online web and mobile portal developed and managed by CRAs allowing citizens to directly onboard, generate PRAN via Aadhaar/DigiLocker, make online contributions via net banking/UPI, and manage portfolio allocations without visiting a physical POP branch. eNPS is the official online digital onboarding and contribution channel hosted by the CRAs under PFRDA. It enables individuals to open an NPS account paperlessly using Aadhaar OTP / DigiLocker e-KYC, make instant contributions via UPI/Netbanking, and manage schemes 24x7 with lower transaction charges."
+  },
+  {
+    "id": 131,
+    "question": "Under the PFRDA Act, 2013, what constitutes 'Pension Wealth' under Section 2(r)?",
+    "options": [
+      "Only the physical cash held in the subscriber's bank account through empanelled Annuity Service Providers (ASPs)",
+      "The future value of gold bullion promised by the government in compliance with PFRDA subscriber protection norms",
+      "The total real estate property owned by the subscriber for Government and Non-Government NPS subscribers",
+      "The total aggregate value of all units standing to the credit of a subscriber in their individual pension account, calculated on the basis of the latest Net Asset Value (NAV) of the schemes",
+      "The sum total of all salaries earned during their career"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The total aggregate value of all units standing to the credit of a subscriber in their individual pension account, calculated on the basis of the latest Net Asset Value (NAV) of the schemes. Section 2(r) of the PFRDA Act, 2013 defines 'Pension Wealth' as the aggregate value of units held by the subscriber in their individual pension account under the National Pension System, determined by multiplying the total number of units with the prevailing Net Asset Value (NAV) of respective schemes."
+  },
+  {
+    "id": 132,
+    "question": "Under Section 12 of the PFRDA Act, who among the following is NOT required to obtain a Certificate of Registration from PFRDA to operate in the pension market?",
+    "options": [
+      "Commercial banks accepting regular savings deposits from retail customers",
+      "Central Recordkeeping Agency (CRA)",
+      "Pension Fund Manager (PFM)",
+      "Point of Presence (POP)",
+      "Retirement Adviser (RA)"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Commercial banks accepting regular savings deposits from retail customers. Under Section 12, entities acting as intermediaries in the National Pension System—such as CRAs, Pension Funds, POPs, Custodians, Trustee Banks, and Retirement Advisers—must obtain a Certificate of Registration from PFRDA. Commercial banks accepting general public savings deposits do so under the Banking Regulation Act, 1949 regulated by RBI."
+  },
+  {
+    "id": 133,
+    "question": "What is the role of a 'Retirement Adviser' (RA) registered under PFRDA (Retirement Adviser) Regulations, 2016?",
+    "options": [
+      "An official who conducts criminal trials of errant brokers in accordance with PFRDA (Exits and Withdrawals) Regulations",
+      "A loan recovery agent hired by commercial banks subject to oversight by the National Pension System Trust",
+      "An individual or entity registered with PFRDA to provide advice on retirement planning, NPS schemes, asset allocation, and onboarding services to prospective and existing subscribers for a prescribed regulated fee",
+      "An executive appointed to audit government provident funds under the prescribed asset allocation and investment guidelines",
+      "A foreign portfolio manager trading currency derivatives through empanelled Annuity Service Providers (ASPs)"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: An individual or entity registered with PFRDA to provide advice on retirement planning, NPS schemes, asset allocation, and onboarding services to prospective and existing subscribers for a prescribed regulated fee. PFRDA registers Retirement Advisers (individuals, partnership firms, corporate bodies) to provide fee-based professional advice on retirement planning, guide subscribers on asset allocation across NPS schemes, and facilitate onboarding, with capped advisory and onboarding fees."
+  },
+  {
+    "id": 134,
+    "question": "Under the PFRDA (Retirement Adviser) Regulations, what is the maximum advisory fee that a Retirement Adviser can charge from an individual subscriber for retirement advisory services?",
+    "options": [
+      "Up to 2.5% of the subscriber's annual salary by registered Pension Fund Managers and Points of Presence",
+      "Flat ₹10,000 per consultation",
+      "10% of the total accumulated pension wealth linked to the subscriber's Permanent Retirement Account Number",
+      "Advisers are prohibited from charging any fees under the PFRDA Act, 2013 and notified regulations",
+      "Maximum onboarding fee of ₹200 and subsequent advisory fee up to 0.02% of AUM or maximum ₹1,000 per annum"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Maximum onboarding fee of ₹200 and subsequent advisory fee up to 0.02% of AUM or maximum ₹1,000 per annum. PFRDA regulations cap the fees chargeable by Retirement Advisers: a one-time onboarding fee of up to ₹200, and for subsequent advisory services, a fee of up to 0.02% of the subscriber's pension wealth subject to a minimum of ₹100 and a maximum of ₹1,000 per annum."
+  },
+  {
+    "id": 135,
+    "question": "Under PFRDA guidelines, which of the following describes 'Direct Remittance' (D-Remit) for NPS subscribers?",
+    "options": [
+      "Sending physical cash envelopes to PFRDA headquarters through empanelled Annuity Service Providers (ASPs)",
+      "A facility that enables subscribers to transfer contributions directly from their bank accounts to the Trustee Bank using RTGS/NEFT via a Virtual Account Number (VAN), unlocking Same-Day NAV if funds are received before 9:30 AM",
+      "A system for remitting dividends to foreign institutional investors",
+      "An overseas wire transfer platform connecting international banks for Government and Non-Government NPS subscribers",
+      "A process for deducting pensions directly from employer bank accounts in accordance with PFRDA (Exits and Withdrawals) Regulations"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A facility that enables subscribers to transfer contributions directly from their bank accounts to the Trustee Bank using RTGS/NEFT via a Virtual Account Number (VAN), unlocking Same-Day NAV if funds are received before 9:30 AM. D-Remit (Direct Remittance) allows subscribers to generate a unique Virtual Account Number (VAN) linked to their PRAN. Funds transferred via NEFT/RTGS directly into the Trustee Bank before the cutoff time (9:30 AM on business days) are credited with the same-day investment NAV."
+  },
+  {
+    "id": 136,
+    "question": "What is the 'Pradhan Mantri Vaya Vandana Yojana' (PMVVY)?",
+    "options": [
+      "A scholarship program for secondary school girls under the PFRDA Act, 2013 and notified regulations",
+      "A subsidized health insurance plan for pregnant women through the Central Recordkeeping Agency (CRA) system",
+      "A credit card scheme for defense retirees across Tier-I and Tier-II National Pension System accounts",
+      "A pension scheme for senior citizens aged 60 and above, operated exclusively by LIC, offering an assured guaranteed rate of return payable monthly, quarterly, half-yearly, or annually for a 10-year policy term",
+      "A housing loan subsidy scheme for slum dwellers by registered Pension Fund Managers and Points of Presence"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A pension scheme for senior citizens aged 60 and above, operated exclusively by LIC, offering an assured guaranteed rate of return payable monthly, quarterly, half-yearly, or annually for a 10-year policy term. PMVVY was a government subsidized pension scheme for senior citizens aged 60 and above, managed exclusively by the Life Insurance Corporation of India (LIC). It provided an assured return (initially 8%, later reset to 7.4% p.a.) for a 10-year period, with a maximum purchase price limit of ₹15 Lakh per senior citizen."
+  },
+  {
+    "id": 137,
+    "question": "Under the Employee's Provident Funds and Miscellaneous Provisions Act, 1952, what is the 'Employees' Deposit Linked Insurance' (EDLI, 1976) scheme?",
+    "options": [
+      "An insurance scheme providing assurance benefits to the family/nominees of an EPF member upon their death during active service, with maximum assurance benefit up to ₹7 Lakh",
+      "An equity mutual fund managed by private fund houses in accordance with PFRDA (Exits and Withdrawals) Regulations",
+      "A health insurance scheme covering hospital bills up to ₹1 Lakh subject to oversight by the National Pension System Trust",
+      "A loan facility allowing workers to borrow against their PF under the prescribed asset allocation and investment guidelines",
+      "An unemployment insurance scheme paying 50% salary during layoffs through empanelled Annuity Service Providers (ASPs)"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: An insurance scheme providing assurance benefits (life insurance cover) to the family/nominees of an EPF member upon their death during active service, with maximum assurance benefit up to ₹7 Lakh. EDLI provides life insurance coverage to employees covered under the EPF Act. The benefit is paid to the nominee upon the member's death while in service. The minimum assurance benefit is ₹2.5 Lakh, and the maximum assurance benefit is ₹7 Lakh. The scheme is 100% funded by the employer (0.5% of wages); employees contribute nothing."
+  },
+  {
+    "id": 138,
+    "question": "Under the Senior Citizens Savings Scheme (SCSS), what is the maximum investment limit per senior citizen following the enhancement in Budget 2023-24?",
+    "options": [
+      "₹10 Lakh",
+      "₹15 Lakh",
+      "₹30 Lakh",
+      "₹25 Lakh",
+      "₹50 Lakh"
+    ],
+    "answer": 2,
+    "explanation": "In the Union Budget 2023-24, the maximum investment limit under the Senior Citizen Savings Scheme (SCSS) was doubled from ₹15 Lakh to ₹30 Lakh per eligible individual (aged 60 years or above, or retired defence personnel aged 50+), offering quarterly sovereign interest."
+  },
+  {
+    "id": 139,
+    "question": "What is the 'Post Office Monthly Income Scheme' (POMIS) investment limit for a single account and joint account respectively following recent budget enhancements?",
+    "options": [
+      "Single: ₹4.5 Lakh; Joint: ₹9.0 Lakh",
+      "Single: ₹5.0 Lakh; Joint: ₹10.0 Lakh",
+      "Single: ₹10.0 Lakh; Joint: ₹20.0 Lakh",
+      "Single: ₹15.0 Lakh; Joint: ₹30.0 Lakh",
+      "Single: ₹9.0 Lakh; Joint: ₹15.0 Lakh"
+    ],
+    "answer": 4,
+    "explanation": "In Budget 2023-24, the deposit limits under the Post Office Monthly Income Account Scheme (POMIS) were significantly enhanced: from ₹4.5 Lakh to ₹9 Lakh for an individual single account, and from ₹9 Lakh to ₹15 Lakh for a joint account, paying steady monthly interest."
+  },
+  {
+    "id": 140,
+    "question": "In the context of the National Pension System, what is 'Interoperability' among Central Recordkeeping Agencies (CRAs)?",
+    "options": [
+      "Merging all commercial banks into a single state banking entity under the PFRDA Act, 2013 and notified regulations",
+      "Allowing subscribers to transfer their PRAN from one CRA to another CRA seamlessly",
+      "Allowing pension funds to invest in foreign stock markets through the Central Recordkeeping Agency (CRA) system",
+      "Converting NPS Tier-I accounts into life insurance policies automatically",
+      "Abolishing all verification requirements for pensioners by registered Pension Fund Managers and Points of Presence"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Allowing subscribers to transfer their PRAN from one CRA to another CRA seamlessly without altering their accumulated units or account history. CRA Interoperability allows an NPS subscriber to switch their recordkeeping agency from one CRA (e.g. Protean) to another registered CRA (e.g. KFintech or CAMS) without changing their unique PRAN, ensuring freedom of choice, competitive service quality, and technological flexibility."
+  },
+  {
+    "id": 141,
+    "question": "Under PFRDA regulations, what is the role of the 'Auditor' of a Pension Fund Manager?",
+    "options": [
+      "Marketing pension products to corporate human resource departments in accordance with PFRDA (Exits and Withdrawals) Regulations",
+      "Executing daily equity trades on behalf of the fund manager subject to oversight by the National Pension System Trust",
+      "Authorizing partial withdrawals for subscribers under the prescribed asset allocation and investment guidelines",
+      "Conducting independent statutory audits of the annual financial statements, investment portfolios, unit pricing calculations, and custodial reconciliations of the pension fund, reporting directly to the NPS Trust",
+      "Determining the corporate tax rates for insurance companies through empanelled Annuity Service Providers (ASPs)"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Conducting independent statutory audits of the annual financial statements, investment portfolios, unit pricing calculations, and custodial reconciliations of the pension fund, reporting directly to the NPS Trust. Independent Chartered Accountants appointed as statutory auditors audit the financial accounts, investment ledgers, fair valuation practices, and NAV computations of the schemes managed by PFMs, submitting their audited reports to the NPS Trust and PFRDA."
+  },
+  {
+    "id": 142,
+    "question": "Under the PFRDA Act, 2013, what is the 'Civil Court Bar' under Section 37?",
+    "options": [
+      "No civil court shall have jurisdiction to entertain any suit or proceeding in respect of any matter which an Adjudicating Officer or SAT is empowered by or under this Act to determine, and no injunction shall be granted by any court in respect of any action taken under this Act",
+      "Civil courts can overturn any decision of PFRDA within 24 hours by registered Pension Fund Managers and Points of Presence",
+      "High Courts cannot hear constitutional writ petitions under Article 226 upon attaining superannuation or completing the lock-in tenure",
+      "Subscribers are barred from consulting private legal advocates linked to the subscriber's Permanent Retirement Account Number",
+      "PFRDA officers are exempt from all criminal laws of India under the PFRDA Act, 2013 and notified regulations"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: No civil court shall have jurisdiction to entertain any suit or proceeding in respect of any matter which an Adjudicating Officer or SAT is empowered by or under this Act to determine, and no injunction shall be granted by any court in respect of any action taken under this Act. Section 37 of the PFRDA Act bars the jurisdiction of civil courts in respect of any matter which an Adjudicating Officer or the Securities Appellate Tribunal (SAT) is empowered to determine, ensuring that specialized regulatory adjudication is not obstructed by parallel civil litigation."
+  },
+  {
+    "id": 143,
+    "question": "What is the 'Replacement Rate' in retirement economics?",
+    "options": [
+      "The percentage of employees replaced by machines each year through empanelled Annuity Service Providers (ASPs)",
+      "The rate at which old banknotes are replaced with new currency in compliance with PFRDA subscriber protection norms",
+      "The percentage of an individual's pre-retirement employment income that is replaced by retirement pension income",
+      "The percentage of corporate bonds replaced by government securities in a portfolio for Government and Non-Government NPS subscribers",
+      "The rate of employee turnover in commercial banking"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The percentage of an individual's pre-retirement employment income that is replaced by retirement pension income (ILO recommends a minimum benchmark of 40% to 50% to maintain living standards). The Net or Gross Replacement Rate measures how effectively a retirement system preserves a retiree's standard of living: $\\text{Replacement Rate} = (\\text{Pension Payout} / \\text{Pre-Retirement Income}) \\times 100$. The International Labour Organization (ILO) Social Security Convention 102 recommends a minimum replacement rate of at least 40%–50%."
+  },
+  {
+    "id": 144,
+    "question": "What is 'Old-Age Dependency Ratio' in demographic and social security analysis?",
+    "options": [
+      "The ratio of child population to working-age population under the PFRDA Act, 2013 and notified regulations",
+      "The percentage of retirees living in nursing homes through the Central Recordkeeping Agency (CRA) system",
+      "The ratio of life insurance premiums to pension fund assets across Tier-I and Tier-II National Pension System accounts",
+      "The percentage of senior citizens who pay income tax by registered Pension Fund Managers and Points of Presence",
+      "The ratio of the number of elderly individuals aged 65 years and older to the working-age population aged 15 to 64 years"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The ratio of the number of elderly individuals aged 65 years and older to the working-age population aged 15 to 64 years: $\\frac{\\text{Population 65+}}{\\text{Population 15-64}} \\times 100$. The Old-Age Dependency Ratio indicates the economic burden placed on the productive workforce by the elderly demographic: $\\text{OADR} = \\frac{\\text{Population aged } 65+}{\\text{Population aged } 15-64} \\times 100$. A rising dependency ratio increases fiscal strain on unfunded pay-as-you-go pension systems."
+  },
+  {
+    "id": 145,
+    "question": "Under the PFRDA (Exits and Withdrawals) Regulations, what is the provision for an NPS subscriber who suffers from a terminal illness?",
+    "options": [
+      "They are barred from touching their pension until age 60 in accordance with PFRDA (Exits and Withdrawals) Regulations",
+      "They are permitted to withdraw 100% of their accumulated pension wealth as a lump sum for medical treatment and care upon certification of terminal illness by an authorized medical board",
+      "The account is frozen and transferred to the State Health Department subject to oversight by the National Pension System Trust",
+      "They are paid only 10% of their corpus per year under the prescribed asset allocation and investment guidelines",
+      "They must mandatorily purchase an annuity of at least 80% through empanelled Annuity Service Providers (ASPs)"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: They are permitted to withdraw 100% of their accumulated pension wealth as a lump sum for medical treatment and care upon certification of terminal illness by an authorized medical board. In cases where a subscriber is diagnosed with a certified terminal illness (such as stage-IV cancer, severe neurological failure, organ failures), PFRDA regulations permit premature exit with 100% lump-sum withdrawal of their accumulated pension wealth to fund critical treatment and palliative care."
+  },
+  {
+    "id": 146,
+    "question": "What is the 'Tracking Difference' compared to 'Tracking Error' in passive pension investment management?",
+    "options": [
+      "Tracking Difference is the annualized volatility of excess returns by registered Pension Fund Managers and Points of Presence",
+      "Tracking Difference applies only to corporate debt upon attaining superannuation or completing the lock-in tenure",
+      "Tracking Difference is always zero in well-managed funds linked to the subscriber's Permanent Retirement Account Number",
+      "Tracking Difference is the absolute total difference between the cumulative return of the fund and the cumulative return of the underlying benchmark index over a specified time horizon ($R_p - R_b$)",
+      "There is no distinction; both are identical measures under the PFRDA Act, 2013 and notified regulations"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Tracking Difference is the absolute total difference between the cumulative return of the fund and the cumulative return of the underlying benchmark index over a specified time horizon ($R_p - R_b$), whereas Tracking Error is the standard deviation of daily return differences. Tracking Difference is the net quantum of under- or out-performance relative to the benchmark index over a time period ($R_p - R_b$), primarily reflecting fund expense ratios, transaction costs, and cash drag. Tracking Error is the annualized standard deviation of those excess return fluctuations."
+  },
+  {
+    "id": 147,
+    "question": "Under Section 21 of the PFRDA Act, 2013, what is the role of a 'Pension Fund' (PF)?",
+    "options": [
+      "An intermediary registered under Section 12 to manage and invest the pension contributions of subscribers in accordance with the investment guidelines, approved schemes, and prudential norms of the Authority",
+      "A company that prints pension passbooks for post offices through empanelled Annuity Service Providers (ASPs)",
+      "A trade union representing retired bank employees in compliance with PFRDA subscriber protection norms",
+      "A department in the Ministry of Social Justice for Government and Non-Government NPS subscribers",
+      "A private venture capital fund investing in foreign startups"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: An intermediary registered under Section 12 to manage and invest the pension contributions of subscribers in accordance with the investment guidelines, approved schemes, and prudential norms of the Authority. A Pension Fund (Pension Fund Manager / PFM) is an intermediary registered under Section 12 of the PFRDA Act, 2013 responsible for managing, deploying, and investing the pooled retirement assets of subscribers across diversified asset classes under PFRDA guidelines."
+  },
+  {
+    "id": 148,
+    "question": "Under the PFRDA Act, what is the 'National Pension System Trust Agreement'?",
+    "options": [
+      "A treaty signed between India and the World Bank under the PFRDA Act, 2013 and notified regulations",
+      "A collective bargaining agreement between labor unions and the Ministry of Finance through the Central Recordkeeping Agency (CRA) system",
+      "The foundational legal Trust Deed and Agreement executed between PFRDA (the settlor) and the NPS Trust setting out the powers, duties, governance structure, and fiduciary obligations of the Trustees to hold assets for subscribers",
+      "A commercial mortgage agreement between banks and real estate firms across Tier-I and Tier-II National Pension System accounts",
+      "An employment contract signed by all pension fund managers by registered Pension Fund Managers and Points of Presence"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The foundational legal Trust Deed and Agreement executed between PFRDA (the settlor) and the NPS Trust (the trustees) setting out the powers, duties, governance structure, and fiduciary obligations of the Trustees to hold assets for subscribers. The NPS Trust Deed and Agreement is the core constitutional instrument under which the National Pension System Trust is established. PFRDA, as the Settlor, appoints Trustees to hold legal title to all pension assets, manage operational agreements with PFMs, and act with undivided loyalty to subscribers."
+  },
+  {
+    "id": 149,
+    "question": "Under the 2025 Exit Regulations, if a government employee exits service with less than 10 years of service, what is their exit entitlement under NPS?",
+    "options": [
+      "They receive zero funds as service is less than 10 years in accordance with PFRDA (Exits and Withdrawals) Regulations",
+      "They receive 100% lump sum regardless of corpus amount subject to oversight by the National Pension System Trust",
+      "They must wait until age 75 to receive any withdrawal under the prescribed asset allocation and investment guidelines",
+      "Their corpus is transferred to the State General Provident Fund through empanelled Annuity Service Providers (ASPs)",
+      "They are treated under voluntary / premature exit: if accumulated corpus is up to ₹5 Lakh, 100% lump sum is permitted"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: They are treated under voluntary / premature exit: if accumulated corpus is up to ₹5 Lakh, 100% lump sum is permitted; if corpus exceeds ₹5 Lakh, minimum 80% must be utilized for annuity purchase and up to 20% can be withdrawn as lump sum. Government employees who resign or exit service prior to qualifying for normal superannuation/retirement (typically less than 20 years or 10 years) are governed by premature exit rules: if the accumulated corpus is up to ₹5 Lakh, 100% lump sum is payable; if corpus > ₹5 Lakh, minimum 80% must be annuitized and up to 20% can be taken as lump sum."
+  },
+  {
+    "id": 150,
+    "question": "What is the overarching policy mission of the Pension Fund Regulatory and Development Authority (PFRDA) in the financial architecture of India?",
+    "options": [
+      "Promoting short-term speculative trading in commodity derivatives by registered Pension Fund Managers and Points of Presence",
+      "Promoting old-age income security by developing, establishing, and regulating an efficient, competitive, low-cost, and prudentially sound pension sector in India",
+      "Providing subsidized agricultural fertilizer loans to small farmers upon attaining superannuation or completing the lock-in tenure",
+      "Fixing currency exchange rates between the Rupee and US Dollar linked to the subscriber's Permanent Retirement Account Number",
+      "Managing sovereign foreign debt negotiations with the Paris Club under the PFRDA Act, 2013 and notified regulations"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Promoting old-age income security by developing, establishing, and regulating an efficient, competitive, low-cost, and prudentially sound pension sector in India, while protecting the fiduciary interests of subscribers. PFRDA's statutory mandate under the PFRDA Act, 2013 is: (1) To promote old-age income security by establishing, developing, and regulating pension funds, (2) To protect the interests of subscribers to schemes of pension funds, and (3) To foster an inclusive, robust, transparent, and financially sound retirement architecture across India."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Pension Sector & PFRDA Act Mock 3",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Pension Sector & PFRDA Act Mock 3";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br /><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br /><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br /><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br /><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Cost &amp; Management Accounting Mock Test 5 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject F: Costing</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Costing_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Costing_Master_Revision_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Costing_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Costing_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Costing_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Costing_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Costing_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &#183; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &#183; Paper 2 &#183; Costing Mock 5</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Cost &amp; Management Accounting - Mock 5</h1>
+    <p class="start-subheading">Full-Length Topic Test &#183; 50 Questions &#183; Exam Pattern</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Accounting System:</b> Financial information system, bookkeeping vs accounting, concepts, conventions, capital vs revenue, errors.</li>
+                <li><b>Accounting Standards:</b> Depreciation (AS 10 / Ind AS 16), Inventories (AS 2 / Ind AS 2), Revenue Recognition (AS 9 / Ind AS 115), PPE (AS 10), Forex (AS 11 / Ind AS 21), Investments (AS 13).</li>
+                <li><b>Cash Flow &amp; Fund Flow:</b> Operating/Investing/Financing activities, Direct &amp; Indirect methods, Statement of Changes in Working Capital.</li>
+                <li><b>Ratio Analysis:</b> Liquidity, Solvency, Turnover, Profitability, and DuPont 3-stage model.</li>
+                <li><b>Share Capital &amp; Corporate Actions:</b> Share issue/forfeiture/reissue, Bonus shares (Sec 63), Rights issue (Sec 62), ESOPs, Buy-back (Sec 68-70).</li>
+                <li><b>Company Final Accounts:</b> Schedule III Balance Sheet and Statement of Profit &amp; Loss structure and disclosures.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "What is the primary difference between a 'Cost Pool' and a 'Cost Driver' in Activity-Based Costing (ABC)?",
+    "options": [
+      "A Cost Pool is a collection of overhead costs grouped by a specific operational activity; a Cost Driver is the factor or measure that causes a change in the cost of that activity.",
+      "Cost Pools are variable costs, while Cost Drivers are fixed costs when computing departmental overhead absorption rates.",
+      "Cost Pools apply only to direct labor, while Cost Drivers apply to direct materials in accordance with Cost Accounting Standards (CAS).",
+      "Cost Pools are maintained in the balance sheet, while Cost Drivers are in the cash flow statement during reconciliation of cost and financial accounts.",
+      "There is no distinction; they are synonymous terms in ABC for short-term managerial decision-making and pricing."
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A Cost Pool is a collection of overhead costs grouped by a specific operational activity; a Cost Driver is the factor or measure that causes a change in the cost of that activity (e.g. number of setups, machine hours).. In ABC, a Cost Pool is an aggregate grouping of individual overhead cost items associated with a distinct activity (such as machine setups, material handling, quality inspection). A Cost Driver is an activity measure or causal factor that drives or influences the total cost in that cost pool (such as number of setups, purchase orders, inspection hours)."
+  },
+  {
+    "id": 2,
+    "question": "In the Activity-Based Costing (ABC) cost hierarchy, costs incurred to maintain plant facilities (such as factory heating, building security, and grounds maintenance) are classified as:",
+    "options": [
+      "Unit-Level Activities",
+      "Batch-Level Activities",
+      "Facility-Sustaining Activities",
+      "Product-Sustaining Activities",
+      "Customer-Level Activities"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Facility-Sustaining (Facility-Level) Activities. Under the ABC activity hierarchy: (1) Unit-level: performed each time a unit is produced; (2) Batch-level: performed each time a batch is processed (setup, purchase order); (3) Product-sustaining: support individual product lines (product design, testing); (4) Facility-sustaining: sustain overall factory operations and cannot be traced to specific products (factory heating, plant manager salary, groundskeeping)."
+  },
+  {
+    "id": 3,
+    "question": "When reconciling Cost Accounts with Financial Accounts, which of the following items is credited/added to Costing Profit to arrive at Financial Profit?",
+    "options": [
+      "Loss on sale of plant and machinery",
+      "Under-absorption of works overheads in cost accounts",
+      "Income tax paid during the year",
+      "Preliminary expenses written off",
+      "Dividend and interest received on corporate investments"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Dividend and interest received on corporate investments (purely financial income). Purely financial incomes (such as dividends received, interest on bank deposits, share transfer fees) are recorded as income in Financial Accounts but are excluded from Cost Accounts. Therefore, when reconciling starting from Costing Profit to reach Financial Profit, these financial incomes must be ADDED (credited)."
+  },
+  {
+    "id": 4,
+    "question": "Under the Companies (Cost Records and Audit) Rules, 2014, in which statutory form must a Cost Auditor submit the Cost Audit Report to the Board of Directors of the company?",
+    "options": [
+      "Form CRA-1",
+      "Form CRA-3",
+      "Form CRA-2",
+      "Form CRA-4",
+      "Form AOC-4"
+    ],
+    "answer": 1,
+    "explanation": "Under the Companies Act, 2013: Form CRA-1 prescribes the maintenance of cost records; Form CRA-2 is for appointment of cost auditor; Form CRA-3 is the Cost Audit Report submitted by the Cost Auditor to the Board of Directors; Form CRA-4 is the filing of the Cost Audit Report by the company with the Central Government."
+  },
+  {
+    "id": 5,
+    "question": "In cost accounting, how is 'Waste' differentiated from 'Scrap'?",
+    "options": [
+      "Waste has a high resale value, while scrap is unsaleable when computing departmental overhead absorption rates.",
+      "Scrap is always hazardous waste in accordance with Cost Accounting Standards (CAS).",
+      "Waste is an asset, while scrap is a liability during reconciliation of cost and financial accounts.",
+      "Waste represents material loss that has no measurable physical existence or zero recoverable economic value.",
+      "There is no operational difference for short-term managerial decision-making and pricing."
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Waste represents material loss that has no measurable physical existence or zero recoverable economic value (e.g. smoke, dust, evaporation); Scrap represents residue or fragments of material that have some small realizable economic recovery value.. Waste represents an intangible portion of input material lost in processing (vaporization, ash, shrinkage) with zero recovery value. Scrap consists of discarded fragments, trimmings, or turnings from production that have a modest, measurable commercial scrap resale value."
+  },
+  {
+    "id": 6,
+    "question": "In plant capacity measurement, what is 'Practical Capacity'?",
+    "options": [
+      "The maximum achievable capacity after allowing for unavoidable operational interruptions",
+      "The theoretical 24/7 engineering capacity with zero machine downtime or stoppages",
+      "The actual capacity achieved during a period of economic recession across equivalent units of work-in-progress inventory",
+      "The capacity determined by the sales manager's annual targets within the integrated cost ledger accounting system",
+      "The capacity required to achieve Six Sigma in the periodical cost sheet and profitability statement"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The maximum achievable capacity after allowing for unavoidable operational interruptions such as routine maintenance, machine setups, Sundays, and normal holidays. Theoretical (Rated) Capacity assumes 100% continuous uninterrupted operation. Practical Capacity is realistic: it takes theoretical capacity and deducts unavoidable internal operating interruptions such as machine setup times, planned preventive maintenance, tool changes, and statutory rest breaks."
+  },
+  {
+    "id": 7,
+    "question": "In Cost Sheet preparation, how are 'Quality Control Costs' incurred during manufacturing treated under standard cost accounting principles?",
+    "options": [
+      "Treated as an Administrative Overhead outside production for short-term managerial decision-making and pricing",
+      "Deducted from Prime Cost",
+      "Added to the Cost of Production as an essential manufacturing cost component",
+      "Charged directly to general reserve across production and service cost centers",
+      "Treated as a selling overhead when computing departmental overhead absorption rates"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Added to the Cost of Production as an essential manufacturing cost component. Quality Control Costs incurred in the inspection and verification of materials, work-in-progress, and manufacturing conformance are directly attributable to production and form part of the Cost of Production in a standard cost sheet."
+  },
+  {
+    "id": 8,
+    "question": "Which of the following describes a 'Pre-determined Overhead Absorption Rate'?",
+    "options": [
+      "An overhead rate computed at the end of the year using actual overhead costs and actual volume in the periodical cost sheet and profitability statement",
+      "A statutory tax rate fixed by the GST Council under the marginal and standard costing framework",
+      "A depreciation rate mandated by Schedule II of the Companies Act for variance analysis and budgetary cost control",
+      "An overhead rate fixed at exactly 50% of direct material cost based on normal operating capacity and machine hours",
+      "An overhead rate calculated at the beginning of the period as: Budgeted Overheads / Budgeted Allocation Base"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: An overhead rate calculated at the beginning of the period as: Budgeted Overheads / Budgeted Allocation Base (e.g. machine hours or labor hours). A Predetermined Overhead Absorption Rate is established prior to the accounting period to allow costs to be allocated to jobs continuously as production occurs. Formula: Budgeted Overhead Costs / Budgeted Basis of Absorption (Direct Labor Hours, Machine Hours, etc.)."
+  },
+  {
+    "id": 9,
+    "question": "An enterprise has a choice between two manufacturing options. Option A costs ₹4,00,000 to produce 20,000 units. Option B costs ₹4,60,000 to produce 25,000 units. What is the 'Incremental Cost per unit' of the additional 5,000 units?",
+    "options": [
+      "₹20.00 per unit",
+      "₹12.00 per unit",
+      "₹18.40 per unit",
+      "₹15.00 per unit",
+      "₹16.00 per unit"
+    ],
+    "answer": 1,
+    "explanation": "Incremental Cost = ₹4,60,000 - ₹4,00,000 = ₹60,000. Incremental Output = 25,000 - 20,000 = 5,000 units. Incremental Cost per unit = ₹60,000 / 5,000 units = ₹12.00 per unit."
+  },
+  {
+    "id": 10,
+    "question": "In responsibility accounting, what is the 'Controllability Principle'?",
+    "options": [
+      "Holding the factory manager responsible for corporate income taxes based on normal operating capacity and machine hours",
+      "Controlling all employee movements using automated turnstiles across equivalent units of work-in-progress inventory",
+      "Ensuring all variances are zero at every month-end within the integrated cost ledger accounting system",
+      "Holding an individual manager accountable only for those performance measures, revenues, and costs that they can significantly influence through their own decisions and actions",
+      "Auditing accounting ledgers twice every week in the periodical cost sheet and profitability statement"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Holding an individual manager accountable only for those performance measures, revenues, and costs that they can significantly influence through their own decisions and actions. The Controllability Principle dictates that an individual manager should be held responsible for, and evaluated based on, only those financial outcomes and operational cost drivers that the manager has the authority to control or meaningfully influence."
+  },
+  {
+    "id": 11,
+    "question": "A construction contract price includes an 'Escalation Clause' specifying that 50% of the contract value is represented by materials and 30% by labor. The baseline price of cement increases by 20%, and the baseline statutory wage rate increases by 10% during execution. If the original contract price is ₹1,00,00,000, by what amount will the contract price be adjusted upward?",
+    "options": [
+      "₹13,00,000",
+      "₹15,00,000",
+      "₹10,00,000",
+      "₹8,00,000",
+      "₹12,00,000"
+    ],
+    "answer": 0,
+    "explanation": "Material portion of contract = 50% of ₹1,00,00,000 = ₹50,00,000. Increase in material cost = 20% of ₹50,00,000 = ₹10,00,000. Labor portion of contract = 30% of ₹1,00,00,000 = ₹30,00,000. Increase in labor cost = 10% of ₹30,00,000 = ₹3,00,000. Total Escalation Adjustment = ₹10,00,000 + ₹3,00,000 = ₹13,00,000."
+  },
+  {
+    "id": 12,
+    "question": "In Contract Costing, during the execution of a project, the client (contractee) formally requests additional architectural modifications and extra civil works not included in the original agreement. How are costs incurred on these extra works accounted for?",
+    "options": [
+      "Ignored by the contractor as an unrecoverable loss in the periodical cost sheet and profitability statement",
+      "Transferred to the contractor's general marketing budget under the marginal and standard costing framework",
+      "Debited to the Contract Account, and the additional agreed consideration is credited to the Contract Account or added to the contract value",
+      "Deducted from the site engineer's bonus for variance analysis and budgetary cost control",
+      "Debited directly to Capital Reserve based on normal operating capacity and machine hours"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Debited to the Contract Account, and the additional agreed consideration is credited to the Contract Account or added to the contract value. Costs of extra works authorized by the contractee are debited to the Contract Account as direct costs. The additional agreed revenue for these extra works is credited to the Contract Account (or added to the contract price), increasing the notional profit."
+  },
+  {
+    "id": 13,
+    "question": "A brick kiln burns 5,00,000 bricks during a season. Coal consumed is 120 tonnes at ₹7,500 per tonne. Clay and sand cost ₹3,00,000, labor wages are ₹6,00,000, and other overheads are ₹2,00,000. What is the total cost per 1,000 bricks burned?",
+    "options": [
+      "₹3,600 per 1,000 bricks",
+      "₹4,500 per 1,000 bricks",
+      "₹3,200 per 1,000 bricks",
+      "₹3,800 per 1,000 bricks",
+      "₹4,000 per 1,000 bricks"
+    ],
+    "answer": 4,
+    "explanation": "Coal Cost = 120 tonnes × ₹7,500 = ₹9,00,000. Total Cost = Coal (₹9,00,000) + Clay (₹3,00,000) + Wages (₹6,00,000) + Overheads (₹2,00,000) = ₹20,00,000. Cost per single brick = ₹20,00,000 / 5,00,000 bricks = ₹4.00. Cost per 1,000 bricks = 1,000 × ₹4.00 = ₹4,000."
+  },
+  {
+    "id": 14,
+    "question": "An IT Data Center hosts servers for enterprise clients. Monthly facility rent, power, and cooling overheads are ₹12,00,000 for 100 standardized server racks. Total capacity is 100 racks operating for 30 days in a month. What is the operating cost per server-rack-day?",
+    "options": [
+      "₹350 per rack-day",
+      "₹400 per rack-day",
+      "₹500 per rack-day",
+      "₹300 per rack-day",
+      "₹450 per rack-day"
+    ],
+    "answer": 1,
+    "explanation": "Total available rack-days in month = 100 racks × 30 days = 3,000 rack-days. Operating Cost per server-rack-day = Total Operating Cost / Total Rack-Days = ₹12,00,000 / 3,000 rack-days = ₹400 per rack-day."
+  },
+  {
+    "id": 15,
+    "question": "A chartered accountancy firm estimates the billing quote for an internal audit assignment: Senior Consultant: 80 hours @ ₹1,500/hr; Junior Auditor: 120 hours @ ₹500/hr. Audit firm overheads are charged at 40% of total professional labor cost. If the firm aims for a 20% profit margin on the Total Assignment Billing Price, what should be the client quote?",
+    "options": [
+      "₹2,52,000",
+      "₹3,00,000",
+      "₹2,80,000",
+      "₹3,15,000",
+      "₹3,25,000"
+    ],
+    "answer": 3,
+    "explanation": "Direct Professional Labor = (80 hrs × ₹1,500) + (120 hrs × ₹500) = ₹1,20,000 + ₹60,000 = ₹1,80,000. Overheads = 40% of ₹1,80,000 = ₹72,000. Total Assignment Cost = ₹1,80,000 + ₹72,000 = ₹2,52,000. Profit margin = 20% on Billing Price &rarr; Cost is 80% of Billing Price. Quote = Total Cost / 0.80 = ₹2,52,000 / 0.80 = ₹3,15,000."
+  },
+  {
+    "id": 16,
+    "question": "In passenger transport costing, if the government levies a 'Passenger Tax' equal to 10% of total fare receipts collected, how is the total fare calculated if the operational cost plus profit per passenger-km is ₹1.80?",
+    "options": [
+      "₹2.00 per passenger-km",
+      "₹1.98 per passenger-km",
+      "₹1.80 per passenger-km",
+      "₹2.10 per passenger-km",
+      "₹2.20 per passenger-km"
+    ],
+    "answer": 0,
+    "explanation": "Total Fare = Cost plus profit + Passenger Tax. Since Passenger Tax is 10% of Total Fare, the Cost plus profit represents 90% of Total Fare. Total Fare = ₹1.80 / (1 - 0.10) = ₹1.80 / 0.90 = ₹2.00 per passenger-km. (Tax = 10% of ₹2.00 = ₹0.20; Net fare = ₹1.80)."
+  },
+  {
+    "id": 17,
+    "question": "In Process Costing, when a raw material input passes through Process 1, 2, and 3, which of the following is TRUE regarding the valuation of WIP in Process 2?",
+    "options": [
+      "WIP in Process 2 includes only costs incurred within Process 2 when computing departmental overhead absorption rates.",
+      "Process 1 costs are deleted when goods enter Process 2 in accordance with Cost Accounting Standards (CAS).",
+      "WIP in Process 2 includes 100% of the cost transferred from Process 1 PLUS the percentage of completion of materials, labor, and overheads added in Process 2.",
+      "WIP in Process 2 is valued at zero until it reaches Process 3 during reconciliation of cost and financial accounts.",
+      "Equivalent units are prohibited in multi-stage processes for short-term managerial decision-making and pricing."
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: WIP in Process 2 includes 100% of the cost transferred from Process 1 (as completed prior-stage material) PLUS the percentage of completion of materials, labor, and overheads added in Process 2.. In subsequent processes (like Process 2), transferred-in goods from the prior process represent a distinct material input that is 100% complete with respect to Process 1. The equivalent units calculation must track Transferred-In Costs (100% complete) alongside additional materials, labor, and overheads added in Process 2."
+  },
+  {
+    "id": 18,
+    "question": "A private school operates 5 school buses. Total annual running and standing expenses are ₹15,00,000. Each bus carries 40 students and operates for 10 school months in a year (2 months summer vacation with zero operating fees). What is the monthly transport fee per student to break even?",
+    "options": [
+      "₹600 per month",
+      "₹500 per month",
+      "₹1,000 per month",
+      "₹800 per month",
+      "₹750 per month"
+    ],
+    "answer": 4,
+    "explanation": "Total students transported = 5 buses × 40 students = 200 students. Number of fee-paying school months = 10 months. Total student-months in the year = 200 students × 10 months = 2,000 student-months. Monthly fee per student = Total Annual Cost / Total Student-Months = ₹15,00,000 / 2,000 = ₹750 per student per month."
+  },
+  {
+    "id": 19,
+    "question": "In Job Costing, if a custom job encounters normal, expected spoilage of 5 units during intricate precision machining, how is the cost of this normal spoilage accounted for?",
+    "options": [
+      "Debited to Costing Profit & Loss Account",
+      "Left as part of the job's total cost",
+      "Charged to the customer as an unauthorized penalty",
+      "Debited to the Sales Manager's commission account",
+      "Carried as an intangible asset"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Left as part of the job's total cost, increasing the unit cost of the remaining good units on that specific job. If normal spoilage is inherent in the specific nature of a particular custom job (e.g. delicate carving or custom machining), the net loss on spoilage (cost less scrap value) is left charged to that job, increasing the cost of the good units produced on that job."
+  },
+  {
+    "id": 20,
+    "question": "Under the 'Standard Cost Method' of allocating joint costs to By-Products, by-products are credited to the main process at:",
+    "options": [
+      "Their actual fluctuating spot market prices on the date of sale in the periodical cost sheet and profitability statement",
+      "Zero cost under all circumstances under the marginal and standard costing framework",
+      "A flat 10% of main product prime cost for variance analysis and budgetary cost control",
+      "A predetermined standard cost per unit, stabilizing the cost of the main product against market price volatility",
+      "The historical replacement cost of direct materials based on normal operating capacity and machine hours"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A predetermined standard cost per unit, stabilizing the cost of the main product against market price volatility. Under the Standard Cost Method, by-products are valued at a fixed, predetermined standard rate based on historical market trends. This value is credited to the main process account, shielding the main product's unit cost from volatile day-to-day fluctuations in by-product market prices."
+  },
+  {
+    "id": 21,
+    "question": "A chemical plant manufactures three joint products: P, Q, and R. Joint costs up to split-off are ₹9,00,000. The products are liquids with physical output of: P = 15,000 liters; Q = 10,000 liters; and R = 5,000 liters. Under the 'Physical Units Method', what is the joint cost allocated to Product R?",
+    "options": [
+      "₹1,50,000",
+      "₹3,00,000",
+      "₹4,50,000",
+      "₹1,00,000",
+      "₹2,00,000"
+    ],
+    "answer": 0,
+    "explanation": "Total physical output = 15,000 + 10,000 + 5,000 = 30,000 liters. Product R proportion = 5,000 / 30,000 = 1/6th. Joint cost allocated to Product R = 1/6 × ₹9,00,000 = ₹1,50,000."
+  },
+  {
+    "id": 22,
+    "question": "In Batch Costing, what is the primary objective of applying the 'Single-Minute Exchange of Die' (SMED) methodology developed by Shigeo Shingo?",
+    "options": [
+      "To increase batch sizes to 1,00,000 units",
+      "To double machine power consumption",
+      "To reduce machine setup and changeover times to less than 10 minutes",
+      "To eliminate employee safety gear",
+      "To automate financial ratio analysis"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: To reduce machine setup and changeover times to less than 10 minutes (single-digit minutes), enabling smaller batch sizes, lower inventory, and rapid manufacturing flexibility. SMED (Single-Minute Exchange of Die) is a lean technique to reduce equipment setup times to less than 10 minutes (a single-digit number of minutes). Rapid changeovers dramatically lower setup costs (S in EBQ), making small batch manufacturing economically feasible and reducing inventory holding."
+  },
+  {
+    "id": 23,
+    "question": "A cinema hall incurs monthly fixed operating costs of ₹4,50,000. It has 400 seats and runs 2 shows per day for 30 days a month. Average occupancy is 75%. Variable cost per patron (electricity, ticketing, cleaning) is ₹25. What ticket price must be charged to earn a target operating profit of ₹1,80,000 per month?",
+    "options": [
+      "₹50.00",
+      "₹75.00",
+      "₹65.00",
+      "₹80.00",
+      "₹60.00"
+    ],
+    "answer": 4,
+    "explanation": "Total patrons in month = 400 seats × 2 shows × 30 days × 75% occupancy = 18,000 patrons. Required Total Contribution = Fixed Cost (₹4,50,000) + Target Profit (₹1,80,000) = ₹6,30,000. Contribution required per patron = ₹6,30,000 / 18,000 patrons = ₹35.00 per patron. Ticket Price = Variable Cost per patron (₹25.00) + Required Contribution (₹35.00) = ₹60.00."
+  },
+  {
+    "id": 24,
+    "question": "Under Unit Costing, when is a 'Cost Sheet' preferred over a 'Production Account'?",
+    "options": [
+      "A Cost Sheet is prepared only for tax authorities in the periodical cost sheet and profitability statement.",
+      "A Cost Sheet is a memorandum statement showing element-wise cost breakdown and cost per unit for management analysis.",
+      "A Production Account cannot calculate profit under the marginal and standard costing framework.",
+      "Cost Sheet is used only in agriculture for variance analysis and budgetary cost control.",
+      "There is no difference between the two based on normal operating capacity and machine hours."
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A Cost Sheet is a memorandum statement showing element-wise cost breakdown and cost per unit for management analysis without double-entry ledger postings; a Production Account is a formal ledger account prepared on double-entry principles.. A Cost Sheet is a structured memorandum statement prepared periodically to show detailed components of total cost, previous period comparisons, and cost per unit. A Production (Manufacturing) Account is a formal ledger account in the double-entry accounting books."
+  },
+  {
+    "id": 25,
+    "question": "In Standard Costing, what is the 'Management by Exception' principle as applied to variance investigation?",
+    "options": [
+      "Investigating every single minor variance regardless of cost when computing departmental overhead absorption rates",
+      "Ignoring all favorable variances permanently in accordance with Cost Accounting Standards (CAS)",
+      "Penalizing the production manager for all variances during reconciliation of cost and financial accounts",
+      "Focusing executive attention and investigative resources only on significant variances that exceed established tolerance thresholds or show recurring adverse trends, leaving normal variations alone",
+      "Changing standards every time a variance occurs for short-term managerial decision-making and pricing"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Focusing executive attention and investigative resources only on significant variances that exceed established tolerance thresholds or show recurring adverse trends, leaving normal variations alone. Management by Exception dictates that managers should not waste time and resources investigating minor, random variations around the standard. Only exceptional variances that breach statistical control limits (e.g. variance > 5% of standard cost or > ₹20,000) are flagged for rigorous root-cause analysis."
+  },
+  {
+    "id": 26,
+    "question": "Under the Three-Variance method of analyzing manufacturing overheads, total overhead variance is broken down into which three variances?",
+    "options": [
+      "Spending (Budget) Variance, Efficiency Variance, and Volume Variance",
+      "Material Variance, Labor Variance, and Overhead Variance",
+      "Price Variance, Mix Variance, and Yield Variance",
+      "Operating Variance, Financial Variance, and Combined Variance",
+      "Current Variance, Quick Variance, and Solvency Variance"
+    ],
+    "answer": 0,
+    "explanation": "Under the classic Three-Variance Overhead Analysis, the total overhead variance is decomposed into: (1) Spending (Budget) Variance; (2) Efficiency Variance; and (3) Volume (Capacity) Variance."
+  },
+  {
+    "id": 27,
+    "question": "A company produces a single product. Selling price is ₹150 per unit, Variable Cost is ₹90 per unit, and Total Fixed Costs are ₹12,00,000 per annum. Plant capacity is 30,000 units. What is the 'Margin of Safety' expressed as a PERCENTAGE of total capacity if the company operates at 80% capacity?",
+    "options": [
+      "25.00%",
+      "20.00%",
+      "16.67%",
+      "33.33%",
+      "15.00%"
+    ],
+    "answer": 2,
+    "explanation": "Contribution per unit = ₹150 - ₹90 = ₹60. Break-Even Point (units) = Fixed Cost / Contribution per unit = ₹12,00,000 / ₹60 = 20,000 units. Actual Production at 80% capacity = 80% of 30,000 units = 24,000 units. Margin of Safety in units = Actual Units - BEP Units = 24,000 - 20,000 = 4,000 units. Margin of Safety as % of Capacity = (4,000 / 24,000) × 100 = 16.67% of actual sales (or 4,000 / 30,000 = 13.33% of total plant capacity)."
+  },
+  {
+    "id": 28,
+    "question": "In a manufacturing facility, two products (A and B) compete for limited machine hours and limited raw materials. In advanced management accounting, when MULTIPLE key limiting factors exist simultaneously, which mathematical technique is used to determine the optimal product mix?",
+    "options": [
+      "Simple high-low extrapolation",
+      "Zero-based budgeting",
+      "Pareto distribution",
+      "Sum-of-the-years'-digits method",
+      "Linear Programming"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Linear Programming (using graphical or Simplex method). When only a single limiting factor exists, ranking by contribution per unit of that factor is sufficient. However, when multiple resource constraints (machine hours, direct labor, multiple raw materials) restrict production simultaneously, Linear Programming (graphical method or Simplex algorithm) is used to find the profit-maximizing product mix."
+  },
+  {
+    "id": 29,
+    "question": "A hotel plans to temporarily shut down operations for 3 months during the off-season. Total annual fixed costs are ₹12,00,000 (₹1,00,000 per month). If the hotel shuts down, inescapable fixed costs (security, building insurance, essential maintenance) will be ₹40,000 per month. Reopening costs at the end of 3 months will be ₹30,000. What are the 'Total Avoidable (Escapable) Fixed Costs' for the 3-month shutdown period?",
+    "options": [
+      "₹1,80,000",
+      "₹1,50,000",
+      "₹1,20,000",
+      "₹2,10,000",
+      "₹90,000"
+    ],
+    "answer": 1,
+    "explanation": "Normal Fixed Costs for 3 months = 3 × ₹1,00,000 = ₹3,00,000. Costs if shut down = Inescapable costs (3 × ₹40,000 = ₹1,20,000) + Reopening costs (₹30,000) = ₹1,50,000. Net Avoidable (Escapable) Fixed Costs = Normal Fixed Costs (₹3,00,000) - Shutdown Costs (₹1,50,000) = ₹1,50,000."
+  },
+  {
+    "id": 30,
+    "question": "What is 'Budgetary Slack' (also known as padding the budget)?",
+    "options": [
+      "A software glitch in financial accounting packages based on normal operating capacity and machine hours",
+      "A budget surplus mandated by statutory law across equivalent units of work-in-progress inventory",
+      "The discount offered by suppliers for early settlement within the integrated cost ledger accounting system",
+      "The deliberate practice by operational managers of underestimating budgeted revenues and overestimating budgeted expenses to make targets easier to achieve",
+      "The reserve fund maintained for bad debts"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The deliberate practice by operational managers of underestimating budgeted revenues and overestimating budgeted expenses to make targets easier to achieve. Budgetary Slack occurs in participative budgeting when managers intentionally build in a cushion by understating projected revenues and overstating projected costs so that targets are easily achievable, protecting their performance evaluations and bonuses."
+  },
+  {
+    "id": 31,
+    "question": "In 'Beyond Budgeting' philosophy pioneered by Jeremy Hope and Robin Fraser, what is the primary criticism of traditional annual budgeting?",
+    "options": [
+      "Traditional annual budgeting is rigid, time-consuming, encourages gaming/slack, and quickly becomes obsolete in volatile, dynamic business environments.",
+      "Traditional budgeting is too cheap to execute for short-term managerial decision-making and pricing.",
+      "Traditional budgets do not calculate labor variances per unit of finished output during the cost period.",
+      "Traditional budgets are enforced by trade unions across production and service cost centers.",
+      "Beyond budgeting mandates five-year fixed capital plans when computing departmental overhead absorption rates."
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Traditional annual budgeting is rigid, time-consuming, encourages gaming/slack, and quickly becomes obsolete in volatile, dynamic business environments, preventing agile responsiveness to customer needs.. The Beyond Budgeting model argues that traditional fixed annual budgets are bureaucratic, inhibit innovation, promote siloed thinking, encourage dysfunctional gaming behavior, and fail in fast-changing modern markets. It advocates rolling forecasts, adaptive goals, and decentralized decision-making."
+  },
+  {
+    "id": 32,
+    "question": "A firm has budgeted sales of ₹20,00,000 with a P/V ratio of 30% and fixed costs of ₹4,00,000. If the sales manager negotiates an advertising campaign costing an additional ₹50,000, by how much must Sales increase just to maintain the current budgeted net profit?",
+    "options": [
+      "₹1,50,000",
+      "₹2,00,000",
+      "₹1,66,667",
+      "₹1,25,000",
+      "₹1,00,000"
+    ],
+    "answer": 2,
+    "explanation": "To cover the additional fixed advertising cost of ₹50,000 and maintain the same net profit, the incremental sales must generate ₹50,000 of contribution. Required Additional Sales = Additional Fixed Cost / P/V Ratio = ₹50,000 / 0.30 = ₹1,66,666.67 or ₹1,66,667."
+  },
+  {
+    "id": 33,
+    "question": "In standard costing, what does a 'Sales Margin Volume Variance' measure under the profit/margin method?",
+    "options": [
+      "Actual Profit Margin × Actual Quantity Sold",
+      "Budgeted Price - Actual Price",
+      "Standard Selling Price × Actual Units",
+      "Total Profit / Total Sales",
+      "Standard Profit Margin per unit ×"
+    ],
+    "answer": 4,
+    "explanation": "Under the Sales Margin (Profit) method of variance analysis, Sales Margin Volume Variance = Standard Profit Margin per unit × (Actual Quantity Sold - Budgeted Quantity). It measures the increase or decrease in budgeted profit resulting from selling a different quantity of goods than planned."
+  },
+  {
+    "id": 34,
+    "question": "In a Master Budget, what is typically the 'Balancing Figure' in the Budgeted Balance Sheet?",
+    "options": [
+      "Share Capital",
+      "Cash and Bank Balance",
+      "Gross Fixed Assets",
+      "Cost of Goods Sold",
+      "Depreciation Reserve"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Cash and Bank Balance (or Bank Overdraft if negative). In preparing a Budgeted Balance Sheet, all operational assets, inventories, receivables, payables, and reserves are derived from functional budgets. The Cash and Bank balance (derived from the Cash Budget) balances the two sides. If a financing deficit exists, a Bank Overdraft or short-term borrowing acts as the balancing item."
+  },
+  {
+    "id": 35,
+    "question": "A company sells a product with Variable Cost of ₹70 per unit and Fixed Cost of ₹5,00,000. Current selling price is ₹120 per unit. If management wants to lower the selling price to ₹110 per unit, how many additional units must be sold to maintain the original total contribution at the current sales volume of 20,000 units?",
+    "options": [
+      "4,000 units",
+      "6,000 units",
+      "8,000 units",
+      "5,000 units",
+      "2,500 units"
+    ],
+    "answer": 3,
+    "explanation": "Current Contribution per unit = ₹120 - ₹70 = ₹50. Total current contribution at 20,000 units = 20,000 × ₹50 = ₹10,00,000. New Contribution per unit at ₹110 = ₹110 - ₹70 = ₹40. Required Sales Volume to generate ₹10,00,000 = ₹10,00,000 / ₹40 = 25,000 units. Additional units required = 25,000 - 20,000 = 5,000 units."
+  },
+  {
+    "id": 36,
+    "question": "What is 'Activity-Based Budgeting' (ABB)?",
+    "options": [
+      "A budgeting approach that uses activity-based costing (ABC) principles to analyze the costs of activities, determine the workload demand, and allocate resources based on activity consumption rather than incremental line items",
+      "A budget for company sports activities in the periodical cost sheet and profitability statement",
+      "A budget prepared solely for direct material variances under the marginal and standard costing framework",
+      "A budget that requires 100% cash payments for variance analysis and budgetary cost control",
+      "An incremental rolling budget"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A budgeting approach that uses activity-based costing (ABC) principles to analyze the costs of activities, determine the workload demand, and allocate resources based on activity consumption rather than incremental line items. Activity-Based Budgeting (ABB) reverses the ABC process: it forecasts the demand for final products/services, determines the activities needed to produce them, computes the resources required to perform those activities, and budgets funds accordingly."
+  },
+  {
+    "id": 37,
+    "question": "In Standard Costing, when a company officially changes its engineering specifications or standards mid-year due to a permanent change in technology, the difference between the original standard and revised standard is isolated as a:",
+    "options": [
+      "Material Usage Variance",
+      "Idle Time Variance",
+      "Revision Variance",
+      "Abnormal Gain",
+      "Calendar Variance"
+    ],
+    "answer": 2,
+    "explanation": "A Revision Variance represents the difference between the original standard cost and the revised standard cost. Isolating the revision variance ensures that operational supervisors are evaluated against realistic, revised standards without penalizing them for macro-technological or market shifts."
+  },
+  {
+    "id": 38,
+    "question": "If an enterprise has a Break-Even Sales volume of 60% of total capacity, what is its 'Margin of Safety Ratio' when operating at 100% capacity?",
+    "options": [
+      "60%",
+      "25%",
+      "50%",
+      "30%",
+      "40%"
+    ],
+    "answer": 4,
+    "explanation": "Margin of Safety Ratio = (Actual Sales - Break-Even Sales) / Actual Sales = (100% - 60%) / 100% = 40%."
+  },
+  {
+    "id": 39,
+    "question": "What is the primary difference between 'Participative Budgeting' (Bottom-up) and 'Authoritarian Budgeting' (Top-down)?",
+    "options": [
+      "Participative budgeting is illegal in India for short-term managerial decision-making and pricing.",
+      "In Participative Budgeting, lower and middle-level operational managers actively participate in setting their own budget targets.",
+      "Authoritarian budgeting takes 12 months to prepare per unit of finished output during the cost period.",
+      "Participative budgeting eliminates variable costs across production and service cost centers.",
+      "There is no difference in organizational behavior when computing departmental overhead absorption rates."
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: In Participative Budgeting, lower and middle-level operational managers actively participate in setting their own budget targets; in Authoritarian Budgeting, targets are imposed unilaterally by top management.. Participative (bottom-up) budgeting involves subordinate managers in formulating their department targets, improving morale and ownership, though it risks budgetary slack. Authoritarian (top-down) budgeting is dictated by senior executives, ensuring alignment with corporate strategy but risking demotivation and unrealistic targets."
+  },
+  {
+    "id": 40,
+    "question": "Under Marginal Costing, what happens to the Break-Even Point if Fixed Costs double while Contribution per unit doubles simultaneously?",
+    "options": [
+      "Break-Even Point doubles",
+      "Break-Even Point is halved",
+      "Break-Even Point increases by 50%",
+      "Break-Even Point in units remains exactly UNCHANGED",
+      "P/V ratio becomes zero"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Break-Even Point in units remains exactly UNCHANGED. Break-Even Point (units) = Fixed Costs / Contribution per unit. If both the numerator (Fixed Costs) and denominator (Contribution per unit) are multiplied by 2, the ratio remains identical: (2 × FC) / (2 × CPU) = FC / CPU. Hence, the Break-Even Point in units is unchanged."
+  },
+  {
+    "id": 41,
+    "question": "In Lean Supply Chain Management, what is 'Vendor-Managed Inventory' (VMI)?",
+    "options": [
+      "An inventory arrangement where the supplier (vendor) is given access to the buyer's real-time inventory and consumption data, and takes full responsibility for maintaining agreed inventory levels at the buyer's premises",
+      "The buyer manages the vendor's factory operations when computing departmental overhead absorption rates",
+      "A supply chain where vendors are paid only once every two years in accordance with Cost Accounting Standards (CAS)",
+      "A system prohibiting the return of defective raw materials during reconciliation of cost and financial accounts",
+      "A computerized lottery for vendor selection"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: An inventory arrangement where the supplier (vendor) is given access to the buyer's real-time inventory and consumption data, and takes full responsibility for maintaining agreed inventory levels at the buyer's premises. Vendor-Managed Inventory (VMI) is a collaborative lean practice where the supplier monitors the buyer's inventory levels (often via EDI/cloud software) and decides when and how much to replenish, ensuring continuous availability while minimizing stockouts and holding costs."
+  },
+  {
+    "id": 42,
+    "question": "In the Toyota Production System (TPS), what is 'Heijunka'?",
+    "options": [
+      "An emergency machine stopping mechanism based on normal operating capacity and machine hours",
+      "An annual award for senior directors across equivalent units of work-in-progress inventory",
+      "Production leveling or smoothing by volume and product mix over a specific time horizon to eliminate unevenness (Mura) and overburden (Muri)",
+      "The layout of factory cafeteria seating within the integrated cost ledger accounting system",
+      "A statistical quality control formula in the periodical cost sheet and profitability statement"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Production leveling or smoothing by volume and product mix over a specific time horizon to eliminate unevenness (Mura) and overburden (Muri). Heijunka (Japanese for 'leveling') is the technique of smoothing production flow by producing in small, mixed batches rather than large, fluctuating batches of a single product. It stabilizes production schedules, avoids supplier whip-effects, and matches steady customer demand."
+  },
+  {
+    "id": 43,
+    "question": "In Japanese Kaizen philosophy, what is 'Kaizen Teian'?",
+    "options": [
+      "A punitive disciplinary hearing for factory safety violations for short-term managerial decision-making and pricing",
+      "A software package for enterprise resource planning (ERP) per unit of finished output during the cost period",
+      "A method of computing machine hour depreciation across production and service cost centers",
+      "A supplier bidding portal",
+      "A bottom-up employee suggestion system designed to encourage, collect, evaluate, and reward continuous improvement ideas from front-line workers"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A bottom-up employee suggestion system designed to encourage, collect, evaluate, and reward continuous improvement ideas from front-line workers. Kaizen Teian refers to a structured employee suggestion program that actively encourages workers at all levels to propose small, incremental improvements to their own work processes, fostering a culture of ownership, continuous learning, and shop-floor problem-solving."
+  },
+  {
+    "id": 44,
+    "question": "In the 5S workplace methodology, what is 'Shitsuke' (Sustain / Self-Discipline)?",
+    "options": [
+      "Painting factory walls blue",
+      "Maintaining ongoing discipline, standardized habits, and institutionalizing 5S practices through regular audits, training, and executive walkthroughs so that standards do not slip back over time",
+      "Discarding broken office chairs",
+      "Replacing all tools with imported equipment for variance analysis and budgetary cost control",
+      "Conducting quarterly statutory financial audits based on normal operating capacity and machine hours"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Maintaining ongoing discipline, standardized habits, and institutionalizing 5S practices through regular audits, training, and executive walkthroughs so that standards do not slip back over time. Shitsuke (Sustain / Self-discipline) is the final and most challenging S. It focuses on turning 5S practices into an ingrained daily habit and organizational culture through regular 5S audits, management reviews, visual scorecards, and continuous worker training."
+  },
+  {
+    "id": 45,
+    "question": "In Total Productive Maintenance (TPM), what is the objective of the 'Kobetsu Kaizen' pillar?",
+    "options": [
+      "Outsourcing all maintenance to external vendors when computing departmental overhead absorption rates",
+      "Conducting employee health checkups",
+      "Preparing corporate annual budgets",
+      "Focused, individual equipment improvement projects led by cross-functional teams to eliminate specific machine bottlenecks, chronic losses, and maximize equipment effectiveness",
+      "Selling old company delivery vans for short-term managerial decision-making and pricing"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Focused, individual equipment improvement projects led by cross-functional teams to eliminate specific machine bottlenecks, chronic losses, and maximize equipment effectiveness. Kobetsu Kaizen (Focused Improvement) is a core pillar of TPM targeting specific chronic losses on critical equipment. Multi-disciplinary teams apply root-cause analysis tools (5 Whys, Ishikawa diagrams) to systematically eliminate the Six Big Losses."
+  },
+  {
+    "id": 46,
+    "question": "In the Define phase of Six Sigma DMAIC, what high-level process map acronym represents Suppliers, Inputs, Process, Outputs, and Customers?",
+    "options": [
+      "SIPOC",
+      "FMEA",
+      "SWOT",
+      "PESTLE",
+      "DMAIC"
+    ],
+    "answer": 0,
+    "explanation": "A SIPOC diagram is a high-level visual mapping tool used at the start of a Six Sigma project to define the scope by identifying: Suppliers (providers of inputs), Inputs (materials/information required), Process (core transformation steps), Outputs (deliverables produced), and Customers (recipients of outputs)."
+  },
+  {
+    "id": 47,
+    "question": "In quality improvement initiatives, what does the 'Pareto Principle' (80/20 Rule) assert regarding process defects?",
+    "options": [
+      "All defects are equally important and must receive identical resources for short-term managerial decision-making and pricing.",
+      "80% of workers cause 100% of errors per unit of finished output during the cost period.",
+      "Approximately 80% of problems or defect occurrences arise from roughly 20% of vital underlying causes.",
+      "Defects occur only during 20% of the operating year across production and service cost centers.",
+      "Quality improves by 80% if prices are cut by 20% when computing departmental overhead absorption rates."
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Approximately 80% of problems or defect occurrences arise from roughly 20% of vital underlying causes (the 'vital few' versus the 'trivial many').. The Pareto Principle asserts that roughly 80% of consequences come from 20% of causes. In quality management, Pareto charts rank defect categories by frequency, allowing teams to focus on the 'vital few' root causes that will yield the greatest quality improvement."
+  },
+  {
+    "id": 48,
+    "question": "In the 'Cost of Quality' (COQ) framework, where should expenditures incurred on 'Quality Training for Machine Operators' and 'Preventive Equipment Calibration' be classified?",
+    "options": [
+      "Appraisal Costs",
+      "Internal Failure Costs",
+      "External Failure Costs",
+      "Administrative Overheads",
+      "Prevention Costs"
+    ],
+    "answer": 4,
+    "explanation": "Prevention Costs are costs incurred proactively to prevent defects from occurring in the first place (e.g., quality engineering, operator training, supplier capability evaluations, preventive maintenance design). Appraisal costs are incurred to inspect and test products."
+  },
+  {
+    "id": 49,
+    "question": "In Business Process Reengineering (BPR), what is the primary role of 'Process Mapping'?",
+    "options": [
+      "To map the geographic GPS routes of delivery trucks when computing departmental overhead absorption rates",
+      "To create a visual diagram of the end-to-end workflow, identifying each activity, handoff, decision point, bottleneck, and redundant non-value-adding step for radical redesign",
+      "To draft organization charts showing senior executive titles in accordance with Cost Accounting Standards (CAS)",
+      "To calculate standard labor efficiency variances during reconciliation of cost and financial accounts",
+      "To audit tax invoices for input credit"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: To create a visual diagram of the end-to-end workflow, identifying each activity, handoff, decision point, bottleneck, and redundant non-value-adding step for radical redesign. Process Mapping in BPR lays out the complete current-state workflow (As-Is process), making visible all delays, duplicated tasks, multi-layered handoffs, and non-value-adding activities. This provides the analytical foundation for designing the streamlined, radical future-state (To-Be) process."
+  },
+  {
+    "id": 50,
+    "question": "In 'Whole Life Costing' (Life Cycle Costing), which of the following cost categories is explicitly evaluated alongside initial acquisition and operating costs?",
+    "options": [
+      "Future dividend payments to equity shareholders based on normal operating capacity and machine hours",
+      "Speculative stock exchange trading fees across equivalent units of work-in-progress inventory",
+      "Personal income tax of company directors within the integrated cost ledger accounting system",
+      "Environmental impact, decommissioning, dismantling, and safe hazardous waste disposal costs at the end of the asset's economic life",
+      "Historical preliminary expenses written off in the periodical cost sheet and profitability statement"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Environmental impact, decommissioning, dismantling, and safe hazardous waste disposal costs at the end of the asset's economic life. Whole Life Costing evaluates total cost from 'cradle to grave': (1) Initial acquisition and capital costs; (2) Operational and maintenance costs over useful life; and (3) End-of-life retirement, decommissioning, decontamination, site restoration, and environmental disposal costs."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Costing Mock 5",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Costing Mock 5";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br /><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br /><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br /><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br /><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

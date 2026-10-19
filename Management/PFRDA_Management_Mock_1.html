@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Management Mock Test 1 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject D: Management</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Management_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Management_Master_Revision_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Management_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Management_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Management_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Management_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Management_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &#183; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &#183; Paper 2 &#183; Management Mock 1</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Management - Mock 1</h1>
+    <p class="start-subheading">Full-Length Topic Test &#183; 50 Questions &#183; Exam Pattern</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Accounting System:</b> Financial information system, bookkeeping vs accounting, concepts, conventions, capital vs revenue, errors.</li>
+                <li><b>Accounting Standards:</b> Depreciation (AS 10 / Ind AS 16), Inventories (AS 2 / Ind AS 2), Revenue Recognition (AS 9 / Ind AS 115), PPE (AS 10), Forex (AS 11 / Ind AS 21), Investments (AS 13).</li>
+                <li><b>Cash Flow &amp; Fund Flow:</b> Operating/Investing/Financing activities, Direct &amp; Indirect methods, Statement of Changes in Working Capital.</li>
+                <li><b>Ratio Analysis:</b> Liquidity, Solvency, Turnover, Profitability, and DuPont 3-stage model.</li>
+                <li><b>Share Capital &amp; Corporate Actions:</b> Share issue/forfeiture/reissue, Bonus shares (Sec 63), Rights issue (Sec 62), ESOPs, Buy-back (Sec 68-70).</li>
+                <li><b>Company Final Accounts:</b> Schedule III Balance Sheet and Statement of Profit &amp; Loss structure and disclosures.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "According to Henry Mintzberg's managerial role framework, when a Chief Executive Officer attends the ribbon-cutting ceremony of a new branch office or presides over an employee retirement dinner, which specific managerial role is being performed?",
+    "options": [
+      "Leader",
+      "Figurehead",
+      "Liaison",
+      "Spokesperson",
+      "Resource Allocator"
+    ],
+    "answer": 1,
+    "explanation": "Under Henry Mintzberg's taxonomy of 10 managerial roles, the 'Figurehead' role is an interpersonal role where the manager represents the organization in formal, ceremonial, symbolic, and social duties required by law or social custom (e.g. ribbon-cutting, attending employee ceremonies, signing legal documents)."
+  },
+  {
+    "id": 2,
+    "question": "In Robert L. Katz's management skills framework, which skill represents the mental ability to view the organization as an integrated whole, understand how various parts depend on each other, and anticipate how changes affect the entire system?",
+    "options": [
+      "Technical Skill",
+      "Human / Interpersonal Skill",
+      "Mechanical Skill",
+      "Conceptual Skill",
+      "Supervisory Skill"
+    ],
+    "answer": 3,
+    "explanation": "Robert Katz identified three fundamental management skills: (1) Technical Skill (proficiency in specific activities/methods, critical at first-line management); (2) Human Skill (ability to work with, motivate, and communicate with people, equally vital at all levels); and (3) Conceptual Skill (the cognitive ability to perceive the organization holistically, coordinate complex relationships, and formulate strategic vision, most critical for top management)."
+  },
+  {
+    "id": 3,
+    "question": "Under Henri Fayol's 14 Principles of Management, the principle of 'Unity of Command' explicitly dictates that:",
+    "options": [
+      "An employee should receive orders and instructions from one, and only one, superior.",
+      "All organizational activities with the same objective must be directed by one manager using one plan.",
+      "Individual employee interests must always supersede corporate objectives.",
+      "Authority must be concentrated exclusively at the board level without delegation.",
+      "Employees must be rotated across departments every six months."
+    ],
+    "answer": 0,
+    "explanation": "Fayol's 'Unity of Command' principle states that an employee should receive orders from one superior only. Dual subordination leads to confusion, conflict, overlapping authority, and diluted responsibility. (In contrast, 'Unity of Direction' states that there should be 'one head and one plan' for a group of activities having the same objective)."
+  },
+  {
+    "id": 4,
+    "question": "In Henri Fayol's administrative hierarchy, what is a 'Gangplank'?",
+    "options": [
+      "A punitive procedure used to dismiss non-performing workers within the formal organizational hierarchy and structure",
+      "A platform for executive board meetings across departmental teams and reporting relationships",
+      "A horizontal bridge or direct communication shortcut established between employees of the same rank across different departments to avoid delays in the formal scalar chain during emergencies",
+      "A mathematical formula for measuring span of control under modern human resource development (HRD) practices",
+      "A temporary advisory committee of external experts to enhance employee morale, job satisfaction, and productivity"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A horizontal bridge or direct communication shortcut established between employees of the same rank across different departments to avoid delays in the formal scalar chain during emergencies. Fayol recognized that strict adherence to the formal 'Scalar Chain' (line of authority from highest to lowest rank) can cause bureaucratic delays. He proposed the 'Gangplank'—a direct horizontal communication channel between two employees of equal level in different scalar lines, provided prior permission or subsequent intimation is given to their respective superiors."
+  },
+  {
+    "id": 5,
+    "question": "Which of the following techniques was developed by F.W. Taylor under Scientific Management to eliminate superfluous, wasteful, and inefficient body movements of shop-floor workers?",
+    "options": [
+      "Fatigue Study",
+      "Time Study",
+      "Differential Piece-Rate System",
+      "Method Study",
+      "Motion Study"
+    ],
+    "answer": 4,
+    "explanation": "Motion Study (pioneered by F.W. Taylor and further refined by Frank and Lillian Gilbreth) is the systematic observation and analysis of the physical movements performed by a worker in doing a task, designed to eliminate unnecessary movements and identify the one best, most efficient way to perform the job."
+  },
+  {
+    "id": 6,
+    "question": "In F.W. Taylor's concept of 'Functional Foremanship', how many specialized foremen supervise an individual factory workman, and how are they divided between the planning and execution departments?",
+    "options": [
+      "4 foremen: 2 in planning and 2 on shop floor",
+      "8 foremen: 4 in planning room and 4 on shop floor execution",
+      "6 foremen: 3 in planning and 3 in quality inspection",
+      "10 foremen: 5 in administration and 5 in maintenance",
+      "2 foremen: 1 technical and 1 administrative"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: 8 foremen: 4 in planning room and 4 on shop floor execution. Taylor discarded the military line system and introduced Functional Foremanship with 8 specialist supervisors: (A) Planning In-charge (4): Instruction Card Clerk, Route Clerk, Time & Cost Clerk, Disciplinarian; (B) Production In-charge (4): Gang Boss, Speed Boss, Repair Boss, Inspector. Each worker takes orders from 8 functional bosses."
+  },
+  {
+    "id": 7,
+    "question": "What did F.W. Taylor mean by the term 'Mental Revolution' in Scientific Management?",
+    "options": [
+      "A psychological strike by workers demanding higher wages by integrating individual needs with organizational objectives",
+      "The replacement of manual labor with artificial intelligence during organizational change and performance appraisal",
+      "The abolition of trade unions through legal injunctions to align employee performance with strategic corporate goals",
+      "A complete mutual transformation in the mental attitude of both management and workers from mutual suspicion and conflict toward active cooperation and shared prosperity",
+      "A shift from piece-rate wages to monthly salaried contracts through participative leadership and two-way communication"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A complete mutual transformation in the mental attitude of both management and workers from mutual suspicion and conflict toward active cooperation and shared prosperity. Taylor emphasized that Scientific Management fundamentally requires a 'Mental Revolution'—a complete change of outlook for both workers and management. Instead of quarreling over how surplus profits should be divided, both parties must cooperate to increase the size of the surplus through higher productivity, benefiting both with higher wages and lower costs."
+  },
+  {
+    "id": 8,
+    "question": "According to Henry Mintzberg, which of the following is categorized under the 'Decisional Roles' of a manager?",
+    "options": [
+      "Entrepreneur, Disturbance Handler, Resource Allocator, Negotiator",
+      "Figurehead, Leader, Liaison",
+      "Monitor, Disseminator, Spokesperson",
+      "Communicator, Motivator, Appraiser",
+      "Innovator, Auditor, Arbitrator"
+    ],
+    "answer": 0,
+    "explanation": "Mintzberg classified the 10 managerial roles into three categories: (1) Interpersonal: Figurehead, Leader, Liaison; (2) Informational: Monitor, Disseminator, Spokesperson; (3) Decisional: Entrepreneur, Disturbance Handler, Resource Allocator, and Negotiator."
+  },
+  {
+    "id": 9,
+    "question": "Who is credited with coining the classic management acronym 'POSDCORB' representing the functions of executive administration?",
+    "options": [
+      "Henri Fayol",
+      "Peter Drucker",
+      "Luther Gulick and Lyndall Urwick",
+      "Chester Barnard",
+      "Max Weber"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Luther Gulick and Lyndall Urwick. Luther Gulick (along with Lyndall Urwick) synthesized executive administrative functions into the famous acronym POSDCORB: Planning, Organizing, Staffing, Directing, Co-ordinating, Reporting, and Budgeting."
+  },
+  {
+    "id": 10,
+    "question": "Which management approach asserts that there is no single 'one best way' to manage an organization, and that the optimal managerial action depends on the specific environmental variables and situational constraints present at a given time?",
+    "options": [
+      "Classical Bureaucratic Approach",
+      "Scientific Management Approach",
+      "Human Relations Approach",
+      "Operational Mathematical Approach",
+      "Contingency (Situational) Approach"
+    ],
+    "answer": 4,
+    "explanation": "The Contingency (or Situational) Approach argues that universal management principles cannot be rigidly applied to every context. The appropriate managerial behavior, leadership style, or organizational structure is contingent upon the unique internal and external situational variables (environment, technology, employee maturity) facing the enterprise."
+  },
+  {
+    "id": 11,
+    "question": "In the hierarchy of organizational planning, what is the logical progression from broadest to most specific operational plan?",
+    "options": [
+      "Rules &rarr; Procedures &rarr; Policies &rarr; Objectives &rarr; Vision & Mission by integrating individual needs with organizational objectives",
+      "Vision & Mission &rarr; Strategic Objectives &rarr; Strategies &rarr; Policies &rarr; Procedures &rarr; Rules",
+      "Budgets &rarr; Policies &rarr; Mission &rarr; Tactics &rarr; Vision during organizational change and performance appraisal",
+      "Procedures &rarr; Rules &rarr; Vision &rarr; Objectives &rarr; Policies to align employee performance with strategic corporate goals",
+      "Policies &rarr; Rules &rarr; Procedures &rarr; Programs &rarr; Mission through participative leadership and two-way communication"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Vision & Mission &rarr; Strategic Objectives &rarr; Strategies &rarr; Policies &rarr; Procedures &rarr; Rules. The hierarchy of planning moves from the broadest long-term purpose to concrete operational directives: Vision & Mission (fundamental purpose) &rarr; Objectives (measurable targets) &rarr; Strategies (broad action plans) &rarr; Policies (general decision-making guidelines) &rarr; Procedures (sequential step-by-step instructions) &rarr; Rules (rigid, specific dos and don'ts with no discretion)."
+  },
+  {
+    "id": 12,
+    "question": "Who introduced the concept of 'Management by Objectives' (MBO) in his 1954 landmark book 'The Practice of Management'?",
+    "options": [
+      "Herbert A. Simon",
+      "Douglas McGregor",
+      "George Odiorne",
+      "Peter F. Drucker",
+      "Chris Argyris"
+    ],
+    "answer": 3,
+    "explanation": "Peter F. Drucker introduced 'Management by Objectives' (MBO) in his 1954 classic book 'The Practice of Management'. MBO is a collaborative management process where superiors and subordinates jointly identify common organizational goals, define individual areas of responsibility, and use these objectives as guides for operating the unit and assessing performance."
+  },
+  {
+    "id": 13,
+    "question": "What is the concept of 'Bounded Rationality' in administrative decision-making formulated by Nobel laureate Herbert A. Simon?",
+    "options": [
+      "Human decision-makers are constrained by cognitive limitations, incomplete information, time pressure, and mental computational limits, leading them to 'satisfice' rather than maximize/optimize.",
+      "Managers always make mathematically optimal decisions using perfect computer algorithms through participative leadership and two-way communication.",
+      "Rationality has no boundaries in modern multinational corporations during strategic planning and operational control cycles.",
+      "Managers base decisions strictly on emotional intuition rather than data within the managerial decision-making and delegation framework.",
+      "Decision-making should be delegated exclusively to external legal consultants by integrating individual needs with organizational objectives."
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Human decision-makers are constrained by cognitive limitations, incomplete information, time pressure, and mental computational limits, leading them to 'satisfice' (choose a good enough alternative) rather than maximize/optimize.. Herbert Simon challenged the classical economic model of 'economic man' who possesses perfect information and maximizes utility. Simon proposed 'Administrative Man' operating under 'Bounded Rationality'—human cognitive capabilities are limited, information is imperfect, and time is finite, so managers look for satisfactory, acceptable solutions ('satisficing') rather than exhaustive optimal choices."
+  },
+  {
+    "id": 14,
+    "question": "In organizational structuring, what is a 'Matrix Organization' structure?",
+    "options": [
+      "A structure where an employee reports strictly to one line manager",
+      "A temporary virtual network of independent contractors across formal and informal organizational channels",
+      "A hybrid organizational design that superimposes a project or product management structure onto an existing functional department structure",
+      "A completely flat structure with zero managers under contingency and situational leadership models",
+      "A traditional military hierarchy"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A hybrid organizational design that superimposes a project or product management structure onto an existing functional department structure, resulting in dual lines of authority (two bosses). A Matrix Structure combines functional and project/product departmentation. Employees have dual reporting relationships—typically reporting to both a functional manager (e.g. Head of Engineering) for technical standards and professional development, and a project/product manager for daily project execution."
+  },
+  {
+    "id": 15,
+    "question": "What does V.A. Graicunas' mathematical formula on 'Span of Control' analyze?",
+    "options": [
+      "The depreciation rate of heavy manufacturing plant by integrating individual needs with organizational objectives",
+      "The optimum speed of a factory assembly conveyor belt during organizational change and performance appraisal",
+      "The correlation between employee age and retirement benefits to align employee performance with strategic corporate goals",
+      "The optimal capital gearing ratio through participative leadership and two-way communication",
+      "The geometric explosion of interpersonal relationships that a manager must oversee as the number of direct subordinates increases"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The geometric explosion of interpersonal relationships (direct single, direct group, and cross relationships) that a manager must oversee as the number of direct subordinates increases. French management consultant V.A. Graicunas formulated a mathematical model showing that as the number of subordinates (n) increases arithmetically, the number of potential complex social relationships (Direct Single, Direct Group, and Cross-relationships) increases exponentially according to the formula: R = n × [2^(n-1) + n - 1]."
+  },
+  {
+    "id": 16,
+    "question": "Which of the following correctly describes the elements of 'Delegation of Authority'?",
+    "options": [
+      "Accountability is delegated first, followed by authority within the formal organizational hierarchy and structure.",
+      "Authority can be delegated, Responsibility can be delegated, but Accountability can NEVER be delegated by a superior.",
+      "A manager who delegates a task is completely relieved of accountability for the ultimate outcome across departmental teams and reporting relationships.",
+      "Delegation is illegal under Indian corporate law under modern human resource development (HRD) practices.",
+      "Responsibility and Accountability are identical terms to enhance employee morale, job satisfaction, and productivity."
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Authority can be delegated, Responsibility can be delegated, but Accountability can NEVER be delegated by a superior.. Delegation involves three elements: (1) Assignment of Responsibility (duty to perform); (2) Grant of Authority (power to make decisions and command resources); and (3) Creation of Accountability (answerability for the final outcome). While authority and duties can be delegated to a subordinate, the delegating manager retains ultimate accountability to higher management."
+  },
+  {
+    "id": 17,
+    "question": "In human resource staffing, what is the 'Assessment Center' method used for selection and promotion?",
+    "options": [
+      "A physical medical clinic for health checkups through participative leadership and two-way communication",
+      "A computerized multiple-choice general knowledge test during strategic planning and operational control cycles",
+      "A police verification center for criminal background checks within the managerial decision-making and delegation framework",
+      "A comprehensive, multi-dimensional evaluation process where candidates participate in standardized behavioral exercises evaluated by multiple trained assessors",
+      "An automated payroll processing center by integrating individual needs with organizational objectives"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A comprehensive, multi-dimensional evaluation process where candidates participate in standardized behavioral exercises (in-basket tests, leaderless group discussions, simulations, role plays) evaluated by multiple trained assessors. An Assessment Center is a standardized behavioral evaluation system where multiple candidates perform real-world managerial simulations, in-basket exercises, business games, and group tasks while being independently observed and scored by multiple trained raters against predefined managerial competencies."
+  },
+  {
+    "id": 18,
+    "question": "Which performance appraisal technique uses specific behavioral statements describing actual job performance along a scale from extremely poor to extremely good, combining qualitative behavioral anecdotes with quantitative rating scales?",
+    "options": [
+      "Behaviorally Anchored Rating Scale (BARS)",
+      "Graphic Rating Scale",
+      "Forced Distribution Method",
+      "Paired Comparison Method",
+      "Straight Ranking Method"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Behaviorally Anchored Rating Scale (BARS). Behaviorally Anchored Rating Scales (BARS) combine elements of traditional rating scales and critical incident techniques. It anchors numerical rating scale points with specific, observable behavioral narrative examples of job performance (from unacceptable to outstanding), reducing subjective rater bias."
+  },
+  {
+    "id": 19,
+    "question": "In employee training, what is 'Vestibule Training'?",
+    "options": [
+      "Sending workers to a university for a 2-year degree by integrating individual needs with organizational objectives",
+      "Training employees on the live assembly line with paying customers watching during organizational change and performance appraisal",
+      "Off-the-job training conducted in a separate simulated training area equipped with identical machines and tools used in the actual production plant",
+      "Training delivered solely through paper textbooks at home to align employee performance with strategic corporate goals",
+      "Unsupervised trial-and-error work"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Off-the-job training conducted in a separate simulated training area equipped with identical machines and tools used in the actual production plant, allowing trainees to learn without disrupting live production. Vestibule Training is an off-the-job training method where a replica of the actual work environment (a 'vestibule' or simulation lab) is created with duplicate tools and equipment. Trainees acquire proficiency in operating machinery and handling materials safely without slowing down active factory operations or risking costly damage."
+  },
+  {
+    "id": 20,
+    "question": "In the classical Control Process, what is the correct chronological sequence of steps?",
+    "options": [
+      "1. Take corrective action &rarr; 2. Establish standards &rarr; 3. Compare actual with standards &rarr; 4. Measure performance within the formal organizational hierarchy and structure",
+      "1. Measure performance &rarr; 2. Take disciplinary action &rarr; 3. Establish budget &rarr; 4. Report to board across departmental teams and reporting relationships",
+      "1. Appraise staff &rarr; 2. Pay bonus &rarr; 3. Measure standards &rarr; 4. Forecast sales under modern human resource development (HRD) practices",
+      "1. Compare performance &rarr; 2. Establish standards &rarr; 3. Measure actual &rarr; 4. Revise plans to enhance employee morale, job satisfaction, and productivity",
+      "1. Establish Performance Standards &rarr; 2. Measure Actual Performance &rarr; 3. Compare Actual Performance against Standards &rarr; 4. Take Corrective Action"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: 1. Establish Performance Standards &rarr; 2. Measure Actual Performance &rarr; 3. Compare Actual Performance against Standards &rarr; 4. Take Corrective Action. The fundamental control cycle follows 4 sequential stages: (1) Establishment of predetermined performance standards/criteria; (2) Measurement of actual operational performance; (3) Comparison of actual results with established standards to identify deviations; and (4) Taking corrective managerial action to remedy significant negative deviations."
+  },
+  {
+    "id": 21,
+    "question": "What is 'Critical Point Control' (CPC) in managerial controlling?",
+    "options": [
+      "Inspecting 100% of all administrative emails across the company through participative leadership and two-way communication",
+      "Focusing managerial control attention on Key Result Areas (KRAs) and critical strategic control points where deviations will cause the greatest damage to corporate performance",
+      "Shutting down production whenever a minor error occurs during strategic planning and operational control cycles",
+      "Auditing travel reimbursements below ₹100 within the managerial decision-making and delegation framework",
+      "Dismissing employees immediately upon first mistake by integrating individual needs with organizational objectives"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Focusing managerial control attention on Key Result Areas (KRAs) and critical strategic control points where deviations will cause the greatest damage to corporate performance. Critical Point Control (CPC) recognizes that a manager cannot control every minute detail. Control must focus on strategic control points—factors and activities that are critical to the overall success of the enterprise (e.g. labor cost per unit, safety compliance, critical component yield) where a small failure would jeopardize the entire organization."
+  },
+  {
+    "id": 22,
+    "question": "Developed by Robert Kaplan and David Norton, the 'Balanced Scorecard' evaluates organizational performance across which four distinct perspectives?",
+    "options": [
+      "Sales, Profit, Debt, Equity",
+      "Planning, Organizing, Leading, Controlling",
+      "Quality, Cost, Delivery, Safety",
+      "Financial, Customer, Internal Business Processes, and Learning & Growth",
+      "Strengths, Weaknesses, Opportunities, Threats"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Financial, Customer, Internal Business Processes, and Learning & Growth. The Balanced Scorecard (Kaplan & Norton) balances traditional lagging financial measures with forward-looking operational drivers across 4 interconnected perspectives: (1) Financial ('How do we look to shareholders?'); (2) Customer ('How do customers see us?'); (3) Internal Business Processes ('What must we excel at?'); and (4) Learning and Growth ('How can we continue to improve and create value?')."
+  },
+  {
+    "id": 23,
+    "question": "What is the key conceptual distinction between a 'Manager' and a 'Leader' as highlighted in contemporary management literature (e.g. Warren Bennis, John Kotter)?",
+    "options": [
+      "Managers focus on planning, organizing, systems, structure, and maintaining order/stability; Leaders focus on establishing vision, aligning people, inspiring, motivating, and driving change.",
+      "Managers are always elected by shareholders, whereas leaders are appointed by the government.",
+      "Leaders deal only with financial budgets, while managers deal with employee emotions during organizational change and performance appraisal.",
+      "There is no difference; the terms are completely interchangeable in corporate governance to align employee performance with strategic corporate goals.",
+      "A leader can never hold an executive corporate title through participative leadership and two-way communication."
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Managers focus on planning, organizing, systems, structure, and maintaining order/stability; Leaders focus on establishing vision, aligning people, inspiring, motivating, and driving change.. As Warren Bennis stated: 'The manager administers; the leader innovates. The manager maintains; the leader develops. The manager focuses on systems and structure; the leader focuses on people. The manager relies on control; the leader inspires trust. The manager asks how and when; the leader asks what and why. The manager maintains stability; the leader drives constructive change.'"
+  },
+  {
+    "id": 24,
+    "question": "What distinguishes an 'Effective Leader' from merely an 'Appointed / Successful Leader'?",
+    "options": [
+      "An effective leader achieves short-term compliance through coercive authority and threats.",
+      "An effective leader never delegates any decision-making authority.",
+      "An effective leader achieves sustainable, high-performing organizational goals",
+      "An effective leader holds meetings for at least 8 hours every day.",
+      "An effective leader avoids taking responsibility for strategic failures."
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: An effective leader achieves sustainable, high-performing organizational goals while simultaneously fostering team member commitment, psychological well-being, trust, and capacity for future independent growth.. A successful leader may achieve temporary short-term compliance or output using formal power, pressure, or coercion, often leaving behind burned-out or dissatisfied subordinates. An effective leader transforms followers, builds intrinsic commitment, develops leadership in others, fosters high morale, and sustains long-term organizational excellence."
+  },
+  {
+    "id": 25,
+    "question": "In the famous 'Ohio State Leadership Studies', leader behavior was isolated into which two independent dimensions?",
+    "options": [
+      "Authoritarian and Democratic",
+      "Employee-centered and Job-centered",
+      "Transformational and Transactional",
+      "Directing and Delegating",
+      "Initiating Structure and Consideration"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Initiating Structure (Task-oriented) and Consideration (People-oriented). The Ohio State University leadership research (Stogdill, Fleishman) identified two fundamental independent dimensions of leader behavior: (1) Initiating Structure: extent to which a leader defines and structures work roles, schedules, and channels of communication; (2) Consideration: extent to which a leader establishes mutual trust, warmth, respect for subordinates' ideas, and care for their feelings."
+  },
+  {
+    "id": 26,
+    "question": "On the Blake and Mouton 'Managerial Grid', what leadership style is represented by coordinates (9,9)?",
+    "options": [
+      "Impoverished Management (1,1)",
+      "Team Management (9,9)",
+      "Authority-Compliance / Task Management (9,1)",
+      "Country Club Management (1,9)",
+      "Middle-of-the-Road Management (5,5)"
+    ],
+    "answer": 1,
+    "explanation": "Blake and Mouton's Managerial Grid evaluates Concern for Production (horizontal 1 to 9) and Concern for People (vertical 1 to 9). (9,9) represents 'Team Management'—considered the optimal style where work accomplishment is from committed people with a common stake in organizational purpose, leading to relationships of trust and high performance."
+  },
+  {
+    "id": 27,
+    "question": "In Rensis Likert's 'Four Systems of Management', which system is characterized by complete managerial trust in subordinates, genuine two-way communication, decentralized decision-making, and teamwork?",
+    "options": [
+      "System 1: Exploitative-Authoritative",
+      "System 2: Benevolent-Authoritative",
+      "System 3: Consultative",
+      "System 4: Participative-Group",
+      "System 5: Laissez-Faire"
+    ],
+    "answer": 3,
+    "explanation": "Rensis Likert identified 4 systems of management: System 1 (Exploitative-Authoritative), System 2 (Benevolent-Authoritative), System 3 (Consultative), and System 4 (Participative-Group). System 4 represents the ideal management system with complete trust and confidence in subordinates, consensual goal-setting, open communication, and high productivity."
+  },
+  {
+    "id": 28,
+    "question": "In Fred Fiedler's Contingency Model of Leadership, how is a leader's underlying leadership orientation measured?",
+    "options": [
+      "Least Preferred Co-worker (LPC) scale",
+      "Myers-Briggs Type Indicator (MBTI)",
+      "Thematic Apperception Test (TAT)",
+      "Managerial Grid Scorecard",
+      "Emotional Intelligence (EQ) Test"
+    ],
+    "answer": 0,
+    "explanation": "Fred Fiedler utilized the Least Preferred Co-worker (LPC) questionnaire. Leaders who describe their least preferred co-worker in favorable terms receive a High LPC score and are relationship-motivated. Leaders who describe their LPC unfavorably receive a Low LPC score and are task-motivated."
+  },
+  {
+    "id": 29,
+    "question": "According to Fiedler's Contingency Theory, in which situational conditions are 'Task-Motivated (Low LPC)' leaders most effective?",
+    "options": [
+      "Only in moderately favorable situations through participative leadership and two-way communication",
+      "In situations with zero position power during strategic planning and operational control cycles",
+      "In situations that are EITHER very favorable OR very unfavorable to the leader",
+      "When subordinate readiness is at stage M3 within the managerial decision-making and delegation framework",
+      "Task-motivated leaders are ineffective in all situations by integrating individual needs with organizational objectives"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: In situations that are EITHER very favorable OR very unfavorable to the leader. Fiedler's empirical research concluded that Task-oriented (Low LPC) leaders perform best in extreme situations: either VERY FAVORABLE situations (good leader-member relations, highly structured task, strong position power) OR VERY UNFAVORABLE situations (poor relations, unstructured task, weak power). Relationship-oriented (High LPC) leaders perform best in MODERATELY favorable situations."
+  },
+  {
+    "id": 30,
+    "question": "In Hersey and Blanchard's Situational Leadership Theory (SLT), when followers are 'Unable but Willing or Confident' (Maturity Level M2), which leadership style should the leader adopt?",
+    "options": [
+      "Telling / Directing (S1 - High Task, Low Relationship)",
+      "Participating / Supporting (S3 - Low Task, High Relationship)",
+      "Delegating (S4 - Low Task, Low Relationship)",
+      "Laissez-faire",
+      "Selling / Coaching (S2 - High Task, High Relationship)"
+    ],
+    "answer": 4,
+    "explanation": "Hersey & Blanchard's model matches leader style to follower maturity/readiness: (M1) Unable & Unwilling &rarr; S1 Telling (High Task, Low Rel); (M2) Unable but Willing &rarr; S2 Selling/Coaching (High Task, High Rel: provides both task direction and psychological support); (M3) Able but Unwilling &rarr; S3 Participating; (M4) Able & Willing &rarr; S4 Delegating."
+  },
+  {
+    "id": 31,
+    "question": "In Robert House's Path-Goal Theory of Leadership, rooted in Vroom's expectancy theory, what are the four distinct leader behaviors?",
+    "options": [
+      "Autocratic, Democratic, Free-rein, Paternalistic",
+      "Directive, Supportive, Participative, and Achievement-Oriented",
+      "Telling, Selling, Participating, Delegating",
+      "Country Club, Team, Impoverished, Task",
+      "Transactional, Transformational, Charismatic, Servant"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Directive, Supportive, Participative, and Achievement-Oriented. Robert House's Path-Goal Theory identifies 4 primary leadership behaviors: (1) Directive leadership (specific guidance, schedules, rules); (2) Supportive leadership (friendly, approachable, shows concern for well-being); (3) Participative leadership (consults, solicits suggestions before deciding); (4) Achievement-oriented leadership (sets challenging goals, expects high performance, shows confidence in team ability)."
+  },
+  {
+    "id": 32,
+    "question": "What is the defining characteristic of a 'Transformational Leader' as contrasted with a 'Transactional Leader'?",
+    "options": [
+      "Transactional leaders rely on charisma; Transformational leaders rely on financial penalties within the formal organizational hierarchy and structure.",
+      "Transformational leaders manage only routine daily tasks across departmental teams and reporting relationships.",
+      "Transactional leaders eliminate all organizational rules under modern human resource development (HRD) practices.",
+      "Transactional leaders motivate followers by appealing to self-interest through exchanges; Transformational leaders inspire followers to transcend self-interest for the organizational vision through charisma, intellectual stimulation, and individualized consideration.",
+      "There is no difference in organizational psychology to enhance employee morale, job satisfaction, and productivity."
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Transactional leaders motivate followers by appealing to self-interest through exchanges (rewards for performance, management by exception); Transformational leaders inspire followers to transcend self-interest for the organizational vision through charisma, intellectual stimulation, and individualized consideration.. Transactional leadership focuses on clarifying roles, tasks, and contingent rewards (quid pro quo exchange). Transformational leadership (Burns, Bass) inspires followers to achieve extraordinary outcomes by articulating an inspiring vision (Idealized Influence / Charisma), providing Inspirational Motivation, challenging assumptions (Intellectual Stimulation), and coaching individual needs (Individualized Consideration)."
+  },
+  {
+    "id": 33,
+    "question": "What is the primary difference in orientation between Human Resource Management (HRM) and Human Resource Development (HRD)?",
+    "options": [
+      "HRM focuses broadly on personnel maintenance, recruitment, compensation, compliance, and industrial relations; HRD is a specialized continuous sub-system focused on developing human competencies, unleashing potential, and organizational renewal.",
+      "HRM is an ongoing continuous philosophy; HRD is a routine administrative function through participative leadership and two-way communication.",
+      "HRD applies only to factory workers, while HRM is for executives during strategic planning and operational control cycles.",
+      "HRM is managed by external consultants, while HRD is managed by accountants within the managerial decision-making and delegation framework.",
+      "There is no difference between HRM and HRD by integrating individual needs with organizational objectives."
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: HRM focuses broadly on personnel maintenance, recruitment, compensation, compliance, and industrial relations; HRD is a specialized continuous sub-system focused on developing human competencies, unleashing potential, and organizational renewal.. HRM is the overarching umbrella encompassing all personnel functions (recruitment, selection, compensation, union relations, compliance). HRD (pioneered in India by T.V. Rao and Udai Pareek) is a developmental subset that focuses systematically on building employee competencies, dynamism, potential appraisal, career development, and self-renewing organizational capability."
+  },
+  {
+    "id": 34,
+    "question": "Which of the following is NOT one of the core subsystems of a comprehensive Human Resource Development (HRD) system?",
+    "options": [
+      "Performance Appraisal and Feedback",
+      "Potential Appraisal and Career Planning",
+      "Industrial Strike Organization and Lockout Management",
+      "Training and Executive Development",
+      "Organization Development (OD) and Quality of Work Life (QWL)"
+    ],
+    "answer": 2,
+    "explanation": "Core subsystems of an integrated HRD system include: Performance Appraisal, Potential Appraisal, Career Planning & Succession Planning, Training & Development, Counseling & Mentoring, Employee Welfare/QWL, and Organization Development (OD). Organizing strikes or lockouts is an industrial relations conflict, not an HRD competency development subsystem."
+  },
+  {
+    "id": 35,
+    "question": "In HRD, what is the primary purpose of conducting a 'Potential Appraisal' as distinct from a 'Performance Appraisal'?",
+    "options": [
+      "To calculate the annual bonus for past completed sales by integrating individual needs with organizational objectives",
+      "To audit employee medical reimbursements during organizational change and performance appraisal",
+      "To verify educational degrees with universities to align employee performance with strategic corporate goals",
+      "To determine weekly overtime wage payments through participative leadership and two-way communication",
+      "To evaluate an employee's latent, hidden capabilities, personality traits, and readiness to successfully assume higher-level executive roles and responsibilities in the future"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: To evaluate an employee's latent, hidden capabilities, personality traits, and readiness to successfully assume higher-level executive roles and responsibilities in the future. Performance Appraisal looks backward at how well an employee executed their CURRENT job duties over the past period. Potential Appraisal looks forward to assess an employee's latent capabilities, intellectual bandwidth, and leadership competencies to take on HIGHER, more complex responsibilities in the future (essential for succession planning)."
+  },
+  {
+    "id": 36,
+    "question": "What is 'Competency Mapping' in modern Human Resource Development?",
+    "options": [
+      "Plotting the physical GPS location of regional sales branches within the formal organizational hierarchy and structure",
+      "The process of identifying, defining, and profiling the specific combination of Knowledge, Skills, and Attributes (KSAs) required to perform a particular job role effectively, and mapping employees' existing competencies against those benchmarks",
+      "Mapping the salary levels of competitor companies across departmental teams and reporting relationships",
+      "Conducting annual fire safety drills under modern human resource development (HRD) practices",
+      "Calculating income tax deductions per employee to enhance employee morale, job satisfaction, and productivity"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The process of identifying, defining, and profiling the specific combination of Knowledge, Skills, and Attributes (KSAs) required to perform a particular job role effectively, and mapping employees' existing competencies against those benchmarks. Competency Mapping is a structured process of identifying the key knowledge, skills, behaviors, and personal attributes (competencies) needed for outstanding performance in a designated role, and evaluating individual employees against these profiles to design targeted training, promotions, and succession plans."
+  },
+  {
+    "id": 37,
+    "question": "What are the three fundamental pillars/goals of Human Resource Development (HRD) at the organizational level?",
+    "options": [
+      "Cost cutting, staff retrenchment, automation through participative leadership and two-way communication",
+      "Maximizing debt financing, reducing corporate tax, issuing bonus shares during strategic planning and operational control cycles",
+      "Eliminating performance appraisals, banning overtime, freezing hiring within the managerial decision-making and delegation framework",
+      "Developing individual employee competence, developing team dynamism, and building healthy organizational climate/collaboration",
+      "Promoting union dominance, enforcing seniority-only promotions, reducing working hours by integrating individual needs with organizational objectives"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Developing individual employee competence, developing team dynamism, and building healthy organizational climate/collaboration. As articulated by Prof. T.V. Rao, the prime goals of HRD are threefold: (1) Developing competencies in every individual employee to perform current and future roles; (2) Developing collaborative dyadic and team relationships across groups; and (3) Fostering an enabling, healthy, and self-renewing organizational culture and climate."
+  },
+  {
+    "id": 38,
+    "question": "In Abraham Maslow's Need Hierarchy Theory, once lower-level physiological and safety needs are satisfied, what is the HIGHEST level need in the hierarchy that represents realizing one's full personal potential and self-fulfillment?",
+    "options": [
+      "Self-Actualization Need",
+      "Social / Belongingness Need",
+      "Esteem Need",
+      "Safety Need",
+      "Ego-Defensive Need"
+    ],
+    "answer": 0,
+    "explanation": "Maslow's hierarchy progresses through 5 levels: (1) Physiological &rarr; (2) Safety/Security &rarr; (3) Social/Love/Belongingness &rarr; (4) Esteem (Self-respect, recognition) &rarr; (5) Self-Actualization. Self-Actualization is the pinnacle need to become everything that one is capable of becoming, achieving personal growth and self-fulfillment."
+  },
+  {
+    "id": 39,
+    "question": "According to Frederick Herzberg's Two-Factor (Motivator-Hygiene) Theory, which of the following is classified as a 'Hygiene Factor' (Maintenance Factor)?",
+    "options": [
+      "Challenging work and personal achievement by integrating individual needs with organizational objectives",
+      "Recognition from peers and management during organizational change and performance appraisal",
+      "Company policy, working conditions, salary, and interpersonal relations with supervisor",
+      "Increased autonomy and responsibility",
+      "Opportunities for advancement and personal growth through participative leadership and two-way communication"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Company policy, working conditions, salary, and interpersonal relations with supervisor. Herzberg separated workplace factors into: (1) Hygiene Factors (extrinsic context): company policy, administration, supervision, salary, working conditions, job security. If inadequate, they cause dissatisfaction; if adequate, they produce a neutral state (no dissatisfaction), but DO NOT motivate. (2) Motivators (intrinsic content): achievement, recognition, responsibility, work itself, advancement, which genuinely stimulate motivation and high performance."
+  },
+  {
+    "id": 40,
+    "question": "In Clayton Alderfer's 'ERG Theory' of motivation, what is the core departure from Maslow's rigid hierarchy known as the 'Frustration-Regression Principle'?",
+    "options": [
+      "An employee who satisfies higher-level needs immediately resigns within the formal organizational hierarchy and structure.",
+      "Needs cannot be grouped into categories across departmental teams and reporting relationships.",
+      "Salary is the only true motivator in corporate life under modern human resource development (HRD) practices.",
+      "Lower-level needs never reactivate once satisfied to enhance employee morale, job satisfaction, and productivity.",
+      "If a higher-level need (e.g. Growth) remains repeatedly frustrated and unfulfilled, the individual's desire to satisfy lower-level needs increases and regresses."
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: If a higher-level need (e.g. Growth) remains repeatedly frustrated and unfulfilled, the individual's desire to satisfy lower-level needs (e.g. Relatedness or Existence) increases and regresses.. Alderfer condensed Maslow's 5 needs into three: Existence (E), Relatedness (R), and Growth (G). Unlike Maslow's strict upward progression, Alderfer introduced the 'Frustration-Regression' principle: when an individual is thwarted in fulfilling a higher-order need (Growth), they regress and place higher emotional energy and urgency on satisfying a lower-order need (Relatedness or Existence)."
+  },
+  {
+    "id": 41,
+    "question": "David McClelland's Acquired Needs Theory identifies three learned human motivators. Which need is characterized by a strong desire to take personal responsibility for finding solutions to problems, setting moderately difficult goals with calculated risks, and seeking rapid, concrete feedback on performance?",
+    "options": [
+      "Need for Affiliation (nAff)",
+      "Need for Achievement (nAch)",
+      "Need for Power (nPow)",
+      "Need for Autonomy (nAut)",
+      "Need for Security (nSec)"
+    ],
+    "answer": 1,
+    "explanation": "Individuals with high Need for Achievement (nAch) seek personal responsibility, establish realistic but challenging goals (moderate risk, avoiding gambles), thrive on overcoming difficult obstacles, and require prompt, tangible feedback on how well they are progressing."
+  },
+  {
+    "id": 42,
+    "question": "In Victor Vroom's Expectancy Theory of motivation, what does the variable 'Instrumentality' represent?",
+    "options": [
+      "The belief that putting forth effort will lead to successful job performance (Effort &rarr; Performance) to enhance employee morale, job satisfaction, and productivity",
+      "The value or attractiveness an individual places on the expected reward (Valence) across formal and informal organizational channels",
+      "The physical tools and machines provided by the employer under contingency and situational leadership models",
+      "The subjective probability assessment that successful job performance will be followed by a particular second-level outcome or reward (Performance &rarr; Reward)",
+      "The employee's basic physiological strength within the formal organizational hierarchy and structure"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The subjective probability assessment that successful job performance will be followed by a particular second-level outcome or reward (Performance &rarr; Reward). In Vroom's model (Motivation = Expectancy × Instrumentality × Valence): Expectancy is the belief that high effort will result in high performance (E&rarr;P). Instrumentality is the belief that high performance will actually be acknowledged and lead to desired rewards (P&rarr;O/Reward). Valence is the value or personal desirability of the reward."
+  },
+  {
+    "id": 43,
+    "question": "According to J. Stacy Adams' 'Equity Theory' of motivation, how does an employee determine whether they are being treated fairly in the workplace?",
+    "options": [
+      "By comparing their perceived ratio of job outcomes to job inputs with the outcome/input ratio of a relevant 'Referent Other'",
+      "By checking whether their salary is higher than the statutory minimum wage by integrating individual needs with organizational objectives",
+      "By calculating whether the company's gross profit margin increased during organizational change and performance appraisal",
+      "By having their union representative audit the company books to align employee performance with strategic corporate goals",
+      "By checking their position on the Managerial Grid through participative leadership and two-way communication"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: By comparing their perceived ratio of job outcomes (salary, recognition) to job inputs (effort, experience, education) with the outcome/input ratio of a relevant 'Referent Other'. Adams' Equity Theory asserts that employees evaluate social justice and fairness by comparing their own Outcome/Input ratio (Outcomes = pay, perks, status / Inputs = effort, skills, hours) against the perceived Outcome/Input ratio of comparison referents (co-workers, industry peers). Perceived inequity (under-reward or over-reward) produces tension motivating behavioral adjustments."
+  },
+  {
+    "id": 44,
+    "question": "Under the 'Halsey Premium Plan' of incentive wage payment, how is the employee's bonus computed when a job is completed in less than standard time?",
+    "options": [
+      "Bonus = 100% of the time saved multiplied by the standard hourly wage rate within the formal organizational hierarchy and structure",
+      "Bonus = (Time Saved / Standard Time) × Total Earnings across departmental teams and reporting relationships",
+      "Bonus = 50% (or an agreed percentage) of the time saved multiplied by the standard hourly wage rate",
+      "Bonus = A flat ₹500 per day under modern human resource development (HRD) practices",
+      "Bonus is paid only in company equity shares to enhance employee morale, job satisfaction, and productivity"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Bonus = 50% (or an agreed percentage) of the time saved multiplied by the standard hourly wage rate. Under the Halsey Premium Plan (devised by F.A. Halsey): An employee is guaranteed basic time wages for actual time worked. If the worker saves time (Time Taken < Standard Time), a bonus is paid equal to 50% (ordinarily) of the wages of time saved: Bonus = 50% × (Time Saved) × (Hourly Rate). Total Earnings = (Time Taken × Rate) + 0.5 × (Time Saved × Rate)."
+  },
+  {
+    "id": 45,
+    "question": "Standard time allowed to complete an engineering job is 10 hours at a wage rate of ₹40 per hour. An efficient worker completes the job in 8 hours (Time Saved = 2 hours). What are the worker's Total Earnings under the 'Rowan Plan'?",
+    "options": [
+      "₹320.00",
+      "₹360.00",
+      "₹400.00",
+      "₹340.00",
+      "₹384.00"
+    ],
+    "answer": 4,
+    "explanation": "Under the Rowan Plan: Guaranteed time wage = Time Taken × Rate = 8 hours × ₹40 = ₹320. Bonus = (Time Saved / Standard Time) × Time Taken × Rate = (2 / 10) × 8 × ₹40 = 0.20 × ₹320 = ₹64. Total Earnings = ₹320 + ₹64 = ₹384.00."
+  },
+  {
+    "id": 46,
+    "question": "In the standard Communication Process model, what is the term for the process by which the sender converts ideas, thoughts, or feelings into a symbolic form (such as words, gestures, numbers, or diagrams)?",
+    "options": [
+      "Decoding",
+      "Encoding",
+      "Transmitting",
+      "Filtering",
+      "Feedback"
+    ],
+    "answer": 1,
+    "explanation": "The communication process consists of: Sender &rarr; Encoding &rarr; Message &rarr; Channel &rarr; Receiver &rarr; Decoding &rarr; Feedback (surrounded by Noise). Encoding is the cognitive and technical conversion of the sender's mental thoughts and intentions into a transmittable code or symbolic message."
+  },
+  {
+    "id": 47,
+    "question": "Which of the following describes 'Diagonal (Crosswise) Communication' in an organization?",
+    "options": [
+      "Communication flowing strictly from superior to immediate subordinate by integrating individual needs with organizational objectives",
+      "Communication flowing between peer department heads at the same hierarchical level during organizational change and performance appraisal",
+      "Informal rumors spreading through the canteen to align employee performance with strategic corporate goals",
+      "Communication flowing between managers and subordinates across different functional departments who have no direct scalar reporting relationship",
+      "Annual shareholder communication through annual reports through participative leadership and two-way communication"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Communication flowing between managers and subordinates across different functional departments who have no direct scalar reporting relationship (e.g. Marketing Manager communicating directly with a Factory Quality Inspector). Diagonal (Crosswise) Communication cuts across both hierarchical levels and functional departmental boundaries between individuals who have no direct scalar chain reporting connection, expediting task execution and inter-departmental problem-solving."
+  },
+  {
+    "id": 48,
+    "question": "In informal organizational communication ('The Grapevine'), which network pattern is recognized as the MOST COMMON where an individual communicates information to a selected group of trusted colleagues, each of whom in turn passes it on to selected others?",
+    "options": [
+      "Cluster Network",
+      "Single Strand Network",
+      "Gossip Network",
+      "Probability Network",
+      "Linear Chain Network"
+    ],
+    "answer": 0,
+    "explanation": "Research by Keith Davis revealed that the 'Cluster Chain' is by far the most dominant grapevine pattern. In a cluster network, person A conveys news to a select few chosen individuals (e.g., B, C, D); two of them keep it secret, while one conveys it to another specific cluster of trusted friends."
+  },
+  {
+    "id": 49,
+    "question": "An executive sends an urgent memo containing highly specialized technical acronyms, legalistic jargon, and ambiguous terminology to a newly recruited field sales team, causing them to misunderstand the execution protocol. This breakdown is an example of which type of communication barrier?",
+    "options": [
+      "Physical Barrier",
+      "Psychological Barrier",
+      "Semantic / Linguistic Barrier",
+      "Personal Barrier",
+      "Geographic Barrier"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Semantic / Linguistic Barrier. Semantic (or Linguistic) barriers arise from the symbols, words, and expressions used to convey meaning. When words carry multiple meanings, technical jargon is used inappropriately, or language is poorly translated, semantic distortions occur."
+  },
+  {
+    "id": 50,
+    "question": "What is 'Proxemics' in the study of non-verbal business communication?",
+    "options": [
+      "The study of vocal pitch, tone, and pacing of speech (Paralanguage) to enhance employee morale, job satisfaction, and productivity",
+      "The study of facial expressions, eye contact, and bodily posture (Kinesics) across formal and informal organizational channels",
+      "The study of touch and physical contact in professional settings (Haptics) under contingency and situational leadership models",
+      "The study of time perception and punctuality (Chronemics) within the formal organizational hierarchy and structure",
+      "The study of how people use personal space, physical distance, and spatial arrangements in communication (introduced by Edward T. Hall)"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The study of how people use personal space, physical distance, and spatial arrangements in communication (introduced by Edward T. Hall). Proxemics (pioneered by anthropologist Edward T. Hall) is the study of how human beings use personal space and physical distance (intimate, personal, social, and public distance) to communicate non-verbal messages of status, intimacy, comfort, and authority."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Management Mock 1",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Management Mock 1";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br /><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br /><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br /><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br /><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Union Budget &amp; Economic Survey Mock Test 3 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject B: Union Budget & Economic Survey</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Union_Budget_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Union_Budget_Master_Revision_and_Study_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Union_Budget_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Union_Budget_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Union_Budget_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Union_Budget_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Union_Budget_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &#183; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &#183; Paper 2 &#183; Union Budget Mock 3</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Union Budget &amp; Economic Survey - Mock 3</h1>
+    <p class="start-subheading">Full 50 Questions &#183; Concepts, Approach, Broad Trends &amp; Survey &#183; PFRDA Grade A Level &#183; Precision Coaching</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Constitutional &amp; Budgetary Framework:</b> Articles 112, 110, 114, 265, 266, 267, Consolidated Fund vs Public Account, Contingency Fund (₹30,000 Cr).</li>
+                <li><b>Receipts &amp; Expenditure Classification:</b> Revenue Receipts vs Capital Receipts, Non-Debt Capital Receipts (NDCR), Capital Outlay, Disinvestment &amp; Asset Monetization.</li>
+                <li><b>Deficit Architecture &amp; Formulas:</b> Fiscal Deficit, Revenue Deficit, Effective Revenue Deficit (ERD), Primary Deficit, Monetized Deficit.</li>
+                <li><b>FRBM Act &amp; Fiscal Rules:</b> N.K. Singh Committee targets (60% Debt-to-GDP: 40% Centre, 20% States; 3.0% Fiscal Deficit), Escape &amp; Buoyancy Clauses, Post-COVID Glide Path (&lt;4.5% by FY26).</li>
+                <li><b>Budgetary Reforms &amp; Approaches:</b> Zero-Based Budgeting (ZBB), Gender Budgeting (Statement 20), Outcome Budgeting, Merger of Railway Budget, Advancing Date to Feb 1, Plan vs Non-Plan abolition.</li>
+                <li><b>Union Budget Broad Trends:</b> Effective Capex push (₹15.02 Lakh Cr), Direct Tax Reforms (New Tax Regime slabs, Standard Deduction ₹75k, 87A rebate, Angel Tax abolition, Capital Gains 12.5% LTCG &amp; 20% STCG).</li>
+                <li><b>Economic Survey Analytics &amp; Structural Drivers:</b> Real vs Nominal GDP, GVA, Inflation (CPI 45.86% Food, Core CPI, WPI divergence), External Sector (CAD, Remittances #1, GCCs, Forex cushion), Twin Balance Sheet Advantage, Energy Transition &amp; NDCs (Panchamrit, Net Zero 2070, Green Hydrogen).</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 101,
+    "question": "What is the Fiscal Deficit target for FY 2026-27 (BE) set by the Union Government in the Union Budget 2026-27 (following 4.4% in FY 2025-26 RE)?",
+    "options": [
+      "4.9% of GDP (₹18.50 Lakh Crore)",
+      "4.5% of GDP (₹17.40 Lakh Crore)",
+      "5.1% of GDP (₹19.20 Lakh Crore)",
+      "4.3% of GDP (₹16.96 Lakh Crore)",
+      "4.9% of GDP (₹18.50 Lakh Crore)"
+    ],
+    "answer": 3,
+    "explanation": "In the Union Budget 2026-27, the Central Government targeted a Fiscal Deficit of 4.3% of GDP (₹16.96 Lakh Crore), continuing its fiscal consolidation glide path below 4.5% of GDP after achieving 4.4% of GDP in FY 2025-26 (BE/RE) and 4.8% in FY 2024-25."
+  },
+  {
+    "id": 102,
+    "question": "What is the total Capital Expenditure (Capex) outlay allocated by the Central Government in the Union Budget 2026-27 (up from ₹11.21 Lakh Crore in FY26 and ₹11.11 Lakh Crore in FY25)?",
+    "options": [
+      "₹12.22 Lakh Crore (₹12,21,821 Crore)",
+      "₹10.50 Lakh Crore (₹10,50,000 Crore)",
+      "₹11.11 Lakh Crore (₹11,11,111 Crore)",
+      "₹13.75 Lakh Crore (₹13,75,000 Crore)",
+      "₹10.50 Lakh Crore (₹10,50,000 Crore)"
+    ],
+    "answer": 0,
+    "explanation": "The Union Budget 2026-27 allocated ₹12,21,821 Crore (₹12.22 Lakh Crore, an 11.5% increase over FY26 RE) for central capital expenditure, following ₹11.21 Lakh Crore in Budget 2025-26 and ₹11.11 Lakh Crore in Budget 2024-25."
+  },
+  {
+    "id": 103,
+    "question": "When 'Grants-in-Aid for Creation of Capital Assets' provided to States are added to the Centre's own Capex, what was the estimated 'Effective Capital Expenditure' in Union Budget 2024-25?",
+    "options": [
+      "₹11.11 Lakh Crore (3.4% of GDP)",
+      "₹13.50 Lakh Crore (4.1% of GDP)",
+      "₹15.02 Lakh Crore (4.6% of GDP)",
+      "₹18.25 Lakh Crore (5.5% of GDP)",
+      "₹21.00 Lakh Crore (6.3% of GDP)"
+    ],
+    "answer": 2,
+    "explanation": "Effective Capital Expenditure for FY 2024-25 is budgeted at ₹15.02 Lakh Crore (accounting for 4.6% of GDP), incorporating the Centre's own capex of ₹11.11 Lakh Crore plus ₹3.91 Lakh Crore in capital asset creation grants disbursed to States."
+  },
+  {
+    "id": 104,
+    "question": "According to empirical research cited by the Ministry of Finance and RBI, what is the estimated 'Capex Multiplier' of government infrastructure spending in India compared to the revenue expenditure multiplier?",
+    "options": [
+      "Capex multiplier is around 0.5x, while revenue multiplier is 2.5x",
+      "Capex multiplier is around 1.0x, while revenue multiplier is 1.0x",
+      "Both multipliers are negative due to complete Ricardian Equivalence",
+      "Capex multiplier is zero because all capital goods are imported",
+      "Capex multiplier is estimated at 2.45x to 4.8x"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Capex multiplier is estimated at 2.45x to 4.8x (generating long-term crowding-in), whereas the revenue expenditure multiplier is only around 0.45x to 0.98x. Studies by RBI and the National Institute of Public Finance and Policy (NIPFP) demonstrate that the capital expenditure multiplier in India ranges between 2.45x in the short run to over 4.8x over the medium-to-long term. In sharp contrast, the revenue expenditure multiplier is substantially lower (0.45x to 0.98x) and dissipates quickly."
+  },
+  {
+    "id": 105,
+    "question": "In the Union Budget 2024-25, which four overarching demographic cohorts were identified as the prime focus of government policy, referred to by the acronym 'GYAN'?",
+    "options": [
+      "Governance, Youth, Agriculture, Non-resident Indians",
+      "Garib (Poor), Mahilayen (Women), Yuva (Youth), and Annadata (Farmers)",
+      "Green energy, Yield management, Artificial intelligence, National highways",
+      "Gram panchayats, Urban bodies, Adivasis, Nomadic tribes",
+      "Global trade, Youth empowerment, Aerospace, Nuclear power"
+    ],
+    "answer": 1,
+    "explanation": "The Prime Minister and Finance Minister highlighted four key social groups that constitute the pillars of Viksit Bharat: 'Garib' (Poor), 'Mahilayen' (Women), 'Yuva' (Youth), and 'Annadata' (Farmers)—abbreviated conceptually as GYAN."
+  },
+  {
+    "id": 106,
+    "question": "What is the total financial outlay of the historic 'Prime Minister's Package for Employment and Skilling' announced in the Union Budget 2024-25?",
+    "options": [
+      "₹50,000 Crore for 1 crore youth",
+      "₹1 Lakh Crore for 2 crore youth",
+      "₹3 Lakh Crore for 5 crore youth",
+      "₹2 Lakh Crore for 4.1 crore youth over 5 years",
+      "₹5 Lakh Crore for 10 crore youth"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: ₹2 Lakh Crore for 4.1 crore youth over 5 years. The Union Budget 2024-25 announced a comprehensive Prime Minister’s Package of 5 schemes and initiatives to facilitate employment, skilling, and other opportunities for 4.1 crore youth over a 5-year period with a total central outlay of ₹2 Lakh Crore."
+  },
+  {
+    "id": 107,
+    "question": "Under 'Scheme A' of the Employment-Linked Incentive (ELI) package in Budget 2024-25, what benefit is provided to first-time employees entering the formal workforce?",
+    "options": [
+      "One-month wage direct benefit transfer paid in three installments to first-time employees registered with EPFO, earning up to ₹1 Lakh per month",
+      "A free laptop and internet connection for two years as a percentage of Gross Domestic Product (GDP) at market prices",
+      "Complete exemption from personal income tax for their entire career to maintain macroeconomic stability and debt sustainability",
+      "A guaranteed government job after two years of private apprenticeship under the Consolidated Fund and Public Account of India",
+      "Free health insurance coverage up to ₹50 Lakh under Ayushman Bharat as reported in the Union Budget and Economic Survey"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: One-month wage direct benefit transfer (up to ₹15,000) paid in three installments to first-time employees registered with EPFO, earning up to ₹1 Lakh per month. Scheme A (First Timers) provides a direct subsidy of one month's wage—up to a maximum of ₹15,000—disbursed in three installments via DBT to all persons entering formal workforce employment across all sectors, registered with the EPFO, and earning up to ₹1 Lakh per month."
+  },
+  {
+    "id": 108,
+    "question": "Under 'Scheme B' of the Employment-Linked Incentive (ELI) package in Budget 2024-25, what incentive is provided to stimulate job creation in the Manufacturing sector?",
+    "options": [
+      "Complete waiver of GST on all manufactured goods for 5 years in the Annual Financial Statement presented to Parliament",
+      "Zero interest rates on all commercial loans taken by manufacturing units",
+      "Incentive provided directly to both the employee and employer linked to their EPFO contributions in specified ratios for the first 4 years of employment",
+      "Free supply of electricity to all MSME manufacturing units across Central Sector and Centrally Sponsored Schemes",
+      "100% reimbursement of capital equipment costs to boost capital expenditure and infrastructure creation"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Incentive provided directly to both the employee and employer linked to their EPFO contributions in specified ratios for the first 4 years of employment. Scheme B specifically incentivizes additional employment in the manufacturing sector by providing incentives directly to both the employee and the employer in respect of their EPFO contributions during the first four years of employment of first-time employees."
+  },
+  {
+    "id": 109,
+    "question": "What is the objective of 'Scheme C' of the Employment-Linked Incentive (ELI) package in Budget 2024-25 targeted at employers across all sectors?",
+    "options": [
+      "Subsidizing corporate marketing and advertising expenses abroad as reported in the Union Budget and Economic Survey",
+      "Providing free land for industrial parks in special economic zones based on the recommendations of the Finance Commission",
+      "Waiving customs duties on imported raw materials for all exporters within the medium-term fiscal policy strategy statement",
+      "Granting sovereign immunity from labor court inspections as a percentage of Gross Domestic Product (GDP) at market prices",
+      "Reimbursement to employers up to ₹3,000 per month for 2 years towards their EPFO contribution for each additional employee hired"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Reimbursement to employers up to ₹3,000 per month for 2 years towards their EPFO contribution for each additional employee hired. Scheme C (Support to Employers) covers additional employment in all sectors: the government will reimburse employers up to ₹3,000 per month for 2 years towards their statutory EPFO contribution for each additional employee hired with a salary of up to ₹1 Lakh per month."
+  },
+  {
+    "id": 110,
+    "question": "In the Union Budget 2024-25, the limit for loans under the 'Pradhan Mantri Mudra Yojana' (PMMY) was enhanced under which category and to what ceiling?",
+    "options": [
+      "Shishu category from ₹50,000 to ₹1 Lakh",
+      "Tarun category from ₹10 Lakh to ₹20 Lakh",
+      "Kishore category from ₹5 Lakh to ₹10 Lakh",
+      "All categories doubled uniformly across the board",
+      "A new category named 'Udyami' created with a limit of ₹50 Lakh"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Tarun category from ₹10 Lakh to ₹20 Lakh (for entrepreneurs who have previously taken and successfully repaid Tarun loans). To facilitate small business expansion, the Mudra loan limit under the 'Tarun' category was doubled from ₹10 Lakh to ₹20 Lakh for entrepreneurs who have successfully borrowed and repaid earlier loans under the Tarun category."
+  },
+  {
+    "id": 111,
+    "question": "In the Union Budget 2024-25, what changes were made to the 'Standard Deduction' for salaried employees and pensioners under the New Income Tax Regime (Section 115BAC)?",
+    "options": [
+      "Increased from ₹40,000 to ₹50,000",
+      "Increased from ₹50,000 to ₹1,00,000",
+      "Standard deduction was completely abolished",
+      "Increased from ₹50,000 to ₹75,000",
+      "Increased only for government employees to ₹60,000"
+    ],
+    "answer": 3,
+    "explanation": "Under the New Tax Regime, the standard deduction for salaried individuals was raised by 50% from ₹50,000 to ₹75,000. Additionally, the deduction on family pension was enhanced from ₹15,000 to ₹25,000."
+  },
+  {
+    "id": 112,
+    "question": "What are the revised tax rate slabs under the New Personal Income Tax Regime (Section 115BAC) introduced in the Union Budget 2024-25?",
+    "options": [
+      "Up to ₹3L: Nil; ₹3L–₹7L: 5%; ₹7L–₹10L: 10%; ₹10L–₹12L: 15%; ₹12L–₹15L: 20%; Above ₹15L: 30%",
+      "Up to ₹2.5L: Nil; ₹2.5L–₹5L: 5%; ₹5L–₹10L: 20%; Above ₹10L: 30%",
+      "Up to ₹3L: Nil; ₹3L–₹6L: 5%; ₹6L–₹9L: 10%; ₹9L–₹12L: 15%; ₹12L–₹15L: 20%; Above ₹15L: 30%",
+      "Up to ₹5L: Nil; ₹5L–₹10L: 10%; ₹10L–₹15L: 20%; Above ₹15L: 30%",
+      "Up to ₹4L: Nil; ₹4L–₹8L: 5%; ₹8L–₹12L: 10%; ₹12L–₹16L: 15%; Above ₹16L: 30%"
+    ],
+    "answer": 0,
+    "explanation": "The revised tax slabs under the New Tax Regime (Section 115BAC) as amended in Budget 2024-25 are:\n• 0 to ₹3,00,000: Nil\n• ₹3,00,001 to ₹7,00,000: 5%\n• ₹7,00,001 to ₹10,00,000: 10%\n• ₹10,00,001 to ₹12,00,000: 15%\n• ₹12,00,001 to ₹15,00,000: 20%\n• Above ₹15,00,000: 30%."
+  },
+  {
+    "id": 113,
+    "question": "With the revised tax slabs and enhanced standard deduction of ₹75,000 under the New Tax Regime, a salaried employee pays ZERO tax on total annual income up to what threshold (factoring in the rebate under Section 87A)?",
+    "options": [
+      "₹5,00,000",
+      "₹7,00,000",
+      "₹7,75,000",
+      "₹7,50,000",
+      "₹8,00,000"
+    ],
+    "answer": 2,
+    "explanation": "Under Section 87A rebate, taxable income up to ₹7,00,000 has zero tax liability. When the enhanced standard deduction of ₹75,000 is added, a salaried employee with a gross salary of up to ₹7,75,000 pays zero income tax under the New Tax Regime."
+  },
+  {
+    "id": 114,
+    "question": "What major tax reform was enacted in the Union Budget 2024-25 regarding the controversial 'Angel Tax' under Section 56(2)(viib) of the Income-tax Act, 1961?",
+    "options": [
+      "It was increased to 40% on unlisted shares to boost capital expenditure and infrastructure creation",
+      "It was made applicable only to foreign venture capital funds subject to parliamentary appropriation and audit oversight",
+      "It was converted into a voluntary corporate social responsibility levy",
+      "It was deferred until the year 2030 in the Annual Financial Statement presented to Parliament",
+      "It was completely abolished for all classes of investors in Indian start-ups"
+    ],
+    "answer": 4,
+    "explanation": "To bolster the Indian start-up ecosystem, foster entrepreneurial innovation, and remove a major source of tax litigation, Section 56(2)(viib)—the 'Angel Tax' on consideration received above fair market value by unlisted companies—was completely abolished for all classes of investors."
+  },
+  {
+    "id": 115,
+    "question": "How were the tax rates on Capital Gains restructured and rationalized in the Union Budget 2024-25?",
+    "options": [
+      "STCG on listed financial assets: reduced to 10%; LTCG: made completely tax-free as a percentage of Gross Domestic Product (GDP) at market prices",
+      "STCG on specified listed financial assets: increased from 15% to 20%; LTCG on all financial and non-financial assets: standardized at 12.5%",
+      "Both STCG and LTCG taxed at regular marginal income tax slab rates to maintain macroeconomic stability and debt sustainability",
+      "LTCG increased to 25% with indexation benefits multiplied by 2x under the Consolidated Fund and Public Account of India",
+      "STCG and LTCG merged into a single flat tax of 15% across all assets"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: STCG on specified listed financial assets (Section 111A): increased from 15% to 20%; LTCG on all financial and non-financial assets: standardized at 12.5%. Budget 2024-25 simplified capital gains taxation:\n1. Short-Term Capital Gains (STCG) under Section 111A on listed equity shares and equity mutual funds increased from 15% to 20%.\n2. Long-Term Capital Gains (LTCG) on all financial and non-financial assets unified at a flat rate of 12.5%.\n3. Annual exemption limit for LTCG on listed equities/equity units raised from ₹1 Lakh to ₹1.25 Lakh."
+  },
+  {
+    "id": 116,
+    "question": "Regarding the removal of indexation benefits on long-term capital gains for real estate in Budget 2024-25, what subsequent amendment/relief was introduced by the government?",
+    "options": [
+      "Indexation was permanently restored for all future real estate purchases indefinitely",
+      "Real estate sales were completely exempted from capital gains tax",
+      "Taxpayers were forced to surrender 10% of property sale proceeds to municipal corporations across Central Sector and Centrally Sponsored Schemes",
+      "For properties acquired before July 23, 2024, individual/HUF taxpayers were given an option to compute tax either @ 12.5%",
+      "Only agricultural land was given the indexation benefit"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: For properties acquired before July 23, 2024, individual/HUF taxpayers were given an option to compute tax either @ 12.5% without indexation OR @ 20% with indexation, and pay the lower tax. Responding to market feedback, the government amended the Finance Bill 2024 to provide grandfathering relief: for unlisted immovable property (land or building) acquired by resident individuals or HUFs before July 23, 2024, taxpayers can compute tax under either: (a) 12.5% without indexation, or (b) 20% with indexation, and pay whichever amount is lower."
+  },
+  {
+    "id": 117,
+    "question": "How did the Union Budget 2024-25 modify the holding periods to determine whether an asset is classified as Long-Term or Short-Term Capital Asset?",
+    "options": [
+      "Rationalized into only two holding periods",
+      "All assets must be held for at least 5 years to qualify as long-term",
+      "36 months across all financial and physical assets uniformly",
+      "6 months for listed equities and 60 months for immovable property",
+      "Holding periods were abolished and all gains are treated identically"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Rationalized into only two holding periods: 12 months for all listed securities, and 24 months for all other assets (unlisted shares, real estate, gold). To eliminate complexity across various asset types, Budget 2024-25 simplified holding periods into just two categories: (1) 12 months for all listed securities (equities, listed debt, REITs, InvITs), and (2) 24 months for all unlisted financial assets and non-financial assets (real estate, gold, unlisted shares)."
+  },
+  {
+    "id": 118,
+    "question": "What change was made to the corporate tax rate applicable to 'Foreign Companies' in the Union Budget 2024-25 to attract foreign capital and multinational investment?",
+    "options": [
+      "Reduced from 40% to 22%",
+      "Increased from 40% to 45%",
+      "Reduced from 40% to 35%",
+      "Reduced from 30% to 25%",
+      "Foreign companies were exempted from income tax for 3 years"
+    ],
+    "answer": 2,
+    "explanation": "To enhance India's appeal as an international investment hub and narrow the gap with domestic corporate rates, the basic corporate tax rate on foreign companies was reduced from 40% to 35%."
+  },
+  {
+    "id": 119,
+    "question": "In the Union Budget 2024-25, what changes were made to the Securities Transaction Tax (STT) on derivative transactions (Futures and Options)?",
+    "options": [
+      "STT on F&O was completely abolished to encourage retail speculation as a percentage of Gross Domestic Product (GDP) at market prices",
+      "STT was reduced by 50% across both cash and derivative segments to maintain macroeconomic stability and debt sustainability",
+      "STT was replaced with a mandatory 1% turnover tax under the Consolidated Fund and Public Account of India",
+      "STT was made applicable only to institutional foreign portfolio investors as reported in the Union Budget and Economic Survey",
+      "STT on Futures was increased to 0.02% and STT on Options premium was increased to 0.1%"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: STT on Futures was increased to 0.02% (from 0.0125%) and STT on Options premium was increased to 0.1% (from 0.0625%). To address concerns over hyperactive speculative retail trading in the equity derivatives segment, STT on sale of an option in securities was increased to 0.1% of the option premium (up from 0.0625%), and STT on sale of a futures in securities was increased to 0.02% of trade value (up from 0.0125%)."
+  },
+  {
+    "id": 120,
+    "question": "What is the status of the 'Equalisation Levy' of 2% on e-commerce supply of goods or services introduced in 2020, following the Union Budget 2024-25?",
+    "options": [
+      "It was increased to 6% across all digital platforms",
+      "It was withdrawn / abolished with effect from August 1, 2024",
+      "It was expanded to include domestic e-commerce merchants",
+      "It was referred to the World Trade Organization for dispute resolution",
+      "It was merged into the Central Goods and Services Tax"
+    ],
+    "answer": 1,
+    "explanation": "The Union Budget 2024-25 completely withdrew the 2% Equalisation Levy levied on consideration received by non-resident e-commerce operators for e-commerce supply or services, with effect from August 1, 2024, facilitating smoother digital cross-border trade."
+  },
+  {
+    "id": 121,
+    "question": "Which of the following commodities saw a dramatic reduction in Basic Customs Duty (BCD) in the Union Budget 2024-25, significantly curbing smuggling and boosting domestic value addition?",
+    "options": [
+      "Crude palm oil and soybean oil",
+      "Imported passenger motor vehicles",
+      "Finished luxury footwear and textiles",
+      "Gold and Silver and Platinum (cut to 6.4%)",
+      "Imported assembled television sets"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Gold and Silver (customs duty slashed to 6%) and Platinum (cut to 6.4%). To enhance domestic value addition in gold and precious metal jewelry, promote exports, and curb illicit cross-border smuggling, the basic customs duty on gold and silver bars was sharply reduced to 6% (down from 15%), and on platinum to 6.4%."
+  },
+  {
+    "id": 122,
+    "question": "To facilitate energy transition, electric mobility, and nuclear energy expansion, Budget 2024-25 fully exempted customs duty on which group of commodities?",
+    "options": [
+      "25 critical minerals including Lithium, Copper, Cobalt, Nickel, and Rare Earth Elements",
+      "Thermal coal imports from Australia to boost capital expenditure and infrastructure creation",
+      "Refined petroleum products",
+      "Single-use plastic polymer raw materials across direct and indirect tax revenue collections",
+      "Heavy commercial diesel trucks"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: 25 critical minerals including Lithium, Copper, Cobalt, Nickel, and Rare Earth Elements. Budget 2024-25 fully exempted customs duty on 25 critical minerals—such as Lithium, Copper, Cobalt, Nickel, Gallium, and Niobium—and reduced BCD on two others, which are indispensable for high-tech manufacturing, EV batteries, renewable energy storage, and defense systems."
+  },
+  {
+    "id": 123,
+    "question": "What is the 'PM Surya Ghar: Muft Bijli Yojana' launched in 2024 and supported in the Union Budget?",
+    "options": [
+      "A scheme to provide free diesel generators to rural households as a percentage of Gross Domestic Product (GDP) at market prices",
+      "A scheme that privatizes all state electricity boards to maintain macroeconomic stability and debt sustainability",
+      "A scheme targeting installation of rooftop solar plants in 1 crore households",
+      "A central plan to build massive offshore wind farms in the Indian Ocean",
+      "A program to distribute kerosene lamps to remote villages as reported in the Union Budget and Economic Survey"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A scheme targeting installation of rooftop solar plants in 1 crore households, providing up to 300 units of free electricity every month. Launched in early 2024 with an outlay exceeding ₹75,000 Crore, PM Surya Ghar: Muft Bijli Yojana aims to install rooftop solar systems in 1 crore households across India, enabling families to obtain up to 300 units of free clean solar electricity per month and earn surplus income by selling excess power to DISCOMs."
+  },
+  {
+    "id": 124,
+    "question": "In the Union Budget 2024-25, what major support was announced for the development of the new capital city of Andhra Pradesh (Amaravati)?",
+    "options": [
+      "₹5,000 Crore grant over 10 years in the Annual Financial Statement presented to Parliament",
+      "100% exemption from all central direct and indirect taxes for 20 years in accordance with the FRBM Act fiscal consolidation targets",
+      "Creation of a dedicated independent currency for the capital region across Central Sector and Centrally Sponsored Schemes",
+      "Transfer of all Visakhapatnam Port revenues to the municipal corporation to boost capital expenditure and infrastructure creation",
+      "Special financial support of ₹15,000 Crore arranged through multilateral development agencies in the current financial year, with additional amounts in future years"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Special financial support of ₹15,000 Crore arranged through multilateral development agencies in the current financial year, with additional amounts in future years. The Union Budget 2024-25 committed special financial support of ₹15,000 Crore for FY 2024-25 through multilateral development agencies to facilitate the development of Andhra Pradesh's state capital, Amaravati, alongside financing for the Polavaram irrigation project."
+  },
+  {
+    "id": 125,
+    "question": "Under the 'Purvodaya' plan announced in Budget 2024-25, which Eastern States are prioritized for all-round integrated development (human resource, infrastructure, economic opportunities)?",
+    "options": [
+      "Gujarat, Maharashtra, Goa, and Karnataka",
+      "Bihar, Jharkhand, West Bengal, Odisha, and Andhra Pradesh",
+      "Punjab, Haryana, Rajasthan, and Himachal Pradesh",
+      "Kerala, Tamil Nadu, Telangana, and Puducherry",
+      "Madhya Pradesh, Chhattisgarh, and Uttar Pradesh only"
+    ],
+    "answer": 1,
+    "explanation": "Plan 'Purvodaya' was unveiled for the comprehensive all-round development of the eastern region of the country, covering the states of Bihar, Jharkhand, West Bengal, Odisha, and Andhra Pradesh, capitalizing on their rich natural resources and strategic coastline."
+  },
+  {
+    "id": 126,
+    "question": "What is the 'National Financial Information Registry' (NFIR) announced by the Central Government in recent budgetary policy?",
+    "options": [
+      "A public directory listing the tax returns of all political parties to boost capital expenditure and infrastructure creation",
+      "A sovereign body that fixes interest rates on commercial corporate debentures subject to parliamentary appropriation and audit oversight",
+      "A database of all foreign tourists visiting India across direct and indirect tax revenue collections",
+      "A centralized public digital public infrastructure to serve as the single source of truth for financial and ancillary information",
+      "An online portal that replaces the National Stock Exchange and BSE in the Annual Financial Statement presented to Parliament"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A centralized public digital public infrastructure to serve as the single source of truth for financial and ancillary information, facilitating efficient credit flow and financial inclusion. The National Financial Information Registry (NFIR) is designed as a core Digital Public Infrastructure (DPI) to serve as a 360-degree centralized repository of financial and ancillary credit data, enabling lenders to access verifiable financial histories, reduce loan turnaround times, and expand credit access to underserved MSMEs."
+  },
+  {
+    "id": 127,
+    "question": "What is the revised annual turnover limit for mandatory onboarding onto the 'Trade Receivables Discounting System' (TReDS) platform by CPSEs and companies, as revised in Budget 2024-25?",
+    "options": [
+      "Reduced from ₹500 Crore to ₹250 Crore",
+      "Reduced from ₹500 Crore to ₹100 Crore",
+      "Increased from ₹100 Crore to ₹1,000 Crore",
+      "TReDS was made voluntary for all central public enterprises",
+      "Turnover threshold is fixed at ₹50 Crore for all firms"
+    ],
+    "answer": 0,
+    "explanation": "To unlock MSME working capital trapped in delayed receivables, Budget 2024-25 reduced the turnover threshold for mandatory onboarding onto the TReDS platform from ₹500 Crore to ₹250 Crore. This brings an estimated 22 more CPSEs and 7,000 additional companies into the formal bill discounting platform."
+  },
+  {
+    "id": 128,
+    "question": "In the Union Budget 2024-25, what major relief was announced for charitable trusts and institutions regarding the merger of registration pathways?",
+    "options": [
+      "All charitable trusts were permanently exempted from filing annual audit reports in the Annual Financial Statement presented to Parliament",
+      "Charitable trusts were prohibited from accepting foreign donations in accordance with the FRBM Act fiscal consolidation targets",
+      "The two existing registration regimes (under Section 10(23C) and Section 12AB) were unified into a single streamlined regime under Section 12AB to eliminate duplication and operational confusion",
+      "Trusts are now required to pay a minimum alternate tax of 18.5% across Central Sector and Centrally Sponsored Schemes",
+      "Charitable institutions can only invest funds in cryptocurrencies"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The two existing registration regimes (under Section 10(23C) and Section 12AB) were unified into a single streamlined regime under Section 12AB to eliminate duplication and operational confusion. To simplify compliance, Budget 2024-25 transitioned the two parallel tax-exemption approval systems for trusts (under Section 10(23C) and Section 12AA/12AB) into a single, unified registration regime under Section 12AB, phasing out the first regime progressively."
+  },
+  {
+    "id": 129,
+    "question": "Under the 'Vivad se Vishwas 2.0' scheme announced in recent budgets, what category of disputes is targeted for settlement?",
+    "options": [
+      "Border disputes between State Governments as reported in the Union Budget and Economic Survey",
+      "Marital disputes in family courts based on the recommendations of the Finance Commission",
+      "Intellectual property disputes between pharmaceutical companies within the medium-term fiscal policy strategy statement",
+      "Disputes between RBI and commercial banks over CRR penalties as a percentage of Gross Domestic Product (GDP) at market prices",
+      "Contractual disputes involving Government agencies and CPSEs to resolve commercial disputes with private contractors and release tied-up capital"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Contractual disputes involving Government agencies and CPSEs to resolve commercial disputes with private contractors and release tied-up capital. Vivad se Vishwas II (Contractual Disputes) is a voluntary settlement mechanism designed to resolve long-pending contractual disputes where the Government of India or its CPSEs are a party, offering graded settlement terms based on the level of arbitral or court awards to clear commercial logjams."
+  },
+  {
+    "id": 130,
+    "question": "Under the Union Budget 2024-25, what is the 'Anusandhan National Research Foundation' (ANRF) operational allocation aimed at?",
+    "options": [
+      "Building traditional ayurvedic dispensaries in primary health centers to boost capital expenditure and infrastructure creation",
+      "Operationalizing basic research, prototype development, and private sector-driven commercial research and innovation with a financing pool of ₹1 Lakh Crore for long-term low/zero-interest loans",
+      "Funding archaeological excavations in the Indus Valley region subject to parliamentary appropriation and audit oversight",
+      "Financing foreign corporate takeovers by state-owned oil companies across direct and indirect tax revenue collections",
+      "Providing pensions to retired sports coaches in the Annual Financial Statement presented to Parliament"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Operationalizing basic research, prototype development, and private sector-driven commercial research and innovation with a financing pool of ₹1 Lakh Crore for long-term low/zero-interest loans. The ANRF framework, coupled with the ₹1 Lakh Crore catalytic fund for research and innovation announced in the Interim Budget, provides long-term low- or zero-interest financing to spur private-sector led R&D, commercial innovation, and advanced deep-tech research."
+  },
+  {
+    "id": 131,
+    "question": "Under the 'New Public Sector Enterprise (PSE) Policy for Atmanirbhar Bharat' notified in 2021, CPSEs are classified into which two broad categories?",
+    "options": [
+      "Manufacturing Sector and Service Sector",
+      "Profitable Sector and Sick Sector",
+      "Central Sector and Joint Sector",
+      "Strategic Sector and Non-Strategic Sector",
+      "Listed Sector and Unlisted Sector"
+    ],
+    "answer": 3,
+    "explanation": "The New PSE Policy (2021) classifies enterprises into: (1) Strategic Sectors (Atomic energy, Space & Defense; Transport & Telecom; Power, Petroleum, Coal & other minerals; Banking, Insurance & Financial services) where bare minimum CPSE presence will be maintained, and (2) Non-Strategic Sectors, where CPSEs will be privatized or closed."
+  },
+  {
+    "id": 132,
+    "question": "Which Department under the Ministry of Finance is responsible for all matters relating to the management of Central Government investments in equity, including disinvestment and asset monetization?",
+    "options": [
+      "Department of Investment and Public Asset Management (DIPAM)",
+      "Department of Economic Affairs (DEA)",
+      "Department of Expenditure",
+      "Department of Public Enterprises (DPE)",
+      "Department of Financial Services (DFS)"
+    ],
+    "answer": 0,
+    "explanation": "DIPAM (Department of Investment and Public Asset Management) was formerly the Department of Disinvestment. It deals with all matters relating to the management of Central Government investments in equity, including disinvestment of equity in CPSEs, strategic sales, and monetization of non-core public assets."
+  },
+  {
+    "id": 133,
+    "question": "What is the primary difference between 'Strategic Disinvestment' and 'Minority Disinvestment' in CPSEs?",
+    "options": [
+      "Strategic disinvestment involves sale of shares to employees only",
+      "Minority disinvestment is done through physical auctions, strategic disinvestment through stock exchanges",
+      "Minority disinvestment involves selling up to 49% shares",
+      "Strategic disinvestment applies only to nationalized banks",
+      "There is no difference; both terms denote complete liquidation of the company"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Minority disinvestment involves selling up to 49% shares while retaining government ownership and management control (>51%), whereas Strategic disinvestment involves sale of a substantial portion of government shareholding (usually >50%) along with the transfer of management control to a strategic buyer. In Minority Disinvestment, the Government retains majority shareholding (at least 51%) and retains complete management control (e.g., through OFS, IPOs, or ETFs). In Strategic Disinvestment, the Government sells 50% or more of its equity holding along with the transfer of executive management control to a private strategic partner (e.g., Air India)."
+  },
+  {
+    "id": 134,
+    "question": "What is the 'National Land Monetization Corporation' (NLMC) established by the Government of India?",
+    "options": [
+      "A private real estate brokerage firm to boost capital expenditure and infrastructure creation",
+      "An agency created to acquire private agricultural land for national highways subject to parliamentary appropriation and audit oversight",
+      "A regulatory tribunal that settles disputed municipal land records across direct and indirect tax revenue collections",
+      "A company that manages foreign embassy land properties in New Delhi",
+      "A 100% Government-owned Special Purpose Vehicle (SPV) incorporated to undertake monetization of surplus, idle, and non-core land and building assets of CPSEs and other government agencies"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A 100% Government-owned Special Purpose Vehicle (SPV) incorporated to undertake monetization of surplus, idle, and non-core land and building assets of CPSEs and other government agencies. NLMC was incorporated in 2022 as a wholly-owned Central Government enterprise under the administrative jurisdiction of DIPAM. Its mandate is to professionally monetize surplus, underutilized, or non-core land and building assets of CPSEs and government entities undergoing strategic disinvestment or closure."
+  },
+  {
+    "id": 135,
+    "question": "What are 'Sovereign Green Bonds' (SGrBs) issued by the Government of India as part of its market borrowing program?",
+    "options": [
+      "Bonds printed on environmentally sustainable polymer paper as a percentage of Gross Domestic Product (GDP) at market prices",
+      "Dated government securities whose proceeds are exclusively earmarked for public projects that reduce the carbon intensity of the economy",
+      "Bonds that can be purchased only by agriculture farmers",
+      "Bonds that carry a zero interest rate and are redeemable only in carbon credits under the Consolidated Fund and Public Account of India",
+      "Bonds issued by state forest departments to plant trees as reported in the Union Budget and Economic Survey"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Dated government securities whose proceeds are exclusively earmarked for public projects that reduce the carbon intensity of the economy (renewable energy, clean transportation, energy efficiency). First issued in January-February 2023 following the Sovereign Green Bond Framework 2022, SGrBs are rupee-denominated dated G-Secs where the borrowing proceeds are ring-fenced to finance eligible green projects (solar, wind, grid infrastructure, public transit) in accordance with ICMA Green Bond Principles."
+  },
+  {
+    "id": 136,
+    "question": "What is the 'Greenium' in the context of Sovereign Green Bond issuances?",
+    "options": [
+      "The additional tax charged on high-carbon corporate bond issuances in the Annual Financial Statement presented to Parliament",
+      "The premium paid to farmers for adopting organic fertilizers in accordance with the FRBM Act fiscal consolidation targets",
+      "The penalty imposed by SEBI on companies that practice greenwashing across Central Sector and Centrally Sponsored Schemes",
+      "The pricing benefit that the government obtains when issuing green bonds compared to conventional vanilla government securities of identical maturity, due to strong investor demand for ESG assets",
+      "The brokerage commission paid to green bond primary dealers to boost capital expenditure and infrastructure creation"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The pricing benefit (yield discount) that the government obtains when issuing green bonds compared to conventional vanilla government securities of identical maturity, due to strong investor demand for ESG assets. A 'Greenium' (Green Premium) is the yield discount at which a green bond prices compared to an otherwise identical conventional bond. When India issued its maiden SGrBs in 2023, it secured a greenium of approximately 5 to 6 basis points (investors accepted 5-6 bps lower yield to hold sovereign green assets)."
+  },
+  {
+    "id": 137,
+    "question": "Under the 'Fiscal Federalism' architecture of India, what constitutes 'Vertical Devolution'?",
+    "options": [
+      "The sharing of net proceeds of divisible union taxes between the Union Government and the State Governments as an aggregate group",
+      "The distribution of funds among different departments of a State Government as reported in the Union Budget and Economic Survey",
+      "The formula-based distribution of tax revenue among individual States based on population, area, and income distance based on the recommendations of the Finance Commission",
+      "The transfer of loans from commercial banks to the Reserve Bank of India within the medium-term fiscal policy strategy statement",
+      "The allocation of grants from the Centre to local municipal bodies directly as a percentage of Gross Domestic Product (GDP) at market prices"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The sharing of net proceeds of divisible union taxes between the Union Government and the State Governments as an aggregate group (recommended at 41% by 15th FC). Vertical Devolution refers to the aggregate percentage share of the divisible tax pool transferred from the Central Government to all States combined (e.g., 32% under 13th FC, 42% under 14th FC, and 41% under 15th FC after the reorganization of Jammu & Kashmir). Horizontal Devolution is the subsequent formula-based allocation of that divisible pool among the individual states."
+  },
+  {
+    "id": 138,
+    "question": "What is the single largest criterion in the 'Horizontal Devolution' formula across both the 15th Finance Commission (45% weight) and the 16th Finance Commission for 2026–31 (42.5% weight)?",
+    "options": [
+      "Population (2011 census)",
+      "Area (15%)",
+      "Income Distance (45% in 15th FC",
+      "Forest and Ecology (10%)",
+      "Tax and Fiscal Efforts (2.5%)"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Income Distance (45% in 15th FC; 42.5% in 16th FC). Income Distance remains the highest-weighted criterion in horizontal tax devolution among states: 45% under the 15th Finance Commission (2021–26) and 42.5% under the 16th Finance Commission (2026–31)."
+  },
+  {
+    "id": 139,
+    "question": "What new criterion was introduced by the 15th Finance Commission in its horizontal devolution formula to reward states that succeeded in reducing fertility rates?",
+    "options": [
+      "Fertility Reduction Factor",
+      "Gender Equality Ratio",
+      "Senior Citizen Welfare Score",
+      "Family Planning Milestone Index",
+      "Demographic Performance (12.5%)"
+    ],
+    "answer": 4,
+    "explanation": "To balance the use of 2011 population data (which penalizes southern states that successfully controlled population growth), the 15th Finance Commission introduced 'Demographic Performance' with a 12.5% weight, rewarding states with lower Total Fertility Rates (TFR)."
+  },
+  {
+    "id": 140,
+    "question": "Who chaired the 16th Finance Commission (award period 2026–2031), whose report tabled in Parliament on February 1, 2026 retained vertical tax devolution at 41%?",
+    "options": [
+      "Dr. N.K. Singh",
+      "Dr. Arvind Panagariya",
+      "Dr. Y.V. Reddy",
+      "Dr. C. Rangarajan",
+      "Dr. Raghuram Rajan"
+    ],
+    "answer": 1,
+    "explanation": "Dr. Arvind Panagariya chaired the 16th Finance Commission (2026–31). Its report, tabled on February 1, 2026, retained the vertical devolution share of states at 41% and revised horizontal weights: Income Distance (42.5%), Population 2011 (17.5%), Demographic Performance (10%), Area (10%), Forest & Ecology (10%), and GDP Contribution (10%)."
+  },
+  {
+    "id": 141,
+    "question": "What is meant by 'Fiscal Consolidation' in macroeconomic policy?",
+    "options": [
+      "Merging all state-owned commercial banks into one mega bank as reported in the Union Budget and Economic Survey",
+      "Transferring all tax collection responsibilities to international auditing firms based on the recommendations of the Finance Commission",
+      "A complete freeze on all capital expenditure for five years within the medium-term fiscal policy strategy statement",
+      "A deliberate policy process of reducing the government's fiscal deficit and public debt-to-GDP ratio through revenue mobilization, expenditure rationalization, and growth revival",
+      "Replacing indirect taxes with sovereign currency devaluation as a percentage of Gross Domestic Product (GDP) at market prices"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A deliberate policy process of reducing the government's fiscal deficit and public debt-to-GDP ratio through revenue mobilization, expenditure rationalization, and growth revival. Fiscal Consolidation refers to concrete policies undertaken by governments to improve fiscal health by reducing budget deficits and stabilizing or lowering the public debt-to-GDP ratio over the medium term, preventing sovereign debt overhang and inflation."
+  },
+  {
+    "id": 142,
+    "question": "Why is the 'Debt-to-GDP Ratio' considered a superior measure of a nation's public indebtedness compared to the absolute level of debt?",
+    "options": [
+      "Because Debt-to-GDP compares the sovereign debt burden directly to the country's economic size and income-generating capacity",
+      "Because absolute debt cannot be denominated in local currency to boost capital expenditure and infrastructure creation",
+      "Because Debt-to-GDP is always zero in developing nations subject to parliamentary appropriation and audit oversight",
+      "Because it is the only metric permitted by the United Nations Charter across direct and indirect tax revenue collections",
+      "Because credit rating agencies ignore absolute debt entirely in the Annual Financial Statement presented to Parliament"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Because Debt-to-GDP compares the sovereign debt burden directly to the country's economic size and income-generating capacity, indicating its ability to service debt over time. The Debt-to-GDP ratio scales the total accumulated public debt against the total annual economic output (GDP) of the country. Just as an individual's borrowing capacity depends on their annual income, a nation's capacity to service debt depends on the size and growth of its GDP."
+  },
+  {
+    "id": 143,
+    "question": "What is 'Fiscal Cliff' in public finance and macroeconomic discourse?",
+    "options": [
+      "A sudden geographical erosion of border trade routes as a percentage of Gross Domestic Product (GDP) at market prices",
+      "The physical drop in revenues experienced by coal-producing states to maintain macroeconomic stability and debt sustainability",
+      "A situation where sharp, simultaneous tax increases and government spending cuts occur automatically, threatening to shock aggregate demand and push an economy into severe recession",
+      "A sudden surge in foreign direct investment into infrastructure under the Consolidated Fund and Public Account of India",
+      "The point at which a government runs a zero fiscal deficit as reported in the Union Budget and Economic Survey"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A situation where sharp, simultaneous tax increases and government spending cuts occur automatically, threatening to shock aggregate demand and push an economy into severe recession. A 'Fiscal Cliff' describes an abrupt, steep contraction in government fiscal support—caused by the simultaneous expiration of tax cuts and mandatory enforcement of spending cuts—which abruptly removes demand from the economy and risks plunging it into an economic downturn."
+  },
+  {
+    "id": 144,
+    "question": "How does an 'Automatic Stabilizer' function in government fiscal policy?",
+    "options": [
+      "It is an artificial intelligence algorithm that sets interest rates daily",
+      "It is an executive decree issued by the President during a general election in accordance with the FRBM Act fiscal consolidation targets",
+      "It is a constitutional rule prohibiting the Lok Sabha from debating budget demands across Central Sector and Centrally Sponsored Schemes",
+      "It is a foreign currency swap facility provided by the IMF to boost capital expenditure and infrastructure creation",
+      "It is a built-in feature of the tax-and-transfer system that automatically dampens economic fluctuations"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: It is a built-in feature of the tax-and-transfer system (like progressive income taxes and unemployment benefits) that automatically dampens economic fluctuations without requiring any new legislative action. Automatic Stabilizers are built-in fiscal mechanisms that stimulate aggregate demand during recessions (tax collections fall automatically as incomes drop, while welfare/unemployment payouts rise) and cool demand during booms (tax collections rise automatically as incomes rise), smoothing the business cycle without discretionary delays."
+  },
+  {
+    "id": 145,
+    "question": "What is the 'Ricardian Equivalence Proposition' in public debt theory, advanced by David Ricardo and popularized by Robert Barro?",
+    "options": [
+      "Government debt has zero impact on interest rates because foreign investors absorb all bonds as reported in the Union Budget and Economic Survey",
+      "Consumers are forward-looking and recognize that government borrowing today implies higher taxes in the future",
+      "Internal debt and external debt have identical macroeconomic risk profiles based on the recommendations of the Finance Commission",
+      "A balanced budget always produces double-digit economic growth within the medium-term fiscal policy strategy statement",
+      "Inflation reduces the real burden of public debt to exactly zero as a percentage of Gross Domestic Product (GDP) at market prices"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Consumers are forward-looking and recognize that government borrowing today implies higher taxes in the future; therefore, they save the tax cuts rather than spending them, neutralizing the stimulative effect of debt-financed fiscal expansion. Ricardian Equivalence argues that whether a government finances its expenditure through taxes or debt, the macroeconomic outcome is identical: forward-looking rational consumers realize that debt issued today must be paid via higher taxes tomorrow, so they save their current tax cut to pay future taxes, resulting in zero net change in aggregate demand."
+  },
+  {
+    "id": 146,
+    "question": "What is the 'Fiscal Trilemma' faced by emerging market economies like India in budgetary planning?",
+    "options": [
+      "Balancing currency printing, inflation targeting, and gold mining to boost capital expenditure and infrastructure creation",
+      "Choosing between central planning, market economics, and military spending subject to parliamentary appropriation and audit oversight",
+      "Managing three separate exchange rates for exports, imports, and remittances across direct and indirect tax revenue collections",
+      "Simultaneously achieving: (1) Fiscal consolidation, (2) High public capital spending on infrastructure, and (3) Adequate social welfare / safety net allocations within finite revenue constraints",
+      "Allocating funds equally between the Lok Sabha, Rajya Sabha, and Supreme Court in the Annual Financial Statement presented to Parliament"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Simultaneously achieving: (1) Fiscal consolidation (reducing debt/deficits), (2) High public capital spending on infrastructure, and (3) Adequate social welfare / safety net allocations within finite revenue constraints. The Fiscal Trilemma represents the difficult policy trade-off policymakers face: an economy needs (1) fiscal discipline to protect macroeconomic stability and credit ratings, (2) massive public capex to build infrastructure and drive growth, and (3) robust social spending to support vulnerable populations. Achieving all three within a constrained tax-to-GDP base is the core budget challenge."
+  },
+  {
+    "id": 147,
+    "question": "What is a 'Sinking Fund' established by State Governments and managed by the Reserve Bank of India?",
+    "options": [
+      "The Consolidated Sinking Fund (CSF) created by State Governments to set aside funds periodically to build a buffer for the orderly redemption and repayment of their outstanding market loans (SDLs)",
+      "A fund used to invest in bankrupt companies to rescue them as a percentage of Gross Domestic Product (GDP) at market prices",
+      "A reserve fund to handle marine pollution disasters in coastal states to maintain macroeconomic stability and debt sustainability",
+      "A pool of funds derived exclusively from property tax defaults under the Consolidated Fund and Public Account of India",
+      "An account into which lapsed central grants are permanently deposited as reported in the Union Budget and Economic Survey"
+    ],
+    "answer": 0,
+    "explanation": "The Consolidated Sinking Fund (CSF), set up in 1999-2000 and administered by RBI, is a dedicated buffer maintained by State Governments. States contribute a percentage of their outstanding liabilities annually into the fund, which is invested in Central G-Secs to build a dedicated redemption reserve for maturing State Development Loans (SDLs)."
+  },
+  {
+    "id": 148,
+    "question": "What is the 'Guarantee Redemption Fund' (GRF) maintained by State Governments with the Reserve Bank of India?",
+    "options": [
+      "A fund to pay subsidies on subsidized domestic cooking gas",
+      "A fund that guarantees 100% employment to all rural adults in accordance with the FRBM Act fiscal consolidation targets",
+      "A earmarked reserve fund to meet liabilities that may arise in the event of default on guarantees extended by State Governments to state PSUs, local bodies, and cooperatives",
+      "A contingency reserve to fund foreign travel of state cabinet ministers across Central Sector and Centrally Sponsored Schemes",
+      "An escrow account used to hold central disaster management grants to boost capital expenditure and infrastructure creation"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A earmarked reserve fund to meet liabilities that may arise in the event of default on guarantees extended by State Governments to state PSUs, local bodies, and cooperatives. The Guarantee Redemption Fund (GRF) is maintained by States with the RBI to create a dedicated cushion for servicing contingent liabilities. If a state PSU or entity defaults on a loan guaranteed by the State Government, the guarantee is invoked and settled seamlessly from the GRF."
+  },
+  {
+    "id": 149,
+    "question": "In the Union Budget of India, how is the 'Revised Estimates' (RE) figure distinct from the 'Budget Estimates' (BE) and 'Actuals'?",
+    "options": [
+      "RE is the audited final expenditure presented two years later by the CAG",
+      "RE represents only capital expenditure, while BE represents revenue expenditure",
+      "RE is calculated by the Reserve Bank of India independently of the Ministry of Finance",
+      "BE cannot be changed under any circumstances once voted by the Lok Sabha",
+      "BE is the original projection presented before the start of the year"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: BE is the original projection presented before the start of the year; RE is the mid-year reassessment of receipts and expenditures presented in the subsequent budget; Actuals are the final audited figures presented in the year after next. For any given Budget year (say FY 2024-25): (1) Budget Estimates (BE) are projected in February 2024; (2) Revised Estimates (RE) are updated mid-year projections presented in February 2025; and (3) Actuals are the final, audited figures presented in February 2026 after accounts are closed and audited."
+  },
+  {
+    "id": 150,
+    "question": "What is the constitutional significance of the 'Public Accounts Committee' examining the Appropriation Accounts?",
+    "options": [
+      "It allows the ruling party to revise the budget allocations retrospectively to boost capital expenditure and infrastructure creation",
+      "It validates whether the funds voted by Parliament were disbursed in accordance with parliamentary authorization and that no expenditure exceeded the legal appropriation limits",
+      "It gives Parliament the power to dissolve state legislative assemblies subject to parliamentary appropriation and audit oversight",
+      "It authorises the RBI to print extra currency notes to cover deficits across direct and indirect tax revenue collections",
+      "It converts all unspent money into sovereign green bonds in the Annual Financial Statement presented to Parliament"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: It validates whether the funds voted by Parliament were disbursed in accordance with parliamentary authorization and that no expenditure exceeded the legal appropriation limits. The examination of Appropriation Accounts by the Public Accounts Committee (PAC) ensures the ultimate democratic accountability of the executive to the legislature: confirming that the moneys voted by Parliament were expended on the specific services to which they were appropriated, that expenditure was legally regular, and that no expenditure exceeded parliamentary limits without sanction."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Union Budget & Economic Survey Mock 3",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Union Budget & Economic Survey Mock 3";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br /><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br /><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br /><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br /><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

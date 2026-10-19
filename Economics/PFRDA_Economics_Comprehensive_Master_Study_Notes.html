@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Grade A - Economics &amp; Financial Sector Comprehensive Master Study Notes - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #0f4c81;
+            --primary-dark: #0a2f52;
+            --primary-light: #e0f2fe;
+            --secondary: #0d9488;
+            --accent: #d97706;
+            --danger: #b91c1c;
+            --success: #15803d;
+            --dark: #0f172a;
+            --light-bg: #f8fafc;
+            --border-color: #cbd5e1;
+            --text-main: #334155;
+            --text-heading: #0f172a;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            margin: 0; padding: 0;
+            background: #f1f5f9;
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+        .hero {
+            background: linear-gradient(135deg, #0f4c81 0%, #082847 100%);
+            color: white;
+            padding: 45px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.35);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-weight: 700;
+        }
+        .hero h1 { margin: 0 0 10px 0; font-size: 2.3rem; letter-spacing: 0.5px; }
+        .hero p { margin: 0 auto; max-width: 900px; font-size: 1.15rem; color: #bae6fd; font-weight: 400; }
+        .container { max-width: 1250px; margin: 30px auto; padding: 0 20px; }
+        .quick-nav {
+            background: white; border-radius: 12px; padding: 22px; margin-bottom: 30px;
+            border: 1px solid var(--border-color); box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .quick-nav h3 { margin: 0 0 14px 0; font-size: 1.15rem; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+        .nav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+        .nav-grid a {
+            display: block; text-decoration: none; background: #f8fafc; color: var(--primary-dark);
+            padding: 9px 14px; border-radius: 6px; font-size: 0.9rem; font-weight: 600;
+            border: 1px solid #e2e8f0; transition: all 0.2s ease;
+        }
+        .nav-grid a:hover { background: #e0f2fe; color: var(--primary); border-color: #7dd3fc; transform: translateX(3px); }
+        .action-bar { display: flex; justify-content: flex-end; margin-bottom: 20px; }
+        .btn-print {
+            background: var(--primary); color: white; border: none; padding: 10px 22px;
+            border-radius: 8px; font-weight: 600; cursor: pointer;
+            box-shadow: 0 2px 8px rgba(15,76,129,0.25); transition: all 0.2s;
+        }
+        .btn-print:hover { background: #1d4ed8; transform: translateY(-1px); }
+        .module-card {
+            background: white; border-radius: 12px; padding: 32px; margin-bottom: 35px;
+            border: 1px solid var(--border-color); box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+            page-break-inside: avoid;
+        }
+        .module-header {
+            border-bottom: 2px solid #e0f2fe; padding-bottom: 12px; margin-bottom: 20px;
+            display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+        }
+        .module-header h2 { margin: 0; color: var(--primary); font-size: 1.6rem; display: flex; align-items: center; gap: 10px; }
+        .module-header .tag-badge {
+            background: #e0f2fe; color: #0369a1; padding: 3px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 700;
+        }
+        h3 { color: var(--primary-dark); font-size: 1.25rem; margin-top: 24px; margin-bottom: 10px; }
+        h4 { color: var(--text-heading); font-size: 1.05rem; margin-top: 16px; margin-bottom: 8px; }
+        p { margin: 10px 0; }
+        
+        /* Modern Formula Cards & Math Typography */
+        .formula-card {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid var(--primary);
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(15, 76, 129, 0.05);
+        }
+        .formula-header {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .math-display {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            font-family: 'Cambria Math', 'Latin Modern Math', 'STIX Two Math', 'Times New Roman', Georgia, serif;
+            font-size: 1.22rem;
+            color: #0f172a;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .math-frac {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            padding: 0 4px;
+            line-height: 1.15;
+        }
+        .math-num {
+            border-bottom: 1.5px solid #334155;
+            padding-bottom: 3px;
+            font-size: 0.95em;
+        }
+        .math-den {
+            padding-top: 3px;
+            font-size: 0.95em;
+        }
+        .math-sqrt {
+            display: inline-flex;
+            align-items: center;
+        }
+        .math-sqrt-rad {
+            font-size: 1.3em;
+            margin-right: 1px;
+            font-family: system-ui, sans-serif;
+        }
+        .math-sqrt-body {
+            border-top: 1.5px solid #334155;
+            padding-top: 2px;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+        .variable-legend {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #e2e8f0;
+            font-size: 0.88rem;
+            color: #475569;
+            line-height: 1.6;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        .variable-legend strong {
+            color: #0f172a;
+        }
+
+        /* Callouts */
+        .callout { border-radius: 8px; padding: 16px 20px; margin: 18px 0; font-size: 0.95rem; }
+        .callout-concept { background: #eff6ff; border-left: 4px solid var(--primary); color: #1e3a8a; }
+        .callout-regulatory { background: #fdf2f8; border-left: 4px solid #db2777; color: #831843; }
+        .callout-exam { background: #fffbeb; border-left: 4px solid var(--accent); color: #92400e; }
+        
+        /* Charts */
+        .chart-box {
+            background: #f8fafc; border: 1px solid var(--border-color);
+            border-radius: 10px; padding: 20px; margin: 22px 0; text-align: center;
+        }
+        .chart-title { font-weight: 700; font-size: 0.95rem; color: var(--primary-dark); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .chart-caption { font-size: 0.85rem; color: #64748b; margin-top: 10px; font-style: italic; }
+        svg { max-width: 100%; height: auto; }
+
+        /* Tables */
+        .table-custom { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.95rem; }
+        .table-custom th, .table-custom td { border: 1px solid var(--border-color); padding: 11px 14px; text-align: left; }
+        .table-custom th { background-color: #f8fafc; color: var(--primary-dark); font-weight: 600; }
+        .table-custom tr:nth-child(even) { background-color: #fafbfc; }
+        .bullet-list { padding-left: 22px; margin: 8px 0; }
+        .bullet-list li { margin-bottom: 6px; }
+        .highlight { font-weight: 600; color: var(--primary-dark); }
+        .footer { text-align: center; padding: 35px 20px; color: #64748b; font-size: 0.9rem; border-top: 1px solid var(--border-color); margin-top: 40px; }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject H: Economics</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Economics_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Economics_Master_Revision_and_Study_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Economics_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Economics_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Economics_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Economics_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Economics_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+    <div class="hero">
+        <div class="badge">PFRDA &#183; SHIVAM &#183; MASTER STUDY NOTES SUITE</div>
+        <h1>Economics &amp; Financial Sector &#8212; Comprehensive Master Notes</h1>
+        <p>Complete In-Depth Conceptual Compendium with Vector Charts, Formatted Formula Cards, Comparative Tables &amp; Regulatory Frameworks</p>
+    </div>
+
+    <div class="container">
+        <div class="action-bar">
+            <button class="btn-print" onclick="window.print()">Print / Save as PDF (Ctrl + P)</button>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="quick-nav">
+            <h3><span>📑</span> Syllabus Navigation (Click to Jump)</h3>
+            <div class="nav-grid">
+                <a href="#mod1">01. Demand, Supply &amp; Elasticity</a>
+                <a href="#mod2">02. Production &amp; Market Structures</a>
+                <a href="#mod3">03. National Income &amp; Value Added</a>
+                <a href="#mod4">04. Classical vs. Keynesian Theory</a>
+                <a href="#mod5">05. Consumption &amp; Investment Functions</a>
+                <a href="#mod6">06. Multiplier, Accelerator &amp; Super-Multiplier</a>
+                <a href="#mod7">07. The IS-LM Framework</a>
+                <a href="#mod8">08. Inflation &amp; Phillips Curve</a>
+                <a href="#mod9">09. Business Cycles &amp; Fluctuation</a>
+                <a href="#mod10">10. Balance of Payments (BOP)</a>
+                <a href="#mod11">11. Foreign Exchange (Forex) &amp; Parities</a>
+                <a href="#mod12">12. Monetary, Fiscal Policy &amp; NBFCs</a>
+            </div>
+        </div>
+
+        <!-- MODULE 1 -->
+        <div class="module-card" id="mod1">
+            <div class="module-header">
+                <h2>01. Demand and Supply, Elasticity &amp; Consumer Behaviour</h2>
+                <span class="tag-badge">MICROECONOMICS</span>
+            </div>
+
+            <h3>1. The Law of Demand &amp; Its Determinants</h3>
+            <p>The <strong>Law of Demand</strong> states that, holding other factors constant (<em>ceteris paribus</em>), an inverse relationship exists between the price of a good and the quantity demanded: P &uarr; &implies; Q<sub>d</sub> &darr;.</p>
+            <ul class="bullet-list">
+                <li><span class="highlight">Movement along the Curve:</span> Caused strictly by a change in the own price of the good (expansion/contraction of demand).</li>
+                <li><span class="highlight">Shift of the Curve:</span> Caused by changes in non-price determinants (consumer income, tastes/preferences, substitute/complement prices, expectations).</li>
+                <li><span class="highlight">Giffen Goods:</span> Extreme inferior staple goods where the negative income effect of a price fall outweighs the positive substitution effect, producing an upward-sloping demand curve.</li>
+                <li><span class="highlight">Veblen Goods:</span> Luxury prestige items consumed conspicuously to project social status and wealth (P &uarr; &implies; Q<sub>d</sub> &uarr;).</li>
+            </ul>
+
+            <!-- SVG CHART 1 -->
+            <div class="chart-box">
+                <div class="chart-title">Figure 1.1: Market Equilibrium, Consumer Surplus &amp; Producer Surplus</div>
+                <svg viewBox="0 0 650 340" width="650" height="340">
+                    <line x1="60" y1="280" x2="580" y2="280" stroke="#334155" stroke-width="2.5" />
+                    <line x1="60" y1="30" x2="60" y2="280" stroke="#334155" stroke-width="2.5" />
+                    <text x="590" y="285" fill="#334155" font-size="13" font-weight="700">Quantity (Q)</text>
+                    <text x="50" y="25" fill="#334155" font-size="13" font-weight="700">Price (P)</text>
+                    <line x1="100" y1="260" x2="500" y2="50" stroke="#0d9488" stroke-width="3" />
+                    <text x="510" y="55" fill="#0d9488" font-size="14" font-weight="700">Supply (S)</text>
+                    <line x1="100" y1="50" x2="500" y2="260" stroke="#0f4c81" stroke-width="3" />
+                    <text x="510" y="265" fill="#0f4c81" font-size="14" font-weight="700">Demand (D)</text>
+                    <circle cx="300" cy="155" r="5" fill="#d97706" />
+                    <line x1="60" y1="155" x2="300" y2="155" stroke="#94a3b8" stroke-dasharray="4" stroke-width="1.5" />
+                    <line x1="300" y1="155" x2="300" y2="280" stroke="#94a3b8" stroke-dasharray="4" stroke-width="1.5" />
+                    <text x="25" y="160" fill="#0f172a" font-size="13" font-weight="700">P*</text>
+                    <text x="295" y="300" fill="#0f172a" font-size="13" font-weight="700">Q*</text>
+                    <polygon points="100,50 300,155 60,155 60,50" fill="rgba(15, 76, 129, 0.12)" />
+                    <text x="130" y="120" fill="#0f4c81" font-size="13" font-weight="700">Consumer Surplus</text>
+                    <polygon points="100,260 300,155 60,155 60,260" fill="rgba(13, 148, 136, 0.12)" />
+                    <text x="130" y="200" fill="#0d9488" font-size="13" font-weight="700">Producer Surplus</text>
+                </svg>
+                <div class="chart-caption">At price P* and quantity Q*, economic welfare is maximized with zero deadweight loss.</div>
+            </div>
+
+            <!-- FORMULA CARD 1: Price Elasticity -->
+            <div class="formula-card">
+                <div class="formula-header">📐 Price Elasticity of Demand (Point &amp; Percentage Method)</div>
+                <div class="math-display">
+                    <span>e<sub>p</sub></span>
+                    <span>=</span>
+                    <span class="math-frac"><span class="math-num">% &Delta; Q<sub>d</sub></span><span class="math-den">% &Delta; P</span></span>
+                    <span>=</span>
+                    <span class="math-frac"><span class="math-num">&Delta;Q</span><span class="math-den">&Delta;P</span></span>
+                    <span>&#215;</span>
+                    <span class="math-frac"><span class="math-num">P</span><span class="math-den">Q</span></span>
+                    <span style="margin: 0 10px; color: #94a3b8;">|</span>
+                    <span style="font-size: 1.05rem;">Geometric: e<sub>p</sub> = <span class="math-frac"><span class="math-num">Lower Segment</span><span class="math-den">Upper Segment</span></span></span>
+                </div>
+                <div class="variable-legend">
+                    <strong>Where:</strong> <strong>&Delta;Q</strong> = Change in Quantity Demanded &#8226; <strong>&Delta;P</strong> = Change in Price &#8226; <strong>P</strong> = Initial Price &#8226; <strong>Q</strong> = Initial Quantity.<br />
+                    <strong>Key Thresholds:</strong> |e<sub>p</sub>| &gt; 1: Elastic (Price &uarr; &implies; Total Revenue &darr;) &#8226; |e<sub>p</sub>| &lt; 1: Inelastic (Price &uarr; &implies; Total Revenue &uarr;) &#8226; |e<sub>p</sub>| = 1: Unitary (Revenue unchanged).
+                </div>
+            </div>
+
+            <!-- FORMULA CARD 2: Consumer Equilibrium & Other Elasticities -->
+            <div class="formula-card">
+                <div class="formula-header">⚖️ Consumer Equilibrium &amp; Cross/Income Elasticities</div>
+                <div class="math-display">
+                    <span>MRS<sub>xy</sub></span>
+                    <span>=</span>
+                    <span class="math-frac"><span class="math-num">MU<sub>x</sub></span><span class="math-den">MU<sub>y</sub></span></span>
+                    <span>=</span>
+                    <span class="math-frac"><span class="math-num">P<sub>x</sub></span><span class="math-den">P<sub>y</sub></span></span>
+                    <span style="margin: 0 10px; color: #94a3b8;">|</span>
+                    <span>e<sub>xy</sub> = <span class="math-frac"><span class="math-num">% &Delta; Q<sub>x</sub></span><span class="math-den">% &Delta; P<sub>y</sub></span></span></span>
+                    <span style="margin: 0 10px; color: #94a3b8;">|</span>
+                    <span>e<sub>y</sub> = <span class="math-frac"><span class="math-num">% &Delta; Q</span><span class="math-den">% &Delta; Y</span></span></span>
+                </div>
+                <div class="variable-legend">
+                    <strong>Cross Elasticity (e<sub>xy</sub>):</strong> e<sub>xy</sub> &gt; 0 for Substitutes (Tea/Coffee) &#8226; e<sub>xy</sub> &lt; 0 for Complements (Car/Petrol) &#8226; e<sub>xy</sub> = 0 for Independent Goods.<br />
+                    <strong>Income Elasticity (e<sub>y</sub>):</strong> e<sub>y</sub> &gt; 1: Luxury &#8226; 0 &lt; e<sub>y</sub> &lt; 1: Normal Necessity &#8226; e<sub>y</sub> &lt; 0: Inferior Good (Engel Curve bends backward).
+                </div>
+            </div>
+
+            <h3>2. Indifference Curve Analysis</h3>
+            <ul class="bullet-list">
+                <li><span class="highlight">Indifference Curve Properties:</span> Downward-sloping, convex to origin (Diminishing Marginal Rate of Substitution: $MRS_{xy} = MU_x / MU_y$), higher curve = higher satisfaction, curves never intersect.</li>
+                <li><span class="highlight">Price Effect Decomposition:</span> $\text{Price Effect} = \text{Substitution Effect} + \text{Income Effect}$.
+                    <ul class="bullet-list">
+                        <li><strong>Hicksian Method:</strong> Adjusts income to maintain the consumer on the original Indifference Curve (constant utility).</li>
+                        <li><strong>Slutsky Method:</strong> Adjusts income so the consumer can just purchase the original bundle at new relative prices (constant purchasing power).</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- MODULE 2 -->
+        <div class="module-card" id="mod2">
+            <div class="module-header">
+                <h2>02. Production, Costs &amp; Market Structures</h2>
+                <span class="tag-badge">MICROECONOMICS</span>
+            </div>
+
+            <h3>1. Production Functions &amp; Cost Envelopes</h3>
+            <!-- FORMULA CARD 3: Cobb Douglas -->
+            <div class="formula-card">
+                <div class="formula-header">🏭 Cobb-Douglas Production Function &amp; Returns to Scale</div>
+                <div class="math-display">
+                    <span>Q</span>
+                    <span>=</span>
+                    <span>A &#183; L<sup>&alpha;</sup> &#183; K<sup>&beta;</sup></span>
+                    <span style="margin: 0 12px; color: #94a3b8;">|</span>
+                    <span>MRTS<sub>LK</sub> = <span class="math-frac"><span class="math-num">MP<sub>L</sub></span><span class="math-den">MP<sub>K</sub></span></span> = <span class="math-frac"><span class="math-num">w</span><span class="math-den">r</span></span></span>
+                </div>
+                <div class="variable-legend">
+                    <strong>Where:</strong> <strong>Q</strong> = Output &#8226; <strong>A</strong> = Total Factor Productivity (TFP) &#8226; <strong>L</strong> = Labor &#8226; <strong>K</strong> = Capital &#8226; <strong>&alpha;, &beta;</strong> = Output elasticities.<br />
+                    <strong>Returns to Scale:</strong> &alpha; + &beta; = 1: Constant (CRS) &#8226; &alpha; + &beta; &gt; 1: Increasing (IRS) &#8226; &alpha; + &beta; &lt; 1: Decreasing (DRS).
+                </div>
+            </div>
+
+            <!-- SVG CHART 2 -->
+            <div class="chart-box">
+                <div class="chart-title">Figure 2.1: Sweezy's Kinked Demand Curve &amp; Discontinuous MR in Oligopoly</div>
+                <svg viewBox="0 0 650 340" width="650" height="340">
+                    <line x1="60" y1="290" x2="580" y2="290" stroke="#334155" stroke-width="2.5" />
+                    <line x1="60" y1="30" x2="60" y2="290" stroke="#334155" stroke-width="2.5" />
+                    <text x="590" y="295" fill="#334155" font-size="13" font-weight="700">Quantity (Q)</text>
+                    <text x="50" y="25" fill="#334155" font-size="13" font-weight="700">Price (P)</text>
+                    <path d="M 80,60 L 280,140 L 480,270" stroke="#0f4c81" stroke-width="3.5" fill="none" />
+                    <text x="90" y="55" fill="#0f4c81" font-size="12" font-weight="700">Elastic (Rivals ignore price hike)</text>
+                    <text x="420" y="255" fill="#0f4c81" font-size="12" font-weight="700">Inelastic (Rivals match price cut)</text>
+                    <circle cx="280" cy="140" r="5" fill="#d97706" />
+                    <text x="290" y="135" fill="#d97706" font-size="14" font-weight="700">Kink (P*, Q*)</text>
+                    <line x1="60" y1="140" x2="280" y2="140" stroke="#94a3b8" stroke-dasharray="4" />
+                    <line x1="280" y1="140" x2="280" y2="290" stroke="#94a3b8" stroke-dasharray="4" />
+                    <text x="35" y="145" fill="#0f172a" font-size="13" font-weight="700">P*</text>
+                    <text x="275" y="310" fill="#0f172a" font-size="13" font-weight="700">Q*</text>
+                    <line x1="80" y1="90" x2="280" y2="180" stroke="#b91c1c" stroke-width="2.5" stroke-dasharray="2" />
+                    <line x1="280" y1="180" x2="280" y2="230" stroke="#b91c1c" stroke-width="2.5" stroke-dasharray="3" />
+                    <line x1="280" y1="230" x2="420" y2="285" stroke="#b91c1c" stroke-width="2.5" stroke-dasharray="2" />
+                    <text x="290" y="210" fill="#b91c1c" font-size="12" font-weight="700">Vertical Gap in MR</text>
+                    <path d="M 220,230 Q 280,205 340,170" stroke="#15803d" stroke-width="2.5" fill="none" />
+                    <text x="350" y="175" fill="#15803d" font-size="12" font-weight="700">MC shifts within gap (Price sticky at P*)</text>
+                </svg>
+                <div class="chart-caption">Because Marginal Cost shifts within the vertical discontinuity of MR, equilibrium price P* remains sticky.</div>
+            </div>
+
+            <!-- FORMULA CARD 4: Lerner Index & HHI -->
+            <div class="formula-card">
+                <div class="formula-header">📊 Monopoly Power &amp; Market Concentration Metrics</div>
+                <div class="math-display">
+                    <span>Lerner Index (L) = </span>
+                    <span class="math-frac"><span class="math-num">P &minus; MC</span><span class="math-den">P</span></span>
+                    <span>=</span>
+                    <span class="math-frac"><span class="math-num">1</span><span class="math-den">|&epsilon;|</span></span>
+                    <span style="margin: 0 12px; color: #94a3b8;">|</span>
+                    <span>HHI = &sum; (s<sub>i</sub>)<sup>2</sup></span>
+                </div>
+                <div class="variable-legend">
+                    <strong>Lerner Index:</strong> Measures pricing mark-up over Marginal Cost ($P &minus; MC$). Under Perfect Competition, $P = MC \implies L = 0$. Pure Monopoly: $L \to 1$.<br />
+                    <strong>HHI (Herfindahl-Hirschman Index):</strong> Sum of squared percentage market shares. Monopolies score 10,000. Moderate concentration: 1,500&#8211;2,500; High concentration: &gt; 2,500.
+                </div>
+            </div>
+
+            <h3>2. Comparative Market Structures</h3>
+            <table class="table-custom">
+                <tr>
+                    <th>Market Type</th>
+                    <th>Firms &amp; Product</th>
+                    <th>Demand Curve &amp; Pricing</th>
+                    <th>Long-Run Equilibrium &amp; Efficiency</th>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Perfect Competition</span></td>
+                    <td>Infinite sellers; Homogeneous product.</td>
+                    <td>Horizontal demand ($P = AR = MR$). Price taker.</td>
+                    <td>$P = MR = LMC = \text{Min } LAC$. Zero economic profit. <em>Productive &amp; Allocative efficiency</em>.</td>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Pure Monopoly</span></td>
+                    <td>Single seller; Unique product with no close substitutes.</td>
+                    <td>Downward-sloping demand ($P > MR$). Price maker.</td>
+                    <td>$MR = MC$; Persistent supernormal profits. Causes <em>Deadweight Loss</em>. Lerner Index: $L = (P-MC)/P = 1/|\epsilon|$.</td>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Monopolistic Competition</span></td>
+                    <td>Many sellers; Differentiated products.</td>
+                    <td>Downward-sloping, highly elastic demand.</td>
+                    <td>Tangency of demand with downward-sloping LAC. Zero economic profit, but suffers <em>Excess Capacity</em>.</td>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Oligopoly</span></td>
+                    <td>Few dominant interdependent sellers.</td>
+                    <td>Strategic interaction / Kinked demand curve.</td>
+                    <td>Models: Cournot (quantity), Bertrand (price wars: $P=MC$), Stackelberg (leader-follower), Sweezy (price stickiness).</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- MODULE 3 -->
+        <div class="module-card" id="mod3">
+            <div class="module-header">
+                <h2>03. National Income Accounting &amp; Circular Flow</h2>
+                <span class="tag-badge">MACROECONOMICS</span>
+            </div>
+
+            <!-- FORMULA CARD 5: National Income -->
+            <div class="formula-card">
+                <div class="formula-header">💰 Core National Income Accounting &amp; Deflator Identities</div>
+                <div class="math-display">
+                    <span>GDP Deflator = </span>
+                    <span class="math-frac"><span class="math-num">Nominal GDP</span><span class="math-den">Real GDP</span></span>
+                    <span>&#215; 100</span>
+                    <span style="margin: 0 12px; color: #94a3b8;">|</span>
+                    <span>Y = C + I + G + (X &minus; M)</span>
+                </div>
+                <div class="variable-legend">
+                    <strong>Gross National Product (GNP):</strong> GNP = GDP + Net Factor Income from Abroad (NFIA).<br />
+                    <strong>Net National Product at Factor Cost (NNP<sub>FC</sub> / National Income):</strong> NNP<sub>FC</sub> = NNP<sub>MP</sub> &minus; Net Indirect Taxes (Indirect Taxes &minus; Subsidies).<br />
+                    <strong>India MoSPI System:</strong> GVA at Basic Prices = GVA<sub>FC</sub> + (Production Taxes &minus; Production Subsidies); GDP<sub>MP</sub> = GVA<sub>Basic</sub> + (Product Taxes &minus; Product Subsidies).<br />
+                    <strong>Circular Flow Equilibrium:</strong> Injections (I + G + X) = Leakages (S + T + M).
+                </div>
+            </div>
+
+            <h3>Measurement Approaches &amp; Inclusions/Exclusions</h3>
+            <ul class="bullet-list">
+                <li><span class="highlight">Production (Value Added) Method:</span> $\text{GVA} = \text{Gross Value of Output} - \text{Intermediate Consumption}$. Prevents double-counting.</li>
+                <li><span class="highlight">Income Method:</span> $\text{NDP}_{FC} = \text{Compensation of Employees} + \text{Operating Surplus (Rent, Interest, Profit)} + \text{Mixed Income of Self-Employed}$.</li>
+                <li><span class="highlight">Expenditure Method:</span> $Y = C + I + G + (X - M)$, where $C$ is Private Consumption, $I$ is Gross Capital Formation, $G$ is Government Final Spending, and $(X - M)$ is Net Exports.</li>
+                <li><span class="highlight">Exclusions from GDP:</span> Second-hand asset sales (already counted in original year), transfer payments (pensions, doles, scholarships) because no productive output is generated in exchange.</li>
+                <li><span class="highlight">Green GDP:</span> Deducts the monetary cost of natural resource depletion and environmental degradation: $\text{Green GDP} = \text{GDP} - \text{Environmental Damage Costs}$.</li>
+            </ul>
+        </div>
+
+        <!-- MODULE 4 -->
+        <div class="module-card" id="mod4">
+            <div class="module-header">
+                <h2>04. Classical vs. Keynesian Approaches</h2>
+                <span class="tag-badge">MACROECONOMIC THEORIES</span>
+            </div>
+
+            <table class="table-custom">
+                <tr>
+                    <th>Feature</th>
+                    <th>Classical Economic Model</th>
+                    <th>Keynesian Macroeconomic Model</th>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Governing Law</span></td>
+                    <td><strong>Say's Law:</strong> "Supply creates its own demand". Total factor payments equal total output.</td>
+                    <td><strong>Principle of Effective Demand:</strong> Demand creates its own supply. $AD$ determines output.</td>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Wage-Price Mechanism</span></td>
+                    <td>Perfectly flexible wages and prices clear markets instantaneously.</td>
+                    <td>Wages and prices are 'sticky downwards' due to contracts, minimum wage, and unions.</td>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Employment</span></td>
+                    <td>Full employment is automatic. Unemployment is strictly voluntary or frictional.</td>
+                    <td>Underemployment equilibrium is persistent. Involuntary unemployment is normal in slumps.</td>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Money Neutrality</span></td>
+                    <td><strong>Classical Dichotomy:</strong> Money is neutral ($MV=PT$), affecting only nominal prices.</td>
+                    <td>Money affects real output and employment via interest rates and liquidity preference.</td>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Saving-Investment</span></td>
+                    <td>Equilibrated by flexible real interest rates in loanable funds markets.</td>
+                    <td>Equilibrated by changes in aggregate national income ($Y$).</td>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Fiscal Stance</span></td>
+                    <td>Laissez-faire; balanced budgets. State intervention causes crowding out.</td>
+                    <td>Active counter-cyclical fiscal intervention (deficit spending) needed to boost demand.</td>
+                </tr>
+            </table>
+
+            <div class="callout callout-concept">
+                <strong>Keynes' Three Motives for Holding Money:</strong><br />
+                1. <strong>Transactions Motive ($L_1(Y)$):</strong> Money held for day-to-day expenditure; positive function of income.<br />
+                2. <strong>Precautionary Motive ($L_1(Y)$):</strong> Money held for unexpected contingencies/emergencies; function of income.<br />
+                3. <strong>Speculative Motive ($L_2(r)$):</strong> Money held to exploit future changes in bond prices; inversely related to interest rate $r$.
+            </div>
+        </div>
+
+        <!-- MODULE 5 -->
+        <div class="module-card" id="mod5">
+            <div class="module-header">
+                <h2>05. Consumption &amp; Investment Functions</h2>
+                <span class="tag-badge">MACROECONOMIC AGGREGATES</span>
+            </div>
+
+            <!-- FORMULA CARD 6: Consumption & Tobin's Q -->
+            <div class="formula-card">
+                <div class="formula-header">📈 Consumption Functions &amp; Tobin's Q Investment Ratio</div>
+                <div class="math-display">
+                    <span>C = C&#772; + c &#183; Y</span>
+                    <span style="margin: 0 8px; color: #94a3b8;">|</span>
+                    <span>MPC + MPS = 1</span>
+                    <span style="margin: 0 8px; color: #94a3b8;">|</span>
+                    <span>Tobin's q = </span>
+                    <span class="math-frac"><span class="math-num">Market Value of Capital Stock</span><span class="math-den">Replacement Cost of Physical Capital</span></span>
+                </div>
+                <div class="variable-legend">
+                    <strong>Where:</strong> <strong>C&#772;</strong> = Autonomous Consumption &#8226; <strong>c</strong> = Marginal Propensity to Consume (MPC = &Delta;C/&Delta;Y, 0 &lt; c &lt; 1) &#8226; <strong>MPS</strong> = Marginal Propensity to Save (&Delta;S/&Delta;Y).<br />
+                    <strong>Friedman's PIH:</strong> C = k &#183; Y<sub>p</sub> (Driven by Permanent Income; transitory MPC &approx; 0) &#8226; <strong>Modigliani's LCH:</strong> C = &alpha;W + &beta;Y (Consumption smoothed over lifespan).<br />
+                    <strong>Tobin's q Decision:</strong> q &gt; 1 &implies; Invest in physical capital &#8226; q &lt; 1 &implies; Acquire existing firms / Hold investment.
+                </div>
+            </div>
+
+            <h3>Theories of the Investment Function</h3>
+            <ul class="bullet-list">
+                <li><span class="highlight">Marginal Efficiency of Capital (MEC):</span> Discount rate equating expected future yields of an asset to its supply price (replacement cost). Invest if $\text{MEC} > r$.</li>
+                <li><span class="highlight">Marginal Efficiency of Investment (MEI):</span> Takes into account rising capital goods prices during aggregate investment booms; MEI is steeper than MEC.</li>
+            </ul>
+        </div>
+
+        <!-- MODULE 6 -->
+        <div class="module-card" id="mod6">
+            <div class="module-header">
+                <h2>06. Multiplier, Accelerator &amp; Super-Multiplier</h2>
+                <span class="tag-badge">MACROECONOMIC DYNAMICS</span>
+            </div>
+
+            <!-- FORMULA CARD 7: Multipliers -->
+            <div class="formula-card">
+                <div class="formula-header">⚡ Multiplier Formulas &amp; The Accelerator Principle</div>
+                <div class="math-display">
+                    <span>Investment Multiplier (k) = </span>
+                    <span class="math-frac"><span class="math-num">1</span><span class="math-den">1 &minus; MPC</span></span>
+                    <span>=</span>
+                    <span class="math-frac"><span class="math-num">1</span><span class="math-den">MPS</span></span>
+                    <span style="margin: 0 10px; color: #94a3b8;">|</span>
+                    <span>Tax Multiplier (k<sub>t</sub>) = </span>
+                    <span class="math-frac"><span class="math-num">&minus;MPC</span><span class="math-den">MPS</span></span>
+                </div>
+                <div class="math-display" style="font-size: 1.15rem; background: #ffffff;">
+                    <span>Balanced Budget (k<sub>bb</sub>) = 1 (&Delta;Y = &Delta;G)</span>
+                    <span style="margin: 0 10px; color: #94a3b8;">|</span>
+                    <span>Foreign Trade (k<sub>f</sub>) = <span class="math-frac"><span class="math-num">1</span><span class="math-den">MPS + MPM</span></span></span>
+                    <span style="margin: 0 10px; color: #94a3b8;">|</span>
+                    <span>Accelerator: I<sub>t</sub> = v &#183; (Y<sub>t</sub> &minus; Y<sub>t-1</sub>)</span>
+                </div>
+                <div class="variable-legend">
+                    <strong>Super-Multiplier:</strong> Combines multiplier and accelerator: initial autonomous spending boosts income &rarr; induces capital investment via accelerator &rarr; feeds back into multiplier.<br />
+                    <strong>Numerical Example:</strong> If MPC = 0.80 &implies; k = 1 / (1 &minus; 0.80) = 1 / 0.20 = 5. A Rs 1,000 Cr investment expands national income by Rs 5,000 Cr.
+                </div>
+            </div>
+
+            <div class="callout callout-exam">
+                <strong>⚡ Paradox of Thrift (Keynes):</strong> If every household attempts to increase its saving rate during a recession, aggregate consumption collapses. Because one person's spending is another's income, national income plunges until total savings drops back to equal the unchanged investment level.
+            </div>
+        </div>
+
+        <!-- MODULE 7 -->
+        <div class="module-card" id="mod7">
+            <div class="module-header">
+                <h2>07. The IS-LM Framework &amp; Macroeconomic Policy</h2>
+                <span class="tag-badge">HICKS-HANSEN SYNTHESIS</span>
+            </div>
+
+            <!-- FORMULA CARD 8: IS-LM -->
+            <div class="formula-card">
+                <div class="formula-header">🔄 The IS-LM Equilibrium Equations</div>
+                <div class="math-display">
+                    <span>IS Curve: Y = C(Y &minus; T) + I(r) + G</span>
+                    <span style="margin: 0 14px; color: #94a3b8;">|</span>
+                    <span>LM Curve: <span class="math-frac"><span class="math-num">M</span><span class="math-den">P</span></span> = L<sub>1</sub>(Y) + L<sub>2</sub>(r)</span>
+                </div>
+                <div class="variable-legend">
+                    <strong>IS Curve (Goods Market):</strong> Downward sloping (r&uarr; &rarr; I&darr; &rarr; Y&darr;). Shifts right by &Delta;G &#215; k with expansionary fiscal policy.<br />
+                    <strong>LM Curve (Money Market):</strong> Upward sloping (Y&uarr; &rarr; L<sub>1</sub>&uarr; &rarr; r&uarr;). Shifts right by &Delta;M/P with expansionary monetary policy.<br />
+                    <strong>Crowding-Out Effect:</strong> Fiscal expansion shifts IS right, driving up interest rates along LM, dampening interest-sensitive private capital investment.
+                </div>
+            </div>
+
+            <!-- SVG CHART 3 -->
+            <div class="chart-box">
+                <div class="chart-title">Figure 7.1: The IS-LM Equilibrium &amp; Fiscal vs. Monetary Policy Shifts</div>
+                <svg viewBox="0 0 650 340" width="650" height="340">
+                    <line x1="60" y1="290" x2="580" y2="290" stroke="#334155" stroke-width="2.5" />
+                    <line x1="60" y1="30" x2="60" y2="290" stroke="#334155" stroke-width="2.5" />
+                    <text x="590" y="295" fill="#334155" font-size="13" font-weight="700">Income / Output (Y)</text>
+                    <text x="45" y="25" fill="#334155" font-size="13" font-weight="700">Interest Rate (r)</text>
+                    <line x1="120" y1="60" x2="480" y2="270" stroke="#0f4c81" stroke-width="3" />
+                    <text x="490" y="275" fill="#0f4c81" font-size="13" font-weight="700">IS₁</text>
+                    <line x1="120" y1="270" x2="480" y2="60" stroke="#0d9488" stroke-width="3" />
+                    <text x="490" y="65" fill="#0d9488" font-size="13" font-weight="700">LM₁</text>
+                    <line x1="200" y1="60" x2="560" y2="270" stroke="#0f4c81" stroke-width="2" stroke-dasharray="4" />
+                    <text x="570" y="275" fill="#0f4c81" font-size="13" font-weight="700">IS₂ (G↑)</text>
+                    <line x1="190" y1="290" x2="550" y2="80" stroke="#0d9488" stroke-width="2" stroke-dasharray="4" />
+                    <text x="560" y="85" fill="#0d9488" font-size="13" font-weight="700">LM₂ (M↑)</text>
+                    <circle cx="300" cy="165" r="5" fill="#d97706" />
+                    <text x="310" y="160" fill="#d97706" font-size="13" font-weight="700">E₁ (r*, Y*)</text>
+                    <line x1="60" y1="165" x2="300" y2="165" stroke="#94a3b8" stroke-dasharray="3" />
+                    <line x1="300" y1="165" x2="300" y2="290" stroke="#94a3b8" stroke-dasharray="3" />
+                    <text x="35" y="170" fill="#0f172a" font-size="13" font-weight="700">r*</text>
+                    <text x="295" y="310" fill="#0f172a" font-size="13" font-weight="700">Y*</text>
+                </svg>
+                <div class="chart-caption">Fiscal expansion (IS right) raises Y and r (crowding out). Monetary expansion (LM right) raises Y and lowers r.</div>
+            </div>
+
+            <table class="table-custom">
+                <tr>
+                    <th>Special Case</th>
+                    <th>Curve Shape</th>
+                    <th>Fiscal Policy Power</th>
+                    <th>Monetary Policy Power</th>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Liquidity Trap</span></td>
+                    <td>LM curve is perfectly horizontal ($r \approx 0$).</td>
+                    <td><strong>100% Maximum Power:</strong> Full multiplier effect; zero crowding out.</td>
+                    <td><strong>0% Impotent:</strong> Money injections hoarded as cash ('pushing on string').</td>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Classical Case</span></td>
+                    <td>LM curve is perfectly vertical ($h = 0$).</td>
+                    <td><strong>0% Impotent:</strong> 100% complete crowding-out of private investment.</td>
+                    <td><strong>100% Maximum Power:</strong> Directly expands output.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- MODULE 8 -->
+        <div class="module-card" id="mod8">
+            <div class="module-header">
+                <h2>08. Inflation Dynamics &amp; The Phillips Curve</h2>
+                <span class="tag-badge">MACROECONOMIC STABILIZATION</span>
+            </div>
+
+            <!-- FORMULA CARD 9: Phillips Curve -->
+            <div class="formula-card">
+                <div class="formula-header">📉 Expectations-Augmented Phillips Curve (Friedman-Phelps)</div>
+                <div class="math-display">
+                    <span>&pi; = &pi;<sup>e</sup> &minus; &beta;(u &minus; u<sup>*</sup>) + v</span>
+                    <span style="margin: 0 12px; color: #94a3b8;">|</span>
+                    <span>Sacrifice Ratio = </span>
+                    <span class="math-frac"><span class="math-num">% Cumulative Real GDP Loss</span><span class="math-den">Percentage Point Drop in &pi;</span></span>
+                </div>
+                <div class="variable-legend">
+                    <strong>Where:</strong> <strong>&pi;</strong> = Actual Inflation Rate &#8226; <strong>&pi;<sup>e</sup></strong> = Expected Inflation &#8226; <strong>u</strong> = Actual Unemployment Rate &#8226; <strong>u<sup>*</sup></strong> = Natural Rate of Unemployment (NAIRU) &#8226; <strong>&beta;</strong> = Response coefficient &#8226; <strong>v</strong> = Supply Shock.<br />
+                    <strong>Long-Run Equilibrium:</strong> In the long run, &pi; = &pi;<sup>e</sup> &implies; u = u<sup>*</sup> (LRPC is perfectly vertical at NAIRU; no permanent trade-off exists).
+                </div>
+            </div>
+
+            <!-- SVG CHART 4 -->
+            <div class="chart-box">
+                <div class="chart-title">Figure 8.1: The Short-Run vs. Long-Run (NAIRU) Phillips Curve</div>
+                <svg viewBox="0 0 650 340" width="650" height="340">
+                    <line x1="60" y1="290" x2="580" y2="290" stroke="#334155" stroke-width="2.5" />
+                    <line x1="60" y1="30" x2="60" y2="290" stroke="#334155" stroke-width="2.5" />
+                    <text x="590" y="295" fill="#334155" font-size="13" font-weight="700">Unemployment (u)</text>
+                    <text x="35" y="25" fill="#334155" font-size="13" font-weight="700">Inflation (π)</text>
+                    <line x1="300" y1="40" x2="300" y2="290" stroke="#b91c1c" stroke-width="3.5" />
+                    <text x="310" y="50" fill="#b91c1c" font-size="14" font-weight="700">LRPC (Vertical at NAIRU / u*)</text>
+                    <text x="285" y="310" fill="#b91c1c" font-size="13" font-weight="700">u* (Natural Rate)</text>
+                    <path d="M 120,250 Q 250,150 480,90" stroke="#0f4c81" stroke-width="2.5" fill="none" />
+                    <text x="490" y="95" fill="#0f4c81" font-size="12" font-weight="700">SRPC₁ (πᵉ = 2%)</text>
+                    <path d="M 120,290 Q 280,200 520,130" stroke="#0d9488" stroke-width="2.5" fill="none" />
+                    <text x="530" y="135" fill="#0d9488" font-size="12" font-weight="700">SRPC₂ (πᵉ = 6%)</text>
+                    <circle cx="300" cy="140" r="5" fill="#d97706" />
+                    <circle cx="300" cy="190" r="5" fill="#d97706" />
+                </svg>
+                <div class="chart-caption">In the short run, trade-offs exist along SRPC. In the long run, inflation expectations adjust, making LRPC vertical at NAIRU.</div>
+            </div>
+        </div>
+
+        <!-- MODULE 9 -->
+        <div class="module-card" id="mod9">
+            <div class="module-header">
+                <h2>09. Business Cycles &amp; Economic Fluctuations</h2>
+                <span class="tag-badge">MACROECONOMIC CYCLES</span>
+            </div>
+
+            <h3>1. The Four Phases of a Business Cycle</h3>
+            <p>1. <strong>Expansion (Boom):</strong> Rising GDP, expanding employment, rising investment, optimistic business confidence.<br />
+            2. <strong>Peak:</strong> Capacity constraints reached, factor shortages emerge, inflation accelerates.<br />
+            3. <strong>Contraction (Recession):</strong> Falling GDP, declining profits, rising unemployment. Technical recession = $\ge 2$ consecutive quarters of negative real GDP growth.<br />
+            4. <strong>Trough (Recovery):</strong> Bottom of slump; low input prices and replacement investment initiate recovery.</p>
+
+            <h3>2. Major Business Cycle Theories</h3>
+            <ul class="bullet-list">
+                <li><span class="highlight">Schumpeter's Innovation Theory:</span> Waves of entrepreneurial innovation drive cycles through <em>Creative Destruction</em>.</li>
+                <li><span class="highlight">Keynesian Multiplier-Accelerator Interaction:</span> Volatility in autonomous investment driven by business confidence ('animal spirits') amplified by super-multiplier swings.</li>
+                <li><span class="highlight">Monetarist Theory (Milton Friedman):</span> Unsteady, erratic central bank money supply growth causes booms and busts.</li>
+                <li><span class="highlight">Real Business Cycle (RBC) Theory (Kydland &amp; Prescott):</span> Cycles are optimal market equilibrium responses to real technology and productivity supply shocks.</li>
+                <li><span class="highlight">Austrian Theory (Hayek &amp; Mises):</span> Artificial central bank interest rate suppression generates credit-fueled <em>malinvestment</em> that eventually crashes.</li>
+                <li><span class="highlight">Inverted Yield Curve:</span> When short-term bond yields exceed long-term bond yields (e.g. 2-yr yield > 10-yr yield), historically signaling impending recession within 12-18 months.</li>
+            </ul>
+        </div>
+
+        <!-- MODULE 10 -->
+        <div class="module-card" id="mod10">
+            <div class="module-header">
+                <h2>10. Balance of Payments (BOP) Architecture</h2>
+                <span class="tag-badge">EXTERNAL SECTOR</span>
+            </div>
+
+            <table class="table-custom">
+                <tr>
+                    <th>BOP Account</th>
+                    <th>Sub-Components &amp; Inclusions</th>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Current Account</span></td>
+                    <td>
+                        &#8226; <strong>Merchandise Trade:</strong> Visible exports &amp; imports.<br />
+                        &#8226; <strong>Services (Invisibles):</strong> IT software exports, tourism, transport, financial services.<br />
+                        &#8226; <strong>Primary Income:</strong> Investment income (dividends, interest, profits) &amp; compensation of employees.<br />
+                        &#8226; <strong>Secondary Income:</strong> Unrequited transfers (diaspora remittances, gifts, foreign grants).
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Capital Account (BPM6)</span></td>
+                    <td>Capital transfers (migrant transfers, debt forgiveness) &amp; acquisition/disposal of non-produced, non-financial assets (patents, trademarks, mineral rights).</td>
+                </tr>
+                <tr>
+                    <td><span class="highlight">Financial Account</span></td>
+                    <td>
+                        &#8226; <strong>FDI (Foreign Direct Investment):</strong> $\ge 10\%$ equity stake with lasting management control.<br />
+                        &#8226; <strong>FPI (Foreign Portfolio Investment):</strong> Passive liquid shares, bonds ('hot money').<br />
+                        &#8226; <strong>ECB:</strong> External Commercial Borrowings raised by Indian corporates.<br />
+                        &#8226; <strong>NRI Deposits:</strong> FCNR(B), NRE, NRO accounts.<br />
+                        &#8226; <strong>Reserve Assets:</strong> Changes in foreign exchange reserves held by the RBI.
+                    </td>
+                </tr>
+            </table>
+
+            <div class="callout callout-exam">
+                <strong>Autonomous vs. Accommodating Transactions:</strong><br />
+                &#8226; <strong>Autonomous ('Above the line'):</strong> Commercial transactions undertaken for independent profit motives.<br />
+                &#8226; <strong>Accommodating ('Below the line'):</strong> Financing items undertaken by the central bank (drawing down forex reserves) to bridge the autonomous deficit.
+            </div>
+        </div>
+
+        <!-- MODULE 11 -->
+        <div class="module-card" id="mod11">
+            <div class="module-header">
+                <h2>11. Foreign Exchange (Forex) &amp; Parities</h2>
+                <span class="tag-badge">INTERNATIONAL FINANCE</span>
+            </div>
+
+            <!-- FORMULA CARD 10: Forex Parities -->
+            <div class="formula-card">
+                <div class="formula-header">🌐 Foreign Exchange Parities &amp; The Marshall-Lerner Condition</div>
+                <div class="math-display">
+                    <span>Relative PPP: % &Delta;S &approx; &pi;<sub>domestic</sub> &minus; &pi;<sub>foreign</sub></span>
+                    <span style="margin: 0 10px; color: #94a3b8;">|</span>
+                    <span>CIP: <span class="math-frac"><span class="math-num">F &minus; S</span><span class="math-den">S</span></span> &approx; i &minus; i<sup>*</sup></span>
+                </div>
+                <div class="math-display" style="font-size: 1.15rem; background: #ffffff;">
+                    <span>REER = NEER &#215; <span class="math-frac"><span class="math-num">P<sub>domestic</sub></span><span class="math-den">P<sub>foreign</sub></span></span></span>
+                    <span style="margin: 0 10px; color: #94a3b8;">|</span>
+                    <span>Marshall-Lerner: |e<sub>x</sub> + e<sub>m</sub>| &gt; 1</span>
+                </div>
+                <div class="variable-legend">
+                    <strong>Purchasing Power Parity (PPP):</strong> Absolute: S = P / P<sup>*</sup>. Relative: Currency depreciates by inflation differential.<br />
+                    <strong>Covered Interest Parity (CIP):</strong> Forward premium (F &minus; S)/S eliminates riskless international interest arbitrage.<br />
+                    <strong>Marshall-Lerner Condition:</strong> Currency devaluation/depreciation improves the trade balance if and only if the sum of export and import price elasticities exceeds 1 (|e<sub>x</sub> + e<sub>m</sub>| &gt; 1). In the short run, $|e_x + e_m| < 1$, causing the initial <em>J-Curve</em> deterioration.
+                </div>
+            </div>
+
+            <!-- SVG CHART 5 -->
+            <div class="chart-box">
+                <div class="chart-title">Figure 11.1: The J-Curve Effect of Currency Devaluation / Depreciation</div>
+                <svg viewBox="0 0 650 300" width="650" height="300">
+                    <line x1="60" y1="150" x2="580" y2="150" stroke="#334155" stroke-width="2" stroke-dasharray="4" />
+                    <text x="590" y="155" fill="#334155" font-size="12" font-weight="700">Zero Trade Balance</text>
+                    <line x1="60" y1="30" x2="60" y2="270" stroke="#334155" stroke-width="2.5" />
+                    <text x="50" y="25" fill="#334155" font-size="13" font-weight="700">Trade Balance</text>
+                    <text x="570" y="285" fill="#334155" font-size="13" font-weight="700">Time (t)</text>
+                    <line x1="120" y1="30" x2="120" y2="270" stroke="#94a3b8" stroke-dasharray="2" />
+                    <text x="125" y="50" fill="#b91c1c" font-size="12" font-weight="700">Devaluation Event (t₀)</text>
+                    <path d="M 60,150 L 120,150 Q 180,240 260,240 Q 360,220 540,60" stroke="#0f4c81" stroke-width="3.5" fill="none" />
+                    <circle cx="120" cy="150" r="4" fill="#0f4c81" />
+                    <circle cx="260" cy="240" r="4" fill="#b91c1c" />
+                    <text x="210" y="260" fill="#b91c1c" font-size="12" font-weight="700">Short-Run Deterioration (Inelastic volumes)</text>
+                    <circle cx="395" cy="150" r="4" fill="#d97706" />
+                    <text x="440" y="80" fill="#15803d" font-size="12" font-weight="700">Long-Run Trade Surplus Improvement</text>
+                </svg>
+                <div class="chart-caption">Because trade contracts are pre-fixed, the trade deficit initially worsens before improving as export/import volumes adjust.</div>
+            </div>
+        </div>
+
+        <!-- MODULE 12 -->
+        <div class="module-card" id="mod12">
+            <div class="module-header">
+                <h2>12. Monetary Policy, Fiscal Policy &amp; NBFCs</h2>
+                <span class="tag-badge">REGULATORY &amp; FINANCIAL ARCHITECTURE</span>
+            </div>
+
+            <!-- FORMULA CARD 11: Fiscal Deficits -->
+            <div class="formula-card">
+                <div class="formula-header">🏛️ Public Finance Deficit Identities (Union Budget Metrics)</div>
+                <div class="math-display">
+                    <span>Fiscal Deficit (FD) = Total Expenditure &minus; (Revenue Receipts + Non-Debt Capital Receipts)</span>
+                </div>
+                <div class="math-display" style="font-size: 1.1rem; background: #ffffff;">
+                    <span>Revenue Deficit (RD) = Revenue Exp &minus; Revenue Rec</span>
+                    <span style="margin: 0 8px; color: #94a3b8;">|</span>
+                    <span>Effective RD = RD &minus; Grants for Capital Assets</span>
+                </div>
+                <div class="math-display" style="font-size: 1.1rem; background: #ffffff;">
+                    <span>Primary Deficit (PD) = Fiscal Deficit &minus; Net Interest Payments</span>
+                </div>
+                <div class="variable-legend">
+                    <strong>Significance:</strong> Fiscal Deficit measures the government's total borrowing requirement from all sources.<br />
+                    <strong>N.K. Singh FRBM Targets:</strong> General Government Debt-to-GDP ceiling of 60% (40% Centre, 20% States) &#8226; Central Fiscal Deficit target of 3.0% of GDP &#8226; Escape Clause allowing up to 0.5% GDP deviation for national security, war, acts of God, or severe structural shocks.
+                </div>
+            </div>
+
+            <!-- FORMULA CARD 12: Monetary & NBFC Ratios -->
+            <div class="formula-card">
+                <div class="formula-header">🏦 Monetary Policy Corridor &amp; NBFC Prudential Ratios</div>
+                <div class="math-display">
+                    <span>MSF Rate (Ceiling) = Repo + 0.25%</span>
+                    <span style="margin: 0 10px; color: #94a3b8;">|</span>
+                    <span>SDF Rate (Floor) = Repo &minus; 0.25%</span>
+                    <span style="margin: 0 10px; color: #94a3b8;">|</span>
+                    <span>LAF Width = 50 bps</span>
+                </div>
+                <div class="math-display" style="font-size: 1.1rem; background: #ffffff;">
+                    <span>NBFC 50-50 Rule: Financial Assets &gt; 50% AND Financial Income &gt; 50%</span>
+                    <span style="margin: 0 10px; color: #94a3b8;">|</span>
+                    <span>NBFC Min CRAR = 15% (Tier-1 &#8805; 10%)</span>
+                </div>
+                <div class="variable-legend">
+                    <strong>Standing Deposit Facility (SDF):</strong> Uncollateralized overnight liquidity absorption facility introduced in April 2022.<br />
+                    <strong>Scale-Based Regulation (SBR):</strong> Base Layer (Non-deposit &lt; Rs 1,000 Cr; P2P; AA) &#8226; Middle Layer (Deposit-taking; Assets &#8805; Rs 1,000 Cr; HFCs; CICs; IFCs) &#8226; Upper Layer (Top 10 NBFCs; CET1 = 9%; Mandatory listing in 3 yrs) &#8226; Top Layer (Bespoke risk surcharge).
+                </div>
+            </div>
+
+            <!-- SVG CHART 6 -->
+            <div class="chart-box">
+                <div class="chart-title">Figure 12.1: RBI LAF Corridor &amp; Scale-Based Regulation (SBR) Pyramid</div>
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px;">
+                    <svg viewBox="0 0 320 260" width="300" height="250">
+                        <rect x="20" y="20" width="280" height="220" rx="8" fill="#f8fafc" stroke="#cbd5e1" />
+                        <text x="160" y="45" fill="#0f4c81" font-size="13" font-weight="700" text-anchor="middle">LAF CORRIDOR (50 bps width)</text>
+                        <rect x="40" y="65" width="240" height="35" rx="5" fill="#fee2e2" stroke="#b91c1c" />
+                        <text x="160" y="87" fill="#b91c1c" font-size="12" font-weight="700" text-anchor="middle">MSF Rate (Ceiling) = Repo + 25 bps</text>
+                        <rect x="40" y="115" width="240" height="35" rx="5" fill="#e0f2fe" stroke="#0284c7" />
+                        <text x="160" y="137" fill="#0284c7" font-size="12" font-weight="700" text-anchor="middle">Policy Repo Rate (Benchmark)</text>
+                        <rect x="40" y="165" width="240" height="35" rx="5" fill="#dcfce7" stroke="#15803d" />
+                        <text x="160" y="187" fill="#15803d" font-size="12" font-weight="700" text-anchor="middle">SDF Rate (Floor) = Repo - 25 bps</text>
+                        <text x="160" y="225" fill="#64748b" font-size="11" text-anchor="middle">SDF is uncollateralized (introduced Apr 2022)</text>
+                    </svg>
+                    <svg viewBox="0 0 320 260" width="300" height="250">
+                        <text x="160" y="25" fill="#0f4c81" font-size="13" font-weight="700" text-anchor="middle">NBFC SCALE-BASED REGULATION (SBR)</text>
+                        <polygon points="160,40 120,80 200,80" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.5" />
+                        <text x="160" y="65" fill="#b91c1c" font-size="11" font-weight="700" text-anchor="middle">Top Layer</text>
+                        <polygon points="120,80 200,80 230,130 90,130" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" />
+                        <text x="160" y="110" fill="#d97706" font-size="11" font-weight="700" text-anchor="middle">Upper Layer (Top 10 + Bank-like)</text>
+                        <polygon points="90,130 230,130 260,185 60,185" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" />
+                        <text x="160" y="162" fill="#0284c7" font-size="11" font-weight="700" text-anchor="middle">Middle Layer (Deposit + Assets ≥ 1000 Cr)</text>
+                        <polygon points="60,185 260,185 290,240 30,240" fill="#dcfce7" stroke="#15803d" stroke-width="1.5" />
+                        <text x="160" y="217" fill="#15803d" font-size="11" font-weight="700" text-anchor="middle">Base Layer (Non-Deposit &lt; 1000 Cr, P2P, AA)</text>
+                    </svg>
+                </div>
+                <div class="chart-caption">Left: RBI LAF 50 bps asymmetric corridor. Right: RBI 4-tier Scale-Based Regulatory structure for NBFCs.</div>
+            </div>
+        </div>
+
+        <!-- PFRDA VISUAL & EXPANSION PACK -->
+<div class="visual-diagram-box" style="background:#ffffff;border:1.5px solid #cbd5e1;border-radius:12px;padding:18px;margin:22px 0;box-shadow:0 2px 10px rgba(15,23,42,0.05);">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;border-bottom:1px solid #e2e8f0;padding-bottom:8px;">
+<span style="font-weight:800;color:#0f4c81;font-size:1.02rem;">📈 IS-LM Policy Effectiveness & Monetary/Fiscal Multipliers Summary</span>
+<span style="background:#fef3c7;color:#b45309;font-size:0.75rem;font-weight:700;padding:3px 10px;border-radius:12px;">Macroeconomic General Equilibrium</span>
+</div>
+<svg viewBox="0 0 900 240" style="width:100%;height:auto;display:block;font-family:'Segoe UI',system-ui,sans-serif;">
+<rect x="0" y="0" width="900" height="240" rx="10" fill="#f8fafc"/>
+<text x="20" y="40" fill="#0f172a" font-weight="700" font-size="12">Keynesian Multiplier (k)</text>
+<rect x="240" y="25" width="420" height="22" rx="5" fill="#e2e8f0"/>
+<rect x="240" y="25" width="336" height="22" rx="5" fill="#0f4c81"/>
+<text x="584" y="40" fill="#0f172a" font-weight="800" font-size="11.5">1 / (1 - MPC) = 1 / MPS</text>
+<text x="735" y="40" fill="#475569" font-size="11">With Tax & Imports: 1 / [1 - c(1-t) + m]</text>
+<text x="20" y="80" fill="#0f172a" font-weight="700" font-size="12">Balanced Budget Mult.</text>
+<rect x="240" y="65" width="420" height="22" rx="5" fill="#e2e8f0"/>
+<rect x="240" y="65" width="189" height="22" rx="5" fill="#0d9488"/>
+<text x="437" y="80" fill="#0f172a" font-weight="800" font-size="11.5">Always Equal to 1 (Unity)</text>
+<text x="735" y="80" fill="#475569" font-size="11">When ΔG = ΔT (Lump-Sum Taxes)</text>
+<text x="20" y="120" fill="#0f172a" font-weight="700" font-size="12">Liquidity Trap (Flat LM)</text>
+<rect x="240" y="105" width="420" height="22" rx="5" fill="#e2e8f0"/>
+<rect x="240" y="105" width="378" height="22" rx="5" fill="#0f4c81"/>
+<text x="626" y="120" fill="#0f172a" font-weight="800" font-size="11.5">Fiscal Policy 100% Effective</text>
+<text x="735" y="120" fill="#475569" font-size="11">Monetary Policy Ineffective (Zero Crowding Out)</text>
+<text x="20" y="160" fill="#0f172a" font-weight="700" font-size="12">Classical Range (Vert LM)</text>
+<rect x="240" y="145" width="420" height="22" rx="5" fill="#e2e8f0"/>
+<rect x="240" y="145" width="378" height="22" rx="5" fill="#0d9488"/>
+<text x="626" y="160" fill="#0f172a" font-weight="800" font-size="11.5">Monetary Policy 100% Effective</text>
+<text x="735" y="160" fill="#475569" font-size="11">Complete Crowding Out of Fiscal Policy</text>
+<text x="20" y="200" fill="#0f172a" font-weight="700" font-size="12">NBFC Scale-Based Regs</text>
+<rect x="240" y="185" width="420" height="22" rx="5" fill="#e2e8f0"/>
+<rect x="240" y="185" width="294" height="22" rx="5" fill="#0f4c81"/>
+<text x="542" y="200" fill="#0f172a" font-weight="800" font-size="11.5">Base (BL), Middle (ML), Upper (UL), Top</text>
+<text x="735" y="200" fill="#475569" font-size="11">BL Entry Threshold ≥ ₹1,000 Cr Assets</text>
+</svg></div>
+
+
+
+<div class="section-card module-card" style="background:#f8fafc;border-radius:12px;padding:24px;margin-top:28px;margin-bottom:28px;border:1.5px solid #93c5fd;">
+  <h3 style="margin-top:0;color:#1e3a8a;">🔗 Practice CBT Mock Tests &amp; Authoritative Regulatory Sources (Subject H)</h3>
+  <p style="margin-bottom:12px;">Test your mastery of <strong>Economics</strong> with 5 full-length 50-question CBT Mock Tests featuring balanced option lengths and detailed explanations:</p>
+  <div style="margin-bottom:16px;"><a href="PFRDA_Economics_Mock_1.html" style="display:inline-block;background:#1e3a8a;color:white;text-decoration:none;padding:8px 16px;border-radius:6px;font-weight:700;font-size:0.86rem;margin:4px;">🚀 Launch Mock Test 1 (50 Qs)</a> <a href="PFRDA_Economics_Mock_2.html" style="display:inline-block;background:#1e3a8a;color:white;text-decoration:none;padding:8px 16px;border-radius:6px;font-weight:700;font-size:0.86rem;margin:4px;">🚀 Launch Mock Test 2 (50 Qs)</a> <a href="PFRDA_Economics_Mock_3.html" style="display:inline-block;background:#1e3a8a;color:white;text-decoration:none;padding:8px 16px;border-radius:6px;font-weight:700;font-size:0.86rem;margin:4px;">🚀 Launch Mock Test 3 (50 Qs)</a> <a href="PFRDA_Economics_Mock_4.html" style="display:inline-block;background:#1e3a8a;color:white;text-decoration:none;padding:8px 16px;border-radius:6px;font-weight:700;font-size:0.86rem;margin:4px;">🚀 Launch Mock Test 4 (50 Qs)</a> <a href="PFRDA_Economics_Mock_5.html" style="display:inline-block;background:#1e3a8a;color:white;text-decoration:none;padding:8px 16px;border-radius:6px;font-weight:700;font-size:0.86rem;margin:4px;">🚀 Launch Mock Test 5 (50 Qs)</a></div>
+  <div style="font-size:0.86rem;color:#475569;border-top:1px solid #cbd5e1;padding-top:10px;">
+    <strong>Verified Regulatory &amp; Statutory Sources (Updated October 2026):</strong>
+    <a href="https://www.pfrda.org.in" target="_blank" rel="noopener" style="color:#2563eb;margin-left:8px;">PFRDA Official Portal</a> ·
+    <a href="https://npstrust.org.in/act-and-regulations" target="_blank" rel="noopener" style="color:#2563eb;margin-left:8px;">NPS Trust Regulations (2025–26)</a> ·
+    <a href="https://www.sebi.gov.in" target="_blank" rel="noopener" style="color:#2563eb;margin-left:8px;">SEBI Circulars &amp; Regulations</a> ·
+    <a href="https://www.rbi.org.in" target="_blank" rel="noopener" style="color:#2563eb;margin-left:8px;">RBI Monetary Policy (Oct 2026)</a> ·
+    <a href="https://www.indiabudget.gov.in" target="_blank" rel="noopener" style="color:#2563eb;margin-left:8px;">Union Budget 2026–27 &amp; Economic Survey 2025–26</a> ·
+    <a href="https://prsindia.org/policy/report-summaries/report-of-the-16th-finance-commission-for-2026-31" target="_blank" rel="noopener" style="color:#2563eb;margin-left:8px;">16th Finance Commission Report (2026–31)</a> ·
+    <a href="https://www.mca.gov.in" target="_blank" rel="noopener" style="color:#2563eb;margin-left:8px;">MCA Companies Act, 2013</a>
+  </div>
+</div>
+
+<!-- END PFRDA VISUAL & EXPANSION PACK -->
+<div class="footer">
+            PFRDA Grade A Specialist Officer Examination &#183; Master Economics &amp; Financial Sector Suite &#183; Designed for SHIVAM &#183; &copy; 2026
+        </div>
+    </div>
+
+</body>
+</html>

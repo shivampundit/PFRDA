@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Companies Act 2013 Mock Test 3 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject G: Companies Act</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Companies_Act_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Companies_Act_Master_Revision_and_Study_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Companies_Act_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Companies_Act_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Companies_Act_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Companies_Act_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Companies_Act_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &#183; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &#183; Paper 2 &#183; Companies Act Mock 3</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Companies Act, 2013 - Mock 3</h1>
+    <p class="start-subheading">Full 50 Questions &#183; Section-Based Precision &#183; PFRDA Grade A Level &#183; Specialized Coaching</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Chapter III (Prospectus &amp; Allotment):</b> Sections 23&#8211;42, Public Offer, Private Placement (Sec 42), Shelf &amp; Red Herring Prospectuses, Criminal &amp; Civil Liabilities (Sec 34&#8211;36), PAS Rules.</li>
+                <li><b>Chapter IV (Share Capital &amp; Debentures):</b> Sections 43&#8211;72, Equity &amp; Preference Shares, DVRs, Sweat Equity (Sec 54), ESOP (Sec 62), Bonus Shares (Sec 63), Buy-back of Securities (Sec 68&#8211;70), Debentures &amp; DRR (Sec 71).</li>
+                <li><b>Chapter VIII (Declaration &amp; Payment of Dividend):</b> Sections 123&#8211;127, Sources of Dividend, Rule 3 Past Reserves, Interim Dividend, Unpaid Dividend Account (UDA Sec 124), IEPF (Sec 125), Penalties (Sec 127).</li>
+                <li><b>Chapter X (Audit and Auditors):</b> Sections 139&#8211;148, Appointment &amp; Rotation, Resignation &amp; Removal (Sec 140), Qualifications &amp; Disqualifications (Sec 141), Prohibited Services (Sec 144), Fraud Reporting (Sec 143(12)), Cost Audit (Sec 148).</li>
+                <li><b>Chapter XI (Appointment &amp; Qualifications of Directors):</b> Sections 149&#8211;172, Board Composition, Resident &amp; Women Directors, Independent Directors (IDs), Small Shareholders Director (SSD), DIN, Disqualifications (Sec 164), Vacation &amp; Removal (Sec 167&#8211;169).</li>
+                <li><b>Chapter XII (Meetings of Board &amp; its Powers):</b> Sections 173&#8211;195, Board Meetings &amp; Quorum (Sec 173&#8211;174), Audit/NRC/SRC Committees (Sec 177&#8211;178), Board Powers (Sec 179&#8211;180), Political/Charity Contributions (Sec 181&#8211;182), Loans to Directors (Sec 185), Inter-corporate Loans (Sec 186), Related Party Transactions (Sec 188).</li>
+                <li><b>Chapter XXVII (NCLT &amp; NCLAT):</b> Sections 407&#8211;434, Constitution, Qualifications of President/Chairperson/Members, Benches, Appeals to NCLAT (Sec 421) and Supreme Court (Sec 423), Timelines &amp; Contempt.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "Under Section 139(1) of the Companies Act, 2013, what is the standard tenure of appointment of a statutory auditor appointed at an Annual General Meeting (AGM)?",
+    "options": [
+      "1 year, subject to annual re-election within thirty days from the date of the general meeting",
+      "3 years without reappointment",
+      "10 years permanently",
+      "From the conclusion of that AGM until the conclusion of the sixth AGM, with the company placing the appointment before members for ratification at every AGM",
+      "Until the auditor attains the age of 60 years upon verification of statutory registers at the registered office"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: From the conclusion of that AGM until the conclusion of the sixth AGM, with the company placing the appointment before members for ratification at every AGM (ratification requirement omitted by 2017 Amendment). Section 139(1) provides that every company shall, at the first annual general meeting, appoint an individual or a firm as an auditor who shall hold office from the conclusion of that meeting till the conclusion of its sixth annual general meeting (a block of 5 consecutive years). The requirement of annual ratification at every AGM was omitted by the Companies (Amendment) Act, 2017."
+  },
+  {
+    "id": 2,
+    "question": "What are the statutory 'Auditor Rotation' rules under Section 139(2) of the Companies Act, 2013 for eligible companies?",
+    "options": [
+      "No listed company or prescribed class of companies shall appoint or re-appoint: (a) an individual as auditor for more than one term of 5 consecutive years",
+      "Auditors must be rotated every 12 months with the prior sanction of the National Company Law Tribunal",
+      "An individual auditor can serve for 15 consecutive years in compliance with corporate governance norms",
+      "Audit firms can serve indefinitely if approved by the Audit Committee within the statutory timeline prescribed under the Act",
+      "Rotation applies only to government-owned public sector enterprises pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: No listed company or prescribed class of companies shall appoint or re-appoint: (a) an individual as auditor for more than one term of 5 consecutive years; and (b) an audit firm as auditor for more than two terms of 5 consecutive years (10 consecutive years), followed by a mandatory 5-year cooling-off period. Section 139(2) prescribes mandatory rotation for listed companies and prescribed unlisted companies: an individual auditor can serve for a maximum of 1 term of 5 consecutive years, and an audit firm for a maximum of 2 terms of 5 consecutive years (10 years). Both are subject to a mandatory cooling-off period of 5 consecutive years before they can be reappointed by the same company."
+  },
+  {
+    "id": 3,
+    "question": "Under Rule 5 of the Companies (Audit and Auditors) Rules, 2014, to which classes of companies do the mandatory Auditor Rotation rules under Section 139(2) apply?",
+    "options": [
+      "Only listed companies and all private companies with capital of Rs 1 crore upon verification of statutory registers at the registered office",
+      "Only companies operating in special economic zones subject to the conditions notified by the Ministry of Corporate Affairs",
+      "All listed companies; all unlisted public companies having paid-up share capital of Rs 10 crore or more; all private limited companies having paid-up share capital of Rs 50 crore or more; and all companies having paid-up capital below limits but having public borrowings/deposits of Rs 50 crore or more",
+      "All non-profit Section 8 companies exclusively subject to prior filing with the Registrar of Companies",
+      "Rotation applies to every single registered company in India without exception within thirty days from the date of the general meeting"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: All listed companies; all unlisted public companies having paid-up share capital of Rs 10 crore or more; all private limited companies having paid-up share capital of Rs 50 crore or more; and all companies having paid-up capital below limits but having public borrowings/deposits of Rs 50 crore or more. Rule 5 prescribes the thresholds for rotation: (a) all listed companies; (b) unlisted public companies with paid-up capital $\\ge$ Rs 10 crore; (c) private limited companies with paid-up capital $\\ge$ Rs 50 crore; and (d) all companies with public borrowings from banks/financial institutions or public deposits $\\ge$ Rs 50 crore."
+  },
+  {
+    "id": 4,
+    "question": "Under Section 139(6), who appoints the FIRST AUDITOR of a company (other than a Government Company), and within what timeframe?",
+    "options": [
+      "The Central Government within 60 days of incorporation pursuant to a resolution passed by the Board of Directors",
+      "The Registrar of Companies within 15 days",
+      "The statutory auditor of the holding company within 45 days subject to approval by a special resolution of shareholders",
+      "The local municipal trade magistrate within 10 days",
+      "The Board of Directors within 30 days from the date of registration/incorporation of the company"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The Board of Directors within 30 days from the date of registration/incorporation of the company; if the Board fails, members at an Extraordinary General Meeting (EGM) within 90 days. Section 139(6) provides that the first auditor of a non-government company shall be appointed by the Board of Directors within 30 days from the date of registration. In case of failure of the Board, the Board shall inform the members, who shall appoint the auditor within 90 days at an Extraordinary General Meeting. The first auditor holds office until the conclusion of the 1st AGM."
+  },
+  {
+    "id": 5,
+    "question": "Under Section 139(7), who appoints the FIRST AUDITOR in the case of a Government Company, and within what statutory timeframe?",
+    "options": [
+      "The Board of Directors within 30 days of registration within thirty days from the date of the general meeting",
+      "The Comptroller and Auditor-General of India (CAG) within 60 days from the date of registration of the company",
+      "The President of India via executive decree within 180 days under the applicable provisions of the Companies Act, 2013",
+      "The Ministry of Corporate Affairs within 90 days as disclosed in the Board's Report and annual return",
+      "The Governor of the Reserve Bank of India within 45 days upon verification of statutory registers at the registered office"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The Comptroller and Auditor-General of India (CAG) within 60 days from the date of registration of the company; if CAG fails, the Board within 30 days; if Board fails, the members at an EGM within 60 days. Section 139(7) mandates that for a Government company or company owned/controlled by Central/State Govt, the first auditor shall be appointed by the CAG within 60 days of registration. If the CAG fails, the Board shall appoint within next 30 days. If the Board fails, members shall appoint within 60 days at an EGM, holding office till the 1st AGM."
+  },
+  {
+    "id": 6,
+    "question": "Under Section 139(5), who appoints the SUBSEQUENT AUDITOR in the case of a Government Company, and within what timeframe?",
+    "options": [
+      "Shareholders in an AGM by passing a special resolution with the prior sanction of the National Company Law Tribunal",
+      "The Union Finance Minister within 90 days from the start of the fiscal year in compliance with corporate governance norms",
+      "The Board of Directors with approval of the NCLT within the statutory timeline prescribed under the Act",
+      "The Comptroller and Auditor-General of India (CAG) within a period of 180 days from the commencement of the financial year, holding office till the conclusion of the annual general meeting",
+      "The statutory auditor of the State Bank of India pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The Comptroller and Auditor-General of India (CAG) within a period of 180 days from the commencement of the financial year, holding office till the conclusion of the annual general meeting. Section 139(5) states: In the case of a Government company, the CAG shall, in respect of a financial year, appoint an auditor duly qualified under this Act within a period of 180 days from the commencement of the financial year, who shall hold office till the conclusion of the annual general meeting."
+  },
+  {
+    "id": 7,
+    "question": "Under Section 139(8), how is a 'Casual Vacancy' in the office of an auditor filled in a Non-Government Company if the vacancy is caused by RESIGNATION of the auditor?",
+    "options": [
+      "The Board of Directors fills the vacancy within 30 days, but such appointment shall also be approved by the company at a general meeting convened within 3 months of the recommendation of the Board, holding office till the conclusion of the next AGM",
+      "The Board fills it permanently without any shareholder approval upon verification of statutory registers at the registered office",
+      "The Central Government appoints a replacement auditor within 60 days subject to the conditions notified by the Ministry of Corporate Affairs",
+      "The vacancy remains unfilled until the next annual general meeting subject to prior filing with the Registrar of Companies",
+      "The retiring auditor must nominate a replacement partner within thirty days from the date of the general meeting"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The Board of Directors fills the vacancy within 30 days, but such appointment shall also be approved by the company at a general meeting convened within 3 months of the recommendation of the Board, holding office till the conclusion of the next AGM. Section 139(8)(i) provides that any casual vacancy in a non-government company is filled by the Board within 30 days. However, if the casual vacancy arises from the RESIGNATION of an auditor, the appointment by the Board must also be approved by the company at a general meeting convened within three months of the Board's recommendation, holding office till the next AGM."
+  },
+  {
+    "id": 8,
+    "question": "Under Section 140(1) of the Companies Act, 2013, what procedure must be followed to REMOVE an auditor before the expiry of their 5-year term?",
+    "options": [
+      "A simple executive order by the Managing Director pursuant to a resolution passed by the Board of Directors",
+      "An Ordinary Resolution passed in general meeting without government consent in accordance with the rules prescribed by the Central Government",
+      "Passing a Board resolution, obtaining the prior approval of the Central Government in Form ADT-2 within 30 days of Board resolution, holding a general meeting within 60 days of receipt of Central Government approval, and passing a Special Resolution after giving the auditor a reasonable opportunity of being heard",
+      "Obtaining a court order from the High Court under civil procedure rules subject to approval by a special resolution of shareholders",
+      "Auditors cannot be removed before their 5-year term under any circumstances with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Passing a Board resolution, obtaining the prior approval of the Central Government in Form ADT-2 within 30 days of Board resolution, holding a general meeting within 60 days of receipt of Central Government approval, and passing a Special Resolution after giving the auditor a reasonable opportunity of being heard. Section 140(1) read with Rule 7 prescribes a strict procedure: (1) Board resolution; (2) Application to Central Government in Form ADT-2 within 30 days; (3) General meeting held within 60 days of Central Govt approval; (4) Special Resolution passed; and (5) The auditor must be given a reasonable opportunity of being heard."
+  },
+  {
+    "id": 9,
+    "question": "Under Section 140(2) and (3), within how many days must an auditor who has RESIGNED file a statement with the company and the Registrar in Form ADT-3, and what is the penalty for failure to file?",
+    "options": [
+      "Within 10 days; a fine of Rs 1,000 within thirty days from the date of the general meeting",
+      "Within 60 days; suspension of CA license for 1 year under the applicable provisions of the Companies Act, 2013",
+      "Within 90 days; forfeiture of all audit fees as disclosed in the Board's Report and annual return",
+      "Resigning auditors are not required to file any statement upon verification of statutory registers at the registered office",
+      "Within 30 days from the date of resignation in Form ADT-3; penalty of not less than Rs 50,000 or the remuneration of the auditor, whichever is less, and in case of continuing failure, a further penalty of Rs 500 per day"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Within 30 days from the date of resignation in Form ADT-3; penalty of not less than Rs 50,000 or the remuneration of the auditor, whichever is less, and in case of continuing failure, a further penalty of Rs 500 per day, subject to a maximum of Rs 2,00,000. Section 140(2) mandates that the auditor who has resigned shall, within a period of thirty days from the date of resignation, file a statement in Form ADT-3 with the company and the Registrar (and with CAG for government companies). Under Section 140(3) (as amended), defaulting auditors are liable to a penalty min Rs 50,000 or remuneration, max Rs 2 lakh."
+  },
+  {
+    "id": 10,
+    "question": "Under Section 140(5), what power does the National Company Law Tribunal (NCLT) possess regarding an auditor who has acted in a fraudulent manner?",
+    "options": [
+      "NCLT can sentence the auditor to solitary confinement for 10 years with the prior sanction of the National Company Law Tribunal",
+      "The Tribunal, either suo motu or on an application by Central Government, may direct the company to change its auditor within 15 days",
+      "NCLT can cancel the auditor's university graduation degree in compliance with corporate governance norms",
+      "NCLT can dissolve the Institute of Chartered Accountants of India within the statutory timeline prescribed under the Act",
+      "NCLT has zero jurisdiction over statutory auditors pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The Tribunal, either suo motu or on an application by Central Government, may direct the company to change its auditor within 15 days; if the final order is passed against the auditor, they shall NOT be eligible to be appointed as auditor of any company for a period of 5 years and shall be liable under Section 447. Section 140(5) provides that the Tribunal may direct a company to change its auditor if satisfied that the auditor has acted in a fraudulent manner. A final order under Section 140(5) debars the auditor from being appointed as an auditor of ANY company for a period of five years and triggers criminal liability for fraud under Section 447."
+  },
+  {
+    "id": 11,
+    "question": "Under Section 141(1) of the Companies Act, 2013, who is qualified for appointment as an auditor of a company?",
+    "options": [
+      "Any graduate with a Bachelor of Commerce degree upon verification of statutory registers at the registered office",
+      "A Cost Accountant holding a CMA certification subject to the conditions notified by the Ministry of Corporate Affairs",
+      "A Company Secretary holding an ACS certification subject to prior filing with the Registrar of Companies",
+      "Only a Chartered Accountant holding a valid Certificate of Practice within the meaning of the Chartered Accountants Act, 1949",
+      "An Advocate enrolled with the Bar Council of India within thirty days from the date of the general meeting"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Only a Chartered Accountant holding a valid Certificate of Practice within the meaning of the Chartered Accountants Act, 1949 (a firm including an LLP whereof majority of partners practicing in India are qualified may be appointed). Section 141(1) stipulates that a person shall be eligible for appointment as an auditor of a company only if he is a Chartered Accountant. Section 141(2) adds that where a firm including a limited liability partnership (LLP) is appointed as an auditor of a company, only the partners who are chartered accountants shall be authorized to act and sign on behalf of the firm."
+  },
+  {
+    "id": 12,
+    "question": "Which of the following entities is explicitly DISQUALIFIED under Section 141(3)(a) from being appointed as an auditor of a company?",
+    "options": [
+      "A body corporate other than a Limited Liability Partnership (LLP) registered under the Limited Liability Partnership Act, 2008",
+      "A partnership firm of chartered accountants pursuant to a resolution passed by the Board of Directors",
+      "A sole proprietorship CA firm in accordance with the rules prescribed by the Central Government",
+      "A chartered accountant who is a non-resident Indian subject to approval by a special resolution of shareholders",
+      "A chartered accountant who is a woman with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A body corporate other than a Limited Liability Partnership (LLP) registered under the Limited Liability Partnership Act, 2008. Section 141(3)(a) provides that 'a body corporate other than a limited liability partnership registered under the Limited Liability Partnership Act, 2008' shall not be eligible for appointment as an auditor of a company. Thus, private/public limited companies cannot act as statutory auditors, but LLPs can."
+  },
+  {
+    "id": 13,
+    "question": "Under Section 141(3)(d)(i), can a 'Relative' of an auditor hold securities in the company or its subsidiary/holding/associate company without disqualifying the auditor?",
+    "options": [
+      "No, a relative cannot hold even a single share of any value within thirty days from the date of the general meeting",
+      "Yes, a relative can hold shares up to Rs 50 lakh face value under the applicable provisions of the Companies Act, 2013",
+      "Yes, a relative may hold security or interest in the company of face value not exceeding one lakh rupees (Rs 1,00,000) as prescribed under Rule 10",
+      "Yes, a relative can hold up to 5% of total paid-up share capital as disclosed in the Board's Report and annual return",
+      "Relatives are exempt from all disqualification rules upon verification of statutory registers at the registered office"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Yes, a relative may hold security or interest in the company of face value not exceeding one lakh rupees (Rs 1,00,000) as prescribed under Rule 10. Section 141(3)(d)(i) read with Rule 10(1) provides a safe harbor: While the auditor and their partner cannot hold any security of any value, a 'relative' may hold security or interest in the company of face value not exceeding one lakh rupees (Rs 1,00,000). If this limit is breached, corrective action must be taken within 60 days."
+  },
+  {
+    "id": 14,
+    "question": "What is the statutory threshold of 'Indebtedness' that disqualifies a person, partner, or relative from being appointed as an auditor under Section 141(3)(d)(ii) read with Rule 10?",
+    "options": [
+      "Indebted to the company/subsidiary/holding/associate in excess of Rs 50,000 with the prior sanction of the National Company Law Tribunal",
+      "Indebted in excess of Rs 10,00,000 in compliance with corporate governance norms",
+      "Indebted in excess of Rs 1,00,000 within the statutory timeline prescribed under the Act",
+      "Any indebtedness of even Rs 100 disqualifies the auditor pursuant to a resolution passed by the Board of Directors",
+      "Indebted to the company/subsidiary/holding/associate in excess of five lakh rupees (Rs 5,00,000)"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Indebted to the company/subsidiary/holding/associate in excess of five lakh rupees (Rs 5,00,000). Section 141(3)(d)(ii) read with Rule 10(2) provides that a person shall not be eligible for appointment as an auditor if he, or his partner, or his relative is indebted to the company, or its subsidiary, or its holding or associate company or a subsidiary of such holding company, in excess of five lakh rupees (Rs 5,00,000)."
+  },
+  {
+    "id": 15,
+    "question": "Under Section 141(3)(d)(iii) read with Rule 10, what is the ceiling on 'Guarantee or Security' given by an auditor, partner, or relative that triggers disqualification?",
+    "options": [
+      "Guarantee given in excess of Rs 5,00,000",
+      "Guarantee or security given in excess of one lakh rupees (Rs 1,00,000)",
+      "Guarantee given in excess of Rs 10,00,000",
+      "Guarantee given in excess of Rs 25,000",
+      "There is no ceiling on guarantees"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Guarantee or security given in excess of one lakh rupees (Rs 1,00,000). Section 141(3)(d)(iii) read with Rule 10(3) states that a person is disqualified if he, or his partner, or his relative has given a guarantee or provided any security in connection with the indebtedness of any third person to the company, or its subsidiary, or holding, or associate company, in excess of one lakh rupees (Rs 1,00,000)."
+  },
+  {
+    "id": 16,
+    "question": "Under Section 141(3)(g) of the Companies Act, 2013, what is the statutory CEILING on the number of company audits that a Chartered Accountant or partner can hold at the date of appointment?",
+    "options": [
+      "Maximum 10 companies in aggregate",
+      "Maximum 50 companies including all private firms",
+      "Maximum 5 listed companies and unlimited private firms",
+      "Maximum 20 companies",
+      "There is no statutory cap on the number of company audits"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Maximum 20 companies (excluding one person companies, dormant companies, small companies, and private companies having paid-up share capital less than Rs 100 crore which have not committed default in filing financial statements). Section 141(3)(g) provides that a person is disqualified if they are in full-time employment elsewhere or hold audit appointments for more than twenty companies. By MCA Notification dated June 5, 2015, the 20-company limit excludes OPCs, dormant companies, small companies, and private companies having paid-up capital < Rs 100 crore without filing defaults."
+  },
+  {
+    "id": 17,
+    "question": "Under Section 141(3)(h), how long does the disqualification last for a person who has been convicted by a court of an offense involving fraud?",
+    "options": [
+      "A period of 10 years has not elapsed from the date of such conviction",
+      "2 years from the date of conviction",
+      "5 years from the date of release from prison",
+      "Disqualification is permanent for life",
+      "Disqualification lasts until the fine is paid"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A period of 10 years has not elapsed from the date of such conviction. Section 141(3)(h) provides that a person shall not be eligible for appointment as an auditor if a person who has been convicted by a court of an offense involving fraud and a period of ten years has not elapsed from the date of such conviction."
+  },
+  {
+    "id": 18,
+    "question": "Under Section 141(4), what happens if an existing statutory auditor incurs any of the disqualifications specified in Section 141(3) after their appointment?",
+    "options": [
+      "The auditor continues until the conclusion of the next AGM with the prior sanction of the National Company Law Tribunal",
+      "The auditor must pay a penalty of Rs 50,000 to remain in office",
+      "He shall be deemed to have vacated his office as such auditor with immediate effect, and such vacation shall be deemed to be a casual vacancy in the office of the auditor",
+      "The board of directors can grant a waiver of disqualification within the statutory timeline prescribed under the Act",
+      "The disqualification applies only to the subsequent financial year pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: He shall be deemed to have vacated his office as such auditor with immediate effect, and such vacation shall be deemed to be a casual vacancy in the office of the auditor. Section 141(4) dictates: 'Where a person appointed as an auditor of a company incurs any of the disqualifications mentioned in sub-section (3) after his appointment, he shall be deemed to have vacated his office as such auditor and such vacation shall be deemed to be a casual vacancy in the office of the auditor.'"
+  },
+  {
+    "id": 19,
+    "question": "Which of the following non-audit services is an auditor strictly PROHIBITED from rendering to the company or its holding/subsidiary company under Section 144 of the Companies Act, 2013?",
+    "options": [
+      "Tax audit required under Section 44AB of the Income Tax Act upon verification of statutory registers at the registered office",
+      "Statutory audit of consolidated financial statements subject to the conditions notified by the Ministry of Corporate Affairs",
+      "Issuing limited review reports for quarterly stock exchange filings subject to prior filing with the Registrar of Companies",
+      "Certification of net worth for credit bidding within thirty days from the date of the general meeting",
+      "Accounting and book-keeping services; Internal audit; Design and implementation of financial information system; Actuarial services; Investment advisory; Investment banking; Outsourced financial services; and Management services"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Accounting and book-keeping services; Internal audit; Design and implementation of financial information system; Actuarial services; Investment advisory; Investment banking; Outsourced financial services; and Management services. Section 144 lists prohibited non-audit services to protect auditor independence: (a) accounting and book-keeping services; (b) internal audit; (c) design and implementation of any financial information system; (d) actuarial services; (e) investment advisory services; (f) investment banking services; (g) outsourced financial services; (h) management services."
+  },
+  {
+    "id": 20,
+    "question": "Under Section 143(12) of the Companies Act, 2013, what is the monetary threshold of fraud against the company that triggers mandatory reporting by the auditor directly to the CENTRAL GOVERNMENT?",
+    "options": [
+      "Any fraud of Rs 10,000 or above pursuant to a resolution passed by the Board of Directors",
+      "If the auditor has reason to believe that an offense of fraud involving an amount of ONE CRORE RUPEES or above is being or has been committed against the company by its officers or employees",
+      "Only frauds exceeding Rs 50 crore",
+      "Only frauds reported by whistle-blowers subject to approval by a special resolution of shareholders",
+      "Frauds of any amount are reported exclusively to the Board, never to Central Government with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: If the auditor has reason to believe that an offense of fraud involving an amount of ONE CRORE RUPEES (Rs 1,00,00,000) or above is being or has been committed against the company by its officers or employees. Section 143(12) read with Rule 13 of the Companies (Audit and Auditors) Rules, 2014 requires that if an auditor in the course of performance of duties has reason to believe that an offense of fraud involving an amount of Rs 1 crore or above is being or has been committed by officers or employees, they shall report the matter to the Central Government."
+  },
+  {
+    "id": 21,
+    "question": "What is the procedure and timeframe under Rule 13 for an auditor reporting a fraud of Rs 1 crore or above to the Central Government under Section 143(12)?",
+    "options": [
+      "Report directly to the local police station within 24 hours",
+      "Wait until the end of the financial year and disclose in the annual report",
+      "Report to the Registrar of Companies within 90 days as disclosed in the Board's Report and annual return",
+      "Report to the Board/Audit Committee within 2 days seeking their reply within 45 days",
+      "Call a press conference within 7 days upon verification of statutory registers at the registered office"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Report to the Board/Audit Committee within 2 days seeking their reply within 45 days; on receipt of reply (or on expiry of 45 days if no reply received), forward report in Form ADT-4 to the Secretary, MCA within 15 days. Rule 13 outlines the steps: (1) Auditor reports to Board/Audit Committee within 2 days seeking reply within 45 days; (2) On receipt of reply (or if no reply within 45 days), auditor forwards report to the Central Government (Secretary, MCA) in Form ADT-4 within 15 days; total timeline is within 60 days."
+  },
+  {
+    "id": 22,
+    "question": "Under Section 143(12) and Rule 13(3), how must frauds involving amounts LESS than One Crore Rupees (Rs 1,00,00,000) be reported by the auditor?",
+    "options": [
+      "The auditor shall report the matter to the Audit Committee or Board within 2 days of his knowledge, and details of such frauds shall be disclosed in the Board's Report under Section 134(3)",
+      "They need not be reported anywhere and can be ignored with the prior sanction of the National Company Law Tribunal",
+      "They must be reported directly to the Supreme Court of India",
+      "The auditor must immediately resign from the company within the statutory timeline prescribed under the Act",
+      "They are reported to the local municipal tax collector pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The auditor shall report the matter to the Audit Committee or Board within 2 days of his knowledge, and details of such frauds shall be disclosed in the Board's Report under Section 134(3). Under Rule 13(3), in case of fraud involving lesser than Rs 1 crore, the auditor shall report the matter to the Audit Committee or to the Board within 2 days of his knowledge, specifying nature, approximate amount, and parties involved. Such frauds must be disclosed in the Board's Report (Section 134(3)(ca))."
+  },
+  {
+    "id": 23,
+    "question": "What is the penalty under Section 143(15) if a statutory auditor fails to comply with the mandatory fraud reporting provisions of Section 143(12)?",
+    "options": [
+      "A verbal warning issued by the Registrar of Companies",
+      "Forfeiture of the auditor's university graduation degree",
+      "In case of a listed company, a penalty of five lakh rupees",
+      "A flat fine of Rs 1,000 per day",
+      "Mandatory imprisonment for 10 years without bail"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: In case of a listed company, a penalty of five lakh rupees; and in case of any other company, a penalty of one lakh rupees. Section 143(15) (amended by Companies Amendment Act, 2020) provides: 'If any auditor, cost accountant, or company secretary in practice does not comply with the provisions of sub-section (12), he shall be punishable with fine: in case of a listed company, a penalty of five lakh rupees; and in case of any other company, a penalty of one lakh rupees.'"
+  },
+  {
+    "id": 24,
+    "question": "Under Section 143(1) of the Companies Act, 2013, which of the following is a specific matter into which the auditor is statutorily bound to 'INQUIRE'?",
+    "options": [
+      "Whether the company has paid competitive marketing salaries to its sales executives pursuant to a resolution passed by the Board of Directors",
+      "Whether the company has sponsored sufficient cultural festivals in the local district in accordance with the rules prescribed by the Central Government",
+      "Whether the company's website design complies with international art guidelines subject to approval by a special resolution of shareholders",
+      "Whether the company's directors eat lunch in the staff cafeteria with the prior sanction of the National Company Law Tribunal",
+      "Whether loans and advances made by the company on the basis of security have been properly secured and whether the terms on which they have been made are prejudicial to the interests of the company or its members"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Whether loans and advances made by the company on the basis of security have been properly secured and whether the terms on which they have been made are prejudicial to the interests of the company or its members. Section 143(1) lists 6 proprietary inquiry matters: (a) whether loans/advances are properly secured and terms prejudicial; (b) whether book entries are prejudicial; (c) whether assets sold at loss (except investment/banking cos); (d) whether loans shown as deposits; (e) whether personal expenses charged to revenue; (f) whether cash received for shares."
+  },
+  {
+    "id": 25,
+    "question": "Under Section 146 of the Companies Act, 2013, what are the rights and obligations of an auditor regarding General Meetings of the company?",
+    "options": [
+      "The auditor is legally prohibited from entering the general meeting room within thirty days from the date of the general meeting",
+      "The auditor shall receive all notices of general meetings, and it is mandatory for the auditor to attend general meetings either by himself or through his authorized qualified representative, and have the right to be heard on matters concerning him as auditor",
+      "The auditor attends only if paid an extra cash attendance allowance under the applicable provisions of the Companies Act, 2013",
+      "The auditor has the right to vote on all ordinary resolutions in the general meeting as disclosed in the Board's Report and annual return",
+      "The auditor must preside as Chairman of the annual general meeting upon verification of statutory registers at the registered office"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The auditor shall receive all notices of general meetings, and it is mandatory for the auditor (unless exempted by the company) to attend general meetings either by himself or through his authorized qualified representative, and have the right to be heard on matters concerning him as auditor. Section 146 provides that all notices of general meetings shall be forwarded to the auditor, who 'shall, unless otherwise exempted by the company, attend either by himself or through his authorized representative qualified to be an auditor, any general meeting' and have the right to be heard on any part of the business which concerns him as auditor."
+  },
+  {
+    "id": 26,
+    "question": "Under Section 148(1) of the Companies Act, 2013 read with the Companies (Cost Records and Audit) Rules, 2014, what is the turnover threshold that mandates the MAINTENANCE OF COST RECORDS in Form CRA-1?",
+    "options": [
+      "Companies having turnover of Rs 100 crore or more with the prior sanction of the National Company Law Tribunal",
+      "All companies with paid-up capital of Rs 5 crore in compliance with corporate governance norms",
+      "Only listed companies on the National Stock Exchange within the statutory timeline prescribed under the Act",
+      "Companies engaged in regulated or non-regulated sectors having an overall turnover from all products and services of Rs 35 crore or more during the immediately preceding financial year",
+      "Cost records are purely voluntary and never statutorily mandated pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Companies engaged in regulated or non-regulated sectors having an overall turnover from all products and services of Rs 35 crore or more during the immediately preceding financial year. Rule 3 of the Companies (Cost Records and Audit) Rules, 2014 provides that maintenance of cost records in Form CRA-1 is mandatory for companies engaged in the production of goods or providing services in regulated sectors (telecom, electricity, pharma, petroleum, sugar, fertilizer) or non-regulated sectors having an overall turnover of Rs 35 crore or more in the preceding FY."
+  },
+  {
+    "id": 27,
+    "question": "Under Rule 4 of the Cost Records and Audit Rules, what are the turnover thresholds that trigger a MANDATORY COST AUDIT for companies in 'Regulated Sectors'?",
+    "options": [
+      "Overall annual turnover of the company from all products and services of Rs 50 crore or more, AND aggregate turnover of the individual product/service for which cost records are required is Rs 25 crore or more",
+      "Overall annual turnover of Rs 35 crore or more upon verification of statutory registers at the registered office",
+      "Overall turnover of Rs 500 crore subject to the conditions notified by the Ministry of Corporate Affairs",
+      "Only if the company reports a net profit margin exceeding 20% subject to prior filing with the Registrar of Companies",
+      "Cost audits are conducted exclusively by government CAG auditors within thirty days from the date of the general meeting"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Overall annual turnover of the company from all products and services of Rs 50 crore or more, AND aggregate turnover of the individual product/service for which cost records are required is Rs 25 crore or more. For Regulated Sectors: Cost audit is mandatory if the overall annual turnover from all products/services during the immediately preceding FY is Rs 50 crore or more AND aggregate turnover of individual products/services for which cost records are required is Rs 25 crore or more."
+  },
+  {
+    "id": 28,
+    "question": "For companies in 'Non-Regulated Sectors', what are the turnover thresholds for mandatory Cost Audit under Rule 4?",
+    "options": [
+      "Overall annual turnover of Rs 50 crore or more pursuant to a resolution passed by the Board of Directors",
+      "Overall turnover of Rs 10 crore in accordance with the rules prescribed by the Central Government",
+      "Overall annual turnover of Rs 100 crore or more, AND aggregate turnover from the individual product/service for which cost records are required is Rs 35 crore or more",
+      "Turnover of Rs 1,000 crore subject to approval by a special resolution of shareholders",
+      "Non-regulated sectors are completely exempt from cost audit with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Overall annual turnover of Rs 100 crore or more, AND aggregate turnover from the individual product/service for which cost records are required is Rs 35 crore or more. For Non-Regulated Sectors: Cost audit is mandatory if the overall annual turnover from all products and services during the immediately preceding FY is Rs 100 crore or more AND aggregate turnover of the individual product/service for which cost records are required is Rs 35 crore or more."
+  },
+  {
+    "id": 29,
+    "question": "Who can be appointed as a 'Cost Auditor' under Section 148(3) of the Companies Act, 2013?",
+    "options": [
+      "The statutory auditor of the company appointed under Section 139 within thirty days from the date of the general meeting",
+      "Any corporate finance director of the company under the applicable provisions of the Companies Act, 2013",
+      "An internal auditor of the company as disclosed in the Board's Report and annual return",
+      "A chartered financial analyst (CFA) upon verification of statutory registers at the registered office",
+      "A Cost Accountant in practice (CMA) appointed by the Board of Directors, provided that no person appointed under Section 139 as statutory auditor shall be appointed for conducting the cost audit"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A Cost Accountant in practice (CMA) appointed by the Board of Directors, provided that no person appointed under Section 139 as statutory auditor shall be appointed for conducting the cost audit. Section 148(3) provides that the cost audit shall be conducted by a Cost Accountant in practice who shall be appointed by the Board on recommendations of the Audit Committee. Proviso to Section 148(3) strictly prohibits: 'no person appointed under section 139 as an auditor of the company shall be appointed for conducting the audit of cost records.'"
+  },
+  {
+    "id": 30,
+    "question": "Within what statutory timeframe must a company appoint its Cost Auditor and file intimation with the Central Government in Form CRA-2 under Rule 6?",
+    "options": [
+      "Within 30 days of the annual general meeting with the prior sanction of the National Company Law Tribunal",
+      "Within 180 days of the commencement of the financial year, and file Form CRA-2 within 30 days of the Board meeting or within 180 days of the commencement of the FY, whichever is earlier",
+      "Within 90 days of the financial year-end",
+      "At least 60 days before the commencement of manufacturing within the statutory timeline prescribed under the Act",
+      "Cost auditor appointments do not require filing with the Central Government pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Within 180 days of the commencement of the financial year, and file Form CRA-2 within 30 days of the Board meeting or within 180 days of the commencement of the FY, whichever is earlier. Rule 6(1) and (2) requires that the company shall appoint a cost auditor within 180 days of the commencement of every financial year. The company shall file notice of such appointment with the Central Government in Form CRA-2 within thirty days of the Board meeting or within 180 days of the commencement of the financial year, whichever is earlier."
+  },
+  {
+    "id": 31,
+    "question": "What is the statutory form in which the Cost Auditor submits the Cost Audit Report to the Board of Directors, and within what timeframe?",
+    "options": [
+      "In Form ADT-1 within 30 days of the board meeting",
+      "In Form MGT-7 within 60 days of the AGM",
+      "In Form AOC-4 within 90 days of the financial year-end",
+      "In Form CRA-3 within 180 days from the closure of the financial year",
+      "In Form DIR-12 within 15 days of appointment"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: In Form CRA-3 within 180 days from the closure of the financial year. Rule 6(5) provides that the cost auditor shall submit his cost audit report along with reservations or qualifications, if any, in Form CRA-3 to the Board of Directors of the company within a period of 180 days from the closure of the financial year."
+  },
+  {
+    "id": 32,
+    "question": "Within how many days of receipt of the Cost Audit Report must the company furnish it to the Central Government under Section 148(6) and Rule 6(6)?",
+    "options": [
+      "The company shall, within 30 days from the date of receipt of a copy of the cost audit report, furnish the Central Government with such report in Form CRA-4 along with full information and explanation on every reservation or qualification",
+      "Within 60 days of the AGM pursuant to a resolution passed by the Board of Directors",
+      "Within 90 days of the board meeting",
+      "Within 15 days of filing with the Registrar subject to approval by a special resolution of shareholders",
+      "The cost audit report is never submitted to the Central Government with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The company shall, within 30 days from the date of receipt of a copy of the cost audit report, furnish the Central Government with such report in Form CRA-4 along with full information and explanation on every reservation or qualification. Section 148(6) read with Rule 6(6) mandates that the company shall, within thirty days from the date of receipt of a copy of the cost audit report, furnish the Central Government with such report along with full information and explanation on every reservation or qualification contained therein, in Form CRA-4 (in XBRL format)."
+  },
+  {
+    "id": 33,
+    "question": "In which cases is a company exempted from mandatory Cost Audit under Rule 4(3) of the Cost Rules, even if it meets the turnover thresholds?",
+    "options": [
+      "Whose paid-up share capital exceeds Rs 100 crore within thirty days from the date of the general meeting",
+      "Which has paid dividends for ten consecutive years under the applicable provisions of the Companies Act, 2013",
+      "Whose revenue from exports in foreign exchange exceeds 75% of its total revenue, OR which is operating from a Special Economic Zone (SEZ), OR which is engaged in generation of electricity for captive consumption",
+      "Which has zero bank borrowings as disclosed in the Board's Report and annual return",
+      "There are zero statutory exemptions from cost audit upon verification of statutory registers at the registered office"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Whose revenue from exports in foreign exchange exceeds 75% of its total revenue, OR which is operating from a Special Economic Zone (SEZ), OR which is engaged in generation of electricity for captive consumption. Rule 4(3) exempts three categories from cost audit even if turnover thresholds are exceeded: (i) companies whose export revenue in forex exceeds 75% of total revenue; (ii) companies operating from a Special Economic Zone (SEZ); and (iii) companies engaged in generation of electricity for captive consumption through a captive power plant."
+  },
+  {
+    "id": 34,
+    "question": "What is the penalty under Section 147(1) if a company contravenes any of the provisions of Sections 139 to 146 regarding audit and auditors?",
+    "options": [
+      "A verbal warning issued by the Institute of Chartered Accountants of India with the prior sanction of the National Company Law Tribunal",
+      "The company's bank accounts are permanently frozen in compliance with corporate governance norms",
+      "Mandatory dissolution of the corporate entity within the statutory timeline prescribed under the Act",
+      "A flat penalty of Rs 100 on the company secretary pursuant to a resolution passed by the Board of Directors",
+      "The company shall be punishable with fine which shall not be less than Rs 25,000 but which may extend to Rs 5,00,000, and every officer in default shall be punishable with penalty"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The company shall be punishable with fine which shall not be less than Rs 25,000 but which may extend to Rs 5,00,000, and every officer in default shall be punishable with penalty. Section 147(1) provides: If any of the provisions of sections 139 to 146 is contravened, the company shall be punishable with fine which shall not be less than twenty-five thousand rupees but which may extend to five lakh rupees, and every officer in default shall be liable to fine (min Rs 10,000, up to Rs 1,00,000)."
+  },
+  {
+    "id": 35,
+    "question": "Under Section 147(2), what is the penalty for an AUDITOR who contravenes the provisions of Section 139, Section 143, Section 144, or Section 145 willfully with intent to deceive?",
+    "options": [
+      "A simple fine of Rs 500 upon verification of statutory registers at the registered office",
+      "The auditor shall be punishable with imprisonment for a term which may extend to one year AND with fine not less than Rs 50,000 but which may extend to Rs 25 lakh or eight times the remuneration of the auditor, whichever is less",
+      "Cancellation of the auditor's passport for 5 years subject to the conditions notified by the Ministry of Corporate Affairs",
+      "The auditor is required to work without pay for 2 years subject to prior filing with the Registrar of Companies",
+      "No criminal liability applies to auditors within thirty days from the date of the general meeting"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The auditor shall be punishable with imprisonment for a term which may extend to one year AND with fine not less than Rs 50,000 but which may extend to Rs 25 lakh or eight times the remuneration of the auditor, whichever is less. Section 147(2) provides that if an auditor contravenes Sections 139, 143, 144 or 145 knowingly or willfully with intent to deceive the company, shareholders, creditors or tax authorities, he shall be punishable with imprisonment up to 1 year AND with fine min Rs 50,000 up to Rs 25 lakh or 8 times the remuneration, whichever is less, and must refund remuneration and pay damages (Section 147(3))."
+  },
+  {
+    "id": 36,
+    "question": "What is the statutory form in which a company intimates the appointment of a Statutory Auditor to the Registrar of Companies under Section 139(1)?",
+    "options": [
+      "Form ADT-2 within 30 days",
+      "Form ADT-3 within 60 days",
+      "Form DIR-12 within 30 days",
+      "Form ADT-1 within 15 days of the meeting in which the auditor is appointed",
+      "Form MGT-14 within 21 days"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Form ADT-1 within 15 days of the meeting in which the auditor is appointed. Section 139(1) read with Rule 4(2) provides that the company shall inform the auditor concerned of his appointment, and also file a notice of such appointment with the Registrar in Form ADT-1 within fifteen days of the meeting in which the auditor is appointed."
+  },
+  {
+    "id": 37,
+    "question": "Under Section 143(3)(i), what is the auditor's duty regarding 'Internal Financial Controls' (IFC)?",
+    "options": [
+      "The auditor must report whether the company has adequate internal financial controls system in place and the operating effectiveness of such controls",
+      "The auditor must manage the company's internal treasury funds within thirty days from the date of the general meeting",
+      "The auditor must set the monthly salary of internal security guards under the applicable provisions of the Companies Act, 2013",
+      "The auditor must install biometric computer password locks",
+      "Internal financial controls reporting was abolished by the 2013 Act upon verification of statutory registers at the registered office"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The auditor must report whether the company has adequate internal financial controls system in place and the operating effectiveness of such controls (exempted for certain private companies). Section 143(3)(i) mandates that the auditor's report shall state whether the company has adequate internal financial controls with reference to financial statements system in place and the operating effectiveness of such controls (MCA exempted OPCs, small companies, and private companies with turnover < Rs 50 Cr and borrowings < Rs 25 Cr)."
+  },
+  {
+    "id": 38,
+    "question": "Under Section 143(5), what power does the CAG possess in the audit of Government Companies regarding 'Directions' to the statutory auditor?",
+    "options": [
+      "The CAG can fire all corporate directors without giving reasons with the prior sanction of the National Company Law Tribunal",
+      "The CAG sets the retail product prices of government company goods in compliance with corporate governance norms",
+      "The CAG has the power to direct the manner in which the accounts shall be audited by the statutory auditor, and to conduct a supplementary audit within 60 days of receipt of the audit report",
+      "The CAG can expropriate government company factory land within the statutory timeline prescribed under the Act",
+      "The CAG only conducts audits of municipal street cleaning pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The CAG has the power to direct the manner in which the accounts shall be audited by the statutory auditor, and to conduct a supplementary audit within 60 days of receipt of the audit report. Section 143(5) provides that the CAG shall direct the auditor the manner in which accounts shall be audited and the auditor shall submit a copy of the audit report to the CAG. Under Section 143(6), the CAG has the right to conduct a supplementary audit within 60 days of receipt of the audit report and comment upon or supplement it."
+  },
+  {
+    "id": 39,
+    "question": "Under Section 143(7), what is a 'Test Audit' conducted by the CAG in a Government Company?",
+    "options": [
+      "Testing the chemical composition of manufactured pharmaceuticals upon verification of statutory registers at the registered office",
+      "An academic test administered to internal accounting staff subject to the conditions notified by the Ministry of Corporate Affairs",
+      "Testing whether corporate computer networks can withstand cyber attacks subject to prior filing with the Registrar of Companies",
+      "A test conducted once every 100 years by parliamentary decree within thirty days from the date of the general meeting",
+      "The CAG may, by an order, cause test audit to be conducted of the accounts of such company, and the provisions of Section 19A of the Comptroller and Auditor-General's Act, 1971 shall apply"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The CAG may, by an order, cause test audit to be conducted of the accounts of such company, and the provisions of Section 19A of the Comptroller and Auditor-General's (Duties, Powers and Conditions of Service) Act, 1971 shall apply. Section 143(7) empowers the CAG: 'Without prejudice to the provisions of this Chapter, in respect of the conduct of audit, the Comptroller and Auditor-General of India may, in case of any company covered under sub-section (5) or sub-section (7) of section 139, if he considers necessary, by an order, cause test audit to be conducted of the accounts of such company.'"
+  },
+  {
+    "id": 40,
+    "question": "Under Section 143(8), who is qualified to audit the 'Branch Office' of a company situated outside India?",
+    "options": [
+      "Only an Indian citizen residing in New Delhi",
+      "Either the company's statutory auditor, or by an accountant or other person duly qualified to act as an auditor of the accounts of the branch office in accordance with the laws of that foreign country",
+      "The Indian ambassador posted in that foreign country in accordance with the rules prescribed by the Central Government",
+      "Any local foreign bank branch manager subject to approval by a special resolution of shareholders",
+      "Foreign branches are exempt from financial audits with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Either the company's statutory auditor, or by an accountant or other person duly qualified to act as an auditor of the accounts of the branch office in accordance with the laws of that foreign country. Section 143(8) provides that where a company has a branch office outside India, the accounts shall be audited either by the company's auditor or by an accountant or other person duly qualified to act as an auditor of the accounts of the branch office in accordance with the laws of that foreign country."
+  },
+  {
+    "id": 41,
+    "question": "Under Section 143(9) and (10), who specifies the 'Auditing Standards' to be complied with by every statutory auditor?",
+    "options": [
+      "The Institute of Chartered Accountants of India alone without government input within thirty days from the date of the general meeting",
+      "The Reserve Bank of India under the applicable provisions of the Companies Act, 2013",
+      "The International Monetary Fund",
+      "The Central Government prescribes the standards of auditing as recommended by the Institute of Chartered Accountants of India (ICAI) in consultation with and after examination of the recommendations made by the National Financial Reporting Authority (NFRA)",
+      "The Securities and Exchange Board of India upon verification of statutory registers at the registered office"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The Central Government prescribes the standards of auditing as recommended by the Institute of Chartered Accountants of India (ICAI) in consultation with and after examination of the recommendations made by the National Financial Reporting Authority (NFRA). Section 143(9) mandates that every auditor shall comply with the auditing standards. Section 143(10) specifies that the Central Government may prescribe the standards of auditing recommended by ICAI in consultation with and after examination of the recommendations made by NFRA."
+  },
+  {
+    "id": 42,
+    "question": "What is 'National Financial Reporting Authority' (NFRA) constituted under Section 132 of the Companies Act, 2013?",
+    "options": [
+      "An independent regulatory quasi-judicial authority established to oversee accounting and auditing standards, monitor quality of service, and investigate professional misconduct of auditors of listed companies and large public interest entities",
+      "A trade union representing chartered accountancy students with the prior sanction of the National Company Law Tribunal",
+      "A commercial bank providing loans to accounting firms",
+      "A court resolving income tax refund disputes within the statutory timeline prescribed under the Act",
+      "A statutory body regulating corporate corporate social responsibility pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: An independent regulatory quasi-judicial authority established to oversee accounting and auditing standards, monitor quality of service, and investigate professional misconduct of auditors of listed companies and large public interest entities. Constituted under Section 132, NFRA is the independent regulator of auditing and accounting standards in India. It possesses powers equivalent to a civil court to investigate auditors of listed companies and large unlisted companies, debarring professionals for up to 10 years for misconduct."
+  },
+  {
+    "id": 43,
+    "question": "Under Section 139(9), what condition prevents a retiring auditor from being automatically reappointed at an AGM where no auditor is appointed?",
+    "options": [
+      "If the auditor has celebrated their 40th birthday",
+      "If the auditor owns a residential house in the same city",
+      "If he is not qualified for reappointment",
+      "If the company's gross revenue has declined by 5%",
+      "A retiring auditor can never be automatically reappointed under any circumstances"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: If he is not qualified for reappointment; if he has given the company notice in writing of his unwillingness; or if a special resolution has been passed at that meeting appointing somebody else or providing expressly that he shall not be reappointed. Section 139(9) provides that a retiring auditor may be re-appointed at an AGM if: (a) he is not disqualified for re-appointment; (b) he has not given the company a notice in writing of his unwillingness; and (c) a special resolution has not been passed appointing some other auditor or providing expressly that he shall not be reappointed."
+  },
+  {
+    "id": 44,
+    "question": "If at any Annual General Meeting, NO auditor is appointed or reappointed, what happens to the existing auditor under Section 139(10)?",
+    "options": [
+      "The office of the auditor becomes permanently vacant",
+      "The company is immediately wound up by the Registrar",
+      "The Central Government appoints an auditor within 24 hours",
+      "The statutory audit is cancelled for that financial year",
+      "The existing auditor shall continue to be the auditor of the company"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The existing auditor shall continue to be the auditor of the company. Section 139(10) states explicitly: 'Where at any annual general meeting, no auditor is appointed or re-appointed, the existing auditor shall continue to be the auditor of the company.' This ensures continuity and prevents a company from operating without an auditor."
+  },
+  {
+    "id": 45,
+    "question": "Under Section 140(4), what 'Special Notice' is required for a resolution at an AGM appointing as auditor a person other than a retiring auditor?",
+    "options": [
+      "A notice of 30 days published in the official gazette within thirty days from the date of the general meeting",
+      "Special notice under Section 115 shall be required for a resolution at an annual general meeting appointing as auditor a person other than a retiring auditor, or providing expressly that a retiring auditor shall not be re-appointed",
+      "A notice signed by 100% of secured debenture holders under the applicable provisions of the Companies Act, 2013",
+      "A court summons issued by the Chief Judicial Magistrate as disclosed in the Board's Report and annual return",
+      "No notice is needed; appointment can be made spontaneously on the floor upon verification of statutory registers at the registered office"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Special notice under Section 115 shall be required for a resolution at an annual general meeting appointing as auditor a person other than a retiring auditor, or providing expressly that a retiring auditor shall not be re-appointed. Section 140(4) requires that special notice (under Section 115) shall be required for a resolution at an AGM appointing as auditor a person other than a retiring auditor or providing that a retiring auditor shall not be reappointed. The company must send a copy to the retiring auditor, who has the right to make written representations."
+  },
+  {
+    "id": 46,
+    "question": "Under Section 140(4)(iii), what is the statutory right of a retiring auditor who has received a copy of special notice of removal?",
+    "options": [
+      "The right to sue each shareholder individually for defamation with the prior sanction of the National Company Law Tribunal",
+      "The right to veto the appointment of the new auditor in compliance with corporate governance norms",
+      "The right to freeze the company's bank accounts until paid damages within the statutory timeline prescribed under the Act",
+      "The right to make a written representation to the company and request its notification to members, and to have it read out at the meeting if received too late",
+      "The retiring auditor has zero rights under the Act pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The right to make a written representation (not exceeding reasonable length) to the company and request its notification to members, and to have it read out at the meeting if received too late. Section 140(4)(iii) guarantees the retiring auditor the right to make a written representation to the company and request that it be sent to all members. If not sent because it was received too late, the auditor may require that the representation be read out at the meeting, preserving audi alteram partem."
+  },
+  {
+    "id": 47,
+    "question": "Can an auditor provide 'Internal Audit' services to the same company where they serve as Statutory Auditor under Section 144(b)?",
+    "options": [
+      "No, internal audit services are strictly prohibited under Section 144(b)",
+      "Yes, if approved by 51% of shareholders",
+      "Yes, if the internal audit fee is less than Rs 10 lakh",
+      "Yes, provided the services are rendered through an overseas branch",
+      "Internal audit and statutory audit must always be conducted by the same person"
+    ],
+    "answer": 0,
+    "explanation": "Section 144(b) explicitly lists 'internal audit' as a prohibited non-audit service. A statutory auditor cannot audit their own work or review the internal controls they designed, as it fundamentally impairs objectivity and independence."
+  },
+  {
+    "id": 48,
+    "question": "Under Section 141(3)(f), when is a Chartered Accountant disqualified from auditing a company due to a 'Relationship' with management?",
+    "options": [
+      "If their relative is an ordinary retail customer of the company pursuant to a resolution passed by the Board of Directors",
+      "If their second cousin owns debentures in the company",
+      "If a person whose relative is a director or is in the employment of the company as a director or Key Managerial Personnel (KMP)",
+      "If their brother is a factory security guard subject to approval by a special resolution of shareholders",
+      "Relationship with management does not trigger disqualification with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: If a person whose relative is a director or is in the employment of the company as a director or Key Managerial Personnel (KMP). Section 141(3)(f) provides that a person shall not be eligible for appointment as an auditor if a person whose relative is a director or is in the employment of the company as a director or key managerial personnel (CEO, Managing Director, Company Secretary, CFO)."
+  },
+  {
+    "id": 49,
+    "question": "Under Section 141(3)(e), when is an auditor disqualified due to a 'Business Relationship'?",
+    "options": [
+      "If the auditor buys goods from the company at normal consumer retail prices in ordinary commercial transactions within thirty days from the date of the general meeting",
+      "If the auditor uses the company's mobile telecom network as a normal subscriber under the applicable provisions of the Companies Act, 2013",
+      "If the auditor flies as a passenger on an airline operated by the company as disclosed in the Board's Report and annual return",
+      "Business relationships never disqualify professional auditors upon verification of statutory registers at the registered office",
+      "A person or a firm who, whether directly or indirectly, has business relationship with the company, or its subsidiary, or its holding or associate company as prescribed under Rule 10(4)"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A person or a firm who, whether directly or indirectly, has business relationship with the company, or its subsidiary, or its holding or associate company as prescribed under Rule 10(4). Section 141(3)(e) read with Rule 10(4) disqualifies any person or firm having a commercial business relationship with the client group, EXCEPT commercial transactions which are in the ordinary course of business at arm's length price (like buying airline tickets or hotel rooms as a normal retail customer)."
+  },
+  {
+    "id": 50,
+    "question": "What is the penalty under Section 148(8) if a company or Cost Auditor defaults in complying with the provisions of Section 148 regarding cost records and cost audit?",
+    "options": [
+      "Immediate closure of the company's manufacturing plant with the prior sanction of the National Company Law Tribunal",
+      "The company and every officer in default shall be punishable in the manner as provided in Section 147(1), and the cost auditor shall be punishable in the manner as provided in Section 147(2) to (4)",
+      "Cancellation of all corporate trademark patents in compliance with corporate governance norms",
+      "A verbal warning from the Cost Accounting Standards Board within the statutory timeline prescribed under the Act",
+      "A penalty of Rs 100 on the company secretary pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The company and every officer in default shall be punishable in the manner as provided in Section 147(1), and the cost auditor shall be punishable in the manner as provided in Section 147(2) to (4). Section 148(8) connects cost audit violations directly to the standard audit penalties: If any default is made in complying with Section 148: (a) the company and every officer in default shall be punishable under Section 147(1); and (b) the cost auditor shall be punishable under Section 147(2) to (4)."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Companies Act Mock 3",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Companies Act Mock 3";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br /><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br /><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br /><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br /><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

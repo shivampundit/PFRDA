@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA AI &amp; Machine Learning Mock Test 3 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject J: Artificial Intelligence & Machine Learning</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_AI_ML_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_AIML_Master_Revision_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_AI_ML_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_AI_ML_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_AI_ML_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_AI_ML_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_AI_ML_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &#183; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &#183; Paper 2 &#183; AI &amp; ML Mock 3</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">AI &amp; Machine Learning - Mock 3</h1>
+    <p class="start-subheading">Full 50 Questions &#183; Machine Learning, NLP, LLM, Agentic AI &#183; PFRDA Grade A Level</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Machine Learning Fundamentals:</b> Supervised, Unsupervised &amp; Reinforcement Learning paradigms, Parametric vs Non-parametric.</li>
+                <li><b>Data Preprocessing &amp; Feature Engineering:</b> Imputation (MCAR, MAR, MNAR), Outlier treatment (Tukey IQR, Z-Score), Scaling (Min-Max, Standard, Robust), Encoding, SMOTE, ADASYN.</li>
+                <li><b>Model Evaluation &amp; Overfitting:</b> Bias-Variance Tradeoff, Confusion Matrix (Accuracy, Precision, Recall, F1, ROC-AUC), Regularization (L1 Lasso, L2 Ridge, ElasticNet), K-Fold, Stratified K-Fold.</li>
+                <li><b>Unsupervised Learning:</b> K-Means, K-Medoids, Hierarchical (Agglomerative, Dendrogram), DBSCAN, PCA, t-SNE, UMAP.</li>
+                <li><b>Natural Language Processing (NLP):</b> Tokenization, TF-IDF, Word Embeddings, Sentiment Analysis, VADER.</li>
+                <li><b>LLMs &amp; Agentic AI:</b> Transformer Architecture (Self-Attention, Multi-Head, Positional Encoding), BERT vs GPT, LoRA, QLoRA, RAG, ReAct Agent loop, Tool calling.</li>
+                <li><b>Reinforcement Learning:</b> Markov Decision Process (MDP), Bellman Equation, Q-Learning, SARSA, PPO, DPO, RLHF.</li>
+                <li><b>Responsible AI &amp; Governance:</b> Explainable AI (SHAP, LIME), Fairness, DPDP Act 2023, EU AI Act risk tiers.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+// <![CDATA[
+
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "What is the defining characteristic of 'Unsupervised Learning' compared to 'Supervised Learning'?",
+    "options": [
+      "Unsupervised learning requires humans to label 50% of the training instances",
+      "Unsupervised learning always achieves higher accuracy than supervised learning",
+      "Unsupervised learning can only be trained on quantum processors",
+      "Unsupervised learning operates on unlabelled datasets where input features X are provided",
+      "Unsupervised learning requires a scalar reward signal after every action"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Unsupervised learning operates on unlabelled datasets where input features X are provided without any target response labels y, aiming to discover inherent patterns, latent groupings, or low-dimensional structures on its own. Supervised learning trains on paired input-output observations (X, y) to learn a mapping function f: X → y. Unsupervised learning operates solely on input features X without ground-truth labels y, seeking to uncover natural clusterings, probability densities, or lower-dimensional representations in data."
+  },
+  {
+    "id": 2,
+    "question": "How does Lloyd's algorithm for 'K-Means Clustering' partition a dataset into K clusters?",
+    "options": [
+      "Alternating between assignment step and update step until convergence",
+      "By building a deep neural network that predicts cluster labels using cross-entropy loss",
+      "By sorting data along the first principal component and splitting at equal intervals",
+      "By recursively splitting clusters based on Gini impurity",
+      "By creating a minimum spanning tree across all data points"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: By iteratively alternating between two steps: (1) Assignment step: assign each data point to its nearest centroid based on Euclidean distance; (2) Update step: recalculate each centroid as the arithmetic mean of all data points currently assigned to that cluster, repeating until centroids converge. Standard K-Means (Lloyd's algorithm) is an iterative expectation-maximization heuristic: (1) Initialize K centroids; (2) Assignment: assign each point to the closest centroid (minimizing Euclidean distance); (3) Update: recompute centroids as the mean of points in each cluster; (4) Repeat until centroids stabilize (convergence) or max iterations are reached."
+  },
+  {
+    "id": 3,
+    "question": "What objective function does the K-Means clustering algorithm mathematically minimize?",
+    "options": [
+      "The sum of absolute differences between pairwise features",
+      "The Between-Cluster Sum of Squares (BCSS) divided by total degrees of freedom",
+      "Within-Cluster Sum of Squares (WCSS), also known as Inertia",
+      "The cross-entropy loss between predicted and actual cluster labels",
+      "The maximum margin between support vectors"
+    ],
+    "answer": 2,
+    "explanation": "K-Means minimizes the Within-Cluster Sum of Squares (WCSS / Inertia): WCSS = ∑_{k=1}^K ∑_{x_i ∈ C_k} ||x_i - μ_k||^2. It seeks compact, spherical clusters where points lie close to their respective cluster centroids."
+  },
+  {
+    "id": 4,
+    "question": "What is the 'Elbow Method' used for in K-Means clustering?",
+    "options": [
+      "To measure the physical angle between two clusters in 3D space during model training and cross-validation",
+      "To detect anomalous outliers in the dataset under empirical risk minimization on the training set",
+      "To calculate the learning rate for gradient descent across out-of-sample validation datasets",
+      "To determine when to stop tree pruning when evaluating unseen test instances",
+      "To identify the optimal number of clusters K by plotting WCSS (Inertia) against K"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: To identify the optimal number of clusters K by plotting WCSS (Inertia) against K; the 'elbow' point where the rate of decrease in WCSS slows down sharply represents a balanced tradeoff between model complexity and compactness. As K increases, WCSS decreases (reaching 0 when K = N). The Elbow Method plots WCSS against values of K (e.g. K = 1 to 10). The point of inflection (the 'elbow'), where adding another cluster yields diminishing returns in WCSS reduction, indicates an appropriate number of clusters."
+  },
+  {
+    "id": 5,
+    "question": "What is the 'Silhouette Score' for evaluating cluster quality, and what do scores of +1, 0, and -1 represent?",
+    "options": [
+      "+1: Worst clustering; 0: Perfect clustering; -1: Neutral when optimizing the objective loss function",
+      "+1 indicates well-clustered samples; 0 indicates boundary samples; -1 indicates misclassified samples",
+      "Silhouette score measures the ratio of training error to test error within the neural network hidden layer architecture",
+      "Silhouette score ranges from 0 to 100 and measures GPU memory usage under parametric statistical learning assumptions",
+      "Silhouette score evaluates the depth of a hierarchical dendrogram across multi-class probability distributions"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Silhouette Score s(i) = (b(i) - a(i)) / max(a(i), b(i)); +1 indicates samples are well within their own cluster and far from neighboring clusters; 0 indicates samples are on or very close to the decision boundary between clusters; -1 indicates samples may have been assigned to the wrong cluster. For sample i: a(i) is the mean intra-cluster distance to other points in the same cluster, and b(i) is the mean nearest-cluster distance. The silhouette score is s(i) = (b(i) - a(i)) / max(a(i), b(i)). Values range from -1 to +1: near +1 indicates well-separated, compact clusters; near 0 indicates overlapping boundaries; negative values imply misclustered samples."
+  },
+  {
+    "id": 6,
+    "question": "How does 'K-Means++' improve upon traditional random centroid initialization in K-Means?",
+    "options": [
+      "It initializes all K centroids at the origin (0, 0) when evaluating unseen test instances",
+      "It runs PCA first and places centroids along the first principal component during iterative hyperparameter tuning",
+      "It uses a genetic algorithm to find centroids within the feature extraction and transformation pipeline",
+      "It selects the first centroid uniformly at random, and then selects each subsequent centroid from the remaining data points weighted by squared distance to the nearest existing centroid",
+      "It trains a neural network to initialize cluster weights during model training and cross-validation"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: It selects the first centroid uniformly at random, and then selects each subsequent centroid from the remaining data points with probability proportional to the squared distance from the point to its closest already-chosen centroid, spreading out initial centroids and avoiding poor local minima. Standard random initialization often places multiple centroids close together, leading to suboptimal local minima. K-Means++ (Arthur & Vassilvitskii, 2007) addresses this: after picking the first centroid randomly, each subsequent centroid is chosen with probability proportional to D(x)^2 (squared distance to the nearest existing centroid), spreading initial centroids and improving convergence speed and final WCSS."
+  },
+  {
+    "id": 7,
+    "question": "What is the primary operational difference between 'K-Means' and 'K-Medoids' (PAM — Partitioning Around Medoids)?",
+    "options": [
+      "K-Means defines the center of a cluster as the arithmetic mean (centroid)",
+      "K-Means works only on text; K-Medoids works only on images",
+      "K-Medoids requires setting K to infinity",
+      "K-Means does not require computing distances",
+      "K-Medoids is a supervised regression algorithm"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: K-Means defines the center of a cluster as the arithmetic mean (centroid), which may not correspond to any actual observed data point and is sensitive to outliers; K-Medoids restricts cluster centers to actual observed data points (medoids) and minimizes absolute distances, making it more robust to noise and outliers. In K-Means, centroids are mathematical means of points in the cluster, which makes them sensitive to outliers. In K-Medoids (such as the PAM algorithm), cluster centers are chosen from actual data points (medoids) that minimize the sum of dissimilarities (e.g. Manhattan distance). This makes K-Medoids more robust to extreme values, though computationally more intensive."
+  },
+  {
+    "id": 8,
+    "question": "In Hierarchical Clustering, what is the fundamental difference between 'Agglomerative' and 'Divisive' approaches?",
+    "options": [
+      "Agglomerative is supervised; Divisive is unsupervised during model training and cross-validation",
+      "Agglomerative uses Gini; Divisive uses Entropy under empirical risk minimization on the training set",
+      "Agglomerative is a 'bottom-up' approach merging individual observations sequentially up the hierarchy; Divisive is a 'top-down' approach recursively splitting a single cluster down to singletons",
+      "Agglomerative clustering cannot be represented as a dendrogram across out-of-sample validation datasets",
+      "Divisive clustering works only on continuous features when evaluating unseen test instances"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Agglomerative is a 'bottom-up' approach where every observation begins as its own individual cluster and pairs of clusters are merged sequentially up the hierarchy; Divisive is a 'top-down' approach where all observations start in a single giant cluster and are recursively split down to singletons. Hierarchical clustering structures: (1) Agglomerative (bottom-up): starts with N single-point clusters and iteratively merges the most similar pairs until one root cluster remains. (2) Divisive (top-down): starts with a single cluster containing all N points and recursively splits clusters until individual data points are reached."
+  },
+  {
+    "id": 9,
+    "question": "Which of the following describes the 'Single Linkage' criterion in Agglomerative Hierarchical Clustering, and what is its classic limitation?",
+    "options": [
+      "Distance is measured between cluster centroids; limitation is that it creates only spherical clusters when optimizing the objective loss function",
+      "Distance is the maximum distance between points in Cluster A and Cluster B within the neural network hidden layer architecture",
+      "Distance is the sum of variances of all points under parametric statistical learning assumptions",
+      "Single linkage cannot handle more than 10 observations across multi-class probability distributions",
+      "Distance between two clusters is defined as the minimum distance between any single point in Cluster A and any single point in Cluster B: d(A, B) = min ||x - y||; its classic limitation is the 'chaining effect' where disparate clusters are merged via a thin line of intermediate noise points"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Distance between two clusters is defined as the minimum distance between any single point in Cluster A and any single point in Cluster B: d(A, B) = min ||x - y||; its classic limitation is the 'chaining effect' where disparate clusters are merged via a thin line of intermediate noise points. Single Linkage (nearest-neighbor distance) defines inter-cluster distance as the shortest distance between any pair of points from the two clusters: min {d(x, y) : x ∈ A, y ∈ B}. Its primary drawback is the 'chaining effect': two distinct clusters can be merged prematurely if a series of closely spaced noisy points forms a chain between them."
+  },
+  {
+    "id": 10,
+    "question": "How does 'Complete Linkage' compare to Single Linkage in Hierarchical Clustering?",
+    "options": [
+      "Complete linkage measures the distance between cluster means when evaluating unseen test instances",
+      "Complete Linkage defines cluster distance as the maximum distance between any point in Cluster A and any point in Cluster B: d(A, B) = max ||x - y||",
+      "Complete linkage uses only Manhattan distance during iterative hyperparameter tuning",
+      "Complete linkage merges all clusters in a single step within the feature extraction and transformation pipeline",
+      "Complete linkage produces non-deterministic clusterings during model training and cross-validation"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Complete Linkage defines cluster distance as the maximum distance between any point in Cluster A and any point in Cluster B: d(A, B) = max ||x - y||; it avoids chaining, produces compact clusters with roughly equal diameters, but is sensitive to outliers. Complete Linkage (farthest-neighbor distance) defines distance as: max {d(x, y) : x ∈ A, y ∈ B}. It requires all points in merged clusters to be close to each other, producing compact, roughly equal-diameter clusters. However, an outlier in either cluster can inflate the maximum distance."
+  },
+  {
+    "id": 11,
+    "question": "What is 'Ward's Linkage' criterion in Agglomerative Hierarchical Clustering?",
+    "options": [
+      "It merges clusters based on the maximum correlation between their features across multi-class probability distributions",
+      "It computes the median distance between all boundary points during stochastic gradient descent weight updates",
+      "It divides the sum of distances by the number of samples across high-dimensional input feature vectors",
+      "It merges the pair of clusters that minimizes the increase in total Within-Cluster Sum of Squares after merging",
+      "It selects the cluster pair that has the fewest data points when optimizing the objective loss function"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: It merges the pair of clusters that minimizes the increase in total Within-Cluster Sum of Squares (variance / WCSS) after merging. Ward's Minimum Variance method merges clusters to minimize the increase in overall within-cluster variance (sum of squared Euclidean distances to the centroid). It tends to produce clusters of similar size and shape, making it one of the most widely used linkage criteria."
+  },
+  {
+    "id": 12,
+    "question": "What is a 'Dendrogram' in hierarchical clustering, and how is the final number of clusters determined from it?",
+    "options": [
+      "A tree-like diagram displaying the sequence of cluster merges (or splits) and the distance/dissimilarity at which each merge occurred; the number of clusters is determined by cutting the dendrogram horizontally at a chosen dissimilarity height, with the number of intersected vertical branches equaling the cluster count",
+      "A pie chart showing category percentages; clusters are determined by slice angles during model training and cross-validation",
+      "A scatter plot of residuals from linear regression under empirical risk minimization on the training set",
+      "A heat map of the correlation matrix across out-of-sample validation datasets",
+      "A bar chart representing feature importances when evaluating unseen test instances"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A tree-like diagram displaying the sequence of cluster merges (or splits) and the distance/dissimilarity at which each merge occurred; the number of clusters is determined by cutting the dendrogram horizontally at a chosen dissimilarity height, with the number of intersected vertical branches equaling the cluster count. A dendrogram illustrates the hierarchical nesting of clusters. The vertical axis represents the distance/dissimilarity at which clusters merge. Drawing a horizontal line across the dendrogram cuts the tree: the number of vertical lines intersected by the cut indicates the number of resulting clusters."
+  },
+  {
+    "id": 13,
+    "question": "What are the two core hyperparameters required by the DBSCAN (Density-Based Spatial Clustering of Applications with Noise) algorithm?",
+    "options": [
+      "Number of clusters K and Max Iterations",
+      "Learning Rate and Weight Decay",
+      "Epsilon and MinPts",
+      "Polynomial degree d and soft margin C",
+      "Number of trees and maximum tree depth"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Epsilon (ε — the maximum neighborhood radius) and MinPts (the minimum number of points required within the ε-neighborhood to form a dense region / core point). DBSCAN (Ester et al., 1996) requires two parameters: (1) Epsilon (ε): the radius defining the neighborhood around a point; (2) MinPts: the minimum threshold of points that must fall within the ε-neighborhood for a point to qualify as a 'Core Point'."
+  },
+  {
+    "id": 14,
+    "question": "In DBSCAN, what is the technical distinction between a 'Core Point', a 'Border Point', and a 'Noise Point'?",
+    "options": [
+      "Core points are in the center of the computer screen; Border points are on the edges; Noise points are deleted rows when evaluating unseen test instances",
+      "Core points are always positive; Border points are zero; Noise points are negative during iterative hyperparameter tuning",
+      "Core points are features; Border points are labels; Noise points are missing values within the feature extraction and transformation pipeline",
+      "DBSCAN does not distinguish between points during model training and cross-validation",
+      "A Core Point has at least MinPts within its ε-neighborhood; a Border Point has fewer than MinPts within its ε-neighborhood but falls within the ε-neighborhood of a Core Point; a Noise Point is neither a Core Point nor reachable from any Core Point"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A Core Point has at least MinPts within its ε-neighborhood; a Border Point has fewer than MinPts within its ε-neighborhood but falls within the ε-neighborhood of a Core Point; a Noise Point is neither a Core Point nor reachable from any Core Point. DBSCAN point categorization: (1) Core Point: has ≥ MinPts within distance ε. (2) Border Point: has < MinPts within distance ε, but lies within the ε-neighborhood of a core point. (3) Noise Point (Outlier): neither a core point nor reachable from any core point (assigned label -1 in scikit-learn)."
+  },
+  {
+    "id": 15,
+    "question": "What are the two major advantages of DBSCAN over K-Means clustering in financial fraud and anomaly detection?",
+    "options": [
+      "DBSCAN is faster than linear regression on all hardware across multi-class probability distributions",
+      "DBSCAN does NOT require specifying the number of clusters K upfront, can discover clusters of arbitrary, non-spherical shapes, and natively identifies noise/outliers",
+      "DBSCAN guarantees 100% classification accuracy on test sets during stochastic gradient descent weight updates",
+      "DBSCAN uses neural network embeddings natively across high-dimensional input feature vectors",
+      "DBSCAN can only be used on single-column datasets"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: DBSCAN does NOT require specifying the number of clusters K upfront, can discover clusters of arbitrary, non-spherical shapes (e.g. concentric circles, elongated paths), and natively identifies noise/outliers without forcing them into a cluster. K-Means requires specifying K in advance, assumes spherical clusters of similar size, and forces every outlier into a cluster. DBSCAN infers the number of clusters from density, handles arbitrary cluster geometries (e.g. crescent or serpentine shapes), and isolates noise/outliers without distorting cluster centers."
+  },
+  {
+    "id": 16,
+    "question": "What is the 'Curse of Dimensionality' in machine learning and clustering?",
+    "options": [
+      "The computer running out of hard drive storage when saving models during model training and cross-validation",
+      "A bug in Python when arrays exceed 3 dimensions under empirical risk minimization on the training set",
+      "The error that occurs when training data contains text tokens across out-of-sample validation datasets",
+      "As the number of feature dimensions p increases, the volume of feature space grows exponentially",
+      "The law that model performance doubles with each new feature when evaluating unseen test instances"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: As the number of feature dimensions p increases, the volume of feature space grows exponentially, making the available data sparse; pairwise distances between data points converge to roughly the same value (distance concentration), causing distance metrics to lose discriminative power. In high-dimensional space, data points become sparse. The ratio between the distance to the nearest neighbor and the distance to the farthest neighbor approaches 1 (lim [d_max - d_min] / d_min = 0). Distance-based algorithms (KNN, K-Means, SVM) become less effective without dimensionality reduction."
+  },
+  {
+    "id": 17,
+    "question": "In Principal Component Analysis (PCA), how are the Principal Components derived from the sample covariance matrix of standardized features?",
+    "options": [
+      "By computing the Eigenvectors and Eigenvalues of the feature covariance matrix",
+      "By taking the inverse of the correlation matrix when optimizing the objective loss function",
+      "By running linear regression on each feature against time within the neural network hidden layer architecture",
+      "By dividing each feature by the total sum of all features under parametric statistical learning assumptions",
+      "By calculating the Gini impurity of each column across multi-class probability distributions"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: By computing the Eigenvectors and Eigenvalues of the feature covariance (or correlation) matrix: the Eigenvectors represent the directions of the new orthogonal axes (Principal Components), and their corresponding Eigenvalues indicate the amount of variance explained along each axis. PCA solves the eigendecomposition of the covariance matrix Σ: Σ v_i = λ_i v_i. The eigenvectors v_i define the direction of the principal axes (principal components), which are orthogonal (mutually uncorrelated). The eigenvalues λ_i quantify the variance captured by each component. The first component corresponds to the largest eigenvalue."
+  },
+  {
+    "id": 18,
+    "question": "In PCA, what is the 'Explained Variance Ratio' of the k-th principal component?",
+    "options": [
+      "The ratio of the k-th feature mean to the total mean when evaluating unseen test instances",
+      "The correlation between the first component and the target label during iterative hyperparameter tuning",
+      "The eigenvalue λ_k of the k-th principal component divided by the sum of all eigenvalues",
+      "The R-squared of the regression model using k features within the feature extraction and transformation pipeline",
+      "The percentage of data points falling within 1 standard deviation during model training and cross-validation"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The eigenvalue λ_k of the k-th principal component divided by the sum of all eigenvalues: λ_k / ∑ λ_i, representing the proportion of total dataset variance captured by that specific component. Total variance in the data equals the sum of all eigenvalues ∑_{i=1}^p λ_i. The explained variance ratio for component k is: Ratio_k = λ_k / ∑_{i=1}^p λ_i. Plotting cumulative explained variance versus the number of components helps determine how many components are needed to preserve 90% or 95% of total variance."
+  },
+  {
+    "id": 19,
+    "question": "What is a 'Scree Plot' in Principal Component Analysis?",
+    "options": [
+      "A plot of training loss versus epoch count across multi-class probability distributions",
+      "A scatter plot of support vectors in 2D space during stochastic gradient descent weight updates",
+      "A plot comparing Precision against Recall across high-dimensional input feature vectors",
+      "A bar chart of missing values across database columns when optimizing the objective loss function",
+      "A line plot displaying the eigenvalues associated with each principal component in descending order, used to visually identify an 'elbow' where additional components contribute little variance"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A line plot displaying the eigenvalues (or explained variance percentage) associated with each principal component in descending order, used to visually identify an 'elbow' where additional components contribute little variance. Introduced by Raymond Cattell (1966), a Scree Plot plots eigenvalues on the Y-axis against component index on the X-axis in descending order. The point where the curve flattens out (the elbow, reminiscent of rubble or scree at the base of a cliff) suggests the cutoff for retaining components."
+  },
+  {
+    "id": 20,
+    "question": "What is the primary difference between PCA and t-SNE (t-Distributed Stochastic Neighbor Embedding)?",
+    "options": [
+      "PCA is used only for images; t-SNE is used only for audio during model training and cross-validation",
+      "PCA is a linear dimensionality reduction technique preserving global variance and orthogonal components; t-SNE is a non-linear probabilistic technique preserving local neighborhood structures for 2D/3D visualization",
+      "PCA is non-parametric; t-SNE assumes a normal distribution under empirical risk minimization on the training set",
+      "t-SNE produces deterministic linear formulas for all components across out-of-sample validation datasets",
+      "There is no difference; t-SNE is an acronym for PCA when evaluating unseen test instances"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: PCA is a linear dimensionality reduction technique that preserves global variance and pairwise distances, producing orthogonal components usable as features in downstream ML models; t-SNE is a non-linear probabilistic technique that preserves local neighbor relationships for 2D/3D visualization, but does not preserve global distances and cannot readily project new out-of-sample points. PCA uses linear projections, preserving global structure. t-SNE (van der Maaten & Hinton, 2008) models similarities as probabilities: Gaussian in high dimensions and Student's t-distribution in low dimensions to mitigate the crowding problem. It excels at revealing non-linear manifolds and clusters in 2D/3D visualizations, but distorts global geometry and cannot easily project new test instances."
+  },
+  {
+    "id": 21,
+    "question": "How does UMAP (Uniform Manifold Approximation and Projection) compare to t-SNE for non-linear dimensionality reduction?",
+    "options": [
+      "UMAP is slower than t-SNE and only works on text",
+      "UMAP produces only 1-dimensional outputs",
+      "UMAP requires labelled target data for training",
+      "UMAP is based on Riemannian geometry and algebraic topology",
+      "UMAP uses linear regression as its base model"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: UMAP is based on Riemannian geometry and algebraic topology; it is significantly faster than t-SNE, scales better to large datasets, preserves more global structure alongside local neighbors, and can transform new out-of-sample data points. UMAP (McInnes et al., 2018) constructs a fuzzy topological representation of high-dimensional data and optimizes a low-dimensional layout. It is computationally faster than t-SNE, preserves more global structure, scales to larger sample sizes, and supports transforming new unseen data points via its learned embedding."
+  },
+  {
+    "id": 22,
+    "question": "In Association Rule Mining (Market Basket Analysis), how is the 'Support' of an itemset {A, B} defined?",
+    "options": [
+      "The proportion of transactions in the entire database that contain both item A and item B",
+      "The percentage of transactions containing B given that A occurred when evaluating unseen test instances",
+      "The ratio of the price of A to the price of B during iterative hyperparameter tuning",
+      "The confidence divided by the lift within the feature extraction and transformation pipeline",
+      "The frequency of item A divided by the frequency of item B during model training and cross-validation"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The proportion of transactions in the entire database that contain both item A and item B: Support(A → B) = Count(A ∪ B) / Total_Transactions. Support measures how frequently an itemset appears in the dataset: Support({A, B}) = P(A ∩ B) = Number of transactions containing both A and B / Total number of transactions in the database. An itemset is considered 'frequent' if its support exceeds a user-defined minimum threshold (min_sup)."
+  },
+  {
+    "id": 23,
+    "question": "In Association Rule Mining, how is 'Confidence' calculated for the rule A → B?",
+    "options": [
+      "Confidence(A → B) = Support(A ∪ B) / Support(B)",
+      "Confidence(A → B) = Support(A) * Support(B)",
+      "Confidence(A → B) = Support(A ∪ B) / Support(A) = P(B | A)",
+      "Confidence(A → B) = P(A) / P(B)",
+      "Confidence(A → B) = Total Transactions / Count(A ∪ B)"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Confidence(A → B) = Support(A ∪ B) / Support(A) = P(B | A) (the conditional probability that a transaction contains item B given that it contains item A). Confidence measures rule reliability: Confidence(A → B) = P(B|A) = Support(A ∪ B) / Support(A) = Count(A ∪ B) / Count(A). It indicates the percentage of transactions containing itemset A that also contain itemset B."
+  },
+  {
+    "id": 24,
+    "question": "What is the formula and interpretation of 'Lift' for the association rule A → B?",
+    "options": [
+      "Lift = Support(A) / Support(B)",
+      "Lift = Confidence * Support",
+      "Lift = P(A) + P(B) - P(A ∩ B)",
+      "Lift is the number of items in the largest basket",
+      "Lift(A → B) = Confidence(A → B) / Support(B) = P(A ∩ B) / [P(A) * P(B)]"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Lift(A → B) = Confidence(A → B) / Support(E) = P(A ∩ B) / [P(A) * P(E)]; Lift > 1 indicates positive association (A and B co-occur more than chance); Lift = 1 indicates independence; Lift < 1 indicates negative association / substitution. Lift measures how much more often A and B co-occur than expected if they were statistically independent: Lift = P(A ∩ B) / [P(A) * P(E)] = Confidence(A → B) / Support(E). A lift value greater than 1 signifies that buying item A increases the likelihood of buying item B beyond random chance."
+  },
+  {
+    "id": 25,
+    "question": "What is the 'Apriori Property' (Downward Closure Property) that makes the Apriori algorithm computationally efficient?",
+    "options": [
+      "All association rules must have a lift greater than 10",
+      "All non-empty subsets of a frequent itemset must also be frequent",
+      "Itemsets can have at most two items",
+      "Frequent itemsets are always sorted alphabetically",
+      "Transaction IDs must be consecutive integers"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: All non-empty subsets of a frequent itemset must also be frequent; conversely, if an itemset is infrequent, all of its supersets must also be infrequent and can be pruned immediately without scanning the database. The Apriori property (Agrawal & Srikant, 1994) relies on monotonicity of support: if itemset I is frequent (Support(I) ≥ min_sup), all subsets of I must also be frequent. Conversely, if {A, B} is infrequent, any superset {A, B, C} cannot be frequent, allowing the algorithm to prune candidate branches without scanning the entire dataset."
+  },
+  {
+    "id": 26,
+    "question": "In Natural Language Processing (NLP), what is 'Tokenization'?",
+    "options": [
+      "Encrypting a text file using an RSA public key when evaluating unseen test instances",
+      "Translating sentences from English to Hindi during iterative hyperparameter tuning",
+      "Extracting the main topic from a financial document within the feature extraction and transformation pipeline",
+      "The process of breaking down a continuous stream of text into smaller meaningful units called tokens",
+      "Deleting all numerical digits from a string during model training and cross-validation"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The process of breaking down a continuous stream of text into smaller meaningful units called tokens (such as words, punctuation marks, subwords, or characters). Tokenization segments text into discrete elements (tokens). Standard tokenization can occur at the word level (splitting on whitespace and punctuation), character level, or subword level (Byte-Pair Encoding, WordPiece, SentencePiece), providing the foundation for subsequent text processing."
+  },
+  {
+    "id": 27,
+    "question": "What are 'Stopwords' in text preprocessing, and in which scenario should stopwords NOT be removed?",
+    "options": [
+      "High-frequency grammatical words that carry little distinctive semantic content; they should NOT be removed in sentiment analysis or in modern contextual LLMs where syntax informs attention",
+      "Misspelled words; should never be removed from code across multi-class probability distributions",
+      "Foreign language phrases that must be translated during stochastic gradient descent weight updates",
+      "Words longer than 15 characters across high-dimensional input feature vectors",
+      "Mathematical formulas inside technical documents when optimizing the objective loss function"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: High-frequency grammatical words that carry little distinctive semantic content (e.g. 'is', 'the', 'at', 'which', 'on'); they should NOT be removed in sentiment analysis (where negations like 'not', 'never', 'hardly' invert meaning) or in modern contextual LLMs (like BERT/GPT) where syntax informs attention. Stopwords are common functional words ('the', 'is', 'and', 'not'). While removing them reduces feature dimensionality in Bag-of-Words and TF-IDF models, removing them in sentiment analysis (e.g. dropping 'not' from 'not satisfied with pension service') reverses polarity. Modern Transformer models retain stopwords to preserve grammatical context."
+  },
+  {
+    "id": 28,
+    "question": "What is the technical difference between 'Stemming' and 'Lemmatization' in NLP text normalization?",
+    "options": [
+      "Stemming is used for French; Lemmatization is used for English during model training and cross-validation",
+      "Lemmatization is faster than stemming and does not require a dictionary under empirical risk minimization on the training set",
+      "Stemming applies heuristic rule-based string slicing to chop off suffixes, often producing non-dictionary root stems; Lemmatization uses vocabulary and morphological analysis with Part-of-Speech (POS) tags to return the true grammatical base dictionary form (lemma)",
+      "Stemming converts words to numbers; Lemmatization converts numbers to words across out-of-sample validation datasets",
+      "There is no difference; both terms refer to lowercasing text when evaluating unseen test instances"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Stemming applies heuristic rule-based string slicing (e.g. Porter Stemmer) to chop off suffixes, often producing non-dictionary root stems (e.g. 'studies' → 'studi'); Lemmatization uses vocabulary and morphological analysis with Part-of-Speech (POS) tags to return the true grammatical base dictionary form (lemma) (e.g. 'better' → 'good', 'studies' → 'study'). Stemming uses heuristic rules (e.g. Porter, Snowball) to strip prefixes/suffixes without morphological awareness, frequently yielding non-words (e.g. 'connection', 'connections', 'connective' → 'connect'). Lemmatization uses lexical databases (WordNet) and POS tags to return the legitimate dictionary base form (lemma): e.g. 'meeting' as a noun stays 'meeting', but as a verb lemmatizes to 'meet'."
+  },
+  {
+    "id": 29,
+    "question": "What is an 'N-gram' in NLP text modeling, and what are 'Unigrams', 'Bigrams', and 'Trigrams'?",
+    "options": [
+      "N-gram is a compression format for audio files when optimizing the objective loss function",
+      "N-gram measures the length of sentences in characters within the neural network hidden layer architecture",
+      "N-gram is a deep convolutional neural network layer under parametric statistical learning assumptions",
+      "N-gram is the number of clusters in text clustering across multi-class probability distributions",
+      "A contiguous sequence of N items extracted from a given sample of text: Unigram is a single word (N=1)"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A contiguous sequence of N items (words or characters) extracted from a given sample of text: Unigram is a single word (N=1); Bigram is a 2-word sequence (N=2, e.g. 'pension fund'); Trigram is a 3-word sequence (N=3, e.g. 'National Pension System'). An N-gram is an ordered contiguous sequence of n tokens. Unigrams (n=1) treat words independently, losing phrase context. Bigrams (n=2, 'not happy') and Trigrams (n=3, 'Tier I account') capture local word ordering, context, and negation patterns."
+  },
+  {
+    "id": 30,
+    "question": "What is the 'Bag of Words' (BoW) text representation model, and what is its primary conceptual limitation?",
+    "options": [
+      "A model that sorts words by length; limitation is that it cannot process uppercase text when evaluating unseen test instances",
+      "A representation that models text as an unordered collection of words, tracking word occurrence frequencies",
+      "A dictionary that stores synonyms of financial terms during iterative hyperparameter tuning",
+      "An encryption algorithm for cloud text storage within the feature extraction and transformation pipeline",
+      "A neural network architecture that requires 100 hidden layers during model training and cross-validation"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A representation that models text as an unordered collection of words, tracking word occurrence frequencies while completely discarding grammar, word order, syntactic structure, and semantic relationships. The Bag of Words (BoW) model converts documents into feature vectors of word occurrence counts across a shared vocabulary. Its primary limitation is that it discards word order and syntax. For example, 'Dog bit man' and 'Man bit dog' produce identical BoW vectors despite having opposite meanings."
+  },
+  {
+    "id": 31,
+    "question": "What is the mathematical formula for 'Term Frequency' (TF) and 'Inverse Document Frequency' (IDF) in the standard TF-IDF weighting scheme?",
+    "options": [
+      "TF = Total Words / Count; IDF = Total Documents * Document Frequency",
+      "TF = Frequency / Variance; IDF = 1 / Mean during stochastic gradient descent weight updates",
+      "TF = Precision; IDF = Recall across high-dimensional input feature vectors",
+      "TF(t, d) = count(t, d) / total_terms_in_d; IDF(t, D) = ln[Total_Documents_N /]",
+      "TF-IDF is the dot product of two word vectors when optimizing the objective loss function"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: TF(t, d) = count(t, d) / total_terms_in_d; IDF(t, D) = ln[Total_Documents_N / (Document_Frequency_df_t + 1)]. TF-IDF balances local term prominence with corpus-wide rarity: TF(t, d) measures frequency within document d: count(t, d) / |d|. IDF(t, D) measures rarity across corpus D: ln(N / (df_t + 1)) + 1. The compound weight TF-IDF(t, d, D) = TF(t, d) * IDF(t, D) assigns high weights to words that appear frequently in a specific document but infrequently across the general corpus."
+  },
+  {
+    "id": 32,
+    "question": "Why does TF-IDF downweight words that appear in nearly all documents across a corpus (e.g. 'the', 'company', 'pension' in a pension grievance corpus)?",
+    "options": [
+      "Because when a term appears in all N documents (df_t ≈ N), the ratio N / df_t approaches 1",
+      "Because their Term Frequency is zero during model training and cross-validation",
+      "Because common words have negative eigenvalues under empirical risk minimization on the training set",
+      "Because TF-IDF is restricted to adjectives only across out-of-sample validation datasets",
+      "Because scikit-learn deletes terms that appear more than 10 times when evaluating unseen test instances"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Because when a term appears in all N documents (df_t ≈ N), the ratio N / df_t approaches 1, making its Inverse Document Frequency IDF = ln(1) = 0, zeroing out its overall weight and removing its non-discriminatory noise. IDF measures specificity. If term t appears in every single document across a collection of N documents (df_t = N), N / df_t = 1, so ln(N / df_t) = ln(1) = 0. Such ubiquitous words carry zero discriminative power for distinguishing between different documents, and their TF-IDF weight reflects this."
+  },
+  {
+    "id": 33,
+    "question": "What is the fundamental difference between sparse 'One-Hot Encodings' of words and dense 'Word Embeddings' (such as Word2Vec and GloVe)?",
+    "options": [
+      "One-hot encodings are dense 300-dimensional vectors; word embeddings are sparse vectors of size |V| when optimizing the objective loss function",
+      "Word embeddings can only represent numbers, not text within the neural network hidden layer architecture",
+      "One-hot encoding represents each word as a high-dimensional sparse vector of vocabulary size |V| with a single 1 and all zeros",
+      "One-hot encodings are learned via backpropagation in deep neural networks under parametric statistical learning assumptions",
+      "There is no difference; both terms describe the exact same vector format across multi-class probability distributions"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: One-hot encoding represents each word as a high-dimensional sparse vector of vocabulary size |V| with a single 1 and all zeros, where all word pairs are orthogonal (distance = sqrt(2), cosine similarity = 0) with zero semantic relationship; Word Embeddings map words into a low-dimensional continuous dense vector space (e.g. 100 to 300 dimensions) where semantically similar words reside close together. In a 50,000-word vocabulary, One-Hot Encoding produces a 50,000-length vector per word. Any two words (e.g. 'pension' and 'annuity') have dot product 0 and Euclidean distance sqrt(2), capturing no semantic affinity. Distributed Word Embeddings (Word2Vec, GloVe) compress words into dense, continuous vectors where spatial proximity reflects semantic similarity."
+  },
+  {
+    "id": 34,
+    "question": "In the Word2Vec framework (Mikolov et al., 2013), what are the two core neural network architectures, and how do they function?",
+    "options": [
+      "Encoder and Decoder",
+      "Feedforward Network and Recurrent Network",
+      "Generator and Discriminator",
+      "Actor and Critic",
+      "Continuous Bag of Words (CBOW) and Continuous Skip-gram"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Continuous Bag of Words (CBOW): predicts a target center word given its surrounding context words; Continuous Skip-gram: predicts the surrounding context words given a single target center word (better suited for rare words and smaller datasets). Word2Vec features two shallow 2-layer architectures: (1) CBOW (Continuous Bag of Words): averages context word vectors to predict the masked target center word w_t. It trains faster and works well on frequent words. (2) Skip-gram: takes the target word w_t as input and predicts surrounding context words within a window. It captures nuanced relationships and handles rare words more effectively."
+  },
+  {
+    "id": 35,
+    "question": "What classic vector arithmetic relationship demonstrated that Word2Vec embeddings capture semantic and analogical relationships in language?",
+    "options": [
+      "Vector('Dog') + Vector('Cat') = Vector('Horse')",
+      "Vector('King') - Vector('Man') + Vector('Woman') ≈ Vector('Queen')",
+      "Vector('Apple') / Vector('Orange') = Vector('Banana')",
+      "Vector('Car') * Vector('Wheel') = Vector('Engine')",
+      "Vector('Sun') - Vector('Moon') = Vector('Earth')"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Vector('King') - Vector('Man') + Vector('Woman') ≈ Vector('Queen'). Mikolov et al. (2013) demonstrated that linear directions in Word2Vec embedding space correspond to semantic and relational concepts: Vector('King') - Vector('Man') captures the abstract concept of royalty, and adding Vector('Woman') yields a vector whose closest cosine neighbor is Vector('Queen')."
+  },
+  {
+    "id": 36,
+    "question": "What is 'Negative Sampling' in Word2Vec training, and why was it introduced?",
+    "options": [
+      "Dropping 50% of the training text sentences",
+      "Multiplying all negative vectors by -1",
+      "Selecting words that have negative sentiment",
+      "A computationally efficient approximation of the softmax denominator",
+      "Removing negative numbers from word embeddings"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A computationally efficient approximation of the softmax denominator: instead of calculating normalizations over the entire vocabulary |V| (which is computationally prohibitive), it updates weights for the true context word and a small random sample of k 'negative' (non-context) words using binary logistic regression. Standard softmax in Word2Vec requires summing over all |V| words in the vocabulary in the denominator: ∑_{w ∈ V} exp(v'_w · v_w_I). For |V| = 100,000+, this is computationally expensive. Negative Sampling (NEG) reformulates the task as binary classification: distinguish the true target-context pair from k randomly sampled noise words ('negative samples', typically k = 5 to 20)."
+  },
+  {
+    "id": 37,
+    "question": "How does 'GloVe' (Global Vectors for Word Representation - Pennington et al., 2014) construct word embeddings compared to Word2Vec?",
+    "options": [
+      "GloVe performs log-bilinear matrix factorization on the global word-word co-occurrence matrix of the entire corpus",
+      "GloVe uses only character counts in a sentence when optimizing the objective loss function",
+      "GloVe is an unsupervised clustering algorithm based on K-Means within the neural network hidden layer architecture",
+      "GloVe trains a 50-layer deep convolutional neural network under parametric statistical learning assumptions",
+      "GloVe can only be trained on Twitter data"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: GloVe performs log-bilinear matrix factorization on the global word-word co-occurrence matrix of the entire corpus, combining the global statistical advantages of matrix factorization with the local context window advantages of Word2Vec. Word2Vec relies on local window-based predictive skip-grams, missing global co-occurrence statistics. GloVe combines matrix factorization and local context: it tabulates a global co-occurrence matrix X (where X_ij counts how often word i appears in context of word j) and fits log-bilinear dot products: w_i^T w̃_j + b_i + b̃_j = ln(X_ij)."
+  },
+  {
+    "id": 38,
+    "question": "What is the key structural innovation of 'FastText' (Bojanowski et al., 2017) over standard Word2Vec?",
+    "options": [
+      "It runs on specialized TPUs only",
+      "It eliminates the need for vector embeddings entirely",
+      "It represents each word as an aggregation of character n-grams",
+      "It requires zero training epochs",
+      "It converts text into audio speech representations"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: It represents each word as an aggregation of character n-grams (e.g. for 'where', 3-grams are '<wh', 'whe', 'her', 'ere', 're>'), enabling it to capture morphological variations, learn subword roots, and generate valid embeddings for Out-Of-Vocabulary (OOV) words. Word2Vec assigns a single distinct vector to each word and cannot embed Out-Of-Vocabulary (OOV) words encountered at test time. FastText (Facebook AI) breaks words into character n-grams. The embedding for a word is the sum of its character n-gram vectors, allowing it to handle misspelled words, prefixes/suffixes, and rare morphologically rich words."
+  },
+  {
+    "id": 39,
+    "question": "What is 'Part-of-Speech' (POS) Tagging in NLP pipelines?",
+    "options": [
+      "Assigning GPS coordinates to text documents across multi-class probability distributions",
+      "Sorting words alphabetically in a glossary during stochastic gradient descent weight updates",
+      "Removing punctuation marks from legal documents across high-dimensional input feature vectors",
+      "Counting the number of syllables in a poem when optimizing the objective loss function",
+      "The process of assigning grammatical category labels to each token in a sentence based on its definition and syntactic context"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The process of assigning grammatical category labels (such as Noun, Verb, Adjective, Adverb, Preposition) to each token in a sentence based on its definition and syntactic context. POS Tagging parses sentence syntax and labels each token with its grammatical class (e.g. NN for noun, VB for verb, JJ for adjective) using Penn Treebank tags. Disambiguating POS is essential for lemmatization (e.g. 'book' as a noun vs 'book' as a verb) and entity extraction."
+  },
+  {
+    "id": 40,
+    "question": "What is 'Named Entity Recognition' (NER) in information extraction?",
+    "options": [
+      "Renaming variables in a Python codebase during model training and cross-validation",
+      "An NLP task that identifies and classifies key entity mentions in unstructured text into predefined categories",
+      "Counting the number of letters in a proper noun under empirical risk minimization on the training set",
+      "Translating names from English to Latin across out-of-sample validation datasets",
+      "Sorting company directors by their age when evaluating unseen test instances"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: An NLP task that identifies and classifies key entity mentions in unstructured text into predefined categories such as Persons (PER), Organizations (ORG), Locations (LOC), Monetary Values (MONEY), Dates (DATE), and PRAN/Account Numbers. Named Entity Recognition (NER) scans unstructured text to extract and categorize real-world entities into predefined semantic classes (e.g. in 'PFRDA announced a new scheme on 18 September 2024 in New Delhi': 'PFRDA' → ORG, '18 September 2024' → DATE, 'New Delhi' → LOC)."
+  },
+  {
+    "id": 41,
+    "question": "What is 'Topic Modeling' in unsupervised text analysis, and how does Latent Dirichlet Allocation (LDA) model documents?",
+    "options": [
+      "Writing headlines for news articles using a generative LLM when optimizing the objective loss function",
+      "Classifying emails into Spam or Ham using Naive Bayes within the neural network hidden layer architecture",
+      "Sorting documents by their word count under parametric statistical learning assumptions",
+      "A probabilistic statistical model that treats each document as a random mixture over a set of latent topics, and each latent topic as a discrete probability distribution over vocabulary words",
+      "Calculating the readability index of a text document across multi-class probability distributions"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A probabilistic statistical model that treats each document as a random mixture over a set of latent topics, and each latent topic as a discrete probability distribution over vocabulary words. Latent Dirichlet Allocation (LDA; Blei, Ng & Jordan, 2003) is a generative probabilistic model for topic discovery. It assumes: (1) Each document is a mixture of latent topics drawn from a Dirichlet distribution; (2) Each topic is a multinomial distribution over vocabulary words drawn from another Dirichlet prior. Inference uncovers the hidden topic distributions across a corpus."
+  },
+  {
+    "id": 42,
+    "question": "What is 'Perplexity' in evaluating probabilistic language models and topic models?",
+    "options": [
+      "A measurement of how well a probability model predicts a sample",
+      "The percentage of misspelled words in a document",
+      "The number of clusters in a K-Means model",
+      "The training time in GPU hours",
+      "The ratio of nouns to verbs in a corpus"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A measurement of how well a probability model predicts a sample; mathematically equivalent to the exponentiated cross-entropy loss: 2^(- (1/N) * log_2 P(w_1, ..., w_N)), where a lower perplexity score indicates superior predictive capability and lower surprise. Perplexity measures the uncertainty or branching factor of a language model: Perplexity = exp(Cross-Entropy Loss). A model with perplexity of 50 is as uncertain about the next word as if it were choosing uniformly among 50 candidate words. Lower perplexity reflects better language model performance."
+  },
+  {
+    "id": 43,
+    "question": "In sentiment analysis, what is the difference between 'Polarity' and 'Subjectivity'?",
+    "options": [
+      "Polarity is measured in grams; Subjectivity is in meters across multi-class probability distributions",
+      "Polarity applies only to spoken audio; Subjectivity applies to written text during stochastic gradient descent weight updates",
+      "Polarity measures the emotional orientation of text along a continuous scale from negative to positive; Subjectivity measures the degree to which text expresses personal opinions, beliefs, and judgments versus objective factual information",
+      "Polarity is always positive; Subjectivity is always negative across high-dimensional input feature vectors",
+      "There is no difference; both terms measure sentence length when optimizing the objective loss function"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Polarity measures the emotional orientation of text along a continuous scale from negative to positive (typically -1.0 to +1.0); Subjectivity measures the degree to which text expresses personal opinions, beliefs, and judgments versus objective factual information (typically 0.0 for objective to 1.0 for subjective). In sentiment analysis (e.g. TextBlob): (1) Polarity ranges from -1.0 (strongly negative) through 0.0 (neutral) to +1.0 (strongly positive). (2) Subjectivity ranges from 0.0 (factual, objective statement) to 1.0 (personal opinion, belief, emotional sentiment)."
+  },
+  {
+    "id": 44,
+    "question": "What is 'VADER' (Valence Aware Dictionary and sEntiment Reasoner) in sentiment analysis, and for what type of text was it specifically designed?",
+    "options": [
+      "A deep convolutional network for satellite imagery during model training and cross-validation",
+      "An OCR tool for converting scanned PDFs into text under empirical risk minimization on the training set",
+      "A database tool for indexing financial transactions across out-of-sample validation datasets",
+      "A speech recognition engine for regional Indian dialects when evaluating unseen test instances",
+      "A lexicon and rule-based sentiment analysis tool specifically tuned for social media and customer micro-text"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A lexicon and rule-based sentiment analysis tool specifically tuned for social media and customer micro-text, utilizing a human-validated sentiment lexicon, capitalization rules (e.g. 'GREAT'), punctuation booster rules (e.g. '!!!'), and negation handling. VADER (Hutto & Gilbert, 2014) is a rule-based sentiment engine designed for short, informal text (social media, reviews, customer feedback). It incorporates heuristic rules for word-order context: exclamation points ('good!'), capitalization ('GREAT'), adverbs of degree ('really bad'), and contrastive conjunctions ('good, but...'), outputting a normalized Compound score from -1.0 to +1.0."
+  },
+  {
+    "id": 45,
+    "question": "What threshold on the VADER 'Compound Score' is conventionally used to classify text into Positive, Neutral, and Negative sentiment?",
+    "options": [
+      "Positive: >= 0.50; Neutral: -0.50 to 0.50; Negative: <= -0.50",
+      "Neutral: -0.05 < Compound < +0.05; Negative: Compound <= -0.05",
+      "Positive: == 1.0; Neutral: == 0.0; Negative: == -1.0",
+      "Positive: > 10; Neutral: 0; Negative: < -10",
+      "VADER does not use thresholds"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Positive: Compound >= +0.05; Neutral: -0.05 < Compound < +0.05; Negative: Compound <= -0.05. The VADER Compound Score is a normalized aggregate score between -1.0 and +1.0. The standard thresholds established by the authors are: Positive sentiment: Compound score ≥ +0.05; Neutral sentiment: -0.05 < Compound score < +0.05; Negative sentiment: Compound score ≤ -0.05."
+  },
+  {
+    "id": 46,
+    "question": "What is 'FinBERT' in financial NLP, and why does it outperform general-purpose BERT on financial texts (such as corporate earnings calls and regulatory filings)?",
+    "options": [
+      "A financial accounting software for auditing invoices when evaluating unseen test instances",
+      "A fraud detection algorithm implemented in Excel during iterative hyperparameter tuning",
+      "A database query tool developed by the Reserve Bank of India within the feature extraction and transformation pipeline",
+      "A domain-specific BERT language model pre-trained and fine-tuned on extensive financial corpora",
+      "A rule-based dictionary of stock ticker symbols during model training and cross-validation"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A domain-specific BERT language model pre-trained and fine-tuned on extensive financial corpora (corporate 10-K filings, earnings call transcripts, analyst reports, financial news); it understands domain-specific language (e.g. 'liability' or 'risk' in finance are descriptive balance-sheet terms, not necessarily negative emotional sentiment). General-purpose language models misinterpret financial text because vocabulary has domain-specific meaning: in everyday English, 'liability' or 'cost' implies negative sentiment, but in financial statements, they are neutral accounting terms. FinBERT (Araci, 2019 / Huang et al., 2020) is fine-tuned on financial corpora, capturing nuanced corporate sentiment."
+  },
+  {
+    "id": 47,
+    "question": "In text classification, what is 'TF-IDF Vectorizer with Sublinear TF Scaling'?",
+    "options": [
+      "Replacing Term Frequency tf with 1 + ln(tf) for all tf > 0, dampening the effect of extreme word repetitions so that a word occurring 100 times is not treated as 100 times more important than a word occurring once",
+      "Replacing term frequency with its square root across multi-class probability distributions",
+      "Setting all term frequencies above 10 to zero during stochastic gradient descent weight updates",
+      "Dividing term frequency by document length squared across high-dimensional input feature vectors",
+      "Multiplying term frequency by the learning rate when optimizing the objective loss function"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Replacing Term Frequency tf with 1 + ln(tf) for all tf > 0, dampening the effect of extreme word repetitions so that a word occurring 100 times is not treated as 100 times more important than a word occurring once. In text classification, a document mentioning a term 20 times is rarely 20 times more relevant than one mentioning it once. Sublinear TF scaling replaces term frequency with a logarithmic scale: tf_sublinear = 1 + ln(tf) for tf > 0 (and 0 otherwise), dampening the influence of frequent repetitions."
+  },
+  {
+    "id": 48,
+    "question": "What is 'Levenshtein Distance' (Edit Distance) between two text strings?",
+    "options": [
+      "The geographic distance between the two authors who wrote the strings during model training and cross-validation",
+      "The number of identical words shared between two books under empirical risk minimization on the training set",
+      "The minimum number of single-character edit operations required to transform one string into the other",
+      "The length of the longest common acronym across out-of-sample validation datasets",
+      "The time taken to spell-check a paragraph in milliseconds when evaluating unseen test instances"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The minimum number of single-character edit operations (insertions, deletions, or substitutions) required to transform one string into the other (e.g. distance between 'kitten' and 'sitting' is 3). Levenshtein distance measures string similarity as the minimum number of character edits (insertions, deletions, substitutions) needed to convert string A into string B. It is used in fuzzy string matching, spell-checking, and name-matching for KYC verification."
+  },
+  {
+    "id": 49,
+    "question": "What is the 'Jaccard Similarity Coefficient' between two sets of text tokens A and B?",
+    "options": [
+      "J(A, B) = |A ∩ B| * |A ∪ B|",
+      "J(A, B) = |A| / |B|",
+      "J(A, B) = |A ∪ B| - |A ∩ B|",
+      "J(A, B) = sqrt(|A| * |B|)",
+      "J(A, B) = |A ∩ B| / |A ∪ B|"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: J(A, B) = |A ∩ B| / |A ∪ B| (the size of the intersection divided by the size of the union of the two sets). Jaccard similarity measures the overlap of two sets: J(A, B) = |A ∩ B| / |A ∪ B|. In NLP, it computes the fraction of unique words shared between two documents relative to the total number of unique words across both documents, ranging from 0.0 (no shared words) to 1.0 (identical vocabularies)."
+  },
+  {
+    "id": 50,
+    "question": "In text preprocessing, what is 'Case Folding'?",
+    "options": [
+      "Folding paper documents into physical envelopes when evaluating unseen test instances",
+      "Converting all characters in a text string to a uniform casing so that words like 'Pension', 'PENSION', and 'pension' are treated as identical tokens rather than distinct vocabulary entries",
+      "Encrypting uppercase letters using binary shift ciphers during iterative hyperparameter tuning",
+      "Removing capital letters from legal contracts within the feature extraction and transformation pipeline",
+      "Sorting text sentences into paragraphs during model training and cross-validation"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Converting all characters in a text string to a uniform casing (typically lowercase) so that words like 'Pension', 'PENSION', and 'pension' are treated as identical tokens rather than distinct vocabulary entries. Case folding standardizes text by converting all characters to lowercase. This prevents vocabulary fragmentation, ensuring that capitalized words at the start of sentences are mapped to the same underlying token as their lowercase counterparts."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - AI & Machine Learning Mock 3",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - AI & Machine Learning Mock 3";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br /><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br /><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br /><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br /><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+
+// ]]>
+</script>
+</body>
+</html>

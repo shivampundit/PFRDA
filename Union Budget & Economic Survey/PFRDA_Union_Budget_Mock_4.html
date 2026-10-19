@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Union Budget &amp; Economic Survey Mock Test 4 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject B: Union Budget & Economic Survey</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Union_Budget_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Union_Budget_Master_Revision_and_Study_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Union_Budget_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Union_Budget_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Union_Budget_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Union_Budget_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Union_Budget_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &#183; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &#183; Paper 2 &#183; Union Budget Mock 4</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Union Budget &amp; Economic Survey - Mock 4</h1>
+    <p class="start-subheading">Full 50 Questions &#183; Concepts, Approach, Broad Trends &amp; Survey &#183; PFRDA Grade A Level &#183; Precision Coaching</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Constitutional &amp; Budgetary Framework:</b> Articles 112, 110, 114, 265, 266, 267, Consolidated Fund vs Public Account, Contingency Fund (₹30,000 Cr).</li>
+                <li><b>Receipts &amp; Expenditure Classification:</b> Revenue Receipts vs Capital Receipts, Non-Debt Capital Receipts (NDCR), Capital Outlay, Disinvestment &amp; Asset Monetization.</li>
+                <li><b>Deficit Architecture &amp; Formulas:</b> Fiscal Deficit, Revenue Deficit, Effective Revenue Deficit (ERD), Primary Deficit, Monetized Deficit.</li>
+                <li><b>FRBM Act &amp; Fiscal Rules:</b> N.K. Singh Committee targets (60% Debt-to-GDP: 40% Centre, 20% States; 3.0% Fiscal Deficit), Escape &amp; Buoyancy Clauses, Post-COVID Glide Path (&lt;4.5% by FY26).</li>
+                <li><b>Budgetary Reforms &amp; Approaches:</b> Zero-Based Budgeting (ZBB), Gender Budgeting (Statement 20), Outcome Budgeting, Merger of Railway Budget, Advancing Date to Feb 1, Plan vs Non-Plan abolition.</li>
+                <li><b>Union Budget Broad Trends:</b> Effective Capex push (₹15.02 Lakh Cr), Direct Tax Reforms (New Tax Regime slabs, Standard Deduction ₹75k, 87A rebate, Angel Tax abolition, Capital Gains 12.5% LTCG &amp; 20% STCG).</li>
+                <li><b>Economic Survey Analytics &amp; Structural Drivers:</b> Real vs Nominal GDP, GVA, Inflation (CPI 45.86% Food, Core CPI, WPI divergence), External Sector (CAD, Remittances #1, GCCs, Forex cushion), Twin Balance Sheet Advantage, Energy Transition &amp; NDCs (Panchamrit, Net Zero 2070, Green Hydrogen).</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 151,
+    "question": "Which institutional authority in the Ministry of Finance is responsible for preparing and authoring the annual 'Economic Survey of India'?",
+    "options": [
+      "The Comptroller and Auditor General (CAG) of India as a percentage of Gross Domestic Product (GDP) at market prices",
+      "The Governor of the Reserve Bank of India to maintain macroeconomic stability and debt sustainability",
+      "The Chairman of the Central Board of Direct Taxes (CBDT) under the Consolidated Fund and Public Account of India",
+      "The Parliamentary Standing Committee on Finance as reported in the Union Budget and Economic Survey",
+      "The Economics Division, Department of Economic Affairs (DEA), under the overall guidance of the Chief Economic Adviser (CEA)"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The Economics Division, Department of Economic Affairs (DEA), under the overall guidance of the Chief Economic Adviser (CEA). The Economic Survey is prepared by the Economics Division of the Department of Economic Affairs (DEA), Ministry of Finance, under the guidance and leadership of the Chief Economic Adviser (CEA) to the Government of India."
+  },
+  {
+    "id": 152,
+    "question": "When was the first Economic Survey of India presented, and until which year was it presented together with the Union Budget before being presented a day prior to the budget?",
+    "options": [
+      "First presented in 1947; separated in 1950",
+      "First presented in 1950-51; presented alongside the Budget until 1964, after which it was presented a day before the Budget",
+      "First presented in 1969 after bank nationalization; separated in 1991",
+      "First presented in 1991 under New Economic Policy; separated in 2003 across Central Sector and Centrally Sponsored Schemes",
+      "First presented in 2003 under the FRBM framework; separated in 2017 to boost capital expenditure and infrastructure creation"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: First presented in 1950-51; presented alongside the Budget until 1964, after which it was presented a day before the Budget. The first Economic Survey of India was brought out for the year 1950-51. Until 1964, it was presented simultaneously with the Union Budget. From 1964 onwards, it has been released prior to the presentation of the Budget to provide the macroeconomic backdrop and context for budgetary policy."
+  },
+  {
+    "id": 153,
+    "question": "What is the macroeconomic relationship connecting Gross Domestic Product (GDP) at Market Prices with Gross Value Added (GVA) at Basic Prices under India's national accounting standards (base year 2011-12)?",
+    "options": [
+      "$\\text{GDP at Market Prices} = \\text{GVA at Basic Prices} - \\text{Net Product Taxes}$ as reported in the Union Budget and Economic Survey",
+      "$\\text{GDP at Market Prices} = \\text{GVA at Factor Cost} - \\text{Depreciation}$ based on the recommendations of the Finance Commission",
+      "$\\text{GDP at Market Prices} = \\text{GVA at Basic Prices} + \\text{Gross Capital Formation}$ within the medium-term fiscal policy strategy statement",
+      "$\\text{GDP at Market Prices} = \\text{GVA at Basic Prices} + \\text{Product Taxes} - \\text{Product Subsidies}$",
+      "$\\text{GDP at Market Prices} = \\text{GVA at Basic Prices} \\times \\text{GDP Deflator}$ as a percentage of Gross Domestic Product (GDP) at market prices"
+    ],
+    "answer": 3,
+    "explanation": "Under the CSO/NSO national income methodology adopted in 2015, $\\text{GDP at Market Prices} = \\text{GVA at Basic Prices} + \\text{Product Taxes} - \\text{Product Subsidies} = \\text{GVA at Basic Prices} + \\text{Net Product Taxes}$. GVA measures the supply-side sectoral output, while GDP measures final demand at market prices."
+  },
+  {
+    "id": 154,
+    "question": "How is the 'GDP Deflator' calculated, and what makes it a broader measure of inflation than the Consumer Price Index (CPI) or Wholesale Price Index (WPI)?",
+    "options": [
+      "$\\text{GDP Deflator} = (\\text{Nominal GDP} / \\text{Real GDP}) \\times 100$; it reflects the price level of all domestically produced final goods and services in the economy, with dynamically changing weights",
+      "$\\text{GDP Deflator} = (\\text{Real GDP} / \\text{Nominal GDP}) \\times 100$; it covers only wholesale agricultural commodities to boost capital expenditure and infrastructure creation",
+      "$\\text{GDP Deflator} = \\text{CPI} + \\text{WPI} / 2$; it applies fixed basket weights for 20 years subject to parliamentary appropriation and audit oversight",
+      "$\\text{GDP Deflator} = (\\text{Gross Capital Formation} / \\text{GDP}) \\times 100$; it measures real wage inflation across direct and indirect tax revenue collections",
+      "$\\text{GDP Deflator} = (\\text{Export Prices} / \\text{Import Prices}) \\times 100$; it measures terms of trade in the Annual Financial Statement presented to Parliament"
+    ],
+    "answer": 0,
+    "explanation": "The GDP Deflator is defined as $\\text{GDP Deflator} = (\\text{Nominal GDP} / \\text{Real GDP}) \\times 100$. Unlike CPI or WPI which track a fixed basket of consumer/wholesale goods, the GDP Deflator covers all domestically produced goods and services, and its implicit weights automatically change as the composition of GDP evolves."
+  },
+  {
+    "id": 155,
+    "question": "In the expenditure-side composition of India's GDP, which component constitutes the largest share (accounting for approximately 58% to 60% of GDP)?",
+    "options": [
+      "Gross Fixed Capital Formation (GFCF)",
+      "Government Final Consumption Expenditure (GFCE)",
+      "Private Final Consumption Expenditure (PFCE)",
+      "Net Exports of Goods and Services ($X - M$)",
+      "Valuables and Changes in Stocks"
+    ],
+    "answer": 2,
+    "explanation": "Private Final Consumption Expenditure (PFCE), which measures household spending on goods and services, is the primary driver of the Indian economy, consistently accounting for the largest share of GDP at approximately 58% to 60%."
+  },
+  {
+    "id": 156,
+    "question": "What does 'Gross Fixed Capital Formation' (GFCF) measure in the Economic Survey, and what has been its share in India's GDP in recent years?",
+    "options": [
+      "The total foreign portfolio investments in the stock market; around 10% of GDP in the Annual Financial Statement presented to Parliament",
+      "The total gold reserves accumulated by the Reserve Bank of India; around 5% of GDP in accordance with the FRBM Act fiscal consolidation targets",
+      "The total government subsidy disbursement; around 2% of GDP across Central Sector and Centrally Sponsored Schemes",
+      "The total bank deposits in rural regional rural banks; around 15% of GDP to boost capital expenditure and infrastructure creation",
+      "The net addition to fixed assets by businesses, households, and government; representing around 31% to 33% of GDP"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The net addition to fixed assets (infrastructure, machinery, equipment, dwellings, intellectual property) by businesses, households, and government; representing around 31% to 33% of GDP. Gross Fixed Capital Formation (GFCF) measures the total investment in physical and fixed assets (roads, factories, machinery, digital infrastructure). GFCF-to-GDP ratio has strengthened to around 31%–33% in recent years, driven heavily by public infrastructure capex and green shoots in private corporate investment."
+  },
+  {
+    "id": 157,
+    "question": "What is the 'Incremental Capital-Output Ratio' (ICOR) in development macroeconomics, and what does a LOWER ICOR value signify?",
+    "options": [
+      "ICOR = GDP / Capital stock; a lower value indicates hyperinflation as reported in the Union Budget and Economic Survey",
+      "ICOR measures the units of additional capital required to generate one additional unit of output; a lower ICOR indicates HIGHER efficiency and productivity of capital investment",
+      "ICOR measures the ratio of foreign debt to export earnings; a lower value indicates sovereign insolvency based on the recommendations of the Finance Commission",
+      "ICOR measures the proportion of bank loans that turn into NPAs; a lower value indicates bank distress within the medium-term fiscal policy strategy statement",
+      "ICOR is the ratio of corporate taxes to income taxes; a lower value indicates tax evasion"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: ICOR measures the units of additional capital required to generate one additional unit of output ($\\text{ICOR} = I / \\Delta Y$); a lower ICOR indicates HIGHER efficiency and productivity of capital investment. ICOR = Investment Rate (%) / Real GDP Growth Rate (%). It measures how much capital is needed to produce one additional unit of output. A lower ICOR implies that an economy requires less capital investment to achieve a given growth rate, signifying higher capital productivity, technological efficiency, and better infrastructure execution."
+  },
+  {
+    "id": 158,
+    "question": "If an economy maintains an Investment-to-GDP ratio of 32% and achieves a Real GDP growth rate of 8%, what is the implicit Incremental Capital-Output Ratio (ICOR)?",
+    "options": [
+      "2.0",
+      "3.0",
+      "5.0",
+      "4.0",
+      "6.0"
+    ],
+    "answer": 3,
+    "explanation": "$\\text{ICOR} = \\frac{\\text{Investment Rate (\\%)}}{\\text{GDP Growth Rate (\\%)}} = \\frac{32\\%}{8\\%} = 4.0$. For India, ICOR historically averaged around 4.0 to 4.5 in high-growth phases."
+  },
+  {
+    "id": 159,
+    "question": "In the Gross Domestic Savings (GDS) profile analyzed in the Economic Survey, which sector has traditionally contributed the largest share of total domestic savings in India?",
+    "options": [
+      "Household Sector (comprising financial savings and physical assets like real estate/gold)",
+      "Private Non-Financial Corporate Sector",
+      "Public Sector Enterprises and Government to maintain macroeconomic stability and debt sustainability",
+      "Foreign Portfolio Investors",
+      "Banking and Non-Banking Financial Corporations as reported in the Union Budget and Economic Survey"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Household Sector (comprising financial savings and physical assets like real estate/gold). The Household sector is the backbone of domestic savings in India, contributing around 60% to 70% of total Gross Domestic Savings. Household savings are bifurcated into financial assets (bank deposits, life insurance, pension funds, equities) and physical assets (real estate, land, gold)."
+  },
+  {
+    "id": 160,
+    "question": "What does the 'Potential GDP' (or Trend Output) of an economy represent, and what does a 'Negative Output Gap' indicate?",
+    "options": [
+      "Potential GDP is the maximum possible output assuming zero unemployment; Negative output gap means hyperinflation",
+      "Potential GDP is the total nominal output at current US Dollar exchange rates; Negative output gap means trade deficit",
+      "Potential GDP is the maximum sustainable level of output an economy can produce",
+      "Potential GDP is total output produced exclusively by public sector enterprises; Negative gap means fiscal deficit",
+      "Potential GDP is the GDP achieved during general election years; Negative gap means political uncertainty"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Potential GDP is the maximum sustainable level of output an economy can produce without generating upward inflationary pressures; a Negative Output Gap ($Y < Y^*$) means actual output is below potential, indicating slack and disinflationary conditions. Potential Output ($Y^*$) is the highest level of real GDP that can be sustained over the long run without triggering accelerating inflation. Output Gap = Actual GDP - Potential GDP. When actual GDP is below potential (negative output gap), there is idle capacity, unemployment, and downward pressure on core inflation."
+  },
+  {
+    "id": 161,
+    "question": "In India's headline Consumer Price Index (CPI - Combined, Base Year 2012=100), what is the weightage assigned to the 'Food and Beverages' group?",
+    "options": [
+      "15.42%",
+      "28.35%",
+      "54.18%",
+      "64.20%",
+      "45.86%"
+    ],
+    "answer": 4,
+    "explanation": "In the CPI-Combined index compiled by NSO, 'Food and Beverages' carries a dominant weight of 45.86% (with rural weighting even higher at 54.18%, and urban at 36.29%). This heavy weighting makes headline inflation highly sensitive to agricultural crop yields and weather shocks."
+  },
+  {
+    "id": 162,
+    "question": "What is 'Core Inflation' in macroeconomic policy, and why is it closely tracked by central banks alongside headline inflation?",
+    "options": [
+      "Inflation measured exclusively in primary industrial commodities to boost capital expenditure and infrastructure creation",
+      "Headline CPI inflation stripped of the volatile components—specifically 'Food and Beverages' and 'Fuel and Light'—to capture underlying persistent, demand-driven inflationary pressures",
+      "Inflation measured strictly within the manufacturing sector subject to parliamentary appropriation and audit oversight",
+      "The rate of inflation in capital goods and real estate across direct and indirect tax revenue collections",
+      "The rate of currency depreciation against the US Dollar"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Headline CPI inflation stripped of the volatile components—specifically 'Food and Beverages' and 'Fuel and Light'—to capture underlying persistent, demand-driven inflationary pressures. Core Inflation is computed by excluding the highly volatile and supply-shock-prone sub-groups (Food & Beverages and Fuel & Light) from headline CPI. Because food and fuel prices are driven by weather, monsoons, and geopolitical oil shocks, core inflation provides a clearer signal of fundamental, persistent generalized pricing power in the economy."
+  },
+  {
+    "id": 163,
+    "question": "What is the base year and commodity classification weighting of the Wholesale Price Index (WPI) compiled by the Office of Economic Adviser, DPIIT?",
+    "options": [
+      "Base Year 2004-05: Food 50%, Fuel 25%, Manufacturing 25% as a percentage of Gross Domestic Product (GDP) at market prices",
+      "Base Year 2012: Services 40%, Agriculture 30%, Industry 30% to maintain macroeconomic stability and debt sustainability",
+      "Base Year 2015: Capital Goods 50%, Consumer Goods 50% under the Consolidated Fund and Public Account of India",
+      "Base Year 2011-12: Primary Articles (22.62%), Fuel & Power (13.15%), and Manufactured Products (64.23%)",
+      "Base Year 2018: Petroleum 45%, Food 35%, Chemicals 20% as reported in the Union Budget and Economic Survey"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Base Year 2011-12: Primary Articles (22.62%), Fuel & Power (13.15%), and Manufactured Products (64.23%). The current WPI series (Base Year 2011-12=100) comprises three major groups: (1) Primary Articles with weight 22.62%, (2) Fuel & Power with weight 13.15%, and (3) Manufactured Products with the largest weight of 64.23%. WPI completely excludes services."
+  },
+  {
+    "id": 164,
+    "question": "Why does a sharp 'Divergence between WPI and CPI' frequently occur in India, as highlighted in several Economic Surveys?",
+    "options": [
+      "Due to fundamental structural differences: WPI has a 64.2% weight on manufactured goods and 0% on services",
+      "Because WPI is measured in US Dollars while CPI is measured in Indian Rupees",
+      "Because WPI is updated annually while CPI is updated daily in accordance with the FRBM Act fiscal consolidation targets",
+      "Because WPI tracks only agricultural mandis in South India",
+      "Because State Governments manipulate the compilation of the CPI index to boost capital expenditure and infrastructure creation"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Due to fundamental structural differences: WPI has a 64.2% weight on manufactured goods and 0% on services, while CPI has a 45.9% weight on food and includes a ~14% weight on housing and consumer services. The divergence between WPI and CPI arises from structural basket differences: WPI is dominated by manufactured products (64.2%) and tradeable global commodities (crude oil, metals) with zero services. CPI is dominated by food (45.9%) and consumer services (health, education, transport, housing). When global metal/oil prices crash while domestic vegetable prices spike, WPI enters deflation while CPI surges."
+  },
+  {
+    "id": 165,
+    "question": "What is 'TOP' inflation often analyzed in the food inflation chapters of the Economic Survey?",
+    "options": [
+      "Total Operational Productivity inflation",
+      "Trade, Output, and Procurement price index",
+      "The volatile price movements of the three staple vegetables",
+      "Targeted Old-age Pension adjustment factor",
+      "Transportation and Oil Price inflation"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The volatile price movements of the three staple vegetables: Tomato, Onion, and Potato. 'TOP' refers to Tomato, Onion, and Potato—the three essential vegetables in the Indian household consumption basket. Despite accounting for only about 2.2% of the CPI basket, their extreme seasonal price volatility frequently accounts for a disproportionate share of spikes in headline food inflation."
+  },
+  {
+    "id": 166,
+    "question": "What is 'Shrinkflation' in consumer markets, frequently discussed in recent consumer behavior analysis?",
+    "options": [
+      "A period of simultaneous negative GDP growth and high unemployment to boost capital expenditure and infrastructure creation",
+      "A rapid appreciation of the domestic currency that shrinks export margins subject to parliamentary appropriation and audit oversight",
+      "A sudden reduction in the statutory reserve requirements of commercial banks across direct and indirect tax revenue collections",
+      "The physical shrinking of currency banknotes due to inflation",
+      "The practice where manufacturers reduce the physical size, quantity, or volume of a packaged product"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The practice where manufacturers reduce the physical size, quantity, or volume of a packaged product while keeping its retail sticker price unchanged, effectively increasing the price per unit. 'Shrinkflation' is a hidden form of inflation where companies reduce the weight, volume, or pack size of a product (e.g., reducing a chocolate bar from 100g to 80g or a biscuit packet from 100g to 90g) while maintaining the original retail selling price, stealthily raising the effective price paid by consumers."
+  },
+  {
+    "id": 167,
+    "question": "What is 'Greedflation' (or Profit-Led Inflation)?",
+    "options": [
+      "Inflation caused by speculative commodity hoarders in illegal markets as a percentage of Gross Domestic Product (GDP) at market prices",
+      "A phenomenon where large corporations exploit general inflationary expectations to hike retail prices well beyond their actual increase in input costs, expanding profit margins at the expense of consumers",
+      "Inflation caused by excessive spending by municipal corporations to maintain macroeconomic stability and debt sustainability",
+      "A surge in real estate prices driven by unaccounted cash transactions under the Consolidated Fund and Public Account of India",
+      "The rapid increase in salaries of executive corporate leadership as reported in the Union Budget and Economic Survey"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A phenomenon where large corporations exploit general inflationary expectations to hike retail prices well beyond their actual increase in input costs, expanding profit margins at the expense of consumers. 'Greedflation' describes situations where firms with pricing power take advantage of headline cost shocks or supply chain disruptions to increase markups and profit margins, passing on more than the increase in input costs to consumers."
+  },
+  {
+    "id": 168,
+    "question": "What is the 'Base Effect' in the interpretation of monthly inflation metrics?",
+    "options": [
+      "The influence of the central bank's base policy repo rate on commercial lending rates",
+      "The minimum threshold of inflation that is considered beneficial for economic growth in accordance with the FRBM Act fiscal consolidation targets",
+      "The distortion caused by changing the physical survey sampling base across Central Sector and Centrally Sponsored Schemes",
+      "The impact of the price index level in the corresponding month of the previous year on the year-on-year percentage calculation",
+      "The floor beneath which core inflation cannot fall to boost capital expenditure and infrastructure creation"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The impact of the price index level in the corresponding month of the previous year on the year-on-year percentage calculation; an unusually high index in the prior year automatically depresses the current year's inflation rate. Because year-on-year (YoY) inflation is calculated as $\\frac{\\text{Index}_t - \\text{Index}_{t-12}}{\\text{Index}_{t-12}} \\times 100$, an unusually high price level in the base period ($t-12$, e.g., due to an oil spike last year) creates a 'favorable base effect' that mechanically lowers current inflation, even if sequential month-on-month prices are rising."
+  },
+  {
+    "id": 169,
+    "question": "What is 'Skimflation' in retail and service economics?",
+    "options": [
+      "A form of hidden inflation where the price remains unchanged, but the quality of the product or service is degraded",
+      "A tax levied on skimming profits of high-frequency traders as reported in the Union Budget and Economic Survey",
+      "The skimming of tax revenues by corrupt intermediaries based on the recommendations of the Finance Commission",
+      "A temporary drop in inflation caused by government price caps within the medium-term fiscal policy strategy statement",
+      "The rapid withdrawal of liquidity from money markets as a percentage of Gross Domestic Product (GDP) at market prices"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A form of hidden inflation where the price remains unchanged, but the quality of the product or service is degraded (e.g., cheaper ingredients, reduced hotel housekeeping, longer wait times). 'Skimflation' occurs when businesses 'skim' or cut corners on the quality of goods or services provided for the same price—substituting high-cost ingredients with cheaper fillers, reducing customer service personnel, or curtailing amenities."
+  },
+  {
+    "id": 170,
+    "question": "Under the flexible inflation targeting framework, what is the 'Tolerance Band' around the headline CPI target of 4.0% established for the RBI's Monetary Policy Committee (MPC)?",
+    "options": [
+      "2.0% to 5.0%",
+      "3.0% to 5.0%",
+      "2.0% to 6.0% (+/- 2.0 percentage points)",
+      "1.0% to 4.0%",
+      "4.0% to 8.0%"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: 2.0% to 6.0% (+/- 2.0 percentage points). Under Section 45ZA of the RBI Act, the Central Government in consultation with RBI notified the inflation target as 4.0% headline CPI inflation with an upper tolerance limit of 6.0% and a lower tolerance limit of 2.0%."
+  },
+  {
+    "id": 171,
+    "question": "In the Balance of Payments (BOP) analytical structure of the Economic Survey, what components comprise the 'Current Account'?",
+    "options": [
+      "FDI, FPI, and External Commercial Borrowings (ECBs) as a percentage of Gross Domestic Product (GDP) at market prices",
+      "Capital inflows minus Central Government market borrowings to maintain macroeconomic stability and debt sustainability",
+      "Foreign exchange reserves held by the RBI minus gold holdings under the Consolidated Fund and Public Account of India",
+      "Special Drawing Rights (SDR) allocations by the IMF as reported in the Union Budget and Economic Survey",
+      "Merchandise Trade Balance + Net Services + Net Primary Income + Net Secondary Income"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Merchandise Trade Balance (Visible Trade) + Net Services + Net Primary Income (compensation and investment income) + Net Secondary Income (unilateral transfers/remittances). The Current Account in BOP records all transactions in goods, services, and cross-border income transfers. It consists of: (1) Merchandise Trade Balance (Exports - Imports of physical goods), (2) Net Services (software, business travel, financial), (3) Net Primary Income (dividends, interest profits), and (4) Net Secondary Income (personal remittances and grants)."
+  },
+  {
+    "id": 172,
+    "question": "What is the primary structural factor that offsets India's chronic Merchandise Trade Deficit, keeping the Current Account Deficit (CAD) within a sustainable range (typically below 2% of GDP)?",
+    "options": [
+      "Massive exports of heavy commercial automobiles and aircraft in the Annual Financial Statement presented to Parliament",
+      "A massive, expanding surplus in Services Exports and strong, resilient Inward Worker Remittances",
+      "Large-scale net exports of crude petroleum and natural gas in accordance with the FRBM Act fiscal consolidation targets",
+      "Grants-in-aid received from the United Nations Development Programme across Central Sector and Centrally Sponsored Schemes",
+      "Tariff revenues collected at national international airports to boost capital expenditure and infrastructure creation"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A massive, expanding surplus in Services Exports (software, business services, GCCs) and strong, resilient Inward Worker Remittances. India consistently runs a substantial merchandise trade deficit due to heavy import dependence on crude oil, gold, electronics, and capital goods. This deficit is crucially counterbalanced by: (1) a massive net surplus in invisible services trade (over $150B annually), led by software, IT-BPM, and GCCs, and (2) record private inward remittances (over $115B)."
+  },
+  {
+    "id": 173,
+    "question": "According to the World Bank's Migration and Development Brief cited in the Economic Survey, what is India's global rank in terms of inward worker remittances, and what milestone has it crossed?",
+    "options": [
+      "Ranked 3rd with $60 Billion as reported in the Union Budget and Economic Survey",
+      "Ranked 2nd with $85 Billion based on the recommendations of the Finance Commission",
+      "Ranked 5th behind China, Mexico, Philippines, and Egypt within the medium-term fiscal policy strategy statement",
+      "Ranked 1st globally, becoming the first country in the world to surpass $100 Billion",
+      "Ranked 10th globally due to restrictions on cross-border wire transfers as a percentage of Gross Domestic Product (GDP) at market prices"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Ranked 1st globally, becoming the first country in the world to surpass $100 Billion (reaching over $115–$125 Billion). India is the world's top recipient of remittances by a wide margin, receiving over $115–$125 Billion annually. A structural shift has occurred in remittance sources: while the Gulf Cooperation Council (GCC) was historically dominant, high-skilled diaspora in the US, UK, and Singapore now account for an increasingly large share of inflows."
+  },
+  {
+    "id": 174,
+    "question": "What are 'Global Capability Centres' (GCCs), and what is their macroeconomic significance in India's services export boom analyzed in the Economic Survey?",
+    "options": [
+      "Offshore captive centers established by global Fortune 500 multinationals in India that have transitioned from low-cost back-office processing into strategic hubs for high-value R&D, artificial intelligence, software engineering, and global corporate operations",
+      "Specialized United Nations refugee rehabilitation camps to boost capital expenditure and infrastructure creation",
+      "Centres set up by state governments to distribute export subsidies subject to parliamentary appropriation and audit oversight",
+      "Naval bases developed to secure international maritime trade lanes across direct and indirect tax revenue collections",
+      "Warehouses built along the Dedicated Freight Corridors in the Annual Financial Statement presented to Parliament"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Offshore captive centers established by global Fortune 500 multinationals in India that have transitioned from low-cost back-office processing into strategic hubs for high-value R&D, artificial intelligence, software engineering, and global corporate operations. GCCs are owned offshore units of global multinationals. Over 1,600 GCCs operate in India employing over 1.7 million professionals. They have transformed from simple cost-arbitrage BPO operations into core strategic centers delivering advanced cloud architectures, artificial intelligence models, cybersecurity, and global financial steering, driving non-software services export growth."
+  },
+  {
+    "id": 175,
+    "question": "What is the 'Import Cover' of Foreign Exchange Reserves, and what is considered an adequate benchmark for a resilient emerging economy?",
+    "options": [
+      "The percentage of import tariffs reimbursed to exporters; benchmark is 100% as a percentage of Gross Domestic Product (GDP) at market prices",
+      "The ratio of gold imports to total agricultural imports; benchmark is 1 month to maintain macroeconomic stability and debt sustainability",
+      "The number of months of merchandise/goods imports that the country's foreign exchange reserves can finance; a benchmark of at least 8 to 10 months is considered highly comfortable",
+      "The total insurance coverage provided by the ECGC on export credit under the Consolidated Fund and Public Account of India",
+      "The ratio of foreign currency deposits to domestic bank deposits as reported in the Union Budget and Economic Survey"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The number of months of merchandise/goods imports that the country's foreign exchange reserves can finance; a benchmark of at least 8 to 10 months is considered highly comfortable (India typically maintains 10 to 11+ months). Import Cover indicates how many months of prospective imports can be paid for with the existing stock of foreign exchange reserves. An import cover of 3 months is the traditional minimum IMF safety threshold. India's forex reserves (fluctuating between $650 Billion and $700 Billion) provide a comfortable cushion covering over 10 to 11 months of imports."
+  },
+  {
+    "id": 176,
+    "question": "What is the 'Greenspan-Guidotti Rule' of foreign exchange reserve adequacy in international macroeconomics?",
+    "options": [
+      "A country's foreign exchange reserves should equal at least 50% of its annual GDP",
+      "A country's foreign exchange reserves must be invested exclusively in physical gold",
+      "A country should hold zero reserves and allow the currency to float completely free",
+      "A country's external debt should equal its sovereign green bond issuances",
+      "A country's foreign exchange reserves should equal or exceed 100% of its Short-Term External Debt"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A country's foreign exchange reserves should equal or exceed 100% of its Short-Term External Debt (debt maturing within the next 12 months). The Greenspan-Guidotti rule states that a country's official foreign exchange reserves should be at least equal to 100% of its short-term external debt (debt with residual maturity of up to 1 year). This ensures that even in the event of a complete sudden stop in international lending, the country can service all debt obligations for a full year without new borrowing. India comfortably satisfies this rule."
+  },
+  {
+    "id": 177,
+    "question": "In the Balance of Payments, what is the fundamental difference between 'Foreign Direct Investment' (FDI) and 'Foreign Portfolio Investment' (FPI)?",
+    "options": [
+      "FDI is short-term and volatile, while FPI is long-term and illiquid",
+      "FDI involves acquiring a lasting interest and significant degree of influence",
+      "FDI can only be made in government securities, while FPI is made in real estate",
+      "FDI is strictly prohibited in manufacturing, while FPI is mandatory",
+      "FPI transactions do not pass through authorized dealer banking channels"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: FDI involves acquiring a lasting interest and significant degree of influence (defined in India as holding 10% or more of the equity capital of a listed company or any investment in an unlisted firm), while FPI represents passive financial holdings below 10% without managerial control. Under SEBI and RBI regulations (following the Mayaram Committee framework), an investment where the foreign investor holds 10% or more of the fully diluted equity capital of a listed Indian enterprise, or any equity investment in an unlisted entity, is classified as FDI. Investments of less than 10% by SEBI-registered foreign portfolio investors are classified as FPI."
+  },
+  {
+    "id": 178,
+    "question": "What is 'Internationalization of the Rupee' and what key policy step was initiated by RBI in July 2022 to advance it?",
+    "options": [
+      "Fixing the rupee exchange rate permanently at 1 USD = 50 INR to boost capital expenditure and infrastructure creation",
+      "Banning the use of the US Dollar in all international port transactions subject to parliamentary appropriation and audit oversight",
+      "Mandating that all crude oil imports must be paid in gold coins across direct and indirect tax revenue collections",
+      "Allowing invoicing, payment, and settlement of cross-border international trade in Indian Rupees (INR) through the mechanism of Special Rupee Vostro Accounts (SRVA)",
+      "Abolishing all foreign exchange departments in commercial banks"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Allowing invoicing, payment, and settlement of cross-border international trade in Indian Rupees (INR) through the mechanism of Special Rupee Vostro Accounts (SRVA). In July 2022, the RBI unveiled a framework allowing cross-border trade transactions to be invoiced, paid, and settled in INR. Under this arrangement, authorized Indian banks open Special Rupee Vostro Accounts (SRVAs) for correspondent banks of partner countries, enabling bilateral trade settlement in rupees without routing through intermediate third currencies."
+  },
+  {
+    "id": 179,
+    "question": "What is the 'Real Effective Exchange Rate' (REER) of the Rupee compiled by the Reserve Bank of India?",
+    "options": [
+      "A weighted average of the nominal exchange rates of the Rupee against a basket of currencies of major trading partners, adjusted for relative inflation differentials between India and those partner countries",
+      "The bilateral exchange rate between the Indian Rupee and the US Dollar adjusted for customs duties as a percentage of Gross Domestic Product (GDP) at market prices",
+      "The real interest rate earned by foreign investors on Indian government bonds to maintain macroeconomic stability and debt sustainability",
+      "The spot market rate of the rupee quoted on the London bullion exchange under the Consolidated Fund and Public Account of India",
+      "The black market premium on foreign currency notes in Mumbai as reported in the Union Budget and Economic Survey"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A weighted average of the nominal exchange rates of the Rupee against a basket of currencies of major trading partners (40-currency basket), adjusted for relative inflation differentials between India and those partner countries. REER measures the external price competitiveness of a currency. The RBI compiles a 40-currency trade-weighted index. REER is the Nominal Effective Exchange Rate (NEER) adjusted for the inflation differential between India and its trading partners. A REER above 100 indicates that the currency is appreciating in real terms (potential overvaluation), eroding export price competitiveness."
+  },
+  {
+    "id": 180,
+    "question": "What has been the trajectory of India's 'External Debt to GDP Ratio' in recent years as analyzed in the Economic Survey?",
+    "options": [
+      "Exceeding 85% of GDP, leading to external debt vulnerability in the Annual Financial Statement presented to Parliament",
+      "Exactly zero, as India has no foreign debt obligations in accordance with the FRBM Act fiscal consolidation targets",
+      "Exceptionally modest and sustainable at approximately 18% to 19% of GDP, among the lowest in G20 and emerging market economies",
+      "Around 50% of GDP, consisting entirely of short-term commercial paper across Central Sector and Centrally Sponsored Schemes",
+      "Over 120% of GDP, requiring IMF sovereign restructuring to boost capital expenditure and infrastructure creation"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Exceptionally modest and sustainable at approximately 18% to 19% of GDP, among the lowest in G20 and emerging market economies. India's External Debt-to-GDP ratio has hovered around a comfortable and prudent range of 18.5% to 19.0% of GDP. Furthermore, long-term debt accounts for over 80% of total external debt, and the debt-service ratio is low (~6%–7%), ensuring robust external debt sustainability."
+  },
+  {
+    "id": 181,
+    "question": "What major turnaround in the asset quality of Scheduled Commercial Banks (SCBs) was highlighted in the Economic Survey 2023-24 / 2024-25?",
+    "options": [
+      "Gross NPAs surged to a historic high of 15% of total advances as reported in the Union Budget and Economic Survey",
+      "All public sector banks were merged into the Reserve Bank of India based on the recommendations of the Finance Commission",
+      "Commercial banks stopped lending to the infrastructure sector completely within the medium-term fiscal policy strategy statement",
+      "The Capital to Risk-Weighted Assets Ratio (CRAR) fell below the regulatory minimum as a percentage of Gross Domestic Product (GDP) at market prices",
+      "Gross Non-Performing Assets (GNPA) ratio declined to a multi-year low of ~2.8%, and Net NPA ratio dropped to ~0.6%, driven by the 'Twin Balance Sheet Advantage'"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Gross Non-Performing Assets (GNPA) ratio declined to a multi-year low of ~2.8%, and Net NPA ratio dropped to ~0.6%, driven by the 'Twin Balance Sheet Advantage'. The Economic Survey documented a profound cleanup of India's banking system: the GNPA ratio dropped to 2.8% (a 12-year low) and Net NPAs to 0.6% by March 2024. The Capital Adequacy Ratio (CRAR) remained robust at ~16.8%, transitioning the economy from a 'Twin Balance Sheet Problem' to a 'Twin Balance Sheet Advantage'."
+  },
+  {
+    "id": 182,
+    "question": "What is the 'Twin Balance Sheet Advantage' described in recent Economic Surveys?",
+    "options": [
+      "Simultaneous budget surpluses run by both the Central Government and State Governments to boost capital expenditure and infrastructure creation",
+      "The simultaneous strengthening and deleveraging of corporate balance sheets alongside healthy, capitalized commercial bank balance sheets",
+      "The equal growth of the Bombay Stock Exchange and National Stock Exchange subject to parliamentary appropriation and audit oversight",
+      "The balancing of current account receipts and capital account disbursements across direct and indirect tax revenue collections",
+      "A situation where household physical savings equal financial savings"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The simultaneous strengthening and deleveraging of corporate balance sheets (low debt-to-equity, high profitability) alongside healthy, capitalized commercial bank balance sheets (low NPAs, high provisioning), enabling a new private investment credit cycle. Between 2014 and 2019, India suffered from the 'Twin Balance Sheet Problem' (stressed corporate balance sheets paired with bad-loan-laden public banks). Post-2022, structural balance sheet deleveraging, bank recapitalization, and IBC recoveries created the 'Twin Balance Sheet Advantage': healthy, highly capitalized banks ready to lend, and deleveraged corporations with capacity to invest."
+  },
+  {
+    "id": 183,
+    "question": "What is the 'Insolvency and Bankruptcy Code' (IBC, 2016) resolution timeline under Section 12, including extensions?",
+    "options": [
+      "90 days total",
+      "5 years from date of admission by NCLT to maintain macroeconomic stability and debt sustainability",
+      "60 days with zero extension permitted under the Consolidated Fund and Public Account of India",
+      "180 days standard, extendable by 90 days, with a mandatory overall outer limit of 330 days",
+      "1 year for small companies and 10 years for conglomerates as reported in the Union Budget and Economic Survey"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: 180 days standard, extendable by 90 days (total 270 days), with a mandatory overall outer limit of 330 days including litigation time. Section 12 of the IBC mandates that the Corporate Insolvency Resolution Process (CIRP) must be completed within 180 days. The Adjudicating Authority (NCLT) can grant a one-time extension of up to 90 days. An amendment in 2019 introduced an overall statutory cap of 330 days (including time taken in legal proceedings)."
+  },
+  {
+    "id": 184,
+    "question": "What is the 'National Asset Reconstruction Company Limited' (NARCL), often referred to as India's 'Bad Bank'?",
+    "options": [
+      "An asset reconstruction company incorporated to aggregate and consolidate stressed debt from commercial banks, supported by sovereign government guarantees on Security Receipts (SRs)",
+      "A private hedge fund specializing in predatory lending",
+      "A tribunal that replaces the Debt Recovery Tribunals (DRTs) in accordance with the FRBM Act fiscal consolidation targets",
+      "A microfinance institution providing loans to self-help groups across Central Sector and Centrally Sponsored Schemes",
+      "A department within the Ministry of Heavy Industries to boost capital expenditure and infrastructure creation"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: An asset reconstruction company incorporated to aggregate and consolidate stressed debt (NPAs $\\ge ₹500\text{ Crore}$) from commercial banks, supported by sovereign government guarantees on Security Receipts (SRs). NARCL (the 'Bad Bank') was incorporated under the Companies Act with majority equity holding by Public Sector Banks. It aggregates high-value stressed assets ($\\ge ₹500$ Crore) from banks, paying 15% upfront in cash and 85% in Security Receipts (SRs). The Central Government provides a sovereign guarantee of up to ₹30,600 Crore backing the SRs."
+  },
+  {
+    "id": 185,
+    "question": "What is the role of the 'India Debt Resolution Company Limited' (IDRCL) in conjunction with NARCL?",
+    "options": [
+      "It is the debt management agency for foreign government loans as reported in the Union Budget and Economic Survey",
+      "It regulates credit rating agencies under SEBI guidelines based on the recommendations of the Finance Commission",
+      "It is a private-sector-dominated operational entity that manages, turns around, and resolves the stressed assets acquired by NARCL",
+      "It liquidates all cooperative banks in default within the medium-term fiscal policy strategy statement",
+      "It issues sovereign green bonds on behalf of the Central Government as a percentage of Gross Domestic Product (GDP) at market prices"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: It is a private-sector-dominated operational entity that manages, turns around, and resolves the stressed assets acquired by NARCL. While NARCL acquires and holds the bad loans, IDRCL (which has a majority private-sector shareholding, minimum 51%) manages the assets, oversees resolution turnarounds, engages turnaround professionals, and coordinates the ultimate asset sale or resolution."
+  },
+  {
+    "id": 186,
+    "question": "What has been the structural trend in 'Retail Participation in Capital Markets' in India since 2020 as documented in the Economic Survey?",
+    "options": [
+      "Retail participation has collapsed to zero due to bank interest rate hikes to boost capital expenditure and infrastructure creation",
+      "Foreign portfolio investors now hold 99% of all Indian equities subject to parliamentary appropriation and audit oversight",
+      "SEBI banned retail individual investors from buying mutual funds across direct and indirect tax revenue collections",
+      "Retail savings have shifted 100% into physical real estate and cash in the Annual Financial Statement presented to Parliament",
+      "Demat accounts grew exponentially from ~4 Crore in 2020 to over 15–16 Crore by 2024, underpinned by massive monthly Systematic Investment Plan (SIP) inflows surpassing ₹20,000 Crore per month"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Demat accounts grew exponentially from ~4 Crore in 2020 to over 15–16 Crore by 2024, underpinned by massive monthly Systematic Investment Plan (SIP) inflows surpassing ₹20,000 Crore per month. The Economic Survey highlighted the democratization and financialization of Indian household savings: total Demat accounts crossed 16 Crore by mid-2024, and monthly mutual fund SIP inflows reached historic milestones exceeding ₹20,000–₹23,000 Crore. This structural domestic retail liquidity has provided a powerful domestic counterbalance to foreign portfolio volatility."
+  },
+  {
+    "id": 187,
+    "question": "What is the 'Unified Payments Interface' (UPI) market share in India's digital retail payments ecosystem according to the Economic Survey?",
+    "options": [
+      "Around 10% of retail digital payments as a percentage of Gross Domestic Product (GDP) at market prices",
+      "Over 75% to 80% of total retail digital payment transaction volumes in India",
+      "Around 25% of retail transactions to maintain macroeconomic stability and debt sustainability",
+      "Less than 5% as credit cards dominate retail transactions under the Consolidated Fund and Public Account of India",
+      "UPI is used only for wholesale inter-bank settlements as reported in the Union Budget and Economic Survey"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Over 75% to 80% of total retail digital payment transaction volumes in India. UPI, developed by the National Payments Corporation of India (NPCI), accounts for nearly 80% of all digital retail payment transactions in India, processing over 13–14 billion transactions per month worth over ₹20 Lakh Crore."
+  },
+  {
+    "id": 188,
+    "question": "What is the 'Account Aggregator' (AA) framework regulated by the Reserve Bank of India, and how does it advance credit access?",
+    "options": [
+      "A financial auditor that prepares corporate tax returns for free in the Annual Financial Statement presented to Parliament",
+      "A software that merges all personal bank accounts into one",
+      "A credit rating agency that publishes public blacklists of defaulters across Central Sector and Centrally Sponsored Schemes",
+      "A consent-driven, data-blind Financial Information intermediary that enables individuals and MSMEs to securely and digitally share their financial data from financial information providers (banks) to financial information users (lenders) for collateral-free cash-flow based lending",
+      "A central server that stores user banking passwords to boost capital expenditure and infrastructure creation"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A consent-driven, data-blind Financial Information intermediary that enables individuals and MSMEs to securely and digitally share their financial data from financial information providers (banks) to financial information users (lenders) for collateral-free cash-flow based lending. The Account Aggregator (AA) network is a cornerstone of India's Digital Public Infrastructure (DPI). Regulated by RBI, AAs are data-blind consent managers that allow citizens to share encrypted financial records (bank statements, GST returns, mutual funds) with potential lenders instantly, replacing physical paper documentation and enabling cash-flow-based underwriting for MSMEs."
+  },
+  {
+    "id": 189,
+    "question": "What is the 'Open Network for Digital Commerce' (ONDC) and what market failure does it aim to address?",
+    "options": [
+      "An open, interoperable network protocol designed to unbundle e-commerce",
+      "A government-owned e-commerce platform that sells subsidized consumer goods",
+      "A portal for issuing import licenses for electronic hardware",
+      "A central database of commercial truck drivers in India",
+      "A sovereign credit scoring registry for retail consumers"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: An open, interoperable network protocol designed to unbundle e-commerce, enabling buyers and sellers across different platforms and apps to transact without being locked into closed, proprietary platform monopolies. ONDC, an initiative of the Department for Promotion of Industry and Internal Trade (DPIIT), is not an application or platform, but an open network protocol (like SMTP for email or UPI for payments). It unbundles e-commerce value chains (cataloging, ordering, fulfillment), allowing local mom-and-pop retailers to be discovered by consumers on any buyer app."
+  },
+  {
+    "id": 190,
+    "question": "What does the 'Provisioning Coverage Ratio' (PCR) of commercial banks measure?",
+    "options": [
+      "The ratio of bank capital to total foreign exchange assets to boost capital expenditure and infrastructure creation",
+      "The ratio of priority sector lending to total advances subject to parliamentary appropriation and audit oversight",
+      "The percentage of total non-performing assets (bad loans) that a bank has set aside provisions for out of its profits",
+      "The proportion of bank branches located in unbanked rural areas across direct and indirect tax revenue collections",
+      "The ratio of cash in vault to total demand liabilities in the Annual Financial Statement presented to Parliament"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The percentage of total non-performing assets (bad loans) that a bank has set aside provisions for out of its profits, indicating its capacity to absorb asset losses without impairing capital. Provisioning Coverage Ratio (PCR) is the ratio of provisioning to gross non-performing assets: $\\text{PCR} = (\\text{Total Provisions Held} / \\text{Gross NPAs}) \\times 100$. A higher PCR (Indian SCBs currently exceed 75%–76%) reflects high balance sheet resilience and conservative risk underwriting."
+  },
+  {
+    "id": 191,
+    "question": "Under the Minimum Support Price (MSP) policy framework, how does the Government of India determine the MSP benchmark for mandated crops in accordance with the Union Budget 2018-19 announcement?",
+    "options": [
+      "At least 200% of the market retail price in major metropolitan cities as a percentage of Gross Domestic Product (GDP) at market prices",
+      "Equal to the international Chicago Board of Trade commodity futures price to maintain macroeconomic stability and debt sustainability",
+      "Based entirely on historical inflation in wholesale diesel prices under the Consolidated Fund and Public Account of India",
+      "At the statutory price determined by state agricultural marketing boards as reported in the Union Budget and Economic Survey",
+      "At least 1.5 times the comprehensive cost of production, defined as the $A2 + FL$ formula"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: At least 1.5 times (50% margin over) the comprehensive cost of production, defined as the $A2 + FL$ formula (actual paid-out costs + imputed value of unpaid family labor). In Union Budget 2018-19, the Government announced the historic principle that MSP for all mandated Kharif, Rabi, and commercial crops will be fixed at a level of at least 1.5 times (50% return over) the cost of production, using the $A2 + FL$ cost benchmark calculated by the Commission for Agricultural Costs and Prices (CACP)."
+  },
+  {
+    "id": 192,
+    "question": "In the cost concepts of the Commission for Agricultural Costs and Prices (CACP), what is the difference between '$A2 + FL$' cost and '$C2$' cost?",
+    "options": [
+      "$A2+FL$ includes land rent, while $C2$ excludes all labor costs in the Annual Financial Statement presented to Parliament",
+      "$A2+FL$ includes all actual paid-out cash/kind expenses ($A2$) plus the imputed value of family labor ($FL$); $C2$ is a comprehensive cost that additionally includes imputed rent on owned land and imputed interest on owned fixed capital",
+      "$A2+FL$ applies only to foodgrains, while $C2$ applies only to commercial sugarcane in accordance with the FRBM Act fiscal consolidation targets",
+      "$C2$ is 50% lower than $A2+FL$ due to fertilizer subsidies across Central Sector and Centrally Sponsored Schemes",
+      "There is no difference; they are identical accounting measures to boost capital expenditure and infrastructure creation"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: $A2+FL$ includes all actual paid-out cash/kind expenses ($A2$) plus the imputed value of family labor ($FL$); $C2$ is a comprehensive cost that additionally includes imputed rent on owned land and imputed interest on owned fixed capital. Cost $A2$ covers all actual expenses incurred by the farmer on seeds, fertilizers, pesticides, hired labor, fuel, and irrigation. $A2 + FL$ adds the imputed economic value of unpaid family labor. Cost $C2$ is the most comprehensive measure, including $A2 + FL$ plus imputed rent on owned land and imputed interest on owned fixed capital assets."
+  },
+  {
+    "id": 193,
+    "question": "Under the 'Pradhan Mantri Garib Kalyan Anna Yojana' (PMGKAY) as restructured and extended for 5 years starting January 1, 2024, what is the entitlement provided to beneficiaries?",
+    "options": [
+      "Cash transfer of ₹2,000 per month to all bank accounts as reported in the Union Budget and Economic Survey",
+      "Subsidized rice at ₹3/kg and wheat at ₹2/kg based on the recommendations of the Finance Commission",
+      "Free cooked meals delivered twice daily to all rural households within the medium-term fiscal policy strategy statement",
+      "Free foodgrains provided completely free of cost under the National Food Security Act (NFSA)",
+      "50 kg of sugar and pulses distributed per quarter as a percentage of Gross Domestic Product (GDP) at market prices"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Free foodgrains (5 kg per person per month for Priority Households and 35 kg per family per month for Antyodaya Anna Yojana families) provided completely free of cost under the National Food Security Act (NFSA). Under the unified PMGKAY scheme, the Central Government provides foodgrains completely free of cost (waiving the earlier NFSA issue prices of ₹3/kg for rice, ₹2/kg for wheat, and ₹1/kg for coarse grains) to over 81.35 crore beneficiaries for a period of five years starting January 1, 2024."
+  },
+  {
+    "id": 194,
+    "question": "What is the 'Periodic Labour Force Survey' (PLFS) and which organization under the Ministry of Statistics and Programme Implementation (MoSPI) conducts it?",
+    "options": [
+      "National Sample Survey Office (NSSO), MoSPI",
+      "Labour Bureau, Ministry of Labour and Employment",
+      "NITI Aayog Labour Division",
+      "Employees' Provident Fund Organisation (EPFO)",
+      "V.V. Giri National Labour Institute"
+    ],
+    "answer": 0,
+    "explanation": "The PLFS is conducted by the National Sample Survey Office (NSSO) under MoSPI. Launched in April 2017, it provides quarterly employment/unemployment data for urban areas and annual data for both rural and urban areas."
+  },
+  {
+    "id": 195,
+    "question": "What are the three core labor market indicators reported in the PLFS and analyzed in the Economic Survey?",
+    "options": [
+      "Minimum Wage, Maximum Salary, Overtime Rate as a percentage of Gross Domestic Product (GDP) at market prices",
+      "EPFO enrollments, ESIC claims, and Pension fund balances to maintain macroeconomic stability and debt sustainability",
+      "Labour Force Participation Rate (LFPR), Worker Population Ratio (WPR), and Unemployment Rate (UR)",
+      "Rural wage growth, Urban cost of living, and Migration rate under the Consolidated Fund and Public Account of India",
+      "Formalization index, Casual labor percentage, and Strike duration as reported in the Union Budget and Economic Survey"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Labour Force Participation Rate (LFPR), Worker Population Ratio (WPR), and Unemployment Rate (UR). The three cardinal labor metrics are:\n1. LFPR: Percentage of persons in the labor force (working or seeking work) in the total population.\n2. WPR: Percentage of employed persons in the total population.\n3. UR: Percentage of persons unemployed among those in the labor force: $\\text{UR} = \\frac{\\text{Unemployed}}{\\text{Labour Force}} \\times 100$."
+  },
+  {
+    "id": 196,
+    "question": "According to recent PLFS annual reports analyzed in the Economic Survey, what notable positive structural trend occurred in female employment in India?",
+    "options": [
+      "Female Labour Force Participation Rate (FLFPR) collapsed to single digits",
+      "Women were prohibited from working in agricultural allied sectors in accordance with the FRBM Act fiscal consolidation targets",
+      "Female unemployment rate increased to 25% across Central Sector and Centrally Sponsored Schemes",
+      "Female employment shifted entirely into overseas multinational corporations to boost capital expenditure and infrastructure creation",
+      "Female Labour Force Participation Rate (FLFPR) under usual status rose significantly from 23.3% in 2017-18 to over 37%–41% in recent rounds, driven by rural women's participation"
+    ],
+    "answer": 4,
+    "explanation": "The Economic Survey documented a sharp, continuous rise in the Female Labour Force Participation Rate (FLFPR) in India (usual status for age 15+), which expanded from 23.3% in 2017-18 to 37.0% in 2022-23 and over 41.7% in 2023-24, driven by rising educational attainment, rural women's economic mobilization via Self-Help Groups (SHGs), and agricultural mechanization."
+  },
+  {
+    "id": 197,
+    "question": "What does the 'National Multidimensional Poverty Index' (MPI) published by NITI Aayog measure, and what did its recent findings reveal?",
+    "options": [
+      "Poverty based strictly on daily caloric intake below 2,100 kcal in urban areas",
+      "Simultaneous deprivations across 12 indicators in Health, Education, and Standard of Living",
+      "The percentage of families without active credit cards based on the recommendations of the Finance Commission",
+      "Poverty measured solely by consumer spending on branded electronics within the medium-term fiscal policy strategy statement",
+      "The percentage of households paying personal income tax as a percentage of Gross Domestic Product (GDP) at market prices"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Simultaneous deprivations across 12 indicators in Health, Education, and Standard of Living; revealing that over 13.5 crore to 24.8 crore Indians escaped multidimensional poverty between 2013-14 and 2022-23. NITI Aayog's National MPI uses the globally accepted Alkire-Foster methodology across 3 equal dimensions (Health, Education, Standard of Living) spanning 12 indicators (nutrition, maternal health, schooling, sanitation, cooking fuel, electricity, housing, bank accounts). Its data revealed a historic steep decline: multidimensional poverty fell from 29.17% in 2013-14 to 11.28% in 2022-23, lifting nearly 24.8 crore people out of multidimensional poverty."
+  },
+  {
+    "id": 198,
+    "question": "In the Union Budget 2024-25, what major scheme was highlighted under the 'Annadata' priority to promote digital technology and real-time farmer data in agriculture?",
+    "options": [
+      "Mandatory deployment of commercial humanoid robots on private farms to boost capital expenditure and infrastructure creation",
+      "Replacement of all physical fertilizer dealers with e-commerce apps subject to parliamentary appropriation and audit oversight",
+      "Banning the use of cash in all village grain mandis across direct and indirect tax revenue collections",
+      "Digital Crop Survey through 'Digital Public Infrastructure (DPI) in Agriculture' covering 400 districts",
+      "Subsidizing private drone purchases for corporate contract farming"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Digital Crop Survey through 'Digital Public Infrastructure (DPI) in Agriculture' covering 400 districts. Budget 2024-25 announced that the Government, in partnership with States, will facilitate the implementation of the Digital Public Infrastructure (DPI) in Agriculture for coverage of farmers and their lands in 3 years. Digital crop survey for Kharif using the DPI will be taken up in 400 districts."
+  },
+  {
+    "id": 199,
+    "question": "What is the 'PM-KISAN' (Pradhan Mantri Kisan Samman Nidhi) scheme analyzed in agricultural income support discussions?",
+    "options": [
+      "A Central Sector Scheme providing direct income support of ₹6,000 per year in three equal installments of ₹2,000 via DBT to all landholding farmer families across the country",
+      "A loan waiver scheme that forgives all overdue tractor loans as a percentage of Gross Domestic Product (GDP) at market prices",
+      "A life insurance policy providing ₹1 Crore cover to organic farmers",
+      "A scheme that guarantees fixed crop export prices in foreign currencies under the Consolidated Fund and Public Account of India",
+      "A pension scheme available exclusively to landless rural laborers as reported in the Union Budget and Economic Survey"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A Central Sector Scheme providing direct income support of ₹6,000 per year in three equal installments of ₹2,000 via DBT to all landholding farmer families across the country. Operationalized in December 2018, PM-KISAN is a 100% centrally funded Central Sector Scheme that provides unconditional income support of ₹6,000 per annum in three equal four-monthly installments of ₹2,000 directly into the Aadhaar-linked bank accounts of eligible farmer families."
+  },
+  {
+    "id": 200,
+    "question": "What is the 'Kisan Credit Card' (KCC) scheme's primary operational feature in agricultural finance?",
+    "options": [
+      "A plastic debit card that can only be used at state-run fertilizer factories",
+      "A loyalty reward card issued to farmers who achieve highest yield per acre in accordance with the FRBM Act fiscal consolidation targets",
+      "An institutional credit facility providing farmers with flexible, timely, and cost-effective revolving short-term crop loans up to ₹3 Lakh at an effective interest rate of 4% per annum",
+      "A credit card that waives 100% of the loan principal if rainfall is erratic across Central Sector and Centrally Sponsored Schemes",
+      "An international credit card issued exclusively for importing foreign hybrid seeds to boost capital expenditure and infrastructure creation"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: An institutional credit facility providing farmers with flexible, timely, and cost-effective revolving short-term crop loans up to ₹3 Lakh at an effective interest rate of 4% per annum (after 3% Prompt Repayment Incentive - PRI). Introduced in 1998 on the recommendations of the R.V. Gupta Committee, the KCC provides farmers with revolving credit for cultivation and allied activities. Under the Modified Interest Subvention Scheme (MISS), loans up to ₹3 Lakh carry a benchmark interest rate of 7%, which falls to an effective 4% per annum for farmers who repay promptly within one year (3% prompt repayment incentive)."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Union Budget & Economic Survey Mock 4",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Union Budget & Economic Survey Mock 4";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br /><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br /><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br /><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br /><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

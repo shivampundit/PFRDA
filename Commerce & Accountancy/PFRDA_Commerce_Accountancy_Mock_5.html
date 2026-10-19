@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Commerce &amp; Accountancy Mock Test 5 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject C: Commerce & Accountancy</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Commerce_Accountancy_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Commerce_Accountancy_Master_Revision_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Commerce_Accountancy_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Commerce_Accountancy_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Commerce_Accountancy_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Commerce_Accountancy_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Commerce_Accountancy_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &#183; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &#183; Paper 2 &#183; Commerce Mock 5</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Commerce &amp; Accountancy - Mock 5</h1>
+    <p class="start-subheading">Full-Length Topic Test &#183; 50 Questions &#183; Exam Pattern</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Accounting System:</b> Financial information system, bookkeeping vs accounting, concepts, conventions, capital vs revenue, errors.</li>
+                <li><b>Accounting Standards:</b> Depreciation (AS 10 / Ind AS 16), Inventories (AS 2 / Ind AS 2), Revenue Recognition (AS 9 / Ind AS 115), PPE (AS 10), Forex (AS 11 / Ind AS 21), Investments (AS 13).</li>
+                <li><b>Cash Flow &amp; Fund Flow:</b> Operating/Investing/Financing activities, Direct &amp; Indirect methods, Statement of Changes in Working Capital.</li>
+                <li><b>Ratio Analysis:</b> Liquidity, Solvency, Turnover, Profitability, and DuPont 3-stage model.</li>
+                <li><b>Share Capital &amp; Corporate Actions:</b> Share issue/forfeiture/reissue, Bonus shares (Sec 63), Rights issue (Sec 62), ESOPs, Buy-back (Sec 68-70).</li>
+                <li><b>Company Final Accounts:</b> Schedule III Balance Sheet and Statement of Profit &amp; Loss structure and disclosures.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "A company builds a temporary corrugated iron shed at a cost of ₹75,000 for storing cement, steel, and construction tools during the construction of a new factory building. Once the factory building is completed, the temporary shed is demolished. How should the construction and demolition cost of the shed be accounted for?",
+    "options": [
+      "Capitalized as part of the total cost of the new Factory Building",
+      "Treated entirely as Revenue Expenditure and charged to Profit & Loss",
+      "Deferred as a preliminary expense and amortized over 5 years",
+      "Debited to Miscellaneous Storage Expenses Account",
+      "Deducted from the contractor's security deposit"
+    ],
+    "answer": 0,
+    "explanation": "Expenditure incurred on constructing temporary structures that are essential and directly necessary for the erection and construction of a capital asset (factory building) forms part of the directly attributable costs of bringing that asset to its working condition. Therefore, it must be capitalized as part of the cost of the factory building."
+  },
+  {
+    "id": 2,
+    "question": "Which accounting principle mandates that all material and relevant facts concerning the financial condition and operating results of an enterprise must be clearly reported in the financial statements or in the accompanying notes?",
+    "options": [
+      "Materiality Principle",
+      "Prudence Principle",
+      "Full Disclosure Principle",
+      "Cost Principle",
+      "Dual Aspect Principle"
+    ],
+    "answer": 2,
+    "explanation": "The Full Disclosure Principle requires that financial statements provide all significant and relevant information needed by investors, creditors, and other users to make informed economic decisions. Information that cannot be conveniently accommodated in the main body of financial statements is disclosed in the accompanying Notes to Accounts."
+  },
+  {
+    "id": 3,
+    "question": "After the final accounts for the year 2024-25 were closed, an error was detected in May 2025: goods purchased on credit for ₹40,000 were omitted from the Purchases Book of 2024-25. If the error is rectified in the financial year 2025-26, which account should be debited to avoid distorting the current year's operating results?",
+    "options": [
+      "Purchases Account",
+      "Suspense Account",
+      "General Reserve Account",
+      "Capital Account",
+      "Profit & Loss Adjustment Account"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Profit & Loss Adjustment Account (or Prior Period Adjustment Account). When an error relating to a prior accounting period is detected after the closure of the final accounts, debiting the nominal Purchases Account in the current year would distort the current year's Gross Profit and operating results. Instead, it must be debited to the 'Profit & Loss Adjustment Account' (as a prior period item under AS 5 / Ind AS 8) and credited to the supplier's personal account."
+  },
+  {
+    "id": 4,
+    "question": "Wages of ₹18,000 paid to factory workers for installing a new manufacturing machine were erroneously debited to the 'Wages Account'. What is the effect of this error on the Gross Profit and Net Profit of the business?",
+    "options": [
+      "Gross Profit is overstated by ₹18,000; Net Profit is understated by ₹18,000",
+      "Gross Profit is understated by ₹18,000; Net Profit is understated by ₹18,000",
+      "Gross Profit is unaffected; Net Profit is understated by ₹18,000",
+      "Both Gross Profit and Net Profit are overstated by ₹18,000",
+      "Neither Gross Profit nor Net Profit is affected"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Gross Profit is understated by ₹18,000; Net Profit is understated by ₹18,000 (ignoring depreciation). Wages paid for asset installation should be capitalized to the Machinery Account. By incorrectly debiting the Wages Account (a direct expense in the Trading Account), Cost of Goods Sold was overstated by ₹18,000. This caused Gross Profit to be understated by ₹18,000, which in turn caused Net Profit to be understated by ₹18,000."
+  },
+  {
+    "id": 5,
+    "question": "In an Accounting Information System (AIS), what is the primary role of an 'Audit Trail'?",
+    "options": [
+      "To automatically calculate corporate income tax liability for presentation in the Balance Sheet and Profit & Loss Account",
+      "To prevent employees from viewing payroll figures when preparing the annual financial statements of the entity",
+      "To eliminate the need for statutory external audits in the general ledger and trial balance",
+      "To provide a chronological, step-by-step verifiable record by which accounting data can be traced from source documents to financial statements and vice versa",
+      "To convert Indian GAAP accounts into US GAAP automatically as a separate line item in the financial statements"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: To provide a chronological, step-by-step verifiable record by which accounting data can be traced from source documents to financial statements and vice versa. An Audit Trail in an AIS is a secure, chronological record that provides documentary evidence of the sequence of activities that have affected at any time a specific operation, procedure, or event. It allows auditors and management to trace any balance in the financial statements back to the original source vouchers and transactions, and vice-versa."
+  },
+  {
+    "id": 6,
+    "question": "Under the 'Realisation (Revenue Recognition) Concept', at which point is revenue normally considered to be realized in the case of manufacturing and merchandising businesses?",
+    "options": [
+      "When the ownership and property in goods are transferred to the buyer and an enforceable claim arises",
+      "When the customer places a purchase order at historical cost less accumulated depreciation",
+      "When the goods are manufactured and placed in the warehouse during the current accounting period",
+      "When the customer's cheque clears through the banking system",
+      "When the statutory audit is signed in the books of account at the close of the financial year"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: When the ownership and property in goods are transferred to the buyer and an enforceable claim arises. Under the Realisation Concept and AS 9, revenue from the sale of goods is recognized when the seller has transferred to the buyer the significant risks and rewards of ownership (usually at the point of sale and delivery), and no significant uncertainty exists regarding the consideration that will be derived."
+  },
+  {
+    "id": 7,
+    "question": "In ledger accounting, what is the fundamental purpose of maintaining a 'Debtors Ledger Control Account' (or Total Debtors Account) in the General Ledger?",
+    "options": [
+      "To record every minute transaction of individual customers in detail as a separate line item in the financial statements",
+      "To calculate the annual bad debt write-offs for income tax returns upon recognition of the underlying commercial transaction",
+      "To act as a summary account checking the arithmetic accuracy of the total balances in the individual sales ledger",
+      "To replace the Cash Book completely under the accrual basis of financial accounting",
+      "To determine the company's credit rating for presentation in the Balance Sheet and Profit & Loss Account"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: To act as a summary account checking the arithmetic accuracy of the total balances in the individual sales ledger (self-balancing ledger system). In a self-balancing or sectional balancing system, the Debtors Ledger Control Account in the General Ledger summarizes total credit sales, cash received, sales returns, discounts, and bad debts. Its closing balance must equal the sum of all individual debit balances in the subsidiary Debtors (Sales) Ledger, thereby serving as an arithmetic check and locating errors."
+  },
+  {
+    "id": 8,
+    "question": "Which of the following transactions results in an increase in total assets and an equal increase in total liabilities in the fundamental accounting equation?",
+    "options": [
+      "Payment of ₹50,000 to trade creditors by drawing a bank cheque",
+      "Collection of ₹75,000 cash from trade debtors",
+      "Issue of bonus shares of ₹2,00,000 out of free reserves",
+      "Owner withdraws ₹20,000 cash for personal use",
+      "Purchase of raw materials of ₹1,00,000 on 60 days credit from a vendor"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Purchase of raw materials of ₹1,00,000 on 60 days credit from a vendor. Purchasing raw materials on credit increases Inventories (Assets +₹1,00,000) and increases Trade Creditors (Liabilities +₹1,00,000). Both sides of the accounting equation (Assets = Liabilities + Equity) increase by ₹1,00,000."
+  },
+  {
+    "id": 9,
+    "question": "In inventory valuation under AS 2, how should 'Freight Inwards' and 'Freight Outwards' be treated?",
+    "options": [
+      "Both are included in the cost of inventory for presentation in the Balance Sheet and Profit & Loss Account.",
+      "Freight Inwards is included in the cost of inventory; Freight Outwards is a selling and distribution expense excluded from inventory cost.",
+      "Both are excluded from the cost of inventory and expensed in P&L when preparing the annual financial statements of the entity.",
+      "Freight Outwards is included in inventory; Freight Inwards is expensed.",
+      "Both are capitalized as Property, Plant and Equipment as a separate line item in the financial statements."
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Freight Inwards is included in the cost of inventory; Freight Outwards is a selling and distribution expense excluded from inventory cost.. Under AS 2 (paragraph 7), costs of purchase include purchase price, import duties, and other taxes, and transport, handling and other costs directly attributable to the acquisition of finished goods, materials and services (Freight Inwards). Freight Outwards is a selling and distribution cost, which is specifically excluded from inventory valuation and expensed in P&L."
+  },
+  {
+    "id": 10,
+    "question": "Under AS 2 (Valuation of Inventories), what is the correct definition of 'Net Realizable Value' (NRV)?",
+    "options": [
+      "The historical purchase cost adjusted for current wholesale price index inflation",
+      "The replacement market cost of purchasing an identical inventory item today during the current accounting period",
+      "The book value recorded in the stock register minus 10% standard salvage margin",
+      "The estimated selling price in the ordinary course of business less the estimated costs of completion and the estimated costs necessary to make the sale",
+      "The salvage scrap value realized in a distressed liquidation sale in the books of account at the close of the financial year"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The estimated selling price in the ordinary course of business less the estimated costs of completion and the estimated costs necessary to make the sale. Under AS 2 (paragraph 3) and Ind AS 2, Net Realizable Value (NRV) is the estimated selling price in the ordinary course of business less the estimated costs of completion and the estimated costs necessary to make the sale."
+  },
+  {
+    "id": 11,
+    "question": "Under AS 9 (Revenue Recognition) and Ind AS 115, when an advertising agency enters into a 'Barter Transaction' to exchange advertising services with another media company for dissimilar services, how should revenue be measured?",
+    "options": [
+      "At the fair value of the advertising services or goods received",
+      "At the historical cost of providing the advertising service",
+      "At a nominal value of ₹1",
+      "No revenue can ever be recognized for barter transactions",
+      "At the list price minus a mandatory 50% discount"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: At the fair value of the advertising services or goods received (or, if that cannot be reliably estimated, the fair value of services surrendered). Under AS 9 and Ind AS 115, when goods or services are exchanged or bartered for goods or services of a dissimilar nature, the revenue is measured at the fair value of the goods or services received, adjusted by any cash transferred. If the fair value of goods/services received cannot be reliably measured, revenue is measured at the fair value of the goods/services given up."
+  },
+  {
+    "id": 12,
+    "question": "Under AS 28 / Ind AS 36 (Impairment of Assets), what is the definition of the 'Recoverable Amount' of an asset?",
+    "options": [
+      "The lower of Net Selling Price and Value in Use",
+      "The original historical cost less accumulated depreciation",
+      "The higher of an asset's Net Selling Price and its Value in Use",
+      "The scrap liquidation value determined by an official liquidator",
+      "The present value of historical cash outflows incurred on the asset"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The higher of an asset's Net Selling Price (Fair Value less costs of disposal) and its Value in Use. Under AS 28 and Ind AS 36, the Recoverable Amount of an asset or a cash-generating unit is the HIGHER of its Net Selling Price (Fair Value less costs of disposal) and its Value in Use (the present value of the future cash flows expected to be derived from the asset)."
+  },
+  {
+    "id": 13,
+    "question": "An enterprise purchases a commercial jet airliner for ₹200 Crores on 1st April 2025. The aircraft's airframe (fuselage) costs ₹120 Crores with an estimated useful life of 20 years. The two jet engines cost ₹80 Crores with an estimated overhaul useful life of 5 years. Both components have zero residual scrap value. Under the mandatory 'Component Accounting' rules of AS 10 (Revised) / Ind AS 16, what is the total depreciation charge for the year 2025-26 using Straight Line Method?",
+    "options": [
+      "₹10 Crores",
+      "₹16 Crores",
+      "₹12 Crores",
+      "₹20 Crores",
+      "₹22 Crores"
+    ],
+    "answer": 4,
+    "explanation": "Under component accounting: Airframe depreciation = ₹120 Crores / 20 years = ₹6 Crores per year. Jet engines depreciation = ₹80 Crores / 5 years = ₹16 Crores per year. Total annual depreciation charge for the airliner = ₹6 Crores + ₹16 Crores = ₹22 Crores."
+  },
+  {
+    "id": 14,
+    "question": "Under AS 10 (Revised) and Ind AS 16, which of the following agricultural assets is accounted for as Property, Plant and Equipment (PPE)?",
+    "options": [
+      "Crops growing on plants (e.g. ripening wheat or paddy)",
+      "Bearer Plants (such as rubber trees, tea bushes, and oil palms used solely to bear agricultural produce for more than one period)",
+      "Trees grown for use as lumber or timber during the current accounting period",
+      "Animals raised for meat production in accordance with the prudence and matching concepts",
+      "Annual seasonal flowering plants"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Bearer Plants (such as rubber trees, tea bushes, and oil palms used solely to bear agricultural produce for more than one period). Under AS 10 (Revised) and Ind AS 16, 'Bearer Plants' (living plants used in the production or supply of agricultural produce, expected to bear produce for more than one period, and having a remote likelihood of being sold as agricultural produce except for scrap) are included within the scope of PPE and depreciated over their productive lives. Biological produce growing on bearer plants is accounted for under Ind AS 41."
+  },
+  {
+    "id": 15,
+    "question": "What is the primary difference between the 'Foreign Currency' concept under AS 11 and the 'Functional Currency' framework under Ind AS 21?",
+    "options": [
+      "AS 11 uses US Dollar as default; Ind AS 21 uses Euro.",
+      "Ind AS 21 prohibits the translation of foreign operations upon recognition of the underlying commercial transaction.",
+      "AS 11 mandates converting all transactions at year-end average rates only under the accrual basis of financial accounting.",
+      "AS 11 defines foreign currency relative to the local legal currency; Ind AS 21 requires identifying the 'Functional Currency' before translating into the presentation currency.",
+      "There is no conceptual difference between the two standards for presentation in the Balance Sheet and Profit & Loss Account."
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: AS 11 defines foreign currency relative to the local legal currency (e.g. INR in India); Ind AS 21 requires identifying the 'Functional Currency' (the currency of the primary economic environment in which the entity operates) before translating into the presentation currency.. Under AS 11, any currency other than the reporting currency (typically Indian Rupee for Indian entities) is a foreign currency. Under Ind AS 21, an entity must first determine its 'Functional Currency'—the currency of the primary economic environment in which it operates (which could be USD even for a company registered in India). All transactions not in functional currency are foreign currency transactions."
+  },
+  {
+    "id": 16,
+    "question": "An enterprise holds an investment in 10,000 equity shares of Beta Ltd. purchased at a cost of ₹4,00,000 (₹40 per share). Beta Ltd. issues fully paid bonus shares in the ratio of 1:1. After the bonus issue, what is the carrying cost per share in the books of the investor under AS 13?",
+    "options": [
+      "₹20 per share, with the total carrying cost remaining unchanged at ₹4,00,000",
+      "₹40 per share, with ₹4,00,000 credited to Profit & Loss in the books of account at the close of the financial year",
+      "₹0 for bonus shares and ₹40 for original shares",
+      "₹50 per share",
+      "Bonus shares are recorded at prevailing market price on the date of receipt"
+    ],
+    "answer": 0,
+    "explanation": "Under AS 13 (paragraph 13), when bonus shares are received, no payment is made by the investor. The receipt of bonus shares is recorded by entering the additional number of shares in the investment register. The total cost of the holding remains unchanged (₹4,00,000), but is now spread over 20,000 shares (10,000 original + 10,000 bonus). New cost per share = ₹4,00,000 / 20,000 = ₹20 per share."
+  },
+  {
+    "id": 17,
+    "question": "Under AS 13, how is an 'Investment Property' (land or building held to earn rental income or for capital appreciation rather than for use in production) accounted for?",
+    "options": [
+      "Mandatorily fair-valued at each balance sheet date with gains credited to P&L for presentation in the Balance Sheet and Profit & Loss Account",
+      "Classified under Current Assets at net realizable value when preparing the annual financial statements of the entity",
+      "Accounted for as a Long-Term Investment and carried at cost less accumulated depreciation and permanent diminution",
+      "Included in Inventories at wholesale cost in the general ledger and trial balance",
+      "Depreciated at a flat rate of 50% p.a as a separate line item in the financial statements."
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Accounted for as a Long-Term Investment and carried at cost less accumulated depreciation and permanent diminution. Under AS 13 (paragraph 21), an investment property is accounted for as a long-term investment. The cost of an investment property is its purchase price and includes directly attributable expenditures. It is depreciated in accordance with AS 10, and tested for permanent diminution in value. (Note: Under Ind AS 40, investment property is presented separately, also using the cost model with fair value disclosures)."
+  },
+  {
+    "id": 18,
+    "question": "Under Ind AS 109, an equity investment held for trading purposes is mandatorily classified and measured at:",
+    "options": [
+      "Amortised Cost",
+      "Fair Value through Other Comprehensive Income (FVTOCI)",
+      "Historical Cost less Impairment",
+      "Lower of Cost and Net Realizable Value",
+      "Fair Value through Profit or Loss (FVTPL)"
+    ],
+    "answer": 4,
+    "explanation": "Under Ind AS 109, equity investments do not pass the SPPI (Solely Payments of Principal and Interest) contractual cash flows test. By default, equity instruments are measured at Fair Value Through Profit or Loss (FVTPL). (An entity may make an irrevocable election at initial recognition to present subsequent changes in fair value in OCI, but this election is NOT available for equity investments held for trading)."
+  },
+  {
+    "id": 19,
+    "question": "A machine was acquired on 1st April 2023 for ₹10,00,000 with an expected useful life of 5 years. The enterprise uses the Sum-of-the-Years'-Digits (SYD) method of depreciation with zero residual value. What is the depreciation expense for Year 2 (FY 2024-25)?",
+    "options": [
+      "₹3,33,333",
+      "₹2,66,667",
+      "₹2,00,000",
+      "₹1,33,333",
+      "₹3,00,000"
+    ],
+    "answer": 1,
+    "explanation": "Sum of the digits for 5 years = 1 + 2 + 3 + 4 + 5 = 15. In Year 1, fraction = 5/15. In Year 2, fraction = 4/15. Depreciation for Year 2 = ₹10,00,000 × (4/15) = ₹2,66,666.67 or ₹2,66,667."
+  },
+  {
+    "id": 20,
+    "question": "Under AS 10 (Property, Plant and Equipment), when an enterprise retires an item of PPE from active use and holds it for disposal, at what value should it be carried in the balance sheet?",
+    "options": [
+      "At original historical cost",
+      "At its carrying amount and continued to be depreciated until sold in accordance with prescribed Accounting Standards",
+      "At fair value with all gains recognized in General Reserve under Schedule III of the Companies Act, 2013",
+      "At the lower of its carrying amount and net realizable value, and stopped being depreciated",
+      "Written down to ₹1 immediately"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: At the lower of its carrying amount and net realizable value, and stopped being depreciated. Under AS 10 (paragraph 79), items of property, plant and equipment retired from active use and held for disposal are stated at the lower of their carrying amount and net realizable value. Any write-down is recognized in the Profit & Loss statement, and depreciation ceases once the asset is retired from active use and held for disposal."
+  },
+  {
+    "id": 21,
+    "question": "Using the Direct Method under AS 3 (Cash Flow Statements), compute 'Cash Receipts from Customers' given: Total Sales = ₹45,00,000 (including Cash Sales of ₹5,00,000); Trade Receivables as on 1st April 2025 = ₹6,00,000; Trade Receivables as on 31st March 2026 = ₹7,50,000; and Bad Debts written off during the year = ₹30,000.",
+    "options": [
+      "₹43,20,000",
+      "₹38,20,000",
+      "₹44,70,000",
+      "₹41,50,000",
+      "₹39,70,000"
+    ],
+    "answer": 0,
+    "explanation": "Credit Sales = Total Sales (₹45,00,000) - Cash Sales (₹5,00,000) = ₹40,00,000. In the Debtors Account: Cash collected from credit customers = Opening Debtors (₹6,00,000) + Credit Sales (₹40,00,000) - Bad Debts (₹30,000) - Closing Debtors (₹7,50,000) = ₹38,20,000. Total Cash Receipts from Customers = Cash Sales (₹5,00,000) + Cash Collected from Credit Customers (₹38,20,000) = ₹43,20,000."
+  },
+  {
+    "id": 22,
+    "question": "Using the Direct Method under AS 3, compute 'Cash Payments to Suppliers' given: Cost of Goods Sold = ₹28,00,000; Opening Inventory = ₹4,00,000; Closing Inventory = ₹5,50,000; Opening Trade Payables = ₹3,00,000; and Closing Trade Payables = ₹2,40,000.",
+    "options": [
+      "₹28,00,000",
+      "₹27,10,000",
+      "₹30,10,000",
+      "₹29,50,000",
+      "₹31,00,000"
+    ],
+    "answer": 2,
+    "explanation": "Purchases = Cost of Goods Sold (₹28,00,000) + Closing Inventory (₹5,50,000) - Opening Inventory (₹4,00,000) = ₹29,50,000. Cash Paid to Suppliers = Purchases (₹29,50,000) + Opening Trade Payables (₹3,00,000) - Closing Trade Payables (₹2,40,000) = ₹29,50,000 + ₹60,000 = ₹30,10,000."
+  },
+  {
+    "id": 23,
+    "question": "Under Ind AS 7 (Statement of Cash Flows), what flexibility is granted regarding the classification of 'Interest Paid' and 'Interest Received' that differs from the rigid rules of AS 3?",
+    "options": [
+      "Ind AS 7 completely prohibits disclosing interest in the cash flow statement.",
+      "Ind AS 7 requires interest paid to be classified under Investing Activities upon recognition of the underlying commercial transaction.",
+      "Ind AS 7 requires all interest to be capitalized into retained earnings under the accrual basis of financial accounting.",
+      "Ind AS 7 requires interest received to be deducted from revenue from operations for presentation in the Balance Sheet and Profit & Loss Account.",
+      "Ind AS 7 permits interest paid to be classified as either operating or financing activity, and interest received as either operating or investing activity, provided it is classified consistently from period to period."
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Ind AS 7 permits interest paid to be classified as either operating or financing activity, and interest received as either operating or investing activity, provided it is classified consistently from period to period.. Under Ind AS 7 (paragraphs 31-34), interest paid and interest and dividends received may be classified as operating cash flows because they enter into the determination of profit or loss. Alternatively, interest paid may be classified as financing cash flows and interest received as investing cash flows because they are costs of obtaining financial resources or returns on investments. Whichever classification is adopted must be applied consistently from period to period."
+  },
+  {
+    "id": 24,
+    "question": "During the year 2025-26, an enterprise purchases 91-day Government Treasury Bills for ₹9,80,000 cash as part of its daily treasury liquidity management. How is this transaction reported in the Cash Flow Statement under AS 3?",
+    "options": [
+      "Cash outflow of ₹9,80,000 under Investing Activities",
+      "Not reported as a cash inflow or outflow, because it is merely a movement between different components of Cash and Cash Equivalents",
+      "Cash outflow of ₹9,80,000 under Financing Activities",
+      "Deducted from Operating Cash Flow as a working capital change under Schedule III of the Companies Act, 2013",
+      "Reported as an extraordinary operating disbursement"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Not reported as a cash inflow or outflow, because it is merely a movement between different components of Cash and Cash Equivalents. Under AS 3 (paragraph 5), cash management includes the investment of excess cash in cash equivalents. Because 91-day Treasury Bills have a maturity of 3 months or less, they qualify as Cash Equivalents. Movements between cash, bank balances, and cash equivalents are part of cash management rather than operating, investing, or financing activities, and do not constitute cash inflows or outflows."
+  },
+  {
+    "id": 25,
+    "question": "What is the key structural difference between a 'Cash Flow Statement' and a 'Funds Flow Statement'?",
+    "options": [
+      "Cash Flow Statement is prepared on an accrual basis, while Funds Flow Statement is prepared on cash basis.",
+      "Funds Flow Statement is mandatory for listed companies under SEBI LODR, while Cash Flow Statement is voluntary.",
+      "Cash Flow Statement covers a 5-year period, while Funds Flow Statement covers 1 month.",
+      "Cash Flow Statement explains the changes in Cash and Cash Equivalents on a cash basis",
+      "Funds Flow Statement includes only non-current transactions, whereas Cash Flow Statement excludes fixed assets."
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Cash Flow Statement explains the changes in Cash and Cash Equivalents on a cash basis, whereas Funds Flow Statement explains the changes in Net Working Capital (Current Assets minus Current Liabilities) on a broader funds basis.. A Cash Flow Statement focuses strictly on inflows and outflows of cash and cash equivalents, revealing short-term cash liquidity. A Funds Flow Statement operates on a broader concept of 'Funds' defined as Net Working Capital (Current Assets - Current Liabilities), highlighting the long-term sources and uses of capital that alter the financial position of the enterprise."
+  },
+  {
+    "id": 26,
+    "question": "A company issues fully paid bonus shares of ₹5,00,000 to its equity shareholders by capitalizing its Capital Redemption Reserve (CRR). How does this transaction affect the Funds Flow Statement?",
+    "options": [
+      "Causes NO flow of funds because both accounts involved are non-current equity accounts",
+      "Application of funds of ₹5,00,000 at historical cost less accumulated depreciation",
+      "Source of funds of ₹5,00,000 during the current accounting period",
+      "Increases Net Working Capital by ₹5,00,000 in accordance with the prudence and matching concepts",
+      "Decreases Net Working Capital by ₹5,00,000 in the books of account at the close of the financial year"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Causes NO flow of funds (neither a source nor an application of funds) because both accounts involved are non-current equity accounts. Bonus share issue by capitalizing reserves involves debiting Capital Redemption Reserve (an Equity Reserve account) and crediting Equity Share Capital (an Equity Capital account). Because both accounts are non-current equity items, no current asset or current liability is involved. Consequently, there is zero impact on working capital, and no flow of funds occurs."
+  },
+  {
+    "id": 27,
+    "question": "An enterprise provides the following data: Net Profit before tax for 2025-26 = ₹7,00,000. Non-cash expenses debited to P&L include Depreciation = ₹1,20,000 and Goodwill amortized = ₹40,000. Non-operating income credited to P&L includes Dividend Received = ₹30,000. What is the Funds from Operations (FFO) for the year?",
+    "options": [
+      "₹8,90,000",
+      "₹7,00,000",
+      "₹8,30,000",
+      "₹8,60,000",
+      "₹7,70,000"
+    ],
+    "answer": 2,
+    "explanation": "Funds from Operations (FFO) = Net Profit before tax (₹7,00,000) + Depreciation (₹1,20,000) + Goodwill amortized (₹40,00,0) - Non-operating Dividend income (₹30,000) = ₹7,00,000 + ₹1,60,000 - ₹30,000 = ₹8,30,000."
+  },
+  {
+    "id": 28,
+    "question": "A company has Total Shareholders' Funds of ₹80,00,000 consisting of 12% Cumulative Preference Share Capital of ₹20,00,000 and Equity Shareholders' Funds of ₹60,00,000. Total number of equity shares outstanding is 3,00,000 shares of face value ₹10 each. What is the 'Book Value Per Share' of the equity stock?",
+    "options": [
+      "₹26.67",
+      "₹15.00",
+      "₹10.00",
+      "₹30.00",
+      "₹20.00"
+    ],
+    "answer": 4,
+    "explanation": "Book Value Per Equity Share = Net Equity Available to Equity Shareholders / Number of Outstanding Equity Shares. Net Equity for Equity Shareholders = Total Shareholders' Funds (₹80,00,000) - Preference Share Capital (₹20,00,000) = ₹60,00,000. Book Value Per Share = ₹60,00,000 / 3,00,000 shares = ₹20.00 per share."
+  },
+  {
+    "id": 29,
+    "question": "An investor purchases equity shares of Zenith Ltd. at the prevailing market price of ₹250 per share. The company declares and pays a dividend of ₹15 per share for the year. What is the 'Dividend Yield Ratio'?",
+    "options": [
+      "7.5%",
+      "6.0%",
+      "16.67%",
+      "5.0%",
+      "8.0%"
+    ],
+    "answer": 1,
+    "explanation": "Dividend Yield Ratio = (Dividend Per Share / Market Price Per Share) × 100 = (₹15 / ₹250) × 100 = 6.0%."
+  },
+  {
+    "id": 30,
+    "question": "A company has an Operating Cash Flow of ₹24,00,000 and Total Debt outstanding of ₹60,00,000 (comprising ₹20,00,000 short-term debt and ₹40,00,000 long-term debt). What is the 'Operating Cash Flow to Total Debt Ratio'?",
+    "options": [
+      "25.0%",
+      "60.0%",
+      "33.33%",
+      "40.0%",
+      "50.0%"
+    ],
+    "answer": 3,
+    "explanation": "Operating Cash Flow to Total Debt Ratio = (Operating Cash Flow / Total Debt) × 100 = (₹24,00,000 / ₹60,00,000) × 100 = 40.0%."
+  },
+  {
+    "id": 31,
+    "question": "What is the phenomenon of 'Window Dressing' in financial statements, and how is it typically executed to artificially enhance the Current Ratio at the financial year-end?",
+    "options": [
+      "Paying off current liabilities using existing cash balances just before the balance sheet date when the current ratio is already greater than 1:1",
+      "Delaying statutory audit to avoid disclosing non-compliance as a separate line item in the financial statements",
+      "Writing down inventory to zero to reduce tax liabilities upon recognition of the underlying commercial transaction",
+      "Issuing equity shares at a heavy discount under the accrual basis of financial accounting",
+      "Revaluing plant and machinery downwards for presentation in the Balance Sheet and Profit & Loss Account"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Paying off current liabilities using existing cash balances just before the balance sheet date when the current ratio is already greater than 1:1. Window dressing involves manipulating financial statement presentations to display a more favorable liquidity or solvency picture than actual operations warrant. If Current Ratio > 1 (e.g. CA = ₹2,00,000, CL = ₹1,00,000, ratio = 2.0:1), paying off ₹50,000 of current liabilities with ₹50,000 cash reduces both CA to ₹1,50,000 and CL to ₹50,000, artificially boosting the Current Ratio to 3.0:1 without any underlying operational improvement."
+  },
+  {
+    "id": 32,
+    "question": "In DuPont analysis, suppose a company experiences a sharp drop in its Net Profit Margin from 10% to 5% due to aggressive pricing competition. If the management wishes to keep its Return on Equity (ROE) constant at 20% while Asset Turnover remains unchanged at 2.0, what must happen to its Equity Multiplier?",
+    "options": [
+      "Equity Multiplier must decrease from 2.0 to 1.0",
+      "Equity Multiplier must remain unchanged",
+      "Equity Multiplier must increase from 1.0 to 2.0",
+      "Equity Multiplier must increase to 4.0",
+      "ROE cannot be maintained without increasing sales"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Equity Multiplier must increase from 1.0 to 2.0 (i.e. double its financial leverage). DuPont equation: ROE = Net Profit Margin × Asset Turnover × Equity Multiplier. Initially: 20% (0.20) = 0.10 × 2.0 × Equity Multiplier -> 0.20 = 0.20 × EM -> EM = 1.0. When Net Profit Margin falls to 5% (0.05): 0.20 = 0.05 × 2.0 × EM -> 0.20 = 0.10 × EM -> EM = 2.0. The firm must double its financial leverage (Equity Multiplier increases from 1.0 to 2.0) to maintain its ROE."
+  },
+  {
+    "id": 33,
+    "question": "A manufacturing firm reports: Annual Consumption of Raw Materials = ₹36,00,000; Average Stock of Raw Materials = ₹3,00,000. Assuming a 360-day year, what is the Raw Material Turnover Ratio and the Average Raw Material Holding Period?",
+    "options": [
+      "10 times and 36 days",
+      "8 times and 45 days",
+      "15 times and 24 days",
+      "6 times and 60 days",
+      "12 times and 30 days"
+    ],
+    "answer": 4,
+    "explanation": "Raw Material Turnover Ratio = Raw Material Consumed / Average Stock of Raw Materials = ₹36,00,000 / ₹3,00,000 = 12 times. Average Raw Material Holding Period = 360 days / 12 = 30 days."
+  },
+  {
+    "id": 34,
+    "question": "An enterprise has Net Sales of ₹48,00,000 and Net Working Capital of ₹6,00,000. What is the 'Working Capital Turnover Ratio'?",
+    "options": [
+      "6.0 times",
+      "8.0 times",
+      "4.5 times",
+      "10.0 times",
+      "12.0 times"
+    ],
+    "answer": 1,
+    "explanation": "Working Capital Turnover Ratio = Net Sales / Net Working Capital = ₹48,00,000 / ₹6,00,000 = 8.0 times. It indicates the velocity with which working capital is rotated to generate sales turnover."
+  },
+  {
+    "id": 35,
+    "question": "Under financial regulatory frameworks (such as PFRDA / SEBI guidelines for market intermediaries), why is the 'Capital Adequacy / Net Worth Requirement' closely monitored?",
+    "options": [
+      "To ensure intermediaries maximize dividend payouts to shareholders as a separate line item in the financial statements",
+      "To restrict the intermediary from advertising its services upon recognition of the underlying commercial transaction",
+      "To force intermediaries to hold 100% of their net worth in physical cash under the accrual basis of financial accounting",
+      "To provide an adequate financial cushion absorbing operational losses, market shocks, and safeguarding client/subscriber funds against insolvency risk",
+      "To replace the requirement of statutory audits for presentation in the Balance Sheet and Profit & Loss Account"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: To provide an adequate financial cushion absorbing operational losses, market shocks, and safeguarding client/subscriber funds against insolvency risk. Capital adequacy and minimum net worth regulations ensure that regulated intermediaries (such as Pension Fund Managers, Custodians, Central Recordkeeping Agencies under PFRDA) maintain sufficient unencumbered capital buffers to absorb business and operational risks, ensure continuity of fiduciary duties, and protect the financial interests of subscribers."
+  },
+  {
+    "id": 36,
+    "question": "A company acquires commercial business assets worth ₹11,00,000 and takes over liabilities of ₹1,00,000 from Zenith Enterprises. The agreed purchase consideration of ₹12,00,000 is settled by issuing fully paid equity shares of ₹10 each at a premium of ₹2 per share. What is the amount of Goodwill arising on this acquisition, and how many equity shares are issued?",
+    "options": [
+      "Goodwill: ₹2,00,000; Number of shares: 1,00,000 shares",
+      "Goodwill: ₹1,00,000; Number of shares: 1,20,000 shares",
+      "Capital Reserve: ₹2,00,000; Number of shares: 1,00,000 shares",
+      "Goodwill: ₹2,00,000; Number of shares: 1,20,000 shares",
+      "No Goodwill or Capital Reserve; Number of shares: 1,00,000 shares"
+    ],
+    "answer": 0,
+    "explanation": "Net Assets Acquired = Assets (₹11,00,000) - Liabilities (₹1,00,000) = ₹10,00,000. Purchase Consideration = ₹12,00,000. Excess of purchase consideration over net assets = Goodwill = ₹12,00,000 - ₹10,00,000 = ₹2,00,000. Issue price per share = Face Value (₹10) + Premium (₹2) = ₹12. Number of shares issued = Purchase Consideration / Issue Price = ₹12,00,000 / ₹12 = 1,00,000 equity shares."
+  },
+  {
+    "id": 37,
+    "question": "Under Section 48 of the Companies Act, 2013, how can the rights attached to the shares of any class be varied?",
+    "options": [
+      "By an ordinary resolution passed by the Board of Directors alone for presentation in the Balance Sheet and Profit & Loss Account",
+      "By approval of any single largest shareholder of that class when preparing the annual financial statements of the entity",
+      "Only with the consent in writing of the holders of not less than three-fourths (3/4th) of the issued shares of that class or by means of a special resolution passed at a separate meeting of the holders of the issued shares of that class",
+      "Rights attached to shares can never be varied under Indian corporate law",
+      "By obtaining a no-objection certificate from the local municipal authority as a separate line item in the financial statements"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Only with the consent in writing of the holders of not less than three-fourths (3/4th) of the issued shares of that class or by means of a special resolution passed at a separate meeting of the holders of the issued shares of that class. Under Section 48(1) of the Companies Act, 2013, the rights attached to the shares of any class may be varied with the consent in writing of the holders of not less than three-fourths of the issued shares of that class or by means of a special resolution passed at a separate meeting of the holders of the issued shares of that class, provided variation is permitted by the memorandum/articles."
+  },
+  {
+    "id": 38,
+    "question": "A shareholder holds 400 shares of ₹10 each on which she had paid ₹3 on application and ₹3 on allotment, but failed to pay the first call of ₹2 and final call of ₹2 per share. The company forfeited the shares. If 250 of these shares are reissued as fully paid up, what is the MAXIMUM discount per share the company can legally grant on reissue?",
+    "options": [
+      "₹4 per share",
+      "₹2 per share",
+      "₹10 per share",
+      "₹3 per share",
+      "₹6 per share"
+    ],
+    "answer": 4,
+    "explanation": "Under company law, the maximum discount that can be granted on the reissue of a forfeited share cannot exceed the amount already received on that specific share. Here, amount received = Application (₹3) + Allotment (₹3) = ₹6 per share. Therefore, the maximum legal discount on reissue is ₹6 per share (minimum reissue price = ₹10 - ₹6 = ₹4 per share)."
+  },
+  {
+    "id": 39,
+    "question": "Under Section 39 of the Companies Act, 2013 read with SEBI (ICDR) Regulations, what is the statutory minimum subscription required for a public issue of shares through an offer document?",
+    "options": [
+      "75% of the offer size",
+      "90% of the offer size",
+      "50% of the offer size",
+      "100% of the offer size",
+      "80% of the offer size"
+    ],
+    "answer": 1,
+    "explanation": "Under SEBI (ICDR) Regulations and Section 39 of the Companies Act, 2013, the minimum subscription to be received in an issue shall not be less than ninety percent (90%) of the offer through the offer document. If the minimum subscription is not received within the prescribed period, the application money received must be refunded to the applicants within fifteen days of closure of the issue."
+  },
+  {
+    "id": 40,
+    "question": "What is the standard formula to compute the 'Value of a Right' (Vr) directly from the cum-rights market price (P), the rights issue price (S), and the number of existing shares (N) required to obtain one right share?",
+    "options": [
+      "Vr = (P + S) / N",
+      "Vr = (P - S) / N",
+      "Vr = (N × P) / (S + 1)",
+      "Vr = (P - S) / (N + 1)",
+      "Vr = P - (N × S)"
+    ],
+    "answer": 3,
+    "explanation": "The standard formula for the Value of a Right on an existing share is: Vr = (Cum-rights price - Issue price) / (N + 1), where N is the number of existing shares required to get 1 rights share. For example, if P = ₹240, S = ₹160, and N = 3, then Vr = (240 - 160) / (3 + 1) = 80 / 4 = ₹20."
+  },
+  {
+    "id": 41,
+    "question": "Under SEBI (Buy-Back of Securities) Regulations, what is the requirement for creating an 'Escrow Account' when a company undertakes a buy-back through a tender offer?",
+    "options": [
+      "The company must, as and by way of security for performance, deposit in an escrow account a prescribed percentage of the consideration payable",
+      "The entire 100% consideration must be deposited in cash with the Reserve Bank of India for presentation in the Balance Sheet and Profit & Loss Account",
+      "Escrow accounts are completely voluntary for buy-backs when preparing the annual financial statements of the entity",
+      "The escrow account is maintained by the Registrar of Companies in the general ledger and trial balance",
+      "Escrow can only be deposited in physical gold bullion"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The company must, as and by way of security for performance, deposit in an escrow account a prescribed percentage of the consideration payable (e.g. 25% up to ₹100 Crores and 10% on the balance). Under SEBI (Buy-Back of Securities) Regulations, the company must open an escrow account toward performance security. The escrow account consists of cash deposited with a scheduled commercial bank, bank guarantee, or acceptable securities: 25% if the consideration does not exceed ₹100 Crores, plus 10% of the consideration exceeding ₹100 Crores."
+  },
+  {
+    "id": 42,
+    "question": "Under Ind AS 102 (Share-based Payment), what is the accounting treatment for 'Cash-Settled Share-Based Payment Transactions' (such as Stock Appreciation Rights - SARs)?",
+    "options": [
+      "Recognized in equity reserves without any subsequent remeasurement at historical cost less accumulated depreciation.",
+      "Treated as an interest-free loan to the employee during the current accounting period.",
+      "The goods or services acquired and the liability incurred are measured at the fair value of the liability.",
+      "Expensed only on the final date of cash payment in accordance with the prudence and matching concepts.",
+      "Ignored until the employee leaves the company in the books of account at the close of the financial year."
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The goods or services acquired and the liability incurred are measured at the fair value of the liability; the liability is remeasured at each reporting date until settlement, with changes recognized in Profit & Loss.. Under Ind AS 102, for cash-settled share-based payment transactions (like SARs where employees receive cash based on share price increase), the entity measures the services acquired and the liability incurred at the fair value of the liability. Until the liability is settled, the entity remeasures the fair value of the liability at each reporting date and at the date of settlement, with any changes recognized in profit or loss."
+  },
+  {
+    "id": 43,
+    "question": "A company issues 1,000 12% Redeemable Preference Shares of ₹100 each fully paid up. The shares are redeemed at a premium of 10% out of fresh issue of 8,000 Equity Shares of ₹10 each at a premium of ₹2 per share. What amount must be transferred to the Capital Redemption Reserve (CRR) Account under Section 55?",
+    "options": [
+      "₹1,00,000",
+      "₹80,000",
+      "₹10,000",
+      "Nil",
+      "₹20,000"
+    ],
+    "answer": 4,
+    "explanation": "Nominal value of preference shares to be redeemed = 1,000 × ₹100 = ₹1,00,000. Nominal value of fresh equity shares issued = 8,000 × ₹10 = ₹80,000. (Note: Securities premium on fresh issue cannot be counted toward nominal value). Under Section 55, when redemption is partly financed by fresh issue, the shortfall in nominal capital must be transferred from divisible profits (free reserves) to the Capital Redemption Reserve (CRR). Amount transferred to CRR = Nominal Value of Preference Shares (₹1,00,000) - Nominal Value of Fresh Issue (₹80,000) = ₹20,000."
+  },
+  {
+    "id": 44,
+    "question": "Under Section 55 of the Companies Act, 2013, can a company redeem preference shares if its divisible profits and fresh issue proceeds are insufficient?",
+    "options": [
+      "Yes, by selling fixed assets under distress in the books of account at the close of the financial year",
+      "No, preference shares can ONLY be redeemed out of profits of the company which would otherwise be available for dividend, or out of the proceeds of a fresh issue of shares made for the purposes of such redemption",
+      "Yes, by borrowing funds through an unsecured bank loan in accordance with prescribed Accounting Standards",
+      "Yes, by creating a negative Capital Redemption Reserve under Schedule III of the Companies Act, 2013",
+      "Yes, if approved by a simple majority in an extraordinary general meeting at historical cost less accumulated depreciation"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: No, preference shares can ONLY be redeemed out of profits of the company which would otherwise be available for dividend, or out of the proceeds of a fresh issue of shares made for the purposes of such redemption. Section 55(2)(b) strictly lays down that preference shares can be redeemed ONLY: (i) out of profits of the company which would otherwise be available for dividend (divisible profits); or (ii) out of the proceeds of a fresh issue of shares made for the purposes of such redemption. They cannot be redeemed out of borrowed funds or proceeds of debenture issues."
+  },
+  {
+    "id": 45,
+    "question": "Under Section 68(1) of the Companies Act, 2013, which of the following is NOT an authorized source for funding a buy-back of shares?",
+    "options": [
+      "Its free reserves",
+      "The securities premium account",
+      "The proceeds of the issue of any shares or other specified securities in the general ledger and trial balance",
+      "Proceeds of an earlier issue of the same kind of shares or same kind of other specified securities",
+      "None of the above (all are authorized except D)"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Proceeds of an earlier issue of the same kind of shares or same kind of other specified securities. Under the proviso to Section 68(1), no buy-back of any kind of shares or other specified securities shall be made out of the proceeds of an earlier issue of the same kind of shares or same kind of other specified securities. For example, equity shares cannot be bought back out of the proceeds of a fresh issue of equity shares."
+  },
+  {
+    "id": 46,
+    "question": "Under the MCA amendments to Schedule III, what information must be disclosed in the 'Intangible Assets Under Development' (IAUD) Ageing Schedule?",
+    "options": [
+      "Aging analysis of IAUD split between (i) Projects in progress, and (ii) Projects whose completion is temporarily suspended, with aging buckets of <1 year, 1-2 years, 2-3 years, and >3 years, along with overdue project execution details",
+      "The market value of intellectual property patents",
+      "List of all software engineers employed in development during the current accounting period",
+      "Royalty agreements with overseas software licensors in accordance with the prudence and matching concepts",
+      "Disclosed solely if development cost exceeds ₹100 Crores in the books of account at the close of the financial year"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Aging analysis of IAUD split between (i) Projects in progress, and (ii) Projects whose completion is temporarily suspended, with aging buckets of <1 year, 1-2 years, 2-3 years, and >3 years, along with overdue project execution details. Similar to CWIP, the MCA amendments to Schedule III require an ageing schedule for Intangible Assets Under Development (IAUD) categorized into: (i) Projects in progress, and (ii) Projects temporarily suspended, across aging brackets (<1 yr, 1-2 yrs, 2-3 yrs, >3 yrs), plus details of projects whose completion is overdue or cost has exceeded compared to original plan."
+  },
+  {
+    "id": 47,
+    "question": "Under Schedule III, what is the accounting definition and criteria distinguishing a 'Provision' from a 'Current Liability / Trade Payable'?",
+    "options": [
+      "Provisions are created only by private companies, while payables are for public companies.",
+      "Trade payables are shown under Non-Current Liabilities, while provisions are Current upon recognition of the underlying commercial transaction.",
+      "Provisions are for current obligations where the timing or amount of settlement involves substantial estimation and uncertainty; liabilities/payables represent contractual obligations where amount and timing are precisely known.",
+      "Provisions can never be debited to Profit & Loss under the accrual basis of financial accounting.",
+      "There is no distinction; they are interchangeable terms in Schedule III for presentation in the Balance Sheet and Profit & Loss Account."
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Provisions are for current obligations where the timing or amount of settlement involves substantial estimation and uncertainty; liabilities/payables represent contractual obligations where amount and timing are precisely known.. Under AS 29 / Ind AS 37 and Schedule III, a Provision is a liability of uncertain timing or amount arising from a present obligation from past events. In contrast, Trade Payables and other liabilities represent existing obligations where both the amount and payment timing are definite and supported by invoices/contracts."
+  },
+  {
+    "id": 48,
+    "question": "In the Statement of Profit and Loss under Schedule III (Part II), how is the line item 'Changes in Inventories of Finished Goods, Work-in-Progress and Stock-in-Trade' computed?",
+    "options": [
+      "Closing Inventories minus Opening Inventories",
+      "Purchases of Raw Material plus Direct Labor",
+      "Closing Inventories divided by Opening Inventories",
+      "Average Inventory multiplied by Turnover Ratio",
+      "Opening Inventories minus Closing Inventories"
+    ],
+    "answer": 4,
+    "explanation": "In Part II of Schedule III, expenses include 'Changes in inventories of finished goods, work-in-progress and stock-in-trade', which is computed as (Opening Inventories - Closing Inventories). If closing inventory exceeds opening inventory, this figure is negative, thereby reducing total expenses to reflect costs carried forward to the next period."
+  },
+  {
+    "id": 49,
+    "question": "Under Schedule III mandatory disclosures, what must a company disclose regarding 'Corporate Social Responsibility' (CSR) under Section 135 of the Companies Act, 2013?",
+    "options": [
+      "Amount required to be spent by the company during the year",
+      "Amount of expenditure incurred and shortfall/unspent amount at the end of the year",
+      "Total of previous years' shortfall and reason for shortfall",
+      "Details of related party transactions in CSR projects",
+      "All of the above"
+    ],
+    "answer": 4,
+    "explanation": "Under the amended Schedule III disclosures, a company covered under Section 135 must disclose all aspects of its CSR activities: amount required to be spent, amount approved by board, amount spent, shortfall at end of year, total of previous years' shortfall, reason for shortfall, nature of CSR activities, and details of related party transactions involved."
+  },
+  {
+    "id": 50,
+    "question": "Under Schedule III, which of the following is a mandatory disclosure regarding 'Utilization of Borrowed Funds and Share Premium'?",
+    "options": [
+      "Whether the company has advanced or loaned or invested funds to any other person or entity (Intermediaries) with the understanding that the Intermediary shall directly or indirectly lend or invest in other persons/entities identified by the company (Ultimate Beneficiaries)",
+      "Whether the company has received any fund from any funding party with the understanding that the company shall directly or indirectly lend or invest in Ultimate Beneficiaries",
+      "Detailed declaration that compliance with Foreign Exchange Management Act (FEMA) and Prevention of Money Laundering Act (PMLA) has been maintained",
+      "Both A and B, including date of transactions and full details",
+      "All of A, B, and C"
+    ],
+    "answer": 4,
+    "explanation": "Under the MCA amendments to Schedule III, comprehensive disclosures regarding downstream and upstream financing (Intermediaries and Ultimate Beneficiaries) are mandatory to prevent illicit money laundering and round-tripping of funds, covering both funds advanced to intermediaries and funds received from funding parties, along with compliance declarations under FEMA and PMLA."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Commerce & Accountancy Mock 5",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Commerce & Accountancy Mock 5";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br /><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br /><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br /><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br /><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

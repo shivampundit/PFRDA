@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFRDA Economics &amp; Financial Sector Mock Test 4 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject H: Economics</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Economics_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Economics_Master_Revision_and_Study_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Economics_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Economics_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Economics_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Economics_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Economics_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &middot; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &middot; Paper 2 &middot; Economics Mock 4</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Economics &amp; Financial Sector - Mock 4</h1>
+    <p class="start-subheading">Full 50 Questions &middot; Concept-Based &middot; PFRDA Grade A Level &middot; Precision Coaching</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant">
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com">
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Accounting System:</b> Financial information system, bookkeeping vs accounting, concepts, conventions, capital vs revenue, errors.</li>
+                <li><b>Accounting Standards:</b> Depreciation (AS 10 / Ind AS 16), Inventories (AS 2 / Ind AS 2), Revenue Recognition (AS 9 / Ind AS 115), PPE (AS 10), Forex (AS 11 / Ind AS 21), Investments (AS 13).</li>
+                <li><b>Cash Flow &amp; Fund Flow:</b> Operating/Investing/Financing activities, Direct &amp; Indirect methods, Statement of Changes in Working Capital.</li>
+                <li><b>Ratio Analysis:</b> Liquidity, Solvency, Turnover, Profitability, and DuPont 3-stage model.</li>
+                <li><b>Share Capital &amp; Corporate Actions:</b> Share issue/forfeiture/reissue, Bonus shares (Sec 63), Rights issue (Sec 62), ESOPs, Buy-back (Sec 68-70).</li>
+                <li><b>Company Final Accounts:</b> Schedule III Balance Sheet and Statement of Profit &amp; Loss structure and disclosures.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "What is the 'Balance of Payments' (BOP) of a country as defined by the International Monetary Fund (IMF)?",
+    "options": [
+      "A record of tax revenues collected by the central finance ministry from domestic corporations across aggregate goods and money market schedules",
+      "The daily balance of cash reserves held in commercial bank vault lockers as real output adjusts toward full-employment potential GDP",
+      "The net profit earned by national export trading companies under flexible price and wage adjustment mechanisms",
+      "The total volume of international postal packages inspected at customs ports across the phases of the macroeconomic business cycle",
+      "A systematic statistical statement that summarizes all economic and financial transactions between the residents of a country and the rest of the world over a specific period of time"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A systematic statistical statement that summarizes all economic and financial transactions between the residents of a country and the rest of the world over a specific period of time (usually a quarter or year). The Balance of Payments (BOP) is a comprehensive macroeconomic accounting record tracking all cross-border transactions (goods, services, income transfers, financial assets, and liabilities) between a nation's residents and non-residents during a given period, compiled under IMF BPM6 guidelines."
+  },
+  {
+    "id": 2,
+    "question": "Which of the following is categorized under the 'Current Account' of the Balance of Payments?",
+    "options": [
+      "Foreign Direct Investment (FDI) equity inflows into domestic technology companies in response to shifts in aggregate demand and supply",
+      "Merchandise exports and imports, cross-border software services, and private inward remittances from overseas workers",
+      "External Commercial Borrowings (ECB) raised by domestic infrastructure corporations within an open-economy balance of payments framework",
+      "Foreign Portfolio Investors (FPI) purchasing shares on the National Stock Exchange given the prevailing marginal propensity to consume and save",
+      "Drawdown of foreign exchange reserves from the central bank in the short-run and long-run macroeconomic equilibrium"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Merchandise exports and imports, cross-border software services, and private inward remittances from overseas workers. The Current Account encompasses all transactions involving currently produced goods and services and unrequited transfers: (1) Merchandise Trade (visible balance), (2) Services (invisibles: IT, tourism, transport), (3) Primary Income (compensation of employees, investment income: dividends, interest), and (4) Secondary Income (remittances, gifts, grants)."
+  },
+  {
+    "id": 3,
+    "question": "In the Balance of Payments accounting architecture, what is recorded in the 'Capital Account' under modern IMF BPM6 standards (as distinct from the Financial Account)?",
+    "options": [
+      "Corporate equity shares purchased by retail investors across the phases of the macroeconomic business cycle",
+      "Commercial bank loans disbursed to domestic small businesses when evaluating social welfare and resource allocation efficiency",
+      "Merchandise imports of crude oil and liquefied natural gas under competitive market clearing conditions",
+      "Capital transfers and the acquisition or disposal of non-produced, non-financial assets",
+      "Central bank currency intervention in the spot forex market across aggregate goods and money market schedules"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Capital transfers (debt forgiveness, migrant capital transfers) and the acquisition or disposal of non-produced, non-financial assets (such as brand trademarks, patents, mineral rights, and airspace). Under IMF BPM6 manuals, the old capital account was split into: (1) The Capital Account proper (recording capital transfers like debt cancellation and transactions in non-produced non-financial assets like patents/trademarks); and (2) The Financial Account (recording FDI, FPI, loans, external borrowings, and reserve assets)."
+  },
+  {
+    "id": 4,
+    "question": "What is the fundamental difference between 'Foreign Direct Investment' (FDI) and 'Foreign Portfolio Investment' (FPI)?",
+    "options": [
+      "FDI involves acquiring a lasting management interest with long-term strategic commitment and operational control; FPI involves passive, liquid investments in financial assets",
+      "FDI is illegal in developing nations; FPI is mandatory in the short-run and long-run macroeconomic equilibrium",
+      "FDI applies only to sovereign governments; FPI applies to individual citizens holding all other exogenous determinants constant (ceteris paribus)",
+      "FDI flows strictly into government treasury bills; FPI flows into physical factories within the national income and product accounting framework",
+      "FDI is denominated strictly in gold; FPI is in paper currency"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: FDI involves acquiring a lasting management interest (typically 10% or more of voting power) with long-term strategic commitment and operational control; FPI involves passive, liquid investments in financial assets (equities, bonds) without active management control ('hot money'). FDI establishes lasting control/influence (building physical factories, acquiring substantial equity $\\ge 10\\%$), representing patient, long-term capital. FPI involves financial instruments (shares, corporate debt) traded on public exchanges for financial return without control; because FPI can be liquidated instantly, it is volatile ('hot money')."
+  },
+  {
+    "id": 5,
+    "question": "What is the crucial economic distinction between 'Autonomous Transactions' and 'Accommodating Transactions' in the Balance of Payments?",
+    "options": [
+      "Autonomous transactions occur on weekends; Accommodating transactions occur on weekdays across aggregate goods and money market schedules",
+      "Autonomous transactions are illegal; Accommodating transactions are authorized as real output adjusts toward full-employment potential GDP",
+      "Autonomous transactions are undertaken for independent economic motives irrespective of the BOP position; Accommodating transactions are financing items undertaken specifically to bridge the net surplus or deficit resulting from autonomous transactions",
+      "Autonomous transactions involve only cash; Accommodating transactions involve barter under flexible price and wage adjustment mechanisms",
+      "There is no difference; both are accounting labels with zero economic significance across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Autonomous ('above-the-line') transactions are undertaken for independent economic motives (profit, trade, investment) irrespective of the BOP position; Accommodating ('below-the-line') transactions are financing items undertaken specifically to bridge the net surplus or deficit resulting from autonomous transactions (e.g. IMF loans, reserve drawdowns). Autonomous transactions ('above the line') are driven by commercial incentives (merchandise trade, private investments). Accommodating transactions ('below the line') are compensatory actions taken by monetary authorities (drawing down foreign exchange reserves or borrowing from the IMF) to settle the overall autonomous gap."
+  },
+  {
+    "id": 6,
+    "question": "What is the 'Twin Deficit Hypothesis' in open-economy macroeconomics?",
+    "options": [
+      "A situation where a country runs two identical bank accounts with negative balances in response to shifts in aggregate demand and supply",
+      "A simultaneous deficit in agricultural food production and industrial steel output within an open-economy balance of payments framework",
+      "A deficit in both primary education funding and healthcare infrastructure given the prevailing marginal propensity to consume and save",
+      "A state where a country has two competing national central banks in the short-run and long-run macroeconomic equilibrium",
+      "The macroeconomic proposition that a high Government Fiscal Deficit causes or strongly correlates with a high Current Account Deficit (CAD), derived from the national income identity"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The macroeconomic proposition that a high Government Fiscal Deficit causes or strongly correlates with a high Current Account Deficit (CAD), derived from the national income identity: $(G - T) = (S - I) + (M - X)$. From national accounting: $Y = C + I + G + (X - M)$ and $Y = C + S + T$. Equating both: $(M - X) = (I - S) + (G - T)$. If domestic private savings and investment are relatively stable, a rise in the fiscal deficit ($(G - T)$) leads directly to an increase in the trade/current account deficit ($(M - X)$), known as the Twin Deficits."
+  },
+  {
+    "id": 7,
+    "question": "What is 'Purchasing Power Parity' (PPP) Theory (Gustav Cassel) and what does 'Absolute PPP' assert?",
+    "options": [
+      "Exchange rates are set by the United Nations Security Council across the phases of the macroeconomic business cycle",
+      "Absolute PPP asserts that the exchange rate between two currencies should equal the ratio of the price levels of an identical basket of goods in the two countries",
+      "A theory stating that rich nations must purchase goods from poor nations at double price when evaluating social welfare and resource allocation efficiency",
+      "A legal framework governing military defense procurements under competitive market clearing conditions",
+      "A theory stating that paper currency notes have identical physical purchasing power across aggregate goods and money market schedules"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Absolute PPP asserts that the exchange rate between two currencies should equal the ratio of the price levels of an identical basket of goods in the two countries (the Law of One Price extended internationally: $S = P / P^*$). Absolute PPP extends the Law of One Price: in the absence of transport costs and trade barriers, identical goods must sell for identical prices worldwide when expressed in a common currency: $P = S \\times P^*$, meaning the nominal exchange rate $S = P / P^*$."
+  },
+  {
+    "id": 8,
+    "question": "What does 'Relative Purchasing Power Parity' (Relative PPP) predict regarding exchange rate movements over time?",
+    "options": [
+      "Exchange rates remain permanently fixed regardless of inflation differences in the short-run and long-run macroeconomic equilibrium",
+      "The country with higher inflation will always see its currency appreciate holding all other exogenous determinants constant (ceteris paribus)",
+      "Central banks must revalue their currency by 10% every calendar year within the national income and product accounting framework",
+      "The percentage change in the exchange rate between two currencies over a period is approximately equal to the difference between their respective domestic inflation rates",
+      "Exchange rate volatility is completely eliminated by bilateral trade agreements in response to shifts in aggregate demand and supply"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The percentage change in the exchange rate between two currencies over a period is approximately equal to the difference between their respective domestic inflation rates: $\\% \\Delta S \\approx \\pi - \\pi^*$. Relative PPP states that the rate of currency depreciation or appreciation equals the inflation differential: $\\% \\Delta S = \\pi_{\\text{domestic}} - \\pi_{\\text{foreign}}$. If India experiences 6% inflation while the US experiences 2%, the Indian Rupee is predicted to depreciate by approximately 4% per year against the US Dollar to preserve purchasing power parity."
+  },
+  {
+    "id": 9,
+    "question": "What is the 'Balassa-Samuelson Effect' in international price level and exchange rate comparisons?",
+    "options": [
+      "Productivity growth tends to be much faster in the traded goods sector than in the non-traded goods sector",
+      "Poorer countries always experience lower interest rates than wealthy nations across aggregate goods and money market schedules",
+      "A theory explaining seasonal fluctuations in agricultural export grain prices as real output adjusts toward full-employment potential GDP",
+      "A mathematical proof that floating exchange rates always cause financial crashes under flexible price and wage adjustment mechanisms",
+      "A legal treaty governing international maritime shipping routes across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Productivity growth tends to be much faster in the traded goods sector than in the non-traded goods sector; because wages equalize across sectors domestically, higher traded productivity pulls up non-traded prices, explaining why general price levels are systematically higher in rich nations than in developing nations. Bela Balassa and Paul Samuelson showed that productivity advantages of rich nations are concentrated in tradable goods (manufacturing). High tradable wages pull up non-tradable wages (haircuts, restaurant meals) despite low productivity gains there, making price levels higher in rich countries and causing market exchange rates to systematically diverge from PPP."
+  },
+  {
+    "id": 10,
+    "question": "What is 'Covered Interest Parity' (CIP) in foreign exchange markets, and how is it maintained?",
+    "options": [
+      "Interest rates in all countries must be legally identical by international treaty",
+      "A condition where central banks insure 100% of all commercial bank deposits within an open-economy balance of payments framework",
+      "A no-arbitrage condition stating that the interest rate differential between two countries equals the forward exchange rate premium or discount",
+      "An agreement between governments to cancel all sovereign foreign loans given the prevailing marginal propensity to consume and save",
+      "A currency peg that allows unlimited borrowing at zero interest"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A no-arbitrage condition stating that the interest rate differential between two countries equals the forward exchange rate premium or discount, where foreign exchange risk is completely covered/hedged via a forward contract: $\\frac{F}{S} = \\frac{1 + i}{1 + i^*}$. Covered Interest Parity (CIP) holds that the forward premium on foreign currency eliminates any arbitrage profit from investing in foreign debt securities: $\\frac{F - S}{S} \\approx i - i^*$. If CIP did not hold, currency traders would engage in riskless 'covered interest arbitrage', instantly pushing forward and spot exchange rates back into parity."
+  },
+  {
+    "id": 11,
+    "question": "What is 'Uncovered Interest Parity' (UIP) and what does it assume regarding investor risk behavior?",
+    "options": [
+      "Investors never invest in foreign assets under any circumstances across the phases of the macroeconomic business cycle",
+      "Commercial banks are prohibited from covering foreign currency loans with collateral when evaluating social welfare and resource allocation efficiency",
+      "Exchange rates are determined by central bank decree without market input under competitive market clearing conditions",
+      "Investors receive free insurance coverage from the International Monetary Fund across aggregate goods and money market schedules",
+      "Assuming risk-neutral investors and zero capital controls, the expected rate of depreciation of the domestic currency equals the difference between the domestic and foreign interest rates"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Assuming risk-neutral investors and zero capital controls, the expected rate of depreciation of the domestic currency equals the difference between the domestic and foreign interest rates: $\\frac{E(S_{t+1}) - S_t}{S_t} \\approx i - i^*$, without using forward hedging contracts. Under Uncovered Interest Parity (UIP), an investor accepts unhedged foreign exchange risk. The higher nominal interest rate in country A is expected to be offset by an equal depreciation of country A's currency: $E(\\Delta S) \\approx i - i^*$. If UIP fails empirically, it creates the profitable 'Carry Trade'."
+  },
+  {
+    "id": 12,
+    "question": "What is the 'FX Carry Trade' strategy executed by international currency hedge funds?",
+    "options": [
+      "Physically carrying paper currency notes in armored suitcases across international borders in the short-run and long-run macroeconomic equilibrium",
+      "Borrowing capital in a low-interest-rate currency and investing the proceeds in high-yielding debt assets in a high-interest-rate currency, profiting from the interest rate spread as long as exchange rates remain stable",
+      "Trading agricultural grain commodities on maritime shipping vessels holding all other exogenous determinants constant (ceteris paribus)",
+      "Smuggling gold bullion through duty-free airport retail lounges within the national income and product accounting framework",
+      "A speculative trade where investors bet that all global currencies will collapse to zero in response to shifts in aggregate demand and supply"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Borrowing capital in a low-interest-rate currency (the 'funding currency', e.g. Japanese Yen) and investing the proceeds in high-yielding debt assets in a high-interest-rate currency (the 'target currency', e.g. emerging market sovereign bonds), profiting from the interest rate spread as long as exchange rates remain stable. The carry trade exploits failures of UIP. Speculators borrow in low-yielding currencies (Japan at 0%) and invest in high-yielding markets (Brazil or India at 7%). It is profitable during calm market regimes, but exposes traders to violent 'unwind' crashes if the funding currency suddenly appreciates sharply."
+  },
+  {
+    "id": 13,
+    "question": "What is the difference between the 'Nominal Effective Exchange Rate' (NEER) and the 'Real Effective Exchange Rate' (REER)?",
+    "options": [
+      "NEER measures interest rates; REER measures corporate tax rates across aggregate goods and money market schedules",
+      "NEER is calculated daily; REER is calculated once every 50 years as real output adjusts toward full-employment potential GDP",
+      "NEER applies only to exports; REER applies strictly to imports under flexible price and wage adjustment mechanisms",
+      "NEER is a trade-weighted geometric average of bilateral nominal exchange rates of the home currency against a basket of partner currencies; REER adjusts NEER for relative inflation differentials between the home country and its trading partners",
+      "There is no difference; both metrics are identical across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: NEER is a trade-weighted geometric average of bilateral nominal exchange rates of the home currency against a basket of partner currencies; REER adjusts NEER for relative inflation differentials between the home country and its trading partners ($\text{REER} = \text{NEER} \\times \\frac{P_{\\text{domestic}}}{P_{\\text{foreign}}}$), measuring true international trade competitiveness. NEER measures the trade-weighted nominal value of a currency against a currency basket (e.g. RBI's 40-currency basket). REER adjusts NEER for relative consumer price levels: $\\text{REER} = \\text{NEER} \\times \\frac{P}{P^*}$. A REER above 100 indicates real overvaluation (eroding export competitiveness); below 100 indicates real undervaluation."
+  },
+  {
+    "id": 14,
+    "question": "What is the 'Marshall-Lerner Condition' regarding the success of a currency devaluation/depreciation in improving a country's trade balance?",
+    "options": [
+      "A devaluation will successfully improve the trade balance if and only if the sum of the price elasticities of demand for exports ($e_x$) and imports ($e_m$) is greater than 1",
+      "The sum of export and import elasticities must be exactly zero in response to shifts in aggregate demand and supply",
+      "The foreign exchange reserves must exceed external sovereign debt within an open-economy balance of payments framework",
+      "The country must produce 100% of its domestic crude oil requirements given the prevailing marginal propensity to consume and save",
+      "The government must run a fiscal budget surplus in the short-run and long-run macroeconomic equilibrium"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A devaluation will successfully improve the trade balance if and only if the sum of the price elasticities of demand for exports ($e_x$) and imports ($e_m$) is greater than 1: $|e_x + e_m| > 1$. Currency devaluation makes exports cheaper in foreign currency and imports more expensive in domestic currency. The Marshall-Lerner condition states that for devaluation to improve the trade balance, the combined price elasticities of demand must exceed unity ($|e_x + e_m| > 1$). If $< 1$, devaluation worsens the trade deficit."
+  },
+  {
+    "id": 15,
+    "question": "What is the 'J-Curve Effect' following a currency devaluation or depreciation?",
+    "options": [
+      "The currency immediately appreciates in a J-shaped curve across the phases of the macroeconomic business cycle",
+      "A rapid increase in agricultural exports during the monsoon season when evaluating social welfare and resource allocation efficiency",
+      "Following a devaluation, the trade balance initially worsens in the short run before improving in the long run, tracing a 'J' shape on a graph, because trade contracts are fixed in the short term",
+      "A graphical curve showing central bank gold purchases over time under competitive market clearing conditions",
+      "A legal framework governing joint-venture multinational corporations across aggregate goods and money market schedules"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Following a devaluation, the trade balance initially worsens in the short run before improving in the long run, tracing a 'J' shape on a graph, because trade contracts are fixed in the short term (inelastic volumes) while prices adjust immediately. In the immediate aftermath of devaluation, export and import volumes are sticky due to existing commercial contracts and consumer habits (low short-run elasticities: $|e_x + e_m| < 1$). The higher import bill worsens the trade deficit initially. Over 6-18 months, as buyers adjust, export volumes expand and imports drop, improving the balance."
+  },
+  {
+    "id": 16,
+    "question": "What is the 'Impossible Trinity' (Mundell-Fleming Trilemma) in international monetary economics?",
+    "options": [
+      "A country cannot simultaneously maintain three commercial banks, three stock exchanges, and three corporate bond markets in the short-run and long-run macroeconomic equilibrium",
+      "A government cannot tax income, property, and corporate profits simultaneously holding all other exogenous determinants constant (ceteris paribus)",
+      "A central bank cannot regulate currency, manage public debt, and supervise banks together within the national income and product accounting framework",
+      "An economy cannot produce agriculture, industry, and services simultaneously in response to shifts in aggregate demand and supply",
+      "A country cannot simultaneously maintain: (1) A Fixed Exchange Rate, (2) Free Capital Mobility, and (3) An Independent Monetary Policy"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A country cannot simultaneously maintain: (1) A Fixed Exchange Rate, (2) Free Capital Mobility (open capital account), and (3) An Independent Monetary Policy; it must choose any two and abandon the third. Robert Mundell and Marcus Fleming proved the policy trilemma: A country choosing free capital mobility and an independent monetary policy MUST allow its exchange rate to float (e.g. India, US). If it fixes the exchange rate with free capital mobility, it forfeits monetary autonomy (e.g. Hong Kong). If it fixes rates and runs independent policy, it must impose capital controls (e.g. China historically)."
+  },
+  {
+    "id": 17,
+    "question": "Under a 'Managed Float' (Dirty Float) exchange rate regime (which the Reserve Bank of India follows), how is the exchange rate determined?",
+    "options": [
+      "It is pegged permanently to the US Dollar at a fixed legal parity with zero fluctuation across aggregate goods and money market schedules",
+      "The exchange rate is determined primarily by market forces of demand and supply in the forex market, but the central bank intervenes periodically to curb excessive volatility and maintain orderly market conditions",
+      "It is determined strictly by the International Monetary Fund every morning as real output adjusts toward full-employment potential GDP",
+      "It is fixed to the physical market price of gold bullion under flexible price and wage adjustment mechanisms",
+      "Commercial banks are free to print their own foreign currencies across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The exchange rate is determined primarily by market forces of demand and supply in the forex market, but the central bank intervenes periodically (buying or selling foreign exchange) to curb excessive volatility and maintain orderly market conditions without targeting a specific level. Under India's market-determined exchange rate system (instituted after the 1993 LERMS unification), the rupee floats freely based on market demand and supply. The RBI does not target any specific exchange rate level or band, but intervenes via spot and forward markets to contain speculative volatility."
+  },
+  {
+    "id": 18,
+    "question": "What are the four components of India's Foreign Exchange Reserves held and managed by the Reserve Bank of India?",
+    "options": [
+      "Domestic Treasury Bills, Commercial Paper, Corporate Bonds, and Municipal Debt in response to shifts in aggregate demand and supply",
+      "Cryptocurrency, Sovereign Gold Bonds, Real Estate, and Cash Reserves within an open-economy balance of payments framework",
+      "Bank Notes, Postal Savings, National Highway Bonds, and Silver Bullion given the prevailing marginal propensity to consume and save",
+      "Foreign Currency Assets (FCA), Gold, Special Drawing Rights (SDR), and Reserve Tranche Position (RTP) in the IMF",
+      "Provident Fund balances, Pension reserves, Life insurance policies, and Equity mutual funds in the short-run and long-run macroeconomic equilibrium"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Foreign Currency Assets (FCA), Gold, Special Drawing Rights (SDR), and Reserve Tranche Position (RTP) in the IMF. India's foreign exchange reserves comprise: (1) Foreign Currency Assets (FCA - US Dollars, Euros, Yen, Pounds held in high-grade sovereign debt); (2) Physical Gold holdings; (3) Special Drawing Rights (SDR) allocated by the IMF; and (4) Reserve Tranche Position (RTP) with the IMF."
+  },
+  {
+    "id": 19,
+    "question": "What is a 'Special Drawing Right' (SDR) created by the International Monetary Fund (IMF) in 1969?",
+    "options": [
+      "An international reserve asset created by the IMF to supplement member countries' official reserves",
+      "A physical currency banknote printed by the United Nations across the phases of the macroeconomic business cycle",
+      "A loan facility available exclusively to private commercial banks when evaluating social welfare and resource allocation efficiency",
+      "A legal right to drill for offshore oil in international waters under competitive market clearing conditions",
+      "A digital cryptocurrency token traded on private unregulated exchanges across aggregate goods and money market schedules"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: An international reserve asset created by the IMF to supplement member countries' official reserves; its value is based on a basket of five major currencies: US Dollar, Euro, Chinese Renminbi, Japanese Yen, and British Pound Sterling. The SDR is not a currency nor a claim on the IMF, but a potential claim on the freely usable currencies of IMF members. Its value is calculated daily using a weighted basket of five currencies: USD, EUR, CNY, JPY, and GBP. It serves as the unit of account for the IMF."
+  },
+  {
+    "id": 20,
+    "question": "Under the 'Liberalised Remittance Scheme' (LRS) administered by the Reserve Bank of India, what is the maximum foreign exchange remittance limit per financial year for a resident individual?",
+    "options": [
+      "USD 25,000",
+      "USD 100,000",
+      "USD 250,000",
+      "USD 500,000",
+      "Unlimited without any ceiling"
+    ],
+    "answer": 2,
+    "explanation": "Under the RBI's Liberalised Remittance Scheme (LRS), resident individuals (including minors) are permitted to freely remit up to USD 250,000 per financial year (April-March) for permissible current or capital account transactions (such as overseas education, travel, medical treatment, gifts, or investing in overseas shares/real estate)."
+  },
+  {
+    "id": 21,
+    "question": "What was the seminal legal transition in India's external trade governance when the 'Foreign Exchange Management Act, 1999' (FEMA) replaced the 'Foreign Exchange Regulation Act, 1973' (FERA)?",
+    "options": [
+      "FEMA abolished all commercial banks in India across aggregate goods and money market schedules",
+      "FEMA completely banned foreign direct investment in India as real output adjusts toward full-employment potential GDP",
+      "FEMA made the US Dollar the legal tender currency of India under flexible price and wage adjustment mechanisms",
+      "There was zero legal or operational change between FERA and FEMA across the phases of the macroeconomic business cycle",
+      "FERA treated foreign exchange violations as criminal offenses with a presumption of guilt"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: FERA treated foreign exchange violations as criminal offenses with a presumption of guilt; FEMA shifted the regulatory philosophy to 'management' rather than 'regulation', decriminalizing most forex violations into civil offenses punishable by monetary penalties. FERA 1973 was a draconian post-war conservation statute where forex offenses were non-bailable criminal offenses. In line with economic liberalization, FEMA 1999 took effect in June 2000, promoting external trade and orderly forex markets by making forex violations civil offenses handled by compounding and monetary adjudication."
+  },
+  {
+    "id": 22,
+    "question": "What is the 'Tarapore Committee' (1997 and 2006) associated with in Indian monetary and external sector policy?",
+    "options": [
+      "Recommending the introduction of Goods and Services Tax (GST) in response to shifts in aggregate demand and supply",
+      "Laying down the road map, preconditions, and institutional milestones for Fuller Capital Account Convertibility (FCAC) of the Indian Rupee",
+      "Restructuring non-performing assets of public sector banks within an open-economy balance of payments framework",
+      "Setting minimum support prices for agricultural grains given the prevailing marginal propensity to consume and save",
+      "Designing national pension schemes for unorganized workers in the short-run and long-run macroeconomic equilibrium"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Laying down the road map, preconditions, and institutional milestones for Fuller Capital Account Convertibility (FCAC) of the Indian Rupee. The two Tarapore Committees (chaired by former RBI Deputy Governor S.S. Tarapore) outlined preconditions for full capital account convertibility: fiscal deficit below 3.5%, inflation mandate of 3-5%, gross NPAs below 5%, adequate forex reserves, and a sound financial sector before fully liberalizing capital outflows."
+  },
+  {
+    "id": 23,
+    "question": "What is 'Current Account Convertibility' vs 'Capital Account Convertibility'?",
+    "options": [
+      "Current account convertibility allows unlimited cash printing; Capital account convertibility prohibits it across the phases of the macroeconomic business cycle",
+      "Current account convertibility applies to corporations; Capital account convertibility applies to individuals when evaluating social welfare and resource allocation efficiency",
+      "Current account convertibility is illegal under WTO rules",
+      "Current account convertibility allows the free conversion of domestic currency into foreign currency for transactions involving export/import of goods, services, and remittances; Capital account convertibility allows free conversion for purchasing foreign financial and physical assets",
+      "India has full capital account convertibility but restricts current account convertibility across aggregate goods and money market schedules"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Current account convertibility allows the free conversion of domestic currency into foreign currency for transactions involving export/import of goods, services, and remittances (India accepted IMF Article VIII status in August 1994); Capital account convertibility allows free conversion for purchasing foreign financial and physical assets. India has full Current Account Convertibility (instituted in 1994 under IMF Article VIII), meaning no restrictions exist on buying forex for trade in goods, services, travel, or education. However, India maintains partial/calibrated Capital Account Convertibility to safeguard macroeconomic stability against volatile capital flight."
+  },
+  {
+    "id": 24,
+    "question": "What is the 'Sterilization' of foreign exchange inflows conducted by the Reserve Bank of India?",
+    "options": [
+      "The monetary operation where the central bank offsets the domestic liquidity impact of its forex market interventions",
+      "Washing physical currency notes with antiseptic chemicals in the short-run and long-run macroeconomic equilibrium",
+      "Freezing foreign bank accounts during diplomatic disputes holding all other exogenous determinants constant (ceteris paribus)",
+      "Canceling counterfeit foreign currency banknotes within the national income and product accounting framework",
+      "Imposing customs tariffs on luxury imported electronics in response to shifts in aggregate demand and supply"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The monetary operation where the central bank offsets the domestic liquidity impact of its forex market interventions (e.g. selling government bonds via Open Market Operations or the Market Stabilization Scheme - MSS to absorb the excess rupee liquidity created when buying foreign currency). When heavy foreign capital surges in, the RBI buys USD to prevent excessive rupee appreciation. In doing so, it injects equivalent rupee liquidity into the banking system, risking inflation. To 'sterilize' this, the RBI conducts open market sales of government bonds or issues MSS bonds, draining the excess domestic liquidity."
+  },
+  {
+    "id": 25,
+    "question": "What is the 'Market Stabilization Scheme' (MSS) introduced by the RBI and Government of India in 2004?",
+    "options": [
+      "A scheme to stabilize retail vegetable prices during dry summers across aggregate goods and money market schedules",
+      "A welfare scheme providing subsidized credit to agricultural farmers as real output adjusts toward full-employment potential GDP",
+      "A dedicated monetary mechanism where the Government of India issues special dated Treasury bills/bonds specifically to absorb enduring surplus liquidity resulting from massive foreign capital inflows, with proceeds held in a sterile, unspendable cash account with the RBI",
+      "A scheme to bail out bankrupt private corporate stockbrokers under flexible price and wage adjustment mechanisms",
+      "A price ceiling imposed on sovereign gold mutual funds across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A dedicated monetary mechanism where the Government of India issues special dated Treasury bills/bonds specifically to absorb enduring surplus liquidity resulting from massive foreign capital inflows, with proceeds held in a sterile, unspendable cash account with the RBI. Introduced in April 2004, MSS gave the RBI a dedicated instrument to absorb structural liquidity caused by large capital inflows without exhausting its own portfolio of government securities. The funds raised under MSS are impounded in a separate government account and cannot be used for fiscal expenditure."
+  },
+  {
+    "id": 26,
+    "question": "What is the 'Forward Premium' or 'Forward Discount' on a foreign currency?",
+    "options": [
+      "A legal penalty charged by customs authorities for late freight clearance in response to shifts in aggregate demand and supply",
+      "The commission fee paid to retail airport money changers within an open-economy balance of payments framework",
+      "The interest rate charged on international sovereign credit cards given the prevailing marginal propensity to consume and save",
+      "The difference between wholesale and retail prices of gold in the short-run and long-run macroeconomic equilibrium",
+      "The percentage by which the forward exchange rate for a future settlement date exceeds (premium) or falls below (discount) the current spot exchange rate"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The percentage by which the forward exchange rate for a future settlement date exceeds (premium) or falls below (discount) the current spot exchange rate: $\\text{Forward Premium} = \\frac{F - S}{S} \\times \\frac{360}{n} \\times 100$. If a foreign currency costs more in the forward market than in the spot market ($F > S$), it is trading at a forward premium. Under interest rate parity, the currency with the lower nominal interest rate trades at a forward premium against the currency with the higher nominal interest rate."
+  },
+  {
+    "id": 27,
+    "question": "In foreign trade policy, what is the 'Dumping' of goods and what remedy is authorized under World Trade Organization (WTO) rules?",
+    "options": [
+      "Disposing of plastic manufacturing waste in international oceans across the phases of the macroeconomic business cycle",
+      "When an exporting country sells a product in an overseas market at a price lower than its normal value in its home market or below its cost of production",
+      "Selling defective expired merchandise at weekend flea markets when evaluating social welfare and resource allocation efficiency",
+      "Transporting freight cargo on uncertified maritime ships under competitive market clearing conditions",
+      "A trade dispute between commercial banks over credit card swipe fees across aggregate goods and money market schedules"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: When an exporting country sells a product in an overseas market at a price lower than its normal value in its home market or below its cost of production; WTO permits the importing country to impose 'Anti-Dumping Duties' to protect domestic producers from material injury. Dumping is international price discrimination where goods are exported below home-market prices or production cost. If domestic industry suffers material injury, the importing nation's commerce ministry can investigate and impose compensatory Anti-Dumping Duties (ADD) under WTO agreements."
+  },
+  {
+    "id": 28,
+    "question": "What are 'Countervailing Duties' (CVD) under international trade law?",
+    "options": [
+      "Duties paid to maintain physical customs border checkpoints",
+      "Taxes imposed on international postal delivery mail holding all other exogenous determinants constant (ceteris paribus)",
+      "Penalties charged on shipping vessels arriving ahead of schedule within the national income and product accounting framework",
+      "Specific tariffs imposed by an importing country on imported goods to neutralize or offset trade-distorting production or export subsidies provided by the exporting foreign government to its domestic manufacturers",
+      "Environmental taxes levied on carbon-neutral solar panels in response to shifts in aggregate demand and supply"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Specific tariffs imposed by an importing country on imported goods to neutralize or offset trade-distorting production or export subsidies provided by the exporting foreign government to its domestic manufacturers. Countervailing duties (CVD) counteract foreign government export or production subsidies. When a foreign government subsidizes an industry, enabling it to export at artificially low prices, importing nations impose CVD tariffs equal to the estimated subsidy to level the competitive playing field."
+  },
+  {
+    "id": 29,
+    "question": "What is 'Currency Devaluation' vs 'Currency Depreciation'?",
+    "options": [
+      "Devaluation is a deliberate, official downward adjustment of a currency's value by the government or central bank under a Fixed exchange rate regime; Depreciation is a market-driven decrease in a currency's value under a Floating exchange rate regime",
+      "Devaluation is caused by inflation; Depreciation is caused by interest rates across aggregate goods and money market schedules",
+      "Devaluation applies to paper money; Depreciation applies to metal coins as real output adjusts toward full-employment potential GDP",
+      "Devaluation is illegal under international treaties; Depreciation is mandatory under flexible price and wage adjustment mechanisms",
+      "There is no conceptual difference; both are interchangeable terms across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Devaluation is a deliberate, official downward adjustment of a currency's value by the government or central bank under a Fixed exchange rate regime; Depreciation is a market-driven decrease in a currency's value under a Floating exchange rate regime. The economic outcome (weaker currency) is similar, but the institutional mechanism differs: Devaluation is an administrative, policy decision under a fixed or pegged exchange rate regime. Depreciation occurs continuously via market supply and demand interactions in a flexible, floating exchange rate system."
+  },
+  {
+    "id": 30,
+    "question": "What is 'Currency Appreciation' vs 'Currency Revaluation'?",
+    "options": [
+      "Appreciation applies to domestic savings; Revaluation applies to foreign debt in response to shifts in aggregate demand and supply",
+      "Appreciation occurs on weekends; Revaluation occurs on weekdays within an open-economy balance of payments framework",
+      "Appreciation is an increase in a currency's value determined by market supply and demand in a floating exchange rate system; Revaluation is an official, administrative upward adjustment of the currency's value by the monetary authority in a fixed exchange rate system",
+      "Appreciation is caused by high inflation; Revaluation is caused by low taxes given the prevailing marginal propensity to consume and save",
+      "There is zero economic distinction between the terms in the short-run and long-run macroeconomic equilibrium"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Appreciation is an increase in a currency's value determined by market supply and demand in a floating exchange rate system; Revaluation is an official, administrative upward adjustment of the currency's value by the monetary authority in a fixed exchange rate system. Under flexible exchange rates, when foreign capital flows in or exports boom, the currency strengthens through market forces (Appreciation). Under fixed exchange rates, when the government officially raises the statutory pegged value of the currency, it is termed Revaluation."
+  },
+  {
+    "id": 31,
+    "question": "What is the 'Trade Balance' (Balance of Trade - BOT)?",
+    "options": [
+      "The sum of all international travel and tourism revenues across the phases of the macroeconomic business cycle",
+      "The total value of foreign exchange reserves held in the central bank when evaluating social welfare and resource allocation efficiency",
+      "The net flow of foreign direct investment into real estate under competitive market clearing conditions",
+      "The difference between total government revenue and fiscal expenditure across aggregate goods and money market schedules",
+      "The net difference between the monetary value of a country's visible exports of merchandise goods and its visible imports of merchandise goods"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The net difference between the monetary value of a country's visible exports of merchandise goods and its visible imports of merchandise goods: $\\text{BOT} = \\text{Merchandise Exports} - \\text{Merchandise Imports}$. The Balance of Trade (BOT) is the visible merchandise balance: BOT = Exports of Goods - Imports of Goods. It is a subset of the broader Current Account, which also incorporates invisible services, factor investment income, and secondary transfer remittances."
+  },
+  {
+    "id": 32,
+    "question": "What constitutes 'Invisibles' in the Current Account of India's Balance of Payments?",
+    "options": [
+      "Unreported illegal black money transactions",
+      "Non-merchandise transactions encompassing: (1) Services",
+      "Physical military defense hardware with stealth technology",
+      "Mineral oil resources buried deep beneath the continental shelf",
+      "Cash transactions below the statutory audit threshold"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Non-merchandise transactions encompassing: (1) Services (software, IT services, business consulting, travel, transport); (2) Income (dividends, profit, interest on loans); and (3) Transfers (private remittances sent by Indian diaspora, gifts, grants). Invisibles represent non-tangible current transactions: (1) Services (where India runs a massive surplus, powered by IT and software exports); (2) Primary Income (where India runs a net deficit due to dividend/interest outflows); and (3) Secondary Income (where India leads the world in private remittances)."
+  },
+  {
+    "id": 33,
+    "question": "Why is India's Current Account Deficit (CAD) structurally smaller than its merchandise trade deficit?",
+    "options": [
+      "Because international banks forgive 50% of India's import invoices across aggregate goods and money market schedules",
+      "Because customs authorities exempt crude oil imports from trade records as real output adjusts toward full-employment potential GDP",
+      "Because foreign tourists pay all hotel bills in physical gold bullion under flexible price and wage adjustment mechanisms",
+      "Because India's large merchandise trade deficit is substantially offset by a persistent surplus in Invisibles",
+      "Because India runs a zero merchandise trade deficit across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Because India's large merchandise trade deficit (driven by massive imports of crude oil, electronics, and gold) is substantially offset by a persistent surplus in Invisibles (software export earnings and private inward remittances from the global Indian diaspora). India consistently runs a substantial merchandise trade deficit ($X_{\\text{goods}} < M_{\\text{goods}}$). However, robust software service exports (~USD 150B+ surplus) and world-leading worker remittances (~USD 120B+ inward) provide a powerful cushion in the Invisibles balance, keeping the CAD within sustainable limits (~1.5% to 2% of GDP)."
+  },
+  {
+    "id": 34,
+    "question": "What is an 'External Commercial Borrowing' (ECB) in India's Capital/Financial Account?",
+    "options": [
+      "Commercial loans, debentures, or bank credit raised by eligible resident Indian corporate entities from recognized non-resident foreign lenders, governed by regulatory borrowing limits and end-use restrictions specified by the RBI",
+      "A loan taken by an individual citizen to purchase consumer home electronics in response to shifts in aggregate demand and supply",
+      "Emergency overdraft credit extended by the World Bank to the finance ministry within an open-economy balance of payments framework",
+      "Short-term cash advances borrowed from foreign embassies given the prevailing marginal propensity to consume and save",
+      "Trade credit granted exclusively for military weapons manufacturing"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Commercial loans, debentures, or bank credit raised by eligible resident Indian corporate entities from recognized non-resident foreign lenders, governed by regulatory borrowing limits and end-use restrictions specified by the RBI. ECBs are commercial debt instruments (loans, bonds, trade credits beyond 3 years) raised by Indian corporates from foreign institutional lenders to fund domestic capital expenditure or infrastructure. The RBI regulates ECBs via automatic and approval routes, monitoring minimum maturity and all-in-cost ceilings."
+  },
+  {
+    "id": 35,
+    "question": "What is 'Non-Resident Indian (NRI) Deposits' in the capital account of India's BOP?",
+    "options": [
+      "Cash deposited by tourists in airport currency change booths across the phases of the macroeconomic business cycle",
+      "Sovereign bond loans issued by foreign state governments when evaluating social welfare and resource allocation efficiency",
+      "Foreign currency or rupee bank accounts maintained by persons of Indian origin residing abroad with authorized commercial banks in India (such as FCNR(B), NRE, and NRO accounts)",
+      "Corporate shares purchased on foreign stock exchanges under competitive market clearing conditions",
+      "Unclaimed commercial bank deposits transferred to the central bank across aggregate goods and money market schedules"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Foreign currency or rupee bank accounts maintained by persons of Indian origin residing abroad with authorized commercial banks in India (such as FCNR(C), NRE, and NRO accounts). NRI deposits represent banking capital inflows into India: (1) NRE (Non-Resident External - Rupee, freely repatriable); (2) FCNR(C) (Foreign Currency Non-Resident Bank - denominated in USD/GBP/EUR, exchange risk borne by bank); and (3) NRO (Non-Resident Ordinary - Rupee, non-repatriable current income like rent)."
+  },
+  {
+    "id": 36,
+    "question": "What is a 'Currency Board Arrangement' (CBA) in fixed exchange rate regimes?",
+    "options": [
+      "A wooden bulletin board displaying retail foreign exchange rates in the short-run and long-run macroeconomic equilibrium",
+      "A commercial banking regulatory committee that audits counterfeit notes holding all other exogenous determinants constant (ceteris paribus)",
+      "An international tribunal resolving maritime boundary disputes within the national income and product accounting framework",
+      "A temporary price control imposed on consumer goods in response to shifts in aggregate demand and supply",
+      "An extreme fixed exchange rate system backed by a strict legislative commitment to exchange domestic currency for a specified foreign anchor currency at a fixed rate"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: An extreme fixed exchange rate system backed by a strict legislative commitment to exchange domestic currency for a specified foreign anchor currency at a fixed rate, requiring 100% foreign exchange reserve backing of all domestic currency issued (e.g., Hong Kong). A Currency Board is a statutory monetary authority that issues domestic notes backed 100% by foreign anchor reserves. The central bank forfeits discretionary monetary policy and lender-of-last-resort powers, tying domestic interest rates completely to the anchor country (as Hong Kong does with the US Dollar)."
+  },
+  {
+    "id": 37,
+    "question": "What is 'Dollarization' (or Currency Substitution) in international finance?",
+    "options": [
+      "Printing picture portraits of historical presidents on national currency across aggregate goods and money market schedules",
+      "An economic situation where a country officially abandons its domestic national currency and adopts a foreign currency as its sole legal tender",
+      "A corporate strategy where employees are paid in digital gift cards as real output adjusts toward full-employment potential GDP",
+      "An accounting method used strictly by US multinational companies under flexible price and wage adjustment mechanisms",
+      "An international trade sanction imposed by the United Nations across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: An economic situation where a country officially abandons its domestic national currency and adopts a foreign currency (most commonly the US Dollar) as its sole legal tender (e.g., Ecuador, Panama, El Salvador). Official dollarization occurs when a nation facing hyperinflation, currency collapse, or institutional breakdown completely abolishes its national currency and adopts the US Dollar (e.g. Ecuador in 2000, Zimbabwe in 2009). It eliminates domestic exchange rate crises but forfeits independent monetary policy and seigniorage."
+  },
+  {
+    "id": 38,
+    "question": "What is 'Dutch Disease' in open-economy international economics?",
+    "options": [
+      "A contagious agricultural fungal plant blight that destroys flower bulb crops in response to shifts in aggregate demand and supply",
+      "A banking crisis caused by commercial real estate loan defaults in Europe within an open-economy balance of payments framework",
+      "A fiscal policy characterized by running perpetual zero-deficit budgets given the prevailing marginal propensity to consume and save",
+      "The economic paradox where a sudden boom in natural resource exports causes a massive influx of foreign currency, sharply appreciating the national real exchange rate",
+      "A consumer boycott of foreign luxury consumer goods in the short-run and long-run macroeconomic equilibrium"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The economic paradox where a sudden boom in natural resource exports (e.g., oil or natural gas discoveries) causes a massive influx of foreign currency, sharply appreciating the national real exchange rate, which makes non-resource manufacturing and agricultural exports uncompetitive and shrinks the industrial base. Coined by The Economist in 1977 after the Netherlands discovered massive North Sea natural gas fields, Dutch Disease describes how resource export booms strengthen the domestic currency, making traditional domestic manufacturing and agriculture uncompetitive in global trade and de-industrializing the economy."
+  },
+  {
+    "id": 39,
+    "question": "What is 'Sovereign Debt Default' and what is a 'Paris Club' debt restructuring?",
+    "options": [
+      "A sovereign government's failure or refusal to pay scheduled interest or principal on its sovereign debt",
+      "A corporate bank loan write-off handled by domestic bankruptcy tribunals across the phases of the macroeconomic business cycle",
+      "A luxury vacation resort in France hosting international bankers when evaluating social welfare and resource allocation efficiency",
+      "A treaty establishing uniform corporate tax rates across Europe under competitive market clearing conditions",
+      "A regulatory body that audits commercial airline fuel contracts across aggregate goods and money market schedules"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A sovereign government's failure or refusal to pay scheduled interest or principal on its sovereign debt; the 'Paris Club' is an informal group of official bilateral sovereign creditor governments that negotiates coordinated debt relief and restructuring for debtor nations facing payment crises. When sovereign nations cannot service external debt (e.g. Sri Lanka, Argentina), they enter default. The Paris Club (established in 1956) is an informal cartel of major sovereign bilateral creditors (US, UK, Japan, Germany) that coordinates sustainable debt workouts in tandem with IMF structural adjustment programs."
+  },
+  {
+    "id": 40,
+    "question": "What is the 'London Interbank Offered Rate' (LIBOR) transition and which alternative benchmark rate has replaced it in global US Dollar financing?",
+    "options": [
+      "LIBOR was replaced by the Indian Mumbai Interbank Offer Rate (MIBOR) in the short-run and long-run macroeconomic equilibrium",
+      "LIBOR was replaced by the central bank discount window lending rate holding all other exogenous determinants constant (ceteris paribus)",
+      "LIBOR was phased out globally and replaced in US Dollar debt markets by the 'Secured Overnight Financing Rate' (SOFR), a broad measure of the cost of borrowing cash overnight collateralized by US Treasury securities",
+      "LIBOR was replaced by the physical price of Brent crude oil within the national income and product accounting framework",
+      "LIBOR continues to be the permanent mandatory benchmark for all loans in response to shifts in aggregate demand and supply"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: LIBOR (fraught with manipulation scandals) was phased out globally and replaced in US Dollar debt markets by the 'Secured Overnight Financing Rate' (SOFR), a broad measure of the cost of borrowing cash overnight collateralized by US Treasury securities. Global regulators mandated the cessation of LIBOR by June 2023. In USD markets, LIBOR was replaced by SOFR (Secured Overnight Financing Rate), an objective, transaction-based rate published by the Federal Reserve Bank of New York, rooted in the trillion-dollar overnight repo market."
+  },
+  {
+    "id": 41,
+    "question": "What is an 'Export Credit Guarantee' (such as that provided by ECGC Limited in India)?",
+    "options": [
+      "A guarantee that goods shipped overseas will arrive without scratches across aggregate goods and money market schedules",
+      "A government subsidy paying 100% of exporter manufacturing costs as real output adjusts toward full-employment potential GDP",
+      "A corporate patent license issued to international shipping ports under flexible price and wage adjustment mechanisms",
+      "A travel insurance policy provided to corporate trade delegations across the phases of the macroeconomic business cycle",
+      "Insurance and credit risk guarantees provided to domestic exporters and commercial banks protecting them against the commercial and political risks of non-payment by foreign buyers"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Insurance and credit risk guarantees provided to domestic exporters and commercial banks protecting them against the commercial and political risks of non-payment by foreign buyers (e.g. buyer insolvency, foreign war, or sudden exchange transfer restrictions). ECGC Limited (Export Credit Guarantee Corporation of India, a Government of India enterprise under the Ministry of Commerce) provides export credit insurance against commercial risks (buyer insolvency, default) and political risks (moratorium on remittances, war, import license cancellation), safeguarding Indian exporters."
+  },
+  {
+    "id": 42,
+    "question": "What is 'Special Economic Zone' (SEZ) in foreign trade infrastructure (governed by the SEZ Act, 2005 in India)?",
+    "options": [
+      "An agricultural farming collective subsidized by state governments in response to shifts in aggregate demand and supply",
+      "A designated geographic territory that is legally treated as a foreign territory for trade operations, duties, and tariffs, offering tax exemptions, simplified single-window regulatory clearances, and duty-free import of capital goods to promote export-led manufacturing",
+      "A residential township built exclusively for government civil servants within an open-economy balance of payments framework",
+      "A wildlife sanctuary protected by environmental forest rangers given the prevailing marginal propensity to consume and save",
+      "A retail shopping mall operating inside international airport terminals"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A designated geographic territory that is legally treated as a foreign territory for trade operations, duties, and tariffs, offering tax exemptions, simplified single-window regulatory clearances, and duty-free import of capital goods to promote export-led manufacturing. Under the SEZ Act 2005, an SEZ is deemed foreign territory for trade operations. Units within SEZs enjoy duty-free procurement of capital goods/raw materials, corporate tax deductions (Section 10AA), 100% FDI under automatic route, and exemption from central and state indirect taxes on exports."
+  },
+  {
+    "id": 43,
+    "question": "What is the 'Advance Authorization Scheme' in India's Foreign Trade Policy (FTP)?",
+    "options": [
+      "Advance approval required to travel overseas on vacation across the phases of the macroeconomic business cycle",
+      "An advance payment of corporate income tax to the central treasury when evaluating social welfare and resource allocation efficiency",
+      "A cash grant paid to prospective exporters before starting manufacturing under competitive market clearing conditions",
+      "A duty-exemption scheme that allows duty-free import of inputs, raw materials, and packaging physically incorporated into export products",
+      "A banking license issued to international corporate credit card processors across aggregate goods and money market schedules"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A duty-exemption scheme that allows duty-free import of inputs, raw materials, and packaging physically incorporated into export products, subject to minimum value addition requirements and fulfillment of an export obligation. Administered by the Directorate General of Foreign Trade (DGFT), the Advance Authorization Scheme allows domestic manufacturers to import inputs physically incorporated into an export product without paying basic customs duty, provided they achieve a minimum of 15% value addition."
+  },
+  {
+    "id": 44,
+    "question": "What does 'RoDTEP' stand for in India's export promotion policy architecture?",
+    "options": [
+      "Remission of Duties and Taxes on Exported Products",
+      "Regulation of Digital Trade and Electronic Payments",
+      "Registration of Domestic Telecommunications and Energy Producers",
+      "Reserve of Deposits, Taxes, and Export Penalties",
+      "Reimbursement of Delivery, Transport, and Environmental Pollution"
+    ],
+    "answer": 0,
+    "explanation": "RoDTEP (Remission of Duties and Taxes on Exported Products) replaced the WTO-inconsistent MEIS scheme in 2021. It refunds un-rebated embedded central, state, and local duties/taxes (electricity duty, mandi tax, fuel VAT) incurred in the manufacturing process, making exports truly zero-rated globally."
+  },
+  {
+    "id": 45,
+    "question": "What is the 'Letter of Credit' (LC) in international trade financing?",
+    "options": [
+      "A polite greeting letter sent from a buyer to a seller across aggregate goods and money market schedules",
+      "A legal court subpoena compelling international witness testimony as real output adjusts toward full-employment potential GDP",
+      "A binding financial commitment issued by the buyer's issuing bank guaranteeing that payment will be made to the seller (beneficiary) upon presentation of strictly compliant shipping documents within the stipulated timeframe",
+      "A certificate of origin issued by an international chamber of commerce under flexible price and wage adjustment mechanisms",
+      "A credit score report published by financial rating agencies across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A binding financial commitment issued by the buyer's issuing bank guaranteeing that payment will be made to the seller (beneficiary) upon presentation of strictly compliant shipping documents (Bill of Lading, Commercial Invoice) within the stipulated timeframe. A Letter of Credit (LC) is a foundational trade finance instrument governed by UCP 600 rules. The issuing bank substitutes its creditworthiness for that of the foreign buyer, mitigating exporter non-payment risk and buyer non-performance risk in cross-border commerce."
+  },
+  {
+    "id": 46,
+    "question": "What is 'Factoring' vs 'Forfaiting' in cross-border trade finance?",
+    "options": [
+      "Factoring is conducted on physical paper; Forfaiting is conducted digitally",
+      "Factoring applies only to agricultural crops; Forfaiting applies to gold mining",
+      "Factoring is handled by central banks; Forfaiting is handled by local courts",
+      "There is no difference; both are interchangeable financial terms",
+      "Factoring involves purchasing short-term trade receivables with or without recourse"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Factoring involves purchasing short-term trade receivables (typically 30-180 days) with or without recourse, whereas Forfaiting involves purchasing medium- to long-term export receivables (up to 5-7 years) guaranteed by a bank on a strictly 100% NON-RECOURSE basis without recourse to the exporter. Factoring handles short-term commercial receivables (can be with recourse). Forfaiting is tailored for capital goods exports involving medium-to-long term promissory notes or bills of exchange, where the forfaiter discounts the debt instruments on a 100% without-recourse basis to the exporter."
+  },
+  {
+    "id": 47,
+    "question": "What is 'Incoterms' (International Commercial Terms) published by the International Chamber of Commerce (ICC)?",
+    "options": [
+      "A glossary of foreign vocabulary words used in diplomatic embassies across the phases of the macroeconomic business cycle",
+      "A set of pre-defined, globally standardized three-letter trade terms that clearly allocate the costs, risks, and transport responsibilities between buyer and seller in international commercial sales contracts",
+      "A schedule of international customs tariffs approved by the WTO when evaluating social welfare and resource allocation efficiency",
+      "A code of ethics for multinational corporate executives under competitive market clearing conditions",
+      "A legal framework governing international airline pilot licenses across aggregate goods and money market schedules"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A set of pre-defined, globally standardized three-letter trade terms (such as FOB, CIF, EXW, DDP) that clearly allocate the costs, risks, and transport responsibilities between buyer and seller in international commercial sales contracts. Incoterms (latest Incoterms 2020) define the precise point of risk transfer and expense allocation: EXW (Ex Works - minimum seller obligation), FOB (Free on Board - seller delivers past ship's rail), CIF (Cost, Insurance & Freight), and DDP (Delivered Duty Paid - maximum seller obligation)."
+  },
+  {
+    "id": 48,
+    "question": "In Incoterms 2020, what does 'CIF' (Cost, Insurance, and Freight) require of the seller?",
+    "options": [
+      "The seller only makes goods available at their own factory door in the short-run and long-run macroeconomic equilibrium",
+      "The seller must pay all import customs clearance duties in the buyer's country holding all other exogenous determinants constant (ceteris paribus)",
+      "The seller assumes 100% risk until goods are unloaded at the buyer's private home within the national income and product accounting framework",
+      "The seller must pay the costs and freight necessary to bring the goods to the named port of destination, and procure minimum marine cargo insurance covering the buyer's risk of loss during carriage",
+      "The seller delivers goods via air freight exclusively in response to shifts in aggregate demand and supply"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The seller must pay the costs and freight necessary to bring the goods to the named port of destination, and procure minimum marine cargo insurance covering the buyer's risk of loss during carriage, while the risk transfers to the buyer once goods are on board the vessel. Under CIF (Cost, Insurance and Freight), the seller pays freight and procures maritime cargo insurance to the destination port. However, risk of damage or loss passes from seller to buyer the moment the goods are loaded on board the vessel at the port of origin."
+  },
+  {
+    "id": 49,
+    "question": "What is the 'Current Account Deficit' (CAD) sustainability benchmark commonly monitored by the Reserve Bank of India and international credit rating agencies?",
+    "options": [
+      "A CAD contained within approximately 2.5% to 3.0% of GDP",
+      "A CAD equal to 20% of GDP",
+      "A CAD of exactly zero in every quarter",
+      "A CAD that exceeds national foreign exchange reserves by 500%",
+      "There is no sustainability limit for external deficits"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A CAD contained within approximately 2.5% to 3.0% of GDP, which can be safely financed through stable, non-debt-creating capital flows (like FDI) without triggering external debt distress or sharp currency depreciation. Historical empirical experience (including the 1991 BoP crisis and 2013 'taper tantrum') shows that for an emerging economy like India, a CAD exceeding 3% of GDP strains external sustainability and heightens currency vulnerability if global capital flows reverse."
+  },
+  {
+    "id": 50,
+    "question": "What is 'Currency Internationalization' and what are the key milestones in the internationalization of the Indian Rupee (INR)?",
+    "options": [
+      "Replacing all domestic banknotes with foreign currency notes in response to shifts in aggregate demand and supply",
+      "Permitting citizens to issue their own private currency promissory notes within an open-economy balance of payments framework",
+      "The cross-border use of a national currency outside its issuing country as a unit of account, medium of exchange, and store of value in international transactions",
+      "Fixing the domestic exchange rate permanently to the Swiss Franc given the prevailing marginal propensity to consume and save",
+      "Banning all foreign banks from operating inside the domestic territory in the short-run and long-run macroeconomic equilibrium"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The cross-border use of a national currency outside its issuing country as a unit of account, medium of exchange, and store of value in international transactions; milestones for INR include Special Rupee Vostro Accounts (SRVA) for trade settlement, inclusion in global bond indices, and local currency bilateral settlements. Rupee internationalization involves making INR an acceptable vehicle for cross-border invoicing, settlement, and reserve holdings. The RBI has permitted invoicing in INR via Special Rupee Vostro Accounts (SRVA), signed bilateral local currency settlement pacts (e.g. UAE Dirham), and facilitated offshore Rupee derivatives."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Economics Mock 4",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Economics Mock 4";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

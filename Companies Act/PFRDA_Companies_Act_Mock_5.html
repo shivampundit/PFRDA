@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Companies Act 2013 Mock Test 5 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject G: Companies Act</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Companies_Act_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Companies_Act_Master_Revision_and_Study_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Companies_Act_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Companies_Act_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Companies_Act_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Companies_Act_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Companies_Act_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &#183; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &#183; Paper 2 &#183; Companies Act Mock 5</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Companies Act, 2013 - Mock 5</h1>
+    <p class="start-subheading">Full 50 Questions &#183; Section-Based Precision &#183; PFRDA Grade A Level &#183; Specialized Coaching</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Chapter III (Prospectus &amp; Allotment):</b> Sections 23&#8211;42, Public Offer, Private Placement (Sec 42), Shelf &amp; Red Herring Prospectuses, Criminal &amp; Civil Liabilities (Sec 34&#8211;36), PAS Rules.</li>
+                <li><b>Chapter IV (Share Capital &amp; Debentures):</b> Sections 43&#8211;72, Equity &amp; Preference Shares, DVRs, Sweat Equity (Sec 54), ESOP (Sec 62), Bonus Shares (Sec 63), Buy-back of Securities (Sec 68&#8211;70), Debentures &amp; DRR (Sec 71).</li>
+                <li><b>Chapter VIII (Declaration &amp; Payment of Dividend):</b> Sections 123&#8211;127, Sources of Dividend, Rule 3 Past Reserves, Interim Dividend, Unpaid Dividend Account (UDA Sec 124), IEPF (Sec 125), Penalties (Sec 127).</li>
+                <li><b>Chapter X (Audit and Auditors):</b> Sections 139&#8211;148, Appointment &amp; Rotation, Resignation &amp; Removal (Sec 140), Qualifications &amp; Disqualifications (Sec 141), Prohibited Services (Sec 144), Fraud Reporting (Sec 143(12)), Cost Audit (Sec 148).</li>
+                <li><b>Chapter XI (Appointment &amp; Qualifications of Directors):</b> Sections 149&#8211;172, Board Composition, Resident &amp; Women Directors, Independent Directors (IDs), Small Shareholders Director (SSD), DIN, Disqualifications (Sec 164), Vacation &amp; Removal (Sec 167&#8211;169).</li>
+                <li><b>Chapter XII (Meetings of Board &amp; its Powers):</b> Sections 173&#8211;195, Board Meetings &amp; Quorum (Sec 173&#8211;174), Audit/NRC/SRC Committees (Sec 177&#8211;178), Board Powers (Sec 179&#8211;180), Political/Charity Contributions (Sec 181&#8211;182), Loans to Directors (Sec 185), Inter-corporate Loans (Sec 186), Related Party Transactions (Sec 188).</li>
+                <li><b>Chapter XXVII (NCLT &amp; NCLAT):</b> Sections 407&#8211;434, Constitution, Qualifications of President/Chairperson/Members, Benches, Appeals to NCLAT (Sec 421) and Supreme Court (Sec 423), Timelines &amp; Contempt.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "Under Section 173(1) of the Companies Act, 2013, what is the statutory requirement regarding the FIRST Board Meeting and subsequent frequency of Board Meetings?",
+    "options": [
+      "First Board meeting within 30 days of the date of incorporation; and thereafter at least four meetings of the Board of Directors every year, with not more than 120 days intervening between two consecutive meetings",
+      "First meeting within 60 days of incorporation; at least 2 meetings every year within thirty days from the date of the general meeting",
+      "First meeting within 15 days; at least 12 meetings every year under the applicable provisions of the Companies Act, 2013",
+      "First meeting within 90 days; at least 1 meeting every quarter as disclosed in the Board's Report and annual return",
+      "Board meetings are optional if circular resolutions are passed upon verification of statutory registers at the registered office"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: First Board meeting within 30 days of the date of incorporation; and thereafter at least four meetings of the Board of Directors every year, with not more than 120 days intervening between two consecutive meetings. Section 173(1) mandates: 'Every company shall hold the first meeting of the Board of Directors within thirty days of the date of its incorporation and thereafter hold a minimum number of four meetings of its Board of Directors every year in such a manner that not more than one hundred and twenty days shall intervene between two consecutive meetings of the Board.'"
+  },
+  {
+    "id": 2,
+    "question": "Under Section 173(5), what is the relaxed Board Meeting requirement for a One Person Company (OPC), Small Company, and Dormant Company?",
+    "options": [
+      "They are completely exempt from holding any board meetings with the prior sanction of the National Company Law Tribunal",
+      "They must hold a meeting every month without fail in compliance with corporate governance norms",
+      "A One Person Company, small company, and dormant company shall be deemed to have complied with Section 173 if at least one meeting of the Board of Directors has been held in each half of a calendar year and the gap between the two meetings is not less than ninety days",
+      "They must hold a meeting only when audited by the CAG within the statutory timeline prescribed under the Act",
+      "They hold meetings once every five years pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A One Person Company, small company, and dormant company shall be deemed to have complied with Section 173 if at least one meeting of the Board of Directors has been held in each half of a calendar year and the gap between the two meetings is not less than ninety days. Section 173(5) provides that an OPC (having more than one director), small company, and dormant company are deemed compliant if at least one meeting of the Board is held in each half of a calendar year and the gap between the two meetings is not less than ninety days."
+  },
+  {
+    "id": 3,
+    "question": "What is the minimum notice period for calling a meeting of the Board of Directors under Section 173(3) of the Companies Act, 2013?",
+    "options": [
+      "At least 24 hours notice upon verification of statutory registers at the registered office",
+      "At least 14 days notice subject to the conditions notified by the Ministry of Corporate Affairs",
+      "At least 21 days notice subject to prior filing with the Registrar of Companies",
+      "At least 30 days notice within thirty days from the date of the general meeting",
+      "Not less than seven days notice in writing to every director at his address registered with the company"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Not less than seven days notice in writing to every director at his address registered with the company (by hand delivery, post, or electronic means). Section 173(3) provides: 'A meeting of the Board shall be called by giving not less than seven days' notice in writing to every director at his address registered with the company and such notice shall be sent by hand delivery or by post or by electronic means.' Shorter notice is allowed if at least one Independent Director is present."
+  },
+  {
+    "id": 4,
+    "question": "Under Section 174(1) of the Companies Act, 2013, what constitutes the statutory 'Quorum' for a meeting of the Board of Directors?",
+    "options": [
+      "At least 50% of the total number of directors pursuant to a resolution passed by the Board of Directors",
+      "One-third of the total strength of the Board of Directors or two directors, whichever is higher, and the participation of directors by video conferencing or other audio visual means shall also be counted for quorum",
+      "All directors must be physically present in accordance with the rules prescribed by the Central Government",
+      "At least 5 directors",
+      "Quorum is determined by the company's statutory auditor with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: One-third of the total strength of the Board of Directors or two directors, whichever is higher, and the participation of directors by video conferencing or other audio visual means shall also be counted for quorum. Section 174(1) provides: 'The quorum for a meeting of the Board of Directors of a company shall be one-third of its total strength or two directors, whichever is higher, and the participation of the directors by video conferencing or by other audio visual means shall also be counted for the purposes of quorum.' Any fraction is rounded off to one."
+  },
+  {
+    "id": 5,
+    "question": "Under Section 174(3), what happens if the number of 'Interested Directors' exceeds or equals two-thirds of the total strength of the Board of Directors?",
+    "options": [
+      "The board meeting is cancelled and referred to arbitration within thirty days from the date of the general meeting",
+      "The interested directors are permitted to vote as an exception under the applicable provisions of the Companies Act, 2013",
+      "The meeting must be adjourned for 6 months as disclosed in the Board's Report and annual return",
+      "The number of directors who are not interested and present at the meeting, being not less than two, shall be the quorum during such time",
+      "The matter must be decided by a court order upon verification of statutory registers at the registered office"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The number of directors who are not interested and present at the meeting, being not less than two, shall be the quorum during such time. Section 174(3) provides: 'Where at any time the number of interested directors exceeds or equals two-thirds of the total strength of the Board of Directors, the number of directors who are not interested directors and present at the meeting, being not less than two, shall be the quorum during such time.' Interested directors are excluded."
+  },
+  {
+    "id": 6,
+    "question": "Under Section 175(1) of the Companies Act, 2013, when is a 'Resolution by Circulation' deemed to have been duly passed by the Board of Directors?",
+    "options": [
+      "When the resolution has been circulated in draft, together with necessary papers, to all the directors, and has been approved by a majority of the directors who are entitled to vote on the resolution",
+      "When signed by the Chairman alone with the prior sanction of the National Company Law Tribunal",
+      "When approved by 100% unanimous consent of all directors in compliance with corporate governance norms",
+      "Resolutions by circulation are illegal under the 2013 Act within the statutory timeline prescribed under the Act",
+      "When ratified by the Registrar of Companies pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: When the resolution has been circulated in draft, together with necessary papers, to all the directors, and has been approved by a majority of the directors who are entitled to vote on the resolution. Section 175(1) provides that a resolution by circulation is passed if circulated in draft with papers to all directors and approved by a majority of directors entitled to vote. Proviso: If not less than one-third of total directors require that the resolution must be decided at a meeting, the chairperson shall put the resolution to be decided at a Board meeting."
+  },
+  {
+    "id": 7,
+    "question": "Under Section 177(1) read with Rule 6, which companies are statutorily required to constitute an 'Audit Committee'?",
+    "options": [
+      "Only private companies with foreign equity participation upon verification of statutory registers at the registered office",
+      "All companies having more than 500 employees subject to the conditions notified by the Ministry of Corporate Affairs",
+      "Every listed public company; and all unlisted public companies having paid-up capital of Rs 10 crore or more; or turnover of Rs 100 crore or more; or aggregate outstanding loans, debentures, and deposits exceeding Rs 50 crore",
+      "All companies incorporated after 2013 subject to prior filing with the Registrar of Companies",
+      "Audit Committees are purely voluntary within thirty days from the date of the general meeting"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Every listed public company; and all unlisted public companies having paid-up capital of Rs 10 crore or more; or turnover of Rs 100 crore or more; or aggregate outstanding loans, debentures, and deposits exceeding Rs 50 crore. Section 177(1) read with Rule 6 of the Meetings of Board Rules mandates an Audit Committee for: (a) all listed public companies; (b) unlisted public companies with paid-up capital $\\ge$ Rs 10 crore; (c) unlisted public companies with turnover $\\ge$ Rs 100 crore; (d) unlisted public companies with borrowings/deposits $> $ Rs 50 crore."
+  },
+  {
+    "id": 8,
+    "question": "What is the statutory composition of an 'Audit Committee' under Section 177(2) of the Companies Act, 2013?",
+    "options": [
+      "Minimum 2 directors, all executive directors pursuant to a resolution passed by the Board of Directors",
+      "Minimum 5 directors appointed by the statutory auditor in accordance with the rules prescribed by the Central Government",
+      "Minimum 1 director and 1 chartered accountant subject to approval by a special resolution of shareholders",
+      "All directors on the company's board must be members with the prior sanction of the National Company Law Tribunal",
+      "Minimum three directors with independent directors forming a majority, and the majority of members"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Minimum three directors with independent directors forming a majority, and the majority of members including its Chairperson shall be persons with ability to read and understand the financial statement. Section 177(2) provides: 'The Audit Committee shall consist of a minimum of three directors with independent directors forming a majority: Provided that majority of members of Audit Committee including its Chairperson shall be persons with ability to read and understand, the financial statement.' (For listed companies, SEBI LODR requires 2/3rds independent directors)."
+  },
+  {
+    "id": 9,
+    "question": "What is the 'Vigil Mechanism' (Whistle-Blower Mechanism) mandated under Section 177(9) of the Companies Act, 2013?",
+    "options": [
+      "A biometric security system installed at warehouse entry gates within thirty days from the date of the general meeting",
+      "A statutory mechanism that every listed company and prescribed class of companies must establish for directors and employees to report genuine concerns or grievances",
+      "A corporate espionage team monitoring competitor marketing campaigns under the applicable provisions of the Companies Act, 2013",
+      "An armed police guard posted at corporate registered offices as disclosed in the Board's Report and annual return",
+      "A mechanism to monitor employee internet browsing history upon verification of statutory registers at the registered office"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A statutory mechanism that every listed company and prescribed class of companies must establish for directors and employees to report genuine concerns or grievances, providing adequate safeguards against victimisation and direct access to the chairperson of the Audit Committee in appropriate or exceptional cases. Section 177(9) and (10) mandate that every listed company, companies accepting deposits from the public, and companies borrowing $> $ Rs 50 crore from banks/FIs shall establish a vigil mechanism for directors and employees to report genuine concerns with safeguards against victimization and direct access to the Audit Committee Chairman."
+  },
+  {
+    "id": 10,
+    "question": "Under Section 178(1), what is the statutory composition of the 'Nomination and Remuneration Committee' (NRC)?",
+    "options": [
+      "Minimum two executive directors and the CEO with the prior sanction of the National Company Law Tribunal",
+      "Minimum five directors with zero independent directors in compliance with corporate governance norms",
+      "All female directors on the board within the statutory timeline prescribed under the Act",
+      "Minimum three non-executive directors out of which not less than one-half shall be independent directors, and the chairperson of the company may be appointed as a member but shall not chair such Committee",
+      "The committee is chaired by the statutory auditor pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Minimum three non-executive directors out of which not less than one-half shall be independent directors, and the chairperson of the company may be appointed as a member but shall not chair such Committee. Section 178(1) requires the Board of every listed public company and unlisted public companies meeting Audit Committee thresholds to constitute an NRC consisting of three or more non-executive directors out of which not less than one-half shall be independent directors. Proviso: The Chairperson of the company may be a member, but cannot chair the NRC."
+  },
+  {
+    "id": 11,
+    "question": "Under Section 178(5), which companies are statutorily required to constitute a 'Stakeholders Relationship Committee' (SRC)?",
+    "options": [
+      "Every company having more than one thousand shareholders, debenture-holders, deposit-holders, and any other security holders at any time during a financial year",
+      "All companies with paid-up capital of Rs 100 crore upon verification of statutory registers at the registered office",
+      "All companies operating in the retail e-commerce sector subject to the conditions notified by the Ministry of Corporate Affairs",
+      "Only companies facing insolvency proceedings subject to prior filing with the Registrar of Companies",
+      "Stakeholders Relationship Committees are voluntary for all companies within thirty days from the date of the general meeting"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Every company having more than one thousand shareholders, debenture-holders, deposit-holders, and any other security holders at any time during a financial year. Section 178(5) mandates: 'The Board of Directors of a company which consists of more than one thousand shareholders, debenture-holders, deposit-holders and any other security holders at any time during a financial year shall constitute a Stakeholders Relationship Committee consisting of a chairperson who shall be a non-executive director and such other members as may be decided by the Board.'"
+  },
+  {
+    "id": 12,
+    "question": "Under Section 179(3) of the Companies Act, 2013, which of the following powers of the Board can be exercised ONLY by means of resolutions passed at meetings of the Board (cannot be passed by circulation)?",
+    "options": [
+      "Purchasing office stationery supplies",
+      "Approving travel expense vouchers of junior staff in accordance with the rules prescribed by the Central Government",
+      "To make calls on shareholders; to authorize buy-back under Section 68; to issue securities",
+      "Hiring factory floor cleaning workers subject to approval by a special resolution of shareholders",
+      "Selecting colors for corporate marketing brochures with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: To make calls on shareholders; to authorize buy-back under Section 68; to issue securities including debentures; to borrow monies; to invest funds of the company; to grant loans or give guarantees; to approve financial statements and Board's report; and to diversify the business. Section 179(3) read with Rule 8 lists critical corporate powers that can only be exercised at a formal Board Meeting (not by circulation): make calls, authorize buy-back up to 10%, issue securities/debentures, borrow monies, invest funds, grant loans/guarantees, approve financial statements, diversify business, approve amalgamations/mergers."
+  },
+  {
+    "id": 13,
+    "question": "Under Section 180(1)(a) of the Companies Act, 2013, what approval is mandatory for the Board to sell, lease, or dispose of the whole or substantially the whole of the 'undertaking' of a company?",
+    "options": [
+      "An Ordinary Resolution passed in general meeting",
+      "A Board resolution passed with 100% attendance",
+      "Sanction of the Ministry of Commerce and Industry",
+      "No approval is needed; the board has absolute power to sell assets",
+      "A Special Resolution passed by the company in general meeting"
+    ],
+    "answer": 4,
+    "explanation": "Section 180(1)(a) mandates that the Board can sell, lease, or dispose of the whole or substantially the whole of an undertaking ONLY with the consent of the company by a Special Resolution. An 'undertaking' means an enterprise in which company's investment exceeds 20% of net worth, or which generates 20% of total income."
+  },
+  {
+    "id": 14,
+    "question": "What is the borrowing limit under Section 180(1)(c) beyond which the Board of Directors CANNOT borrow money without obtaining approval through a SPECIAL RESOLUTION?",
+    "options": [
+      "When borrowings exceed 10% of annual turnover with the prior sanction of the National Company Law Tribunal",
+      "When the money to be borrowed, together with money already borrowed, exceeds the aggregate of its paid-up share capital, free reserves, and securities premium",
+      "When borrowings exceed Rs 100 crore in aggregate",
+      "When borrowings exceed twice the market capitalization within the statutory timeline prescribed under the Act",
+      "There is no borrowing ceiling under Section 180 pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: When the money to be borrowed, together with money already borrowed, exceeds the aggregate of its paid-up share capital, free reserves, and securities premium (temporary loans obtained from the company's bankers in the ordinary course of business excluded). Section 180(1)(c) provides that the Board shall not borrow money if the money to be borrowed, together with money already borrowed (apart from temporary loans obtained from bankers in ordinary course of business), exceeds the aggregate of its paid-up share capital, free reserves, and securities premium, unless approved by Special Resolution."
+  },
+  {
+    "id": 15,
+    "question": "Under Section 181 of the Companies Act, 2013, what is the ceiling up to which the Board of Directors can contribute to bona fide charitable and other funds without prior general meeting approval?",
+    "options": [
+      "Up to 10% of annual gross turnover upon verification of statutory registers at the registered office",
+      "Up to Rs 1 crore in a financial year subject to the conditions notified by the Ministry of Corporate Affairs",
+      "Up to 2% of corporate net worth subject to prior filing with the Registrar of Companies",
+      "Up to five per cent (5%) of its average net profits for the three immediately preceding financial years, beyond which prior permission of the company in general meeting is required",
+      "Board cannot make any charitable contributions without prior special resolution within thirty days from the date of the general meeting"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Up to five per cent (5%) of its average net profits for the three immediately preceding financial years, beyond which prior permission of the company in general meeting is required. Section 181 permits the Board to contribute to bona fide charitable and other funds up to 5% of its average net profits for the three immediately preceding financial years. Prior permission of the company in general meeting (ordinary resolution) is required for any contribution exceeding this 5% limit."
+  },
+  {
+    "id": 16,
+    "question": "Under Section 182(1) of the Companies Act, 2013, which companies are completely PROHIBITED from contributing any amount to any political party?",
+    "options": [
+      "A Government company, and any company which has been in existence for less than three financial years",
+      "All listed public companies on the stock exchange pursuant to a resolution passed by the Board of Directors",
+      "All private limited companies with paid-up capital of Rs 10 crore in accordance with the rules prescribed by the Central Government",
+      "All manufacturing companies operating in rural areas subject to approval by a special resolution of shareholders",
+      "Every company registered under the Companies Act without exception"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A Government company, and any company which has been in existence for less than three financial years. Section 182(1) explicitly bars: (a) a Government company; and (b) a company which has been in existence for less than three financial years, from contributing any amount, directly or indirectly, to any political party. Other companies can contribute if approved by a Board Resolution via banking channels."
+  },
+  {
+    "id": 17,
+    "question": "What is the statutory mode of payment mandated under Section 182(3A) for political contributions?",
+    "options": [
+      "In physical cash notes deposited at the political party's head office within thirty days from the date of the general meeting",
+      "By barter exchange of corporate goods and inventory under the applicable provisions of the Companies Act, 2013",
+      "Only by an account payee cheque drawn on a bank, or an account payee bank draft, or by using an electronic clearing system through a bank account, or through any other instrument enabled by law",
+      "Through personal cash loans given to election candidates as disclosed in the Board's Report and annual return",
+      "By transferring foreign sovereign debt securities upon verification of statutory registers at the registered office"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Only by an account payee cheque drawn on a bank, or an account payee bank draft, or by using an electronic clearing system through a bank account, or through any other instrument enabled by law (such as electoral bonds prior to Supreme Court ruling). Section 182(3A) mandates that no political contribution shall be made except by an account payee cheque drawn on a bank or an account payee bank draft or by use of electronic clearing system through a bank account. Cash contributions are strictly illegal."
+  },
+  {
+    "id": 18,
+    "question": "Under Section 184(1) of the Companies Act, 2013, when and how must every director disclose their interest in other entities?",
+    "options": [
+      "Verbally at the company's annual general meeting with the prior sanction of the National Company Law Tribunal",
+      "Annually in print newspapers within 30 days of the fiscal year-end in compliance with corporate governance norms",
+      "Only when requested by the income tax assessing officer within the statutory timeline prescribed under the Act",
+      "Disclosure of interest is purely voluntary pursuant to a resolution passed by the Board of Directors",
+      "In writing in Form MBP-1 at the first meeting of the Board in which he participates as a director, and thereafter at the first meeting of the Board in every financial year or whenever there is any change in the disclosures already made"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: In writing in Form MBP-1 at the first meeting of the Board in which he participates as a director, and thereafter at the first meeting of the Board in every financial year or whenever there is any change in the disclosures already made. Section 184(1) read with Rule 9 requires every director to disclose their concern or interest in any company, body corporate, firm or association (including shareholding) by giving a notice in writing in Form MBP-1 at the first board meeting they participate in, at the first board meeting of every FY, and upon any subsequent change."
+  },
+  {
+    "id": 19,
+    "question": "What is the consequence under Section 184(2) when a contract or arrangement is entered into by a company in which a director is interested?",
+    "options": [
+      "The director must cast their vote in favor of the contract upon verification of statutory registers at the registered office",
+      "The interested director shall disclose the nature of his concern or interest at the meeting of the Board in which the contract is discussed, and shall NOT participate in such meeting or vote on such contract",
+      "The contract is automatically void ab initio under all circumstances subject to the conditions notified by the Ministry of Corporate Affairs",
+      "The director is permanently disqualified from directorship subject to prior filing with the Registrar of Companies",
+      "The company must file a lawsuit against the director within 7 days"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The interested director shall disclose the nature of his concern or interest at the meeting of the Board in which the contract is discussed, and shall NOT participate in such meeting or vote on such contract. Section 184(2) provides that an interested director must disclose their interest at the board meeting discussing the contract and shall not participate or vote in that meeting. If the director fails to disclose or votes, the contract is voidable at the option of the company, and the director is penalised under Section 184(4)."
+  },
+  {
+    "id": 20,
+    "question": "Under Section 185(1) of the Companies Act, 2013 (as amended by Companies Amendment Act, 2017), what is the general rule regarding loans to directors?",
+    "options": [
+      "A company can freely lend money to its directors without any restriction pursuant to a resolution passed by the Board of Directors",
+      "Loans to directors are permitted up to Rs 50 crore without interest",
+      "Loans are permitted with verbal approval of the Chairman subject to approval by a special resolution of shareholders",
+      "No company shall, directly or indirectly, advance any loan to, or give any guarantee or provide any security in connection with any loan taken by, any director of company or its holding company or any partner/relative of such director, or to any firm in which such director/relative is a partner",
+      "Loans can be given only in physical gold coins with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: No company shall, directly or indirectly, advance any loan (including book debt) to, or give any guarantee or provide any security in connection with any loan taken by, any director of company or its holding company or any partner/relative of such director, or to any firm in which such director/relative is a partner. Section 185(1) creates an absolute prohibition on advancing loans, book debts, guarantees, or security to: (a) any director of the company, or director of its holding company, or any partner or relative of any such director; or (b) any firm in which any such director or relative is a partner."
+  },
+  {
+    "id": 21,
+    "question": "Under Section 185(2), when can a company advance a loan or give guarantee/security to 'any person in whom any of the director of the company is interested' (e.g. a private company where director is director/member)?",
+    "options": [
+      "With approval of a Special Resolution passed in general meeting AND provided the loan proceeds are utilized by the borrowing company for its PRINCIPAL BUSINESS ACTIVITIES",
+      "With verbal consent of the statutory auditor within thirty days from the date of the general meeting",
+      "Without any resolution if the interest rate is 20% p.a under the applicable provisions of the Companies Act, 2013.",
+      "Only during national public emergencies as disclosed in the Board's Report and annual return",
+      "Such loans are completely banned under all circumstances upon verification of statutory registers at the registered office"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: With approval of a Special Resolution passed in general meeting AND provided the loan proceeds are utilized by the borrowing company for its PRINCIPAL BUSINESS ACTIVITIES. Section 185(2) (substituted in 2017) allows loans/guarantees to entities in which a director is interested (like a private company where director is member/director) subject to: (a) a Special Resolution passed in general meeting; and (b) the loans are utilized by the borrowing company for its principal business activities."
+  },
+  {
+    "id": 22,
+    "question": "Under Section 186(2) of the Companies Act, 2013, what are the statutory threshold limits on Inter-Corporate Loans, Guarantees, Security, and Investments?",
+    "options": [
+      "Up to 25% of its authorized share capital with the prior sanction of the National Company Law Tribunal",
+      "Up to 50% of annual gross turnover in compliance with corporate governance norms",
+      "Up to 60% of its paid-up share capital, free reserves and securities premium account, OR 100% of its free reserves and securities premium account, whichever is MORE",
+      "Up to Rs 100 crore in aggregate within the statutory timeline prescribed under the Act",
+      "Companies can never invest in securities of other corporate bodies pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Up to 60% of its paid-up share capital, free reserves and securities premium account, OR 100% of its free reserves and securities premium account, whichever is MORE. Section 186(2) limits loans, guarantees, securities, and acquisition of securities of other bodies corporate to: 60% of paid-up share capital, free reserves and securities premium account, OR 100% of free reserves and securities premium account, whichever is more. Exceeding this limit requires prior approval via Special Resolution (Section 186(3))."
+  },
+  {
+    "id": 23,
+    "question": "What is the minimum interest rate that must be charged on a loan given by a company under Section 186(7)?",
+    "options": [
+      "Interest rate must be exactly equal to zero for group companies upon verification of statutory registers at the registered office",
+      "Interest rate cannot exceed the commercial bank prime lending rate subject to the conditions notified by the Ministry of Corporate Affairs",
+      "Interest rate is determined by the local municipal trade officer subject to prior filing with the Registrar of Companies",
+      "The company can lend interest-free if approved by a board resolution within thirty days from the date of the general meeting",
+      "Interest rate cannot be lower than the prevailing yield of one year, three year, five year or ten year Government Security closest to the tenor of the loan"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Interest rate cannot be lower than the prevailing yield of one year, three year, five year or ten year Government Security closest to the tenor of the loan. Section 186(7) mandates: 'No loan shall be given under this section at a rate of interest lower than the prevailing yield of one year, three year, five year or ten year Government Security closest to the tenor of the loan.' Interest-free loans between corporate bodies are prohibited."
+  },
+  {
+    "id": 24,
+    "question": "Under Section 188(1) of the Companies Act, 2013, when does a 'Related Party Transaction' (RPT) NOT require Board or Shareholder approval?",
+    "options": [
+      "When the transaction involves an amount below Rs 1,000 pursuant to a resolution passed by the Board of Directors",
+      "When the transaction is entered into by the company in its ORDINARY COURSE OF BUSINESS and conducted on an ARM'S LENGTH BASIS",
+      "When the related party is a foreign national in accordance with the rules prescribed by the Central Government",
+      "When the transaction is executed on a national holiday subject to approval by a special resolution of shareholders",
+      "All related party transactions without exception require shareholder approval with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: When the transaction is entered into by the company in its ORDINARY COURSE OF BUSINESS and conducted on an ARM'S LENGTH BASIS. Third proviso to Section 188(1) provides an essential safe harbor: 'Provided also that nothing in this sub-section shall apply to any transactions entered into by the company in its ordinary course of business other than transactions which are not on an arm's length basis.' Arm's length ordinary commercial sales are exempt."
+  },
+  {
+    "id": 25,
+    "question": "Under Section 408 of the Companies Act, 2013, who constitutes the 'National Company Law Tribunal' (NCLT)?",
+    "options": [
+      "The Chief Justice of the High Court of Delhi within thirty days from the date of the general meeting",
+      "The Reserve Bank of India in consultation with SEBI under the applicable provisions of the Companies Act, 2013",
+      "A panel of five senior chartered accountants as disclosed in the Board's Report and annual return",
+      "The Central Government, by notification, constitutes a Tribunal to be known as the National Company Law Tribunal consisting of a President and such number of Judicial and Technical members as it deems necessary",
+      "The Bar Council of India upon verification of statutory registers at the registered office"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The Central Government, by notification, constitutes a Tribunal to be known as the National Company Law Tribunal consisting of a President and such number of Judicial and Technical members as it deems necessary. Section 408 empowers the Central Government to constitute by notification the National Company Law Tribunal (NCLT) consisting of a President and such number of Judicial and Technical members as the Central Government may deem necessary, to exercise powers conferred by the Act or IBC."
+  },
+  {
+    "id": 26,
+    "question": "Under Section 409(1), what is the statutory qualification required for appointment as the 'President' of the NCLT?",
+    "options": [
+      "A person who is, or has been, a Judge of a High Court for five years",
+      "A serving joint secretary in the Ministry of Finance",
+      "A practicing chartered accountant for 20 years",
+      "A retired governor of a state",
+      "A senior advocate of the Supreme Court for 5 years"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A person who is, or has been, a Judge of a High Court for five years. Section 409(1) provides: 'The President shall be a person who is or has been a Judge of a High Court for five years.' This ensures high-level judicial competence at the helm of the principal bench of the Tribunal."
+  },
+  {
+    "id": 27,
+    "question": "Under Section 409(2), who is eligible for appointment as a 'Judicial Member' of the NCLT?",
+    "options": [
+      "Any law school graduate with a first-class degree",
+      "A police superintendent with 10 years experience",
+      "A person who is, or has been, a judge of a High Court",
+      "A company secretary with 5 years practice",
+      "A civil magistrate with 1 year experience"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A person who is, or has been, a judge of a High Court; or is, or has been, a District Judge for at least five years; or has, for at least ten years been an advocate of a court. Section 409(2) provides that a person shall be qualified for appointment as a Judicial Member if he: (a) is, or has been, a judge of a High Court; or (b) is, or has been, a District Judge for at least five years; or (c) has, for at least ten years been an advocate of a court."
+  },
+  {
+    "id": 28,
+    "question": "Under Section 409(3), who is eligible for appointment as a 'Technical Member' of the NCLT?",
+    "options": [
+      "Any computer software engineer with 10 years coding experience pursuant to a resolution passed by the Board of Directors",
+      "A retail stock market investor with 5 years trading experience",
+      "A university professor of macroeconomics subject to approval by a special resolution of shareholders",
+      "A commercial bank branch manager with the prior sanction of the National Company Law Tribunal",
+      "A person who has, for at least fifteen years been a Chartered Accountant in practice, or Cost Accountant in practice, or Company Secretary in practice"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A person who has, for at least fifteen years been a Chartered Accountant in practice, or Cost Accountant in practice, or Company Secretary in practice; or has been an officer of Indian Corporate Law Service / Joint Secretary to Govt of India having knowledge of company law. Section 409(3) specifies qualifications for Technical Members: (a) member of ICLS or Joint Secretary in Govt of India; or (b) practicing Chartered Accountant for at least 15 years; or (c) practicing Cost Accountant for at least 15 years; or (d) practicing Company Secretary for at least 15 years; or (e) person of proven ability/standing in corporate law/finance."
+  },
+  {
+    "id": 29,
+    "question": "Under Section 410, what appellate body is constituted by the Central Government to hear appeals against the orders of the NCLT?",
+    "options": [
+      "The High Court of the respective state within thirty days from the date of the general meeting",
+      "The National Company Law Appellate Tribunal (NCLAT), consisting of a Chairperson and such number of Judicial and Technical Members as the Central Government deems fit",
+      "The Securities Appellate Tribunal (SAT) under the applicable provisions of the Companies Act, 2013",
+      "The Supreme Court of India directly as disclosed in the Board's Report and annual return",
+      "The Central Board of Direct Taxes upon verification of statutory registers at the registered office"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The National Company Law Appellate Tribunal (NCLAT), consisting of a Chairperson and such number of Judicial and Technical Members as the Central Government deems fit. Section 410 provides that the Central Government shall, by notification, constitute an Appellate Tribunal to be known as the National Company Law Appellate Tribunal (NCLAT) consisting of a Chairperson and Judicial and Technical Members, to hear appeals against orders of the NCLT (and CCI/NFRA/IBBI)."
+  },
+  {
+    "id": 30,
+    "question": "What are the statutory qualifications for appointment as the 'Chairperson' of the NCLAT under Section 411(1)?",
+    "options": [
+      "The Chairperson shall be a retired cabinet secretary with the prior sanction of the National Company Law Tribunal",
+      "The Chairperson shall be a senior advocate for 20 years in compliance with corporate governance norms",
+      "The Chairperson shall be the governor of the Reserve Bank of India within the statutory timeline prescribed under the Act",
+      "The Chairperson shall be a person who is or has been a Judge of the Supreme Court or the Chief Justice of a High Court",
+      "The Chairperson shall be a sitting member of parliament pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 3,
+    "explanation": "Section 411(1) stipulates: 'The Chairperson shall be a person who is or has been a Judge of the Supreme Court or the Chief Justice of a High Court.' This ensures that the appellate authority has eminent senior judicial leadership."
+  },
+  {
+    "id": 31,
+    "question": "Under Section 413(1), what is the term of office and maximum age limit for the 'President' of the NCLT?",
+    "options": [
+      "Term of five years, eligible for reappointment for another five years; age limit not exceeding sixty-seven (67) years",
+      "Term of 3 years; age limit 65 years upon verification of statutory registers at the registered office",
+      "Term of 10 years permanently; age limit 70 years subject to the conditions notified by the Ministry of Corporate Affairs",
+      "Term of 1 year; age limit 60 years subject to prior filing with the Registrar of Companies",
+      "There is no age ceiling for the President within thirty days from the date of the general meeting"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Term of five years, eligible for reappointment for another five years; age limit not exceeding sixty-seven (67) years. Section 413(1) provides: 'The President and every other Member of the Tribunal shall hold office as such for a term of five years from the date on which he enters upon his office, but shall be eligible for re-appointment for another term of five years.' Maximum age for President is 67 years; for Member is 65 years. Minimum age is 50 years."
+  },
+  {
+    "id": 32,
+    "question": "Under Section 413(3), what is the term of office and maximum age limit for the 'Chairperson' of the NCLAT?",
+    "options": [
+      "Term of 3 years; age limit 65 years pursuant to a resolution passed by the Board of Directors",
+      "Term of 7 years; age limit 68 years in accordance with the rules prescribed by the Central Government",
+      "Term of five years, eligible for reappointment for another five years; age limit not exceeding seventy (70) years",
+      "Permanent tenure until resignation",
+      "Term of 2 years; age limit 62 years with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Term of five years, eligible for reappointment for another five years; age limit not exceeding seventy (70) years. Section 413(3) provides: 'The Chairperson of the Appellate Tribunal shall hold office as such for a term of five years from the date on which he enters upon his office, but shall be eligible for re-appointment for another term of five years: Provided that the Chairperson shall not hold office after he has attained the age of seventy years (70 years).' Members of NCLAT hold office up to 67 years."
+  },
+  {
+    "id": 33,
+    "question": "Under Section 421(1) and (3) of the Companies Act, 2013, what is the limitation period for filing an Appeal to the NCLAT against an order of the NCLT?",
+    "options": [
+      "Within 30 days without any extension within thirty days from the date of the general meeting",
+      "Within 60 days extendable by 60 days under the applicable provisions of the Companies Act, 2013",
+      "Within 90 days uniformly",
+      "Within 1 year under the Limitation Act upon verification of statutory registers at the registered office",
+      "Within forty-five (45) days from the date on which a copy of the order of the Tribunal is made available, extendable by the Appellate Tribunal by a further period not exceeding forty-five (45) days if satisfied that there was sufficient cause"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Within forty-five (45) days from the date on which a copy of the order of the Tribunal is made available, extendable by the Appellate Tribunal by a further period not exceeding forty-five (45) days if satisfied that there was sufficient cause. Section 421(3) provides that every appeal shall be filed within a period of forty-five days from the date on which a copy of the order of the Tribunal is made available. Proviso to Section 421(3) states that NCLAT may entertain an appeal after 45 days if satisfied of sufficient cause, but not exceeding a further forty-five days (total max 90 days)."
+  },
+  {
+    "id": 34,
+    "question": "Can an appeal lie to the NCLAT against an order passed by the NCLT with the CONSENT OF PARTIES under Section 421(2)?",
+    "options": [
+      "Yes, if approved by the Central Government with the prior sanction of the National Company Law Tribunal",
+      "No appeal shall lie to the Appellate Tribunal from an order made by the Tribunal with the consent of parties",
+      "Yes, within 15 days of the consent order in compliance with corporate governance norms",
+      "Yes, if either party pays a court fee of Rs 1 lakh within the statutory timeline prescribed under the Act",
+      "Consent orders are automatically referred to the Supreme Court pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 1,
+    "explanation": "Section 421(2) states unequivocally: 'No appeal shall lie to the Appellate Tribunal from an order made by the Tribunal with the consent of parties.' A consent order (compromise/settlement) is final between the consenting parties."
+  },
+  {
+    "id": 35,
+    "question": "Under Section 423 of the Companies Act, 2013, to which court does an Appeal lie from any order of the NCLAT, and on what grounds?",
+    "options": [
+      "To the High Court of the State on questions of fact upon verification of statutory registers at the registered office",
+      "To the Ministry of Corporate Affairs for administrative review subject to the conditions notified by the Ministry of Corporate Affairs",
+      "To the International Court of Justice subject to prior filing with the Registrar of Companies",
+      "To the Supreme Court of India on ANY QUESTION OF LAW arising out of such order, filed within sixty (60) days from the date of communication of the order",
+      "Orders of the NCLAT are final and cannot be appealed to any court within thirty days from the date of the general meeting"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: To the Supreme Court of India on ANY QUESTION OF LAW arising out of such order, filed within sixty (60) days from the date of communication of the order (extendable by a further period not exceeding 60 days on sufficient cause). Section 423 provides: 'Any person aggrieved by any order of the Appellate Tribunal may file an appeal to the Supreme Court within sixty days from the date of receipt of the order of the Appellate Tribunal to him on any question of law arising out of such order: Provided that the Supreme Court may, if it is satisfied that the appellant was prevented by sufficient cause, allow it within a further period not exceeding sixty days.'"
+  },
+  {
+    "id": 36,
+    "question": "Under Section 422(1) and (2), what is the statutory timeframe for the 'Expeditious Disposal' of petitions and appeals by the NCLT and NCLAT?",
+    "options": [
+      "Every application or petition shall be dealt with and disposed of by the Tribunal or Appellate Tribunal as expeditiously as possible and endeavor shall be made to dispose of it within three (3) months from the date of presentation",
+      "Within 30 days without any extension pursuant to a resolution passed by the Board of Directors",
+      "Within 1 year uniformly",
+      "Within 2 years from the date of filing subject to approval by a special resolution of shareholders",
+      "There is no statutory timeframe for disposal with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Every application or petition shall be dealt with and disposed of by the Tribunal or Appellate Tribunal as expeditiously as possible and endeavor shall be made to dispose of it within three (3) months from the date of presentation; extendable by the President/Chairperson by a period not exceeding ninety (90) days. Section 422(1) and (2) mandates that the Tribunal and Appellate Tribunal shall make every endeavor to dispose of applications/appeals within three months from presentation. If not disposed of within 3 months, reasons must be recorded, and the President/Chairperson may extend the period by not exceeding ninety days."
+  },
+  {
+    "id": 37,
+    "question": "What power to punish for CONTEMPT does the NCLT and NCLAT possess under Section 425 of the Companies Act, 2013?",
+    "options": [
+      "They have no power to punish for contempt within thirty days from the date of the general meeting",
+      "They can only issue a mild verbal reprimand under the applicable provisions of the Companies Act, 2013",
+      "The Tribunal and the Appellate Tribunal shall have the same jurisdiction, powers and authority in respect of contempt of themselves as the High Court has and may exercise, for this purpose, the powers under the provisions of the Contempt of Courts Act, 1971",
+      "They must file a police complaint for criminal contempt as disclosed in the Board's Report and annual return",
+      "Contempt powers can only be exercised by the Supreme Court"
+    ],
+    "answer": 2,
+    "explanation": "Section 425 equips the NCLT and NCLAT with teeth: 'The Tribunal and the Appellate Tribunal shall have the same jurisdiction, powers and authority in respect of contempt of themselves as the High Court has and may exercise, for this purpose, the powers under the provisions of the Contempt of Courts Act, 1971.'"
+  },
+  {
+    "id": 38,
+    "question": "What is the scope of Section 430 of the Companies Act, 2013 regarding the 'Civil Court Jurisdiction'?",
+    "options": [
+      "Civil courts have concurrent jurisdiction with the NCLT over all company matters with the prior sanction of the National Company Law Tribunal",
+      "Civil courts can stay NCLT proceedings at any time",
+      "Civil court judges preside as ex-officio members of the NCLT within the statutory timeline prescribed under the Act",
+      "Section 430 was struck down by the Supreme Court pursuant to a resolution passed by the Board of Directors",
+      "No civil court shall have jurisdiction to entertain any suit or proceeding in respect of any matter which the Tribunal or the Appellate Tribunal is empowered to determine, and no injunction shall be granted by any court in respect of any action taken or to be taken by the NCLT/NCLAT"
+    ],
+    "answer": 4,
+    "explanation": "Section 430 creates an absolute statutory bar on civil courts: 'No civil court shall have jurisdiction to entertain any suit or proceeding in respect of any matter which the Tribunal or the Appellate Tribunal is empowered to determine by or under this Act or any other law for the time being in force and no injunction shall be granted by any court or other authority in respect of any action taken or to be taken in pursuance of any power conferred by or under this Act.'"
+  },
+  {
+    "id": 39,
+    "question": "Under Section 420(2), within what timeframe can the NCLT rectify any mistake apparent from the record in any order passed by it?",
+    "options": [
+      "Within 30 days of the order upon verification of statutory registers at the registered office",
+      "The Tribunal may, at any time within two years from the date of the order, with a view to rectifying any mistake apparent from the record, amend any order passed by it, provided no such amendment shall be made if an appeal has been preferred against such order",
+      "Within 5 years from the date of filing subject to the conditions notified by the Ministry of Corporate Affairs",
+      "Within 6 months on payment of a fine subject to prior filing with the Registrar of Companies",
+      "The Tribunal has zero power to amend or rectify its orders within thirty days from the date of the general meeting"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The Tribunal may, at any time within two years from the date of the order, with a view to rectifying any mistake apparent from the record, amend any order passed by it, provided no such amendment shall be made if an appeal has been preferred against such order. Section 420(2) empowers the NCLT to rectify mistakes apparent on the face of the record within two years from the date of the order, provided that no amendment can be made if an appeal has already been preferred against the order, and reasonable opportunity of being heard is given if the amendment prejudices any party."
+  },
+  {
+    "id": 40,
+    "question": "Under Section 412, who chairs the 'Selection Committee' for the appointment of Members of the NCLT and NCLAT?",
+    "options": [
+      "The Union Cabinet Secretary",
+      "The Minister of Corporate Affairs",
+      "The Governor of the Reserve Bank of India",
+      "The Chief Justice of India or his nominee",
+      "The Chairman of the Union Public Service Commission (UPSC)"
+    ],
+    "answer": 3,
+    "explanation": "Section 412(1) provides that the Members of the Tribunal and the Technical Members of the Appellate Tribunal shall be appointed on the recommendation of a Selection Committee consisting of: (a) Chief Justice of India or his nominee (Chairperson); (b) senior Judge of Supreme Court or Chief Justice of High Court; (c) Secretary, MCA; (d) Secretary, Law & Justice."
+  },
+  {
+    "id": 41,
+    "question": "Under Section 424(1), are the NCLT and NCLAT bound by the procedure laid down in the Code of Civil Procedure, 1908 (CPC)?",
+    "options": [
+      "The Tribunal and the Appellate Tribunal shall NOT be bound by the procedure laid down in the Code of Civil Procedure, 1908, but shall be guided by the principles of NATURAL JUSTICE, and shall have power to regulate their own procedure",
+      "Yes, they are strictly bound by every provision of the CPC and Indian Evidence Act within thirty days from the date of the general meeting",
+      "They are bound only by the Code of Criminal Procedure, 1973",
+      "They must follow international commercial arbitration rules as disclosed in the Board's Report and annual return",
+      "They must refer all procedural questions to the High Court upon verification of statutory registers at the registered office"
+    ],
+    "answer": 0,
+    "explanation": "Section 424(1) states: 'The Tribunal and the Appellate Tribunal shall not be bound by the procedure laid down in the Code of Civil Procedure, 1908, but shall be guided by the principles of natural justice and, subject to the other provisions of this Act and of any rules made by the Central Government, the Tribunal and the Appellate Tribunal shall have power to regulate their own procedure.'"
+  },
+  {
+    "id": 42,
+    "question": "Under Section 424(2), what powers of a Civil Court under the CPC, 1908 are vested in the NCLT and NCLAT while trying a suit?",
+    "options": [
+      "Power to deploy military defense forces",
+      "Power to pass death sentences for economic fraud",
+      "Summoning and enforcing attendance of persons",
+      "Power to alter the Constitution of India",
+      "Zero civil court powers are vested in the Tribunal"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Summoning and enforcing attendance of persons; requiring discovery and production of documents; receiving evidence on affidavits; requisitioning public records; issuing commissions for examination of witnesses; and dismissing representations for default or deciding ex parte. Section 424(2) vests the NCLT and NCLAT with all standard civil court powers under CPC 1908: summoning witnesses on oath, discovery/production of documents, evidence on affidavits, requisitioning public records, issuing commissions, and reviewing/dismissing orders ex parte."
+  },
+  {
+    "id": 43,
+    "question": "Under Section 429 of the Companies Act, 2013, who is bound to assist the NCLT or NCLAT in taking charge of property, books of accounts or other documents?",
+    "options": [
+      "Private corporate security guards",
+      "The statutory auditors of the company subject to the conditions notified by the Ministry of Corporate Affairs",
+      "The local postmaster",
+      "Only the High Court bailiff within thirty days from the date of the general meeting",
+      "The Chief Metropolitan Magistrate, Executive Magistrate, or District Collector within whose jurisdiction any such property, books of accounts or other documents of such company are situated"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The Chief Metropolitan Magistrate, Executive Magistrate, or District Collector within whose jurisdiction any such property, books of accounts or other documents of such company are situated. Section 429(1) provides that the Tribunal may direct the Chief Metropolitan Magistrate, Executive Magistrate or District Collector within whose jurisdiction property, books, or documents are located to take possession, and such magistrate/collector shall take possession and hand them over to the Tribunal."
+  },
+  {
+    "id": 44,
+    "question": "What is the penalty under Section 186(13) if a company contravenes the provisions of Section 186 regarding inter-corporate loans and investments?",
+    "options": [
+      "The loan is automatically converted into a non-refundable gift pursuant to a resolution passed by the Board of Directors",
+      "The company shall be punishable with fine not less than Rs 25,000 but which may extend to Rs 5,00,000, and every officer in default shall be punishable with imprisonment up to two years and with fine not less than Rs 25,000 up to Rs 1,00,000",
+      "The company must double its CSR spending for 5 years",
+      "The company is immediately prohibited from issuing commercial paper subject to approval by a special resolution of shareholders",
+      "No penalty applies if the borrower is a subsidiary company with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 1,
+    "explanation": "Section 186(13) imposes severe penalties: The company shall be punishable with fine min Rs 25,000 up to Rs 5,00,000, and every officer in default shall be punishable with imprisonment for a term which may extend to two years and with fine min Rs 25,000 up to Rs 1,00,000."
+  },
+  {
+    "id": 45,
+    "question": "Under Section 188(5), what is the penalty for a director or employee who enters into or authorizes a Related Party Transaction in violation of Section 188?",
+    "options": [
+      "A verbal warning from the board of directors within thirty days from the date of the general meeting",
+      "Suspension of voting rights in the company for 30 days under the applicable provisions of the Companies Act, 2013",
+      "Forfeiture of all shares held in the company as disclosed in the Board's Report and annual return",
+      "In case of a listed company, liable to a penalty of twenty-five lakh rupees",
+      "Mandatory imprisonment for 10 years without bail upon verification of statutory registers at the registered office"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: In case of a listed company, liable to a penalty of twenty-five lakh rupees; and in case of any other company, liable to a penalty of five lakh rupees. Section 188(5) (amended by Companies Amendment Act, 2020) provides: 'Any director or any other employee of a company, who had entered into or authorized the contract or arrangement in violation of the provisions of this section shall: (i) in case of listed company, be liable to a penalty of twenty-five lakh rupees; and (ii) in case of any other company, be liable to a penalty of five lakh rupees.'"
+  },
+  {
+    "id": 46,
+    "question": "Under Section 173(4), what is the penalty on every officer of the company whose duty it is to give notice of a Board Meeting and who fails to do so?",
+    "options": [
+      "Every officer of the company whose duty it is to give notice under this section and who fails to do so shall be liable to a penalty of twenty-five thousand rupees (Rs 25,000)",
+      "A fine of Rs 500 with the prior sanction of the National Company Law Tribunal",
+      "Imprisonment for 6 months",
+      "Suspension of the company's certificate of incorporation within the statutory timeline prescribed under the Act",
+      "No penalty applies if the meeting had full attendance pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 0,
+    "explanation": "Section 173(4) provides: 'Every officer of the company whose duty it is to give notice under this section and who fails to do so shall be liable to a penalty of twenty-five thousand rupees.' This is a personal penalty on the defaulting officer (typically the Company Secretary)."
+  },
+  {
+    "id": 47,
+    "question": "Under Section 174(4), what happens if a Board Meeting could not be held for want of Quorum?",
+    "options": [
+      "The company is immediately dissolved upon verification of statutory registers at the registered office",
+      "The resolutions are deemed to have been passed automatically subject to the conditions notified by the Ministry of Corporate Affairs",
+      "The meeting shall automatically stand adjourned to the same day in the next week at the same time and place, or if that day is a national holiday, till the next succeeding day which is not a national holiday, at the same time and place",
+      "The meeting must be held immediately with whoever is present subject to prior filing with the Registrar of Companies",
+      "The directors are fined Rs 10,000 each within thirty days from the date of the general meeting"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The meeting shall automatically stand adjourned to the same day in the next week at the same time and place, or if that day is a national holiday, till the next succeeding day which is not a national holiday, at the same time and place. Section 174(4) provides: 'Where a meeting of the Board could not be held for want of quorum, then, unless the articles of the company otherwise provide, the meeting shall automatically stand adjourned to the same day at the same time and place in the next week or if that day is a national holiday, till the next succeeding day, which is not a national holiday, at the same time and place.'"
+  },
+  {
+    "id": 48,
+    "question": "Under Section 432 of the Companies Act, 2013, who is entitled to appear before the Tribunal (NCLT) or Appellate Tribunal (NCLAT) on behalf of a party?",
+    "options": [
+      "Only senior advocates designated by the Supreme Court pursuant to a resolution passed by the Board of Directors",
+      "Only the Managing Director in person",
+      "Only officers from the Ministry of Corporate Affairs subject to approval by a special resolution of shareholders",
+      "Representation by professionals is prohibited with the prior sanction of the National Company Law Tribunal",
+      "The applicant or appellant may either appear in person or authorize one or more Chartered Accountants, or Company Secretaries, or Cost Accountants, or Legal Practitioners or any other person to present his case before the Tribunal or Appellate Tribunal"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The applicant or appellant may either appear in person or authorize one or more Chartered Accountants, or Company Secretaries, or Cost Accountants, or Legal Practitioners or any other person to present his case before the Tribunal or Appellate Tribunal. Section 432 provides broad right to legal representation: A party may appear in person or authorize one or more chartered accountants, company secretaries, cost accountants, legal practitioners, or any other person to present his case before the Tribunal or Appellate Tribunal, giving equal statutory standing to CAs, CSs, and CMAs."
+  },
+  {
+    "id": 49,
+    "question": "What is the penalty under Section 185(4) if any loan is advanced or a guarantee or security is given or utilized in contravention of Section 185 (Loans to Directors)?",
+    "options": [
+      "A flat fine of Rs 1,000 on the company secretary within thirty days from the date of the general meeting",
+      "The company shall be punishable with fine not less than Rs 5 lakh but which may extend to Rs 25 lakh, and the director or beneficiary shall be punishable with imprisonment up to 6 months or with fine min Rs 5 lakh up to Rs 25 lakh, or both",
+      "Immediate winding up of the borrowing entity under the applicable provisions of the Companies Act, 2013",
+      "No penalty applies if the loan interest was paid",
+      "The loan is written off as bad debt upon verification of statutory registers at the registered office"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The company shall be punishable with fine not less than Rs 5 lakh but which may extend to Rs 25 lakh, and the director or beneficiary shall be punishable with imprisonment up to 6 months or with fine min Rs 5 lakh up to Rs 25 lakh, or both. Section 185(4) prescribes heavy penalties: The company is punishable with fine min Rs 5 lakh up to Rs 25 lakh; and the director or person to whom loan is advanced/used shall be punishable with imprisonment up to 6 months OR fine min Rs 5 lakh up to Rs 25 lakh, or both."
+  },
+  {
+    "id": 50,
+    "question": "Under Section 434 of the Companies Act, 2013, what happened to matters pending before the Company Law Board (CLB) and High Courts upon constitution of the NCLT?",
+    "options": [
+      "All pending matters were permanently dismissed with the prior sanction of the National Company Law Tribunal",
+      "All pending cases were transferred to criminal district courts",
+      "The cases were transferred to the Law Commission of India within the statutory timeline prescribed under the Act",
+      "All matters, proceedings, or cases pending before the Company Law Board (CLB) stood transferred to the Tribunal (NCLT) to be disposed of, and all winding-up proceedings before High Courts were transferred as prescribed under rules",
+      "The High Courts retained permanent jurisdiction over all company disputes pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: All matters, proceedings, or cases pending before the Company Law Board (CLB) stood transferred to the Tribunal (NCLT) to be disposed of, and all winding-up proceedings before High Courts were transferred as prescribed under rules. Section 434 provided for the transitional transfer of proceedings: On the notification of NCLT (June 1, 2016), the erstwhile Company Law Board (CLB) was dissolved, and all matters pending before the CLB stood transferred to the NCLT. Subsequently, winding-up cases and oppression/mismanagement matters before High Courts were also transferred."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Companies Act Mock 5",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Companies Act Mock 5";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br /><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br /><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br /><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br /><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>
