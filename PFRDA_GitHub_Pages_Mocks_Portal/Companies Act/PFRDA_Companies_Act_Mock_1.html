@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Companies Act 2013 Mock Test 1 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject G: Companies Act</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Companies_Act_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Companies_Act_Master_Revision_and_Study_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Companies_Act_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Companies_Act_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Companies_Act_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Companies_Act_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Companies_Act_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &#183; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &#183; Paper 2 &#183; Companies Act Mock 1</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Companies Act, 2013 - Mock 1</h1>
+    <p class="start-subheading">Full 50 Questions &#183; Section-Based Precision &#183; PFRDA Grade A Level &#183; Specialized Coaching</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Chapter III (Prospectus &amp; Allotment):</b> Sections 23&#8211;42, Public Offer, Private Placement (Sec 42), Shelf &amp; Red Herring Prospectuses, Criminal &amp; Civil Liabilities (Sec 34&#8211;36), PAS Rules.</li>
+                <li><b>Chapter IV (Share Capital &amp; Debentures):</b> Sections 43&#8211;72, Equity &amp; Preference Shares, DVRs, Sweat Equity (Sec 54), ESOP (Sec 62), Bonus Shares (Sec 63), Buy-back of Securities (Sec 68&#8211;70), Debentures &amp; DRR (Sec 71).</li>
+                <li><b>Chapter VIII (Declaration &amp; Payment of Dividend):</b> Sections 123&#8211;127, Sources of Dividend, Rule 3 Past Reserves, Interim Dividend, Unpaid Dividend Account (UDA Sec 124), IEPF (Sec 125), Penalties (Sec 127).</li>
+                <li><b>Chapter X (Audit and Auditors):</b> Sections 139&#8211;148, Appointment &amp; Rotation, Resignation &amp; Removal (Sec 140), Qualifications &amp; Disqualifications (Sec 141), Prohibited Services (Sec 144), Fraud Reporting (Sec 143(12)), Cost Audit (Sec 148).</li>
+                <li><b>Chapter XI (Appointment &amp; Qualifications of Directors):</b> Sections 149&#8211;172, Board Composition, Resident &amp; Women Directors, Independent Directors (IDs), Small Shareholders Director (SSD), DIN, Disqualifications (Sec 164), Vacation &amp; Removal (Sec 167&#8211;169).</li>
+                <li><b>Chapter XII (Meetings of Board &amp; its Powers):</b> Sections 173&#8211;195, Board Meetings &amp; Quorum (Sec 173&#8211;174), Audit/NRC/SRC Committees (Sec 177&#8211;178), Board Powers (Sec 179&#8211;180), Political/Charity Contributions (Sec 181&#8211;182), Loans to Directors (Sec 185), Inter-corporate Loans (Sec 186), Related Party Transactions (Sec 188).</li>
+                <li><b>Chapter XXVII (NCLT &amp; NCLAT):</b> Sections 407&#8211;434, Constitution, Qualifications of President/Chairperson/Members, Benches, Appeals to NCLAT (Sec 421) and Supreme Court (Sec 423), Timelines &amp; Contempt.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "Under Section 23 of the Companies Act, 2013, how can a 'Public Company' issue securities?",
+    "options": [
+      "Exclusively through a private placement to institutional lenders within thirty days from the date of the general meeting",
+      "Through a public offer, a rights issue or bonus issue, or through a private placement compliant with Chapter III",
+      "Only with the prior written sanction of the National Company Law Tribunal (NCLT) under the applicable provisions of the Companies Act, 2013",
+      "Exclusively through an offer for sale on international foreign stock exchanges as disclosed in the Board's Report and annual return",
+      "Public companies are statutorily prohibited from issuing securities to retail investors upon verification of statutory registers at the registered office"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Through a public offer (including IPO, FPO, or offer for sale), a rights issue or bonus issue, or through a private placement compliant with Chapter III. Section 23(1) of the Companies Act, 2013 states that a public company may issue securities: (a) to public through prospectus (public offer), which includes IPO, FPO, or an offer for sale; (b) through rights issue or bonus issue; or (c) through private placement by complying with the provisions of Part II of Chapter III."
+  },
+  {
+    "id": 2,
+    "question": "Under Section 23(2) of the Companies Act, 2013, how can a 'Private Company' issue securities?",
+    "options": [
+      "By issuing a public prospectus on the floor of a recognized stock exchange with the prior sanction of the National Company Law Tribunal",
+      "A private company cannot issue any shares or securities under any circumstances in compliance with corporate governance norms",
+      "Only by issuing sweat equity shares to central government ministries",
+      "By way of rights issue or bonus issue, or through private placement under Part II of Chapter III",
+      "Through an initial public offering under SEBI regulations pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: By way of rights issue or bonus issue, or through private placement by complying with the provisions of Part II of Chapter III. Under Section 23(2), a private company may issue securities: (a) by way of rights issue or bonus issue in accordance with the provisions of this Act; or (b) through private placement by complying with the provisions of Part II of Chapter III (Section 42). A private company is prohibited from making any invitation to the public to subscribe for any securities."
+  },
+  {
+    "id": 3,
+    "question": "What is a 'Deemed Prospectus' under Section 25 of the Companies Act, 2013?",
+    "options": [
+      "Any document by which an offer for sale to the public is made, where a company allots or agrees to allot any securities with a view to all or any of those securities being offered for sale to the public",
+      "A draft prospectus displayed in corporate headquarters for 30 days upon verification of statutory registers at the registered office",
+      "An advertisement published on social media platforms without company authorization subject to the conditions notified by the Ministry of Corporate Affairs",
+      "A prospectus issued exclusively by state-owned statutory corporations subject to prior filing with the Registrar of Companies",
+      "A financial statement filed annually with the Registrar of Companies within thirty days from the date of the general meeting"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Any document by which an offer for sale to the public is made, where a company allots or agrees to allot any securities with a view to all or any of those securities being offered for sale to the public. Section 25(1) provides that where a company allots or agrees to allot any securities with a view to all or any of those securities being offered for sale to the public, any document by which the offer for sale to the public is made shall, for all purposes, be deemed to be a prospectus issued by the company, attracting all prospectus liabilities."
+  },
+  {
+    "id": 4,
+    "question": "Under Section 25(2), what statutory presumption establishes that an allotment of securities was made 'with a view to being offered for sale to the public'?",
+    "options": [
+      "If the securities were allotted to foreign sovereign wealth funds pursuant to a resolution passed by the Board of Directors",
+      "If the company failed to declare dividends in the preceding financial year",
+      "If the public offer was made within 6 months of allotment, or before full consideration was received by the company",
+      "If the allotment was made without passing a board resolution subject to approval by a special resolution of shareholders",
+      "If the issue was underwritten by a public sector bank with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: If an offer for sale to the public was made within 6 months after the allotment/agreement to allot, OR if at the date when the offer was made, the whole consideration had not been received by the company. Section 25(2) lays down two conclusive presumptions of deemed prospectus: (a) an offer of the securities for sale to the public was made within 6 months after the allotment or agreement to allot; or (b) at the date when the offer was made, the whole consideration to be received by the company in respect of the securities had not been received by it."
+  },
+  {
+    "id": 5,
+    "question": "What is a 'Shelf Prospectus' under Section 31 of the Companies Act, 2013?",
+    "options": [
+      "A prospectus that has expired and is archived on office bookshelves within thirty days from the date of the general meeting",
+      "A summary prospectus printed on a single sheet of paper under the applicable provisions of the Companies Act, 2013",
+      "A prospectus issued exclusively to institutional venture capital funds as disclosed in the Board's Report and annual return",
+      "A confidential trade secret document filed with the Ministry of Corporate Affairs upon verification of statutory registers at the registered office",
+      "A prospectus under which securities are issued for subscription in one or more issues over a certain period"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A prospectus in respect of which the securities or class of securities included therein are issued for subscription in one or more issues over a certain period without the issue of a further prospectus. Section 31(1) defines a Shelf Prospectus as a prospectus in respect of which the securities or class of securities included therein are issued for subscription in one or more issues over a certain period without the issue of a further prospectus, common for banks and public financial institutions."
+  },
+  {
+    "id": 6,
+    "question": "What is the maximum validity period of a 'Shelf Prospectus' under Section 31(1) of the Companies Act, 2013?",
+    "options": [
+      "90 days from the date of board approval with the prior sanction of the National Company Law Tribunal",
+      "One year from the date of opening of the first offer of securities under that prospectus",
+      "6 months from the date of filing with the Registrar in compliance with corporate governance norms",
+      "Three years from the date of registration within the statutory timeline prescribed under the Act",
+      "Five years from the financial year-end pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: One year from the date of opening of the first offer of securities under that prospectus. Section 31(1) stipulates that a shelf prospectus shall have a validity period not exceeding one year, commencing from the date of opening of the first offer of securities under that prospectus. In respect of a second or subsequent offer issued during this period, no further prospectus is required."
+  },
+  {
+    "id": 7,
+    "question": "What statutory document must a company filing a Shelf Prospectus file with the Registrar prior to the issue of a second or subsequent offer of securities?",
+    "options": [
+      "A completely new Red Herring Prospectus upon verification of statutory registers at the registered office",
+      "An audited balance sheet certified by the Comptroller and Auditor General subject to the conditions notified by the Ministry of Corporate Affairs",
+      "A special resolution approved by 100% of shareholders subject to prior filing with the Registrar of Companies",
+      "An Information Memorandum in Form PAS-2 containing all material facts regarding new charges created, changes in financial position, and other matters",
+      "A certificate of solvency signed by an independent actuary within thirty days from the date of the general meeting"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: An Information Memorandum in Form PAS-2 containing all material facts regarding new charges created, changes in financial position, and other matters. Section 31(2) mandates that a company filing a shelf prospectus must file an Information Memorandum (in Form PAS-2) with the Registrar prior to the issue of a second or subsequent offer, containing all material facts relating to new charges created, changes in financial position, and other material changes since previous filings."
+  },
+  {
+    "id": 8,
+    "question": "What is a 'Red Herring Prospectus' under Section 32 of the Companies Act, 2013?",
+    "options": [
+      "A prospectus which does not include complete particulars of the quantum or price of the securities included therein",
+      "A fraudulent prospectus containing intentional misstatements pursuant to a resolution passed by the Board of Directors",
+      "A prospectus issued exclusively by marine and fisheries corporations in accordance with the rules prescribed by the Central Government",
+      "A prospectus whose validity has been stayed by the High Court subject to approval by a special resolution of shareholders",
+      "A final post-issue prospectus filed after listing on stock exchanges with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A prospectus which does not include complete particulars of the quantum or price of the securities included therein. Explanation to Section 32 defines a Red Herring Prospectus (RHP) as a prospectus which does not include complete particulars of the quantum or price of the securities included therein. It is utilized in book-building public issues where price discovery occurs through bidding."
+  },
+  {
+    "id": 9,
+    "question": "When must a company file a Red Herring Prospectus with the Registrar under Section 32(1)?",
+    "options": [
+      "Within 30 days after the allotment of shares within thirty days from the date of the general meeting",
+      "On the exact day when trading commences on the stock exchange under the applicable provisions of the Companies Act, 2013",
+      "At least 3 days prior to the opening of the subscription list and the offer",
+      "At least 60 days before the company's annual general meeting as disclosed in the Board's Report and annual return",
+      "Immediately upon passing a board resolution upon verification of statutory registers at the registered office"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: At least 3 days prior to the opening of the subscription list and the offer. Section 32(1) provides that a company proposing to make an offer of securities may issue a red herring prospectus prior to the issue of a prospectus, and shall file it with the Registrar at least three days prior to the opening of the subscription list and the offer."
+  },
+  {
+    "id": 10,
+    "question": "Upon the closing of the offer of securities under a Red Herring Prospectus, what must the company file with the Registrar and SEBI under Section 32(4)?",
+    "options": [
+      "A declaration of dividend in Form PAS-1 with the prior sanction of the National Company Law Tribunal",
+      "An application for dissolution of the company in compliance with corporate governance norms",
+      "A list of rejected loan applications within the statutory timeline prescribed under the Act",
+      "A certificate of good corporate citizenship pursuant to a resolution passed by the Board of Directors",
+      "A full prospectus containing the total capital raised, closing price, and any other details not included in the red herring prospectus"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A full prospectus containing the total capital raised, closing price, and any other details not included in the red herring prospectus. Under Section 32(4), upon the closing of the offer of securities, the company shall file with the Registrar and the Securities and Exchange Board of India (SEBI) the final prospectus stating therein the total capital raised, whether by way of debt or share capital, and the closing price of the securities and any other details not included in the red herring prospectus."
+  },
+  {
+    "id": 11,
+    "question": "What is an 'Abridged Prospectus' under Section 2(1) and Section 33 of the Companies Act, 2013?",
+    "options": [
+      "A prospectus translated into Hindi and regional vernacular languages upon verification of statutory registers at the registered office",
+      "A memorandum containing such salient features of a prospectus as may be specified by SEBI by making regulations in this behalf",
+      "An expired prospectus archived by the Registrar of Companies subject to the conditions notified by the Ministry of Corporate Affairs",
+      "A prospectus that omits the names of the board of directors subject to prior filing with the Registrar of Companies",
+      "A prospectus that has fewer than 10 pages in length within thirty days from the date of the general meeting"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A memorandum containing such salient features of a prospectus as may be specified by SEBI by making regulations in this behalf. Section 2(1) defines an 'Abridged Prospectus' as a memorandum containing such salient features of a prospectus as may be specified by SEBI. Section 33(1) mandates that no form of application for the purchase of any of the securities of a company shall be issued unless accompanied by an abridged prospectus."
+  },
+  {
+    "id": 12,
+    "question": "Under Section 33(1), in which of the following scenarios is an application form for securities NOT required to be accompanied by an Abridged Prospectus?",
+    "options": [
+      "Where the issue size exceeds Rs 1,000 crore pursuant to a resolution passed by the Board of Directors",
+      "Where the company is a government-owned public sector undertaking",
+      "Where the company is issuing differential voting rights shares subject to approval by a special resolution of shareholders",
+      "Where the application form is issued in connection with a bona fide invitation to enter into an underwriting agreement, or in relation to securities not offered to the public",
+      "There are no exceptions; every application form without exception must have an abridged prospectus with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Where the application form is issued in connection with a bona fide invitation to enter into an underwriting agreement, or in relation to securities not offered to the public. Proviso to Section 33(1) states that an abridged prospectus is not required if the application form is issued: (a) in connection with a bona fide invitation to a person to enter into an underwriting agreement; or (b) in relation to securities which were not offered to the public."
+  },
+  {
+    "id": 13,
+    "question": "Under Section 34 of the Companies Act, 2013, what criminal liability is imposed for authorizing the issue of a prospectus containing any untrue or misleading statement?",
+    "options": [
+      "Every person who authorizes the issue of such prospectus shall be liable for fraud under Section 447",
+      "A simple administrative fine of Rs 10,000 on the company secretary within thirty days from the date of the general meeting",
+      "Immediate disqualification from voting in shareholder meetings for 1 year under the applicable provisions of the Companies Act, 2013",
+      "Suspension of the company's factory operating license as disclosed in the Board's Report and annual return",
+      "Compulsory community service for 3 months upon verification of statutory registers at the registered office"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Every person who authorizes the issue of such prospectus shall be liable for fraud under Section 447. Section 34 states that where any statement in a prospectus is untrue or misleading in form or context, every person who authorizes the issue of such prospectus shall be liable under Section 447 (punishment for fraud: imprisonment from 6 months to 10 years, and fine up to 3 times the amount involved in fraud)."
+  },
+  {
+    "id": 14,
+    "question": "Under Section 35(1) of the Companies Act, 2013, what civil liability is incurred for misstatements in a prospectus?",
+    "options": [
+      "The company must issue free bonus shares to all affected investors with the prior sanction of the National Company Law Tribunal",
+      "The directors must refund 10% of their annual managerial remuneration in compliance with corporate governance norms",
+      "The company and every director, promoter, and expert who authorized the issue shall be liable to pay compensation to every person who has sustained any loss or damage by reason of subscribing for securities on the faith of the prospectus",
+      "The company must double its authorized share capital within 30 days",
+      "Civil liability is limited to a maximum statutory cap of Rs 50,000 pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The company and every director, promoter, and expert who authorized the issue shall be liable to pay compensation to every person who has sustained any loss or damage by reason of subscribing for securities on the faith of the prospectus. Section 35(1) provides that where a person has subscribed for securities on the faith of a prospectus containing untrue/misleading statements and sustained loss or damage, the company, every director, promoter, and person named as expert who authorized the issue shall, without prejudice to Section 36 and 447, be personally liable to pay compensation for the loss."
+  },
+  {
+    "id": 15,
+    "question": "What defense can a director successfully plead to escape civil liability under Section 35(2) for a misstatement in a prospectus?",
+    "options": [
+      "That the director was busy traveling abroad on personal vacation when the prospectus was issued upon verification of statutory registers at the registered office",
+      "That the company's audited balance sheet showed a net profit subject to the conditions notified by the Ministry of Corporate Affairs",
+      "That the director owns less than 1% of the company's equity shares subject to prior filing with the Registrar of Companies",
+      "That the stock price of the company has appreciated after listing within thirty days from the date of the general meeting",
+      "That the prospectus was issued without their knowledge or consent, and on becoming aware of its issue, they forthwith gave a reasonable public notice that it was issued without their knowledge or consent"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: That the prospectus was issued without their knowledge or consent, and on becoming aware of its issue, they forthwith gave a reasonable public notice that it was issued without their knowledge or consent. Under Section 35(2), a person can avoid civil liability if they prove that: (a) they withdrew consent before the prospectus was issued; or (b) the prospectus was issued without their knowledge/consent and, on becoming aware, they promptly gave reasonable public notice; or (c) regarding an expert statement, they had reasonable grounds to believe the expert was competent and consented."
+  },
+  {
+    "id": 16,
+    "question": "What is the minimum subscription requirement for a public issue under Section 39(1) of the Companies Act, 2013 read with SEBI ICDR Regulations?",
+    "options": [
+      "50% of the total issue size",
+      "90% of the offer through the prospectus",
+      "75% of the net offer to the public",
+      "100% full subscription",
+      "There is no statutory minimum subscription percentage"
+    ],
+    "answer": 1,
+    "explanation": "Section 39(1) mandates that no allotment of securities offered to the public shall be made unless the amount stated in the prospectus as the minimum amount has been subscribed and the application money received. Under SEBI ICDR Regulations, the minimum subscription to be received in a public issue is 90% of the offer through the offer document."
+  },
+  {
+    "id": 17,
+    "question": "What is the minimum application money that must be payable on each security under Section 39(2) of the Companies Act, 2013?",
+    "options": [
+      "At least 1% of the issue price within thirty days from the date of the general meeting",
+      "At least 25% of the premium amount under the applicable provisions of the Companies Act, 2013",
+      "At least 50% of the face value as disclosed in the Board's Report and annual return",
+      "At least 5% of the nominal amount (face value) of the security or such other percentage or amount as may be specified by SEBI",
+      "100% upfront full payment"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: At least 5% of the nominal amount (face value) of the security or such other percentage or amount as may be specified by SEBI. Section 39(2) states that the amount payable on application on every security shall not be less than 5% of the nominal amount of the security or such other percentage or amount as may be specified by the SEBI by making regulations in this behalf (SEBI regulations mandate 25% of issue price for public issues)."
+  },
+  {
+    "id": 18,
+    "question": "If the minimum subscription is NOT received within the prescribed period under Section 39(3), within how many days must application money be refunded to avoid paying interest?",
+    "options": [
+      "Within 15 days from the closure of the issue",
+      "Within 30 days without interest penalty",
+      "Within 60 days under NCLT supervision",
+      "Within 90 days from the board meeting",
+      "Application money is never refunded; it is converted into debentures"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Within 15 days from the closure of the issue (if not repaid, directors become jointly and severally liable to repay with 15% p.a. interest after the expiry of 15 days). Under Section 39(3) read with Rule 11 of the Companies (Prospectus and Allotment of Securities) Rules, 2014, if the stated minimum subscription has not been subscribed within 30 days from the date of issue of the prospectus, the application money received must be refunded within 15 days from closure. If not repaid, the directors become jointly and severally liable to repay with interest at 15% per annum."
+  },
+  {
+    "id": 19,
+    "question": "What statutory return must be filed with the Registrar following an allotment of securities under Section 39(4)?",
+    "options": [
+      "Annual Return in Form MGT-7 within 60 days",
+      "Financial Statement in Form AOC-4 within 30 days",
+      "Return of Allotment in Form PAS-3 within 30 days of allotment",
+      "Director Consent in Form DIR-12 within 15 days",
+      "Declaration of Solvency in Form CHG-1 within 30 days"
+    ],
+    "answer": 2,
+    "explanation": "Section 39(4) mandates that whenever a company having a share capital makes any allotment of securities, it shall file with the Registrar a Return of Allotment in Form PAS-3 within 30 days of the date of allotment, accompanied by a complete list of allottees."
+  },
+  {
+    "id": 20,
+    "question": "Under Section 42 of the Companies Act, 2013, what constitutes a 'Private Placement'?",
+    "options": [
+      "Selling shares to pedestrians outside corporate premises pursuant to a resolution passed by the Board of Directors",
+      "Issuing shares to the Central Government under nationalization decrees in accordance with the rules prescribed by the Central Government",
+      "Selling second-hand physical plant and machinery at public auctions subject to approval by a special resolution of shareholders",
+      "Distributing free shares to consumers through lucky draw coupons with the prior sanction of the National Company Law Tribunal",
+      "Any offer or invitation to subscribe or issue of securities to a select group of persons by a company through private placement offer-cum-application"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Any offer or invitation to subscribe or issue of securities to a select group of persons by a company (other than by way of public offer) through private placement offer-cum-application, which satisfies the conditions specified in Section 42. Explanation I to Section 42(3) defines 'Private Placement' as any offer or invitation to subscribe or issue of securities to a select group of persons by a company (other than by way of public offer) through private placement offer-cum-application, satisfying the statutory conditions of Section 42 and Rule 14."
+  },
+  {
+    "id": 21,
+    "question": "What is the maximum number of persons to whom a private placement offer can be made in a financial year under Section 42(2) read with Rule 14?",
+    "options": [
+      "Maximum 50 persons in aggregate within thirty days from the date of the general meeting",
+      "Not more than 200 persons in aggregate in a financial year, excluding Qualified Institutional Buyers (QIBs) and employees offered securities under an ESOP scheme",
+      "Maximum 500 persons including all promoters under the applicable provisions of the Companies Act, 2013",
+      "Maximum 1,000 persons subject to SEBI approval as disclosed in the Board's Report and annual return",
+      "There is no statutory cap on the number of private placement invitees upon verification of statutory registers at the registered office"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Not more than 200 persons in aggregate in a financial year, excluding Qualified Institutional Buyers (QIBs) and employees offered securities under an ESOP scheme. Section 42(2) read with Rule 14(2)(b) provides that an offer of private placement shall be made to not more than 200 persons in aggregate in a financial year, excluding Qualified Institutional Buyers (QIBs) and employees offered securities under ESOP. If an offer exceeds 200 persons, it is deemed to be a public offer."
+  },
+  {
+    "id": 22,
+    "question": "How must subscription monies for securities offered under a Private Placement be paid under Section 42(4)?",
+    "options": [
+      "In physical cash currency notes delivered to the company's registered office with the prior sanction of the National Company Law Tribunal",
+      "By issuing personal promissory notes payable in 5 years",
+      "Through barter exchange of agricultural commodities within the statutory timeline prescribed under the Act",
+      "By cheque, demand draft, or other banking channels (NEFT/RTGS), and NEVER in cash, deposited into a separate bank account opened in a scheduled commercial bank",
+      "By transferring cryptocurrency tokens to the promoter's private wallet pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: By cheque, demand draft, or other banking channels (NEFT/RTGS), and NEVER in cash, deposited into a separate bank account opened in a scheduled commercial bank. Section 42(4) explicitly dictates that every identified person willing to subscribe shall pay the subscription money by cheque or demand draft or other banking channels, and NOT by cash. Monies must be kept in a separate bank account in a scheduled bank and utilized only for allotment or refund."
+  },
+  {
+    "id": 23,
+    "question": "Within how many days from the receipt of application money must a company allot its securities under a Private Placement under Section 42(6)?",
+    "options": [
+      "Within 60 days from the date of receipt of application money",
+      "Within 15 days of receipt",
+      "Within 30 days of receipt",
+      "Within 90 days from the end of the financial year",
+      "Within 180 days subject to board approval"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Within 60 days from the date of receipt of application money. Section 42(6) mandates that a company making a private placement shall allot its securities within 60 days from the date of receipt of the application money. If the company fails to allot securities within 60 days, it shall repay the application money within 15 days from the expiry of the 60 days; otherwise, it must pay interest at 12% per annum."
+  },
+  {
+    "id": 24,
+    "question": "What is the consequence under Section 42(10) if a company accepts subscription money or makes an allotment of securities in contravention of Section 42?",
+    "options": [
+      "The allotment is ratified automatically after 1 year pursuant to a resolution passed by the Board of Directors",
+      "The company's shares are permanently frozen on stock exchanges in accordance with the rules prescribed by the Central Government",
+      "The company, its promoters and directors shall be liable for a penalty which may extend to the amount involved in the offer or two crore rupees, whichever is lower, and the company shall also refund all monies with 12% p.a. interest within 30 days",
+      "The directors are sentenced to life imprisonment without trial subject to approval by a special resolution of shareholders",
+      "The company is converted into a non-profit section 8 company with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The company, its promoters and directors shall be liable for a penalty which may extend to the amount involved in the offer or two crore rupees, whichever is lower, and the company shall also refund all monies with 12% p.a. interest within 30 days. Section 42(10) imposes heavy statutory penalties: If a company makes an offer or accepts monies in contravention of Section 42, the company, its promoters and directors shall be liable to a penalty extending to the amount involved or Rs 2 crore, whichever is lower, and must refund all monies to subscribers with 12% p.a. interest within 30 days."
+  },
+  {
+    "id": 25,
+    "question": "Under Section 43 of the Companies Act, 2013, what are the two broad kinds of share capital that a company limited by shares can issue?",
+    "options": [
+      "Registered Capital and Unregistered Capital",
+      "Secured Capital and Unsecured Capital",
+      "Domestic Capital and Foreign Direct Investment Capital",
+      "Redeemable Capital and Irredeemable Capital",
+      "Equity Share Capital and Preference Share Capital"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Equity Share Capital (with voting rights or with differential rights as to dividend, voting or otherwise) and Preference Share Capital. Section 43 provides that the share capital of a company limited by shares shall be of two kinds only: (a) Equity share capital &#8212; (i) with voting rights, or (ii) with differential rights as to dividend, voting or otherwise; and (b) Preference share capital (which carries preferential rights as to dividend and repayment of capital on winding up)."
+  },
+  {
+    "id": 26,
+    "question": "Under Rule 4 of the Companies (Share Capital and Debentures) Rules, 2014, what is the maximum ceiling on shares with Differential Voting Rights (DVRs) that a company can issue?",
+    "options": [
+      "DVRs cannot exceed 25% of the total post-issue paid-up equity share capital",
+      "DVRs shall not exceed 74% of total post-issue paid up equity share capital",
+      "DVRs cannot exceed 10% of authorized share capital",
+      "DVRs cannot exceed 50% of free reserves",
+      "There is no statutory ceiling on DVR issuance"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: DVRs shall not exceed 74% of total post-issue paid up equity share capital including voting power in respect of equity shares with differential rights exercised at any point of time. The Ministry of Corporate Affairs amended Rule 4 in August 2019, significantly raising the ceiling: The voting power in respect of shares with differential rights shall not exceed 74% of total voting power exercised at any point of time (previously 26% of post-issue paid-up equity share capital)."
+  },
+  {
+    "id": 27,
+    "question": "What preferential rights define 'Preference Share Capital' under Explanation (ii) to Section 43 of the Companies Act, 2013?",
+    "options": [
+      "The right to manage the daily operations of the company as managing director upon verification of statutory registers at the registered office",
+      "The right to vote on every resolution placed before the annual general meeting subject to the conditions notified by the Ministry of Corporate Affairs",
+      "The right to receive free product samples manufactured by the company subject to prior filing with the Registrar of Companies",
+      "Preferential right to payment of dividend and preferential right to repayment of paid-up capital upon winding up or repayment of capital",
+      "The right to convert into government sovereign bonds on demand within thirty days from the date of the general meeting"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Preferential right to payment of dividend (fixed amount or fixed rate) and preferential right to repayment of paid-up capital upon winding up or repayment of capital. Preference share capital carries two defining statutory priorities: (1) A preferential right to be paid a fixed dividend or dividend calculated at a fixed rate, before any dividend is paid to equity shareholders; and (2) A preferential right to repayment of capital on a winding up before equity capital."
+  },
+  {
+    "id": 28,
+    "question": "Under Section 47(2), when does a Preference Shareholder acquire the statutory right to vote on EVERY resolution placed before a general meeting of the company?",
+    "options": [
+      "If the company fails to declare a dividend on preference shares for a period of two consecutive years or more",
+      "Immediately upon purchasing the preference shares pursuant to a resolution passed by the Board of Directors",
+      "If the company reports a quarterly net profit exceeding Rs 100 crore",
+      "If the preference shares are traded on foreign stock exchanges subject to approval by a special resolution of shareholders",
+      "Preference shareholders can never vote on general resolutions under any circumstances with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: If the company fails to declare a dividend on preference shares for a period of two consecutive years or more. Section 47(2) second proviso dictates that where the dividend in respect of a class of preference shares has not been paid for a period of two years or more, such class of preference shareholders shall have a right to vote on all the resolutions placed before the meeting, in proportion to their paid-up capital."
+  },
+  {
+    "id": 29,
+    "question": "Under Section 52(2) of the Companies Act, 2013, for which of the following purposes may a company apply the 'Securities Premium Account'?",
+    "options": [
+      "To pay cash dividends directly to equity shareholders",
+      "To pay annual income tax liabilities to the central government",
+      "Towards the issue of unissued shares to members as fully paid bonus shares",
+      "To fund political campaign contributions to electoral trusts",
+      "To pay discretionary performance bonuses to executive directors"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Towards the issue of unissued shares to members as fully paid bonus shares; in writing off preliminary expenses; in writing off discount allowed on issue of shares/debentures; in providing for premium on redemption of preference shares or debentures; or for buy-back of shares under Section 68. Section 52(2) strictly restricts the application of the Securities Premium Account to 5 specific purposes: (a) issuing fully paid bonus shares; (b) writing off preliminary expenses; (c) writing off expenses/commission/discount on issue of securities/debentures; (d) providing premium on redemption of redeemable preference shares or debentures; and (e) buy-back under Section 68."
+  },
+  {
+    "id": 30,
+    "question": "What does Section 53 of the Companies Act, 2013 dictate regarding the issue of shares at a discount?",
+    "options": [
+      "A company may issue shares at a discount of up to 50% with board approval",
+      "A company can issue shares at a discount only to foreign institutional investors",
+      "Discounted share issues are permissible if approved by an ordinary resolution",
+      "Shares can be issued at a discount with prior sanction of the Registrar of Companies",
+      "Except as provided in Section 54, a company shall NOT issue shares at a discount"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Except as provided in Section 54 (Sweat Equity Shares), a company shall NOT issue shares at a discount; any share issued at a discount shall be completely VOID, and the company and defaulting officers are liable to severe fines and must refund all monies with 12% p.a. interest. Section 53(1) and (2) strictly prohibit issuing shares at a discount (except Sweat Equity Shares under Section 54). Any share issued at a discount is ab initio VOID. Under Section 53(2A) added in 2018, a company may issue shares at a discount to its creditors when its debt is converted into shares pursuant to a statutory debt restructuring scheme."
+  },
+  {
+    "id": 31,
+    "question": "What are 'Sweat Equity Shares' under Section 2(88) and Section 54 of the Companies Act, 2013?",
+    "options": [
+      "Shares issued exclusively to gymnasiums and sports health clubs upon verification of statutory registers at the registered office",
+      "Equity shares issued by a company to its directors or employees at a discount or for consideration other than cash, for providing their know-how or making available rights in the nature of intellectual property or value additions",
+      "Shares issued to factory workers in lieu of overtime cash wages subject to the conditions notified by the Ministry of Corporate Affairs",
+      "Shares issued to promoters prior to incorporation of the company subject to prior filing with the Registrar of Companies",
+      "Shares issued to corporate banks as collateral against term loans within thirty days from the date of the general meeting"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Equity shares issued by a company to its directors or employees at a discount or for consideration other than cash, for providing their know-how or making available rights in the nature of intellectual property or value additions. Section 2(88) defines Sweat Equity Shares as equity shares issued to directors or employees at a discount or for non-cash consideration for providing know-how, intellectual property rights, or value additions. Under Section 54, issuance requires a Special Resolution, specified pricing, and a mandatory 3-year lock-in period."
+  },
+  {
+    "id": 32,
+    "question": "What is the mandatory statutory 'Lock-In Period' for Sweat Equity Shares from the date of allotment under Rule 8(5)?",
+    "options": [
+      "1 year",
+      "5 years",
+      "7 years",
+      "3 years",
+      "There is no lock-in period for sweat equity shares"
+    ],
+    "answer": 3,
+    "explanation": "Rule 8(5) of the Companies (Share Capital and Debentures) Rules, 2014 provides that sweat equity shares issued to directors or employees shall be locked-in/non-transferable for a minimum period of three years from the date of allotment, and the share certificates must be boldly stamped with the lock-in date."
+  },
+  {
+    "id": 33,
+    "question": "Under Section 55(1) of the Companies Act, 2013, can an Indian company issue 'Irredeemable Preference Shares'?",
+    "options": [
+      "No company limited by shares shall issue any preference shares which are irredeemable",
+      "Yes, if approved by a 75% majority special resolution within thirty days from the date of the general meeting",
+      "Yes, provided they are issued to public financial institutions under the applicable provisions of the Companies Act, 2013",
+      "Yes, if the company is an infrastructure development corporation as disclosed in the Board's Report and annual return",
+      "Yes, with the prior approval of the Central Government upon verification of statutory registers at the registered office"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: No company limited by shares shall issue any preference shares which are irredeemable (Irredeemable preference shares are strictly prohibited). Section 55(1) unequivocally states: 'No company limited by shares shall, after the commencement of this Act, issue any preference shares which are irredeemable.' All preference shares issued by Indian companies must be redeemable within a statutory maximum timeframe."
+  },
+  {
+    "id": 34,
+    "question": "What is the statutory maximum tenure for the redemption of Preference Shares under Section 55(2), and what is the special exception for Infrastructure Companies?",
+    "options": [
+      "Normal maximum tenure is 10 years; 15 years for infrastructure with the prior sanction of the National Company Law Tribunal",
+      "Normal maximum tenure is 5 years; 10 years for infrastructure",
+      "Normal maximum tenure is 20 years from the date of issue; however, a company engaged in infrastructure projects may issue preference shares for up to 30 years",
+      "Normal maximum tenure is 30 years for all companies uniformly within the statutory timeline prescribed under the Act",
+      "There is no maximum time limit specified in the Act pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Normal maximum tenure is 20 years from the date of issue; however, a company engaged in infrastructure projects may issue preference shares for a period exceeding 20 years but not exceeding 30 years, subject to the redemption of a minimum of 10% of such shares annually from the 21st year onward. Section 55(2) mandates that preference shares must be redeemable within a period not exceeding 20 years from the date of their issue. Under Rule 10, infrastructure companies specified in Schedule VI may issue preference shares for up to 30 years, provided they redeem a minimum 10% per year from the 21st year onwards."
+  },
+  {
+    "id": 35,
+    "question": "Under Section 55(2)(a), out of which funds can a company redeem its Preference Shares?",
+    "options": [
+      "Out of the proceeds of fresh bank overdraft borrowings upon verification of statutory registers at the registered office",
+      "Out of revaluation reserves created by upward land revaluation subject to the conditions notified by the Ministry of Corporate Affairs",
+      "Out of unpaid employee retirement provident funds subject to prior filing with the Registrar of Companies",
+      "Out of government industrial subsidies within thirty days from the date of the general meeting",
+      "Only out of the profits of the company which would otherwise be available for dividend, OR out of the proceeds of a fresh issue of shares made for the purposes of such redemption"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Only out of the profits of the company which would otherwise be available for dividend (distributable profits), OR out of the proceeds of a fresh issue of shares made for the purposes of such redemption. Section 55(2)(a) mandates that no preference shares shall be redeemed except out of the profits of the company which would otherwise be available for dividend, or out of the proceeds of a fresh issue of shares made for the purpose of such redemption. They cannot be redeemed out of borrowed money or revaluation reserves."
+  },
+  {
+    "id": 36,
+    "question": "What statutory reserve must be created under Section 55(2)(c) when Preference Shares are redeemed out of divisible profits?",
+    "options": [
+      "Debenture Redemption Reserve (DRR)",
+      "Capital Redemption Reserve (CRR), to which a sum equal to the nominal amount of the shares to be redeemed must be transferred",
+      "General Welfare Reserve (GWR)",
+      "Foreign Currency Translation Reserve (FCTR) subject to approval by a special resolution of shareholders",
+      "Unclaimed Dividend Reserve (UDR)"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Capital Redemption Reserve (CRR), to which a sum equal to the nominal amount of the shares to be redeemed must be transferred. Section 55(2)(c) provides that where preference shares are proposed to be redeemed out of profits of the company, there shall, out of such profits, be transferred a sum equal to the nominal amount of the shares redeemed, to a reserve fund called the 'Capital Redemption Reserve' (CRR), to preserve corporate capital."
+  },
+  {
+    "id": 37,
+    "question": "For which sole statutory purpose may the 'Capital Redemption Reserve' (CRR) account be utilized under Section 55(4)?",
+    "options": [
+      "To pay interim cash dividends to equity shareholders within thirty days from the date of the general meeting",
+      "To write off corporate trade losses under the applicable provisions of the Companies Act, 2013",
+      "To settle income tax dispute liabilities as disclosed in the Board's Report and annual return",
+      "By the company in paying up unissued shares of the company to be issued to members of the company as fully paid bonus shares",
+      "To pay underwriting commission on corporate bonds upon verification of statutory registers at the registered office"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: By the company in paying up unissued shares of the company to be issued to members of the company as fully paid bonus shares. Section 55(4) explicitly specifies: 'The capital redemption reserve account may, notwithstanding anything in this section, be applied by the company, in paying up unissued shares of the company to be issued to members of the company as fully paid bonus shares.' It cannot be used for any other purpose."
+  },
+  {
+    "id": 38,
+    "question": "What is the mandatory condition regarding 'fully paid-up' status before preference shares can be redeemed under Section 55(2)(b)?",
+    "options": [
+      "No preference shares shall be redeemed unless they are fully paid-up",
+      "Preference shares can be redeemed even if partly paid-up",
+      "Preference shares must be at least 50% paid-up",
+      "Partly paid preference shares can be redeemed with NCLT approval",
+      "There is no requirement regarding the paid-up status of preference shares"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: No preference shares shall be redeemed unless they are fully paid-up (All calls in arrears must be fully cleared). Section 55(2)(b) states unequivocally: 'no such shares shall be redeemed unless they are fully paid.' If any preference shares are partly paid, the company cannot redeem them until the calls in arrears are completely collected and the shares become fully paid up."
+  },
+  {
+    "id": 39,
+    "question": "What is 'Offer for Sale' (OFS) by existing members under Section 28 of the Companies Act, 2013?",
+    "options": [
+      "Selling unissued equity shares directly from the company treasury upon verification of statutory registers at the registered office",
+      "An auction of company assets ordered by a liquidation court subject to the conditions notified by the Ministry of Corporate Affairs",
+      "An arrangement where certain members of a company, in consultation with the board, propose to offer the whole or part of their existing shareholdings to the public through a prospectus",
+      "Selling company products at retail discount clearance outlets subject to prior filing with the Registrar of Companies",
+      "A private agreement between two institutional venture capital firms within thirty days from the date of the general meeting"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: An arrangement where certain members of a company, in consultation with the board, propose to offer the whole or part of their existing shareholdings to the public through a prospectus, where all expenses incurred on the OFS are reimbursed to the company by the selling shareholders. Under Section 28(1), members of a company may offer their existing holding of shares to the public in consultation with the Board. Any document by which the offer for sale is made is deemed to be a prospectus. Under Section 28(3), the selling shareholders must reimburse the company for all expenses incurred."
+  },
+  {
+    "id": 40,
+    "question": "Under Section 26(1), what is the statutory validity window of an expert's consent included in a prospectus?",
+    "options": [
+      "The expert must have been deceased for at least 10 years pursuant to a resolution passed by the Board of Directors",
+      "The expert must hold at least 5% equity shares in the company",
+      "The expert's consent must be countersigned by a district magistrate subject to approval by a special resolution of shareholders",
+      "The expert must be a serving central government civil servant with the prior sanction of the National Company Law Tribunal",
+      "The expert must have given their written consent to the issue of the prospectus and has not withdrawn that consent before the delivery of a copy of the prospectus to the Registrar for filing, and a statement to that effect must appear in the prospectus"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The expert must have given their written consent to the issue of the prospectus and has not withdrawn that consent before the delivery of a copy of the prospectus to the Registrar for filing, and a statement to that effect must appear in the prospectus. Section 26(1)(a)(v) and Section 26(5) require that a prospectus shall not include a statement purporting to be made by an expert unless the expert is a person not connected with the promotion or management of the company, has given written consent, and has not withdrawn it before registration."
+  },
+  {
+    "id": 41,
+    "question": "What is the penalty under Section 26(9) if a prospectus is issued in contravention of the provisions of Section 26?",
+    "options": [
+      "Immediate winding up of the company by the Central Government within thirty days from the date of the general meeting",
+      "The company shall be punishable with fine not less than Rs 50,000 but which may extend to Rs 3,00,000, and every person knowingly a party shall be punishable with fine",
+      "Cancellation of all company intellectual property patents under the applicable provisions of the Companies Act, 2013",
+      "A mandatory fine of Rs 100 on the company registrar as disclosed in the Board's Report and annual return",
+      "A verbal warning issued by SEBI upon verification of statutory registers at the registered office"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The company shall be punishable with fine not less than Rs 50,000 but which may extend to Rs 3,00,000, and every person knowingly a party shall be punishable with fine. Under Section 26(9), if a prospectus is issued in contravention of Section 26, the company shall be punishable with fine which shall not be less than fifty thousand rupees but which may extend to three lakh rupees, and every person who is knowingly a party to the issue shall be liable to fine."
+  },
+  {
+    "id": 42,
+    "question": "What power does SEBI exercise over listed companies under Section 24 of the Companies Act, 2013?",
+    "options": [
+      "SEBI regulates the appointment of factory floor safety managers with the prior sanction of the National Company Law Tribunal",
+      "SEBI manages the collection of central corporate income taxes",
+      "SEBI controls foreign diplomatic treaties with neighboring nations within the statutory timeline prescribed under the Act",
+      "SEBI administers the provisions contained in Chapter III, Chapter IV, and Section 127 in so far as they relate to issue and transfer of securities and non-payment of dividend by listed companies or companies proposing to list",
+      "SEBI regulates the manufacture of pharmaceuticals pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: SEBI administers the provisions contained in Chapter III (Prospectus & Allotment), Chapter IV (Share Capital), and Section 127 in so far as they relate to issue and transfer of securities and non-payment of dividend by listed companies or companies proposing to list. Section 24(1) delegates statutory powers: The provisions contained in Chapter III, Chapter IV, and Section 127 (dividend non-payment) shall, in so far as they relate to issue and transfer of securities and non-payment of dividend by listed companies or companies intending to get listed, be administered by SEBI."
+  },
+  {
+    "id": 43,
+    "question": "Under Section 27 of the Companies Act, 2013, can a company vary the terms of a contract referred to in the prospectus or the objects for which the prospectus was issued?",
+    "options": [
+      "Only by passing a Special Resolution through postal ballot, publishing a notice in newspapers with justifications, and providing dissenting shareholders with an exit offer in accordance with SEBI regulations",
+      "Yes, by a simple executive order signed by the CEO alone upon verification of statutory registers at the registered office",
+      "Under no circumstances; the objects of a prospectus can never be altered subject to the conditions notified by the Ministry of Corporate Affairs",
+      "By obtaining verbal permission from the Registrar of Companies subject to prior filing with the Registrar of Companies",
+      "By filing a declaration in the municipal gazette within thirty days from the date of the general meeting"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Only by passing a Special Resolution through postal ballot, publishing a notice in newspapers with justifications, and providing dissenting shareholders with an exit offer in accordance with SEBI regulations. Section 27(1) states that a company shall not vary terms of a contract or objects of a prospectus except on the authority of a Special Resolution passed by postal ballot. Notice must be published in English and vernacular newspapers. Dissenting shareholders must be given an exit opportunity (Section 27(2))."
+  },
+  {
+    "id": 44,
+    "question": "What is the criminal penalty under Section 36 of the Companies Act, 2013 for 'fraudulently inducing persons to invest money'?",
+    "options": [
+      "A fine of Rs 5,000 paid to the local police department pursuant to a resolution passed by the Board of Directors",
+      "Suspension of the individual's passport for 30 days in accordance with the rules prescribed by the Central Government",
+      "Any person who knowingly or recklessly makes any false, deceptive, or misleading statement to induce another person to enter into an agreement for acquiring securities shall be criminally liable for fraud under Section 447",
+      "A public apology published on the company's website homepage subject to approval by a special resolution of shareholders",
+      "No criminal liability applies if the money is returned within 5 years"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Any person who knowingly or recklessly makes any false, deceptive, or misleading statement to induce another person to enter into an agreement for acquiring securities shall be criminally liable for fraud under Section 447. Section 36 provides that any person who, either knowingly or recklessly makes any statement, promise or forecast which is false, deceptive or misleading to induce another person to enter into an agreement for acquiring or subscribing securities shall be liable for punishment for fraud under Section 447."
+  },
+  {
+    "id": 45,
+    "question": "What is 'Class Action' suit provision under Section 37 of the Companies Act, 2013 for victims of misleading prospectuses?",
+    "options": [
+      "A suit filed exclusively by school students in civil court within thirty days from the date of the general meeting",
+      "A suit filed by the Central Government against foreign embassies under the applicable provisions of the Companies Act, 2013",
+      "An internal disciplinary inquiry conducted by corporate human resources as disclosed in the Board's Report and annual return",
+      "A lawsuit between two competing commercial airline carriers upon verification of statutory registers at the registered office",
+      "A suit or other action that may be filed or taken by any person, group of persons or any association of persons who have been affected by any misleading statement or inclusion/omission in a prospectus, enforcing collective liability"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A suit or other action that may be filed or taken by any person, group of persons or any association of persons who have been affected by any misleading statement or inclusion/omission in a prospectus, enforcing collective liability. Section 37 states that a suit may be filed or any other action may be taken under Section 34, Section 35, or Section 36 by any person, group of persons or any association of persons who have been affected by any misleading statement or the inclusion or omission of any matter in the prospectus (Class Action)."
+  },
+  {
+    "id": 46,
+    "question": "Under Section 40(1) of the Companies Act, 2013, what mandatory step must every company making a public offer undertake regarding stock exchanges?",
+    "options": [
+      "The company must purchase 10% equity shares in the stock exchange with the prior sanction of the National Company Law Tribunal",
+      "The company must make an application to one or more recognized stock exchanges for permission for the securities to be dealt with on such exchange, and state the name of such stock exchange(s) in the prospectus",
+      "The company must appoint the stock exchange chairman as an independent director",
+      "The company must deposit 50% of its capital in the stock exchange bank account within the statutory timeline prescribed under the Act",
+      "There is no requirement to apply to recognized stock exchanges pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The company must make an application to one or more recognized stock exchanges for permission for the securities to be dealt with on such exchange, and state the name of such stock exchange(s) in the prospectus. Section 40(1) mandates that every company making a public offer shall, before making such offer, make an application to one or more recognized stock exchange or exchanges and have obtained permission for the securities to be dealt with in such stock exchange or each such stock exchange, and name them in the prospectus."
+  },
+  {
+    "id": 47,
+    "question": "Where must all monies received on application from the public for subscription to securities be kept under Section 40(3)?",
+    "options": [
+      "In the company managing director's personal savings account upon verification of statutory registers at the registered office",
+      "In cash lockers inside the corporate registered office subject to the conditions notified by the Ministry of Corporate Affairs",
+      "In foreign currency accounts in international tax havens subject to prior filing with the Registrar of Companies",
+      "In a separate bank account in a scheduled bank, and shall not be utilized for any purpose other than adjustment against allotment of securities or repayment of application monies",
+      "Invested immediately in equity mutual fund index schemes within thirty days from the date of the general meeting"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: In a separate bank account in a scheduled bank, and shall not be utilized for any purpose other than adjustment against allotment of securities or repayment of application monies. Section 40(3) requires that all monies received on application from the public shall be kept in a separate bank account in a scheduled bank. These funds cannot be used for operational expenses; they can only be used for: (a) adjustment against allotment of securities; or (b) repayment to applicants if allotment is not made."
+  },
+  {
+    "id": 48,
+    "question": "Under Section 40(6) read with Rule 13, what is the maximum underwriting commission that can be paid on an issue of shares?",
+    "options": [
+      "An amount not exceeding 5% of the price at which the shares are issued, or the amount authorized by the articles, whichever is less",
+      "An amount not exceeding 10% of the authorized capital pursuant to a resolution passed by the Board of Directors",
+      "A fixed flat fee of Rs 1 crore in accordance with the rules prescribed by the Central Government",
+      "An amount not exceeding 2.5% of debentures issued subject to approval by a special resolution of shareholders",
+      "Underwriting commissions are strictly prohibited under the 2013 Act with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: An amount not exceeding 5% of the price at which the shares are issued, or the amount authorized by the articles, whichever is less. Rule 13(c) of the Companies (Prospectus and Allotment of Securities) Rules, 2014 specifies that the rate of underwriting commission shall not exceed: (i) in case of shares, 5% of the price at which the shares are issued or the rate authorized by the articles, whichever is less; and (ii) in case of debentures, 2.5%."
+  },
+  {
+    "id": 49,
+    "question": "Can underwriting commission be paid on securities which are NOT offered to the public for subscription?",
+    "options": [
+      "Yes, with NCLT approval",
+      "Yes, if approved by a special resolution under the applicable provisions of the Companies Act, 2013",
+      "No underwriting commission shall be paid on securities which are not offered to the public for subscription (Rule 13(d))",
+      "Yes, if paid to a scheduled commercial bank as disclosed in the Board's Report and annual return",
+      "Yes, up to a maximum limit of 1% upon verification of statutory registers at the registered office"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: No underwriting commission shall be paid on securities which are not offered to the public for subscription (Rule 13(d)). Rule 13(d) of the Companies (Prospectus and Allotment of Securities) Rules, 2014 explicitly prohibits paying any underwriting commission to underwriters on securities which are not offered to the public for subscription."
+  },
+  {
+    "id": 50,
+    "question": "Under Section 46 of the Companies Act, 2013, what evidentiary value does a share certificate issued under the common seal or signed by authorized directors/CS hold?",
+    "options": [
+      "It is conclusive proof that the company is completely debt-free with the prior sanction of the National Company Law Tribunal",
+      "It holds zero evidentiary value in a court of law",
+      "It acts as a negotiable currency promissory note within the statutory timeline prescribed under the Act",
+      "It grants the holder diplomatic immunity from corporate lawsuits pursuant to a resolution passed by the Board of Directors",
+      "A certificate, issued under the common seal of the company or signed by two directors or by a director and the Company Secretary, specifying the shares held by any person, shall be PRIMA FACIE evidence of the title of the person to such shares"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A certificate, issued under the common seal of the company or signed by two directors or by a director and the Company Secretary, specifying the shares held by any person, shall be PRIMA FACIE evidence of the title of the person to such shares. Section 46(1) provides that a certificate, issued under the common seal of the company (or signed by two directors or by a director and the Company Secretary wherever the company does not have a common seal), specifying the shares held by any person, shall be prima facie evidence of the title of the person to such shares."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Companies Act Mock 1",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Companies Act Mock 1";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br /><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br /><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br /><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br /><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

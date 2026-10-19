@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFRDA Media Mock Test 4 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject K: Media</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Media_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Media_Master_Revision_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Media_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Media_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Media_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Media_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Media_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &middot; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &middot; Paper 2 &middot; Media Mock 4</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Media &amp; Communication - Mock 4</h1>
+    <p class="start-subheading">Full 50 Questions &middot; Concept-Based &middot; PFRDA Grade A Level &middot; Precision Coaching</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant">
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com">
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Accounting System:</b> Financial information system, bookkeeping vs accounting, concepts, conventions, capital vs revenue, errors.</li>
+                <li><b>Accounting Standards:</b> Depreciation (AS 10 / Ind AS 16), Inventories (AS 2 / Ind AS 2), Revenue Recognition (AS 9 / Ind AS 115), PPE (AS 10), Forex (AS 11 / Ind AS 21), Investments (AS 13).</li>
+                <li><b>Cash Flow &amp; Fund Flow:</b> Operating/Investing/Financing activities, Direct &amp; Indirect methods, Statement of Changes in Working Capital.</li>
+                <li><b>Ratio Analysis:</b> Liquidity, Solvency, Turnover, Profitability, and DuPont 3-stage model.</li>
+                <li><b>Share Capital &amp; Corporate Actions:</b> Share issue/forfeiture/reissue, Bonus shares (Sec 63), Rights issue (Sec 62), ESOPs, Buy-back (Sec 68-70).</li>
+                <li><b>Company Final Accounts:</b> Schedule III Balance Sheet and Statement of Profit &amp; Loss structure and disclosures.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "What is the primary operational distinction between SVOD, AVOD, TVOD, and FAST business models in digital streaming entertainment?",
+    "options": [
+      "SVOD is for audio; AVOD is for text; TVOD is for video; FAST is for video games across converged mass media and interactive digital channels",
+      "FAST is available only in physical cinema theaters to maximize user engagement, retention, and monetization",
+      "TVOD requires owning a satellite television dish across virtual, augmented, and immersive media environments",
+      "AVOD was banned in India in 2021",
+      "SVOD charges a recurring fee for unlimited ad-free access; AVOD provides on-demand content monetized via ads; TVOD charges per individual rental/purchase; FAST streams free, scheduled, linear channel grids monetized via programmatic TV commercials"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: SVOD (Subscription VOD) charges a recurring fee for unlimited ad-free access (e.g. Netflix); AVOD (Ad-supported VOD) provides on-demand content monetized via ads (e.g. YouTube); TVOD (Transactional VOD) charges per individual rental/purchase (e.g. Apple TV movie rentals); FAST (Free Ad-supported Streaming TV) streams free, scheduled, linear channel grids monetized via programmatic TV commercials (e.g. Pluto TV). Digital streaming business models: (1) SVOD (Subscription VOD): recurring monthly/annual subscription fees for catalog access; (2) AVOD (Ad-supported VOD): free on-demand content with ad breaks; (3) TVOD (Transactional VOD): pay-per-view rental or purchase per title; (4) FAST (Free Ad-supported Streaming TV): free linear streaming channels replicating traditional cable TV grids with scheduled ad breaks."
+  },
+  {
+    "id": 2,
+    "question": "Under the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021 notified by the Government of India, what is the 'Three-Tier Grievance Redressal Mechanism' established for digital OTT streaming platforms and digital news publishers?",
+    "options": [
+      "Tier I: Police complaint; Tier II: High Court; Tier III: Supreme Court within modern audience reception and cultural media studies",
+      "Level I: Self-regulation by the publisher; Level II: Self-regulation by one or more self-regulating bodies of publishers; Level III: Oversight mechanism by the Central Government",
+      "Tier I: District Magistrate; Tier II: State Governor; Tier III: Prime Minister's Office by analyzing granular user interaction and telemetry data",
+      "Tier I: Automated AI chatbot; Tier II: Call center; Tier III: Consumer forum across global over-the-top (OTT) and creator economy platforms",
+      "The 2021 Rules do not contain a grievance mechanism across digital streaming platforms and social media feeds"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Level I: Self-regulation by the publisher (internal Grievance Officer); Level II: Self-regulation by one or more self-regulating bodies of publishers (headed by a retired Supreme Court / High Court judge); Level III: Oversight mechanism by the Central Government (Inter-Departmental Committee headed by Ministry of Information and Broadcasting). Part III of the IT Rules, 2021 establishes a 3-tier grievance mechanism: Level I: The publisher appoints an India-resident Grievance Officer (must acknowledge complaints within 24 hours and resolve within 15 days); Level II: Self-regulating bodies of publishers registered with MIB, headed by a retired judge; Level III: Government oversight mechanism comprising an Inter-Departmental Committee (IDC) chaired by MIB."
+  },
+  {
+    "id": 3,
+    "question": "Under the Code of Ethics of the IT Rules, 2021, what are the five age-based content classification categories that digital OTT platforms in India must display for their video content?",
+    "options": [
+      "Class 1, Class 2, Class 3, Class 4, and Class 5",
+      "G (General), PG (Parental Guidance), PG-13, R (Restricted), and NC-17",
+      "Kids, Family, Drama, Action, and Mature",
+      "U (Universal), U/A 7+, U/A 13+, U/A 16+, and A (Adult)",
+      "Primary, Middle, Secondary, Senior, and Graduate"
+    ],
+    "answer": 3,
+    "explanation": "The Code of Ethics under IT Rules, 2021 mandates five age-based classification ratings: (1) U - suitable for all ages; (2) U/A 7+; (3) U/A 13+; (4) U/A 16+; and (5) A - restricted to adults. Platforms must display content descriptors (e.g. violence, language) and implement parental locks for content classified U/A 13+ and above, plus an age verification mechanism for 'A'."
+  },
+  {
+    "id": 4,
+    "question": "What is the statutory requirement regarding 'Parental Locks' and 'Age Verification' for OTT platforms under the IT Rules, 2021?",
+    "options": [
+      "Publishers of online curated content must provide a parental lock access control mechanism for content classified as U/A 13+ or higher, and a reliable age-verification mechanism for content classified as 'A' (Adult)",
+      "Parental locks are optional and require paying extra fees across digital streaming platforms and social media feeds",
+      "Parental locks must automatically shut off the internet at 9:00 PM through algorithmic content curation and audience segmentation",
+      "Age verification requires biometric fingerprint scanners on all televisions under contemporary digital platform governance and privacy norms",
+      "Parental locks are required only for foreign imported films within modern audience reception and cultural media studies"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Publishers of online curated content must provide a parental lock access control mechanism for content classified as U/A 13+ or higher, and a reliable age-verification mechanism for content classified as 'A' (Adult). Rule 4 of the Schedule to the IT Rules, 2021 requires publishers of online curated content to introduce parental control / lock mechanisms for content rated U/A 13+ and above to prevent children from accessing mature content, along with reliable age verification for content rated 'A'."
+  },
+  {
+    "id": 5,
+    "question": "What is 'Binge-Watching' in contemporary digital media consumer behavior, and what platform feature was engineered by Netflix to accelerate it?",
+    "options": [
+      "Watching television news while eating dinner across converged mass media and interactive digital channels",
+      "A technical feature that doubles video playback speed to maximize user engagement, retention, and monetization",
+      "The practice of viewing multiple episodes of a television series in rapid succession in a single sitting",
+      "Downloading movies onto external hard drives across virtual, augmented, and immersive media environments",
+      "A physical workout routine performed while watching movies"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The practice of viewing multiple episodes of a television series in rapid succession in a single sitting; accelerated by algorithmic UI features like 'Post-Play' (automated countdown autoplay of the next episode in 5 seconds) and 'Skip Intro' buttons, eliminating natural pausing friction. Binge-watching (watching 2–6+ episodes in a single session) was popularized when Netflix released entire seasons simultaneously. To exploit momentum and reduce decision friction, Netflix engineered 'Post-Play' autoplay (automatically starting the next episode within 5 seconds) and the 'Skip Intro' button, leveraging psychological inertia."
+  },
+  {
+    "id": 6,
+    "question": "What is 'Content Windowing' in the entertainment industry, and how has digital streaming disrupted the traditional 'Theatrical Window'?",
+    "options": [
+      "Opening physical glass windows on film shooting sets within modern audience reception and cultural media studies",
+      "Dividing computer screens into four equal quadrants by analyzing granular user interaction and telemetry data",
+      "A legal restriction on shooting films in foreign countries across global over-the-top (OTT) and creator economy platforms",
+      "A technique for cleaning television camera lenses across digital streaming platforms and social media feeds",
+      "The strategic business practice of releasing a movie across sequential distribution windows to maximize revenue across each tier"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The strategic business practice of releasing a movie across sequential distribution windows (theaters &rarr; home video/VOD &rarr; pay-TV &rarr; free-to-air TV) to maximize revenue across each tier; streaming compressed the traditional 90-day exclusive theatrical window down to 45 days or simultaneous 'day-and-date' digital releases. Historically, movie studios enforced a rigid 90-day exclusive theatrical window before releasing a film on DVD, pay-TV, or streaming. Streaming disrupted this model by aggressively shrinking the window to 45 days (or even simultaneous 'day-and-date' streaming release), sparking fierce tensions with traditional cinema chain operators."
+  },
+  {
+    "id": 7,
+    "question": "In the architecture of large-scale industrial Recommender Systems (e.g. YouTube, Netflix, Instagram), what is the 'Two-Tower Architecture'?",
+    "options": [
+      "Two physical skyscraper buildings housing server computers",
+      "A deep learning architecture consisting of a User Tower and an Item Tower, computing dot products in real-time to retrieve top candidate items from catalogs of millions in milliseconds",
+      "A model that recommends only two videos at a time during multi-stakeholder media negotiation and campaigning",
+      "A neural network architecture that operates without backpropagation within programmatic advertising and real-time bidding ecosystems",
+      "A dual-database system that mirrors SQL tables across cloud regions"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A deep learning architecture consisting of a User Tower (encoding user history, demographics, and context into a user embedding vector) and an Item Tower (encoding video/item metadata into an item embedding vector), computing dot products in real-time to retrieve top candidate items from catalogs of millions in milliseconds. Industrial recommender systems must filter millions of items in milliseconds. The Two-Tower model splits computation: the User Tower maps user features/history to embedding vector u; the Item Tower pre-computes item embeddings v. At inference, candidate retrieval calculates dot product <u, v> using Approximate Nearest Neighbor (ANN) search in milliseconds."
+  },
+  {
+    "id": 8,
+    "question": "What is the primary difference between 'Collaborative Filtering' and 'Content-Based Filtering' in recommendation algorithms?",
+    "options": [
+      "Collaborative filtering works only on images; Content-based works only on text across digital streaming platforms and social media feeds",
+      "Collaborative filtering requires no user data through algorithmic content curation and audience segmentation",
+      "Content-based filtering is illegal under Indian copyright laws under contemporary digital platform governance and privacy norms",
+      "Collaborative Filtering recommends items based on the collective behavior and preferences of similar users",
+      "There is no difference; both terms describe the exact same algorithm within modern audience reception and cultural media studies"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Collaborative Filtering recommends items based on the collective behavior and preferences of similar users ('users who liked X also liked Y'), without needing to understand the underlying content features; Content-Based Filtering recommends items that share similar descriptive attributes, genres, tags, or text features with items the user liked in the past. Collaborative Filtering (user-user, item-item, matrix factorization) leverages collective behavioral crowd wisdom (if User A and User B share past ratings, User A will like what B liked). Content-Based Filtering analyzes item metadata (genre, cast, director, keywords), recommending items structurally similar to what the individual user consumed previously."
+  },
+  {
+    "id": 9,
+    "question": "What is the 'Cold-Start Problem' in collaborative filtering recommendation engines?",
+    "options": [
+      "The inability of a collaborative filtering algorithm to make accurate recommendations for a brand-new user or a brand-new item",
+      "The difficulty of turning on computer servers in winter across converged mass media and interactive digital channels",
+      "A decline in streaming viewership during morning hours to maximize user engagement, retention, and monetization",
+      "An error that occurs when an app runs out of memory across virtual, augmented, and immersive media environments",
+      "The time taken to boot up a smart television in accordance with digital media ethics and regulatory standards"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The inability of a collaborative filtering algorithm to make accurate recommendations for a brand-new user (who has no interaction history) or a brand-new item (which has zero ratings or views from any user in the system). Collaborative filtering relies on past user-item interactions. When a new user signs up (New User Cold-Start) or a new movie is uploaded (New Item Cold-Start), there is zero behavioral interaction history to compute similarities. Platforms overcome this using content-based metadata, popularity heuristics, or onboarding preference quizzes."
+  },
+  {
+    "id": 10,
+    "question": "How does 'Matrix Factorization' (Singular Value Decomposition - SVD) operate in collaborative filtering (e.g. Netflix Prize algorithm by Koren, Bell & Volinsky)?",
+    "options": [
+      "By converting video frames into Excel spreadsheets within modern audience reception and cultural media studies",
+      "By multiplying the price of movies by subscriber count",
+      "By decomposing a massive, sparse User-Item interaction matrix R into the product of two lower-dimensional dense matrices, mapping both users and items into a shared latent factor space where dot products predict unobserved user ratings",
+      "By dividing the movie duration by total views across global over-the-top (OTT) and creator economy platforms",
+      "By calculating the Gini impurity of user age brackets across digital streaming platforms and social media feeds"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: By decomposing a massive, sparse User-Item interaction matrix R into the product of two lower-dimensional dense matrices (User matrix P and Item matrix Q), mapping both users and items into a shared latent factor space where dot products predict unobserved user ratings. Matrix Factorization maps both users and items to a joint latent factor space of dimensionality d (e.g. latent factors representing action, romance, visual pace): R ≈ P × Q^T. The predicted rating of user u for item i is the inner product: r̂_ui = p_u · q_i. It effectively predicts ratings for unrated cells in the sparse matrix."
+  },
+  {
+    "id": 11,
+    "question": "In behavioral product design, what are the four sequential phases of the 'Hooked Model' (Nir Eyal) used to engineer habit-forming digital media platforms?",
+    "options": [
+      "Attention, Interest, Desire, Action",
+      "Download, Registration, Payment, Cancellation",
+      "Coding, Compiling, Testing, Deployment",
+      "Perception, Cognition, Evaluation, Execution",
+      "Trigger, Action, Variable Reward, and Investment"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Trigger (External and Internal), Action, Variable Reward, and Investment. Nir Eyal's Hooked model describes the habit-forming design loop: (1) Trigger (external push notification leading to internal emotional trigger like boredom); (2) Action (simple behavior in anticipation of reward, e.g. scrolling); (3) Variable Reward (intermittent dopamine hit from unpredictable novelty); and (4) Investment (user adds data, follows, or content, loading the next trigger)."
+  },
+  {
+    "id": 12,
+    "question": "What is the psychological power of 'Variable Rewards' (Intermittent Reinforcement - B.F. Skinner) in social media algorithm feeds (e.g. pull-to-refresh mechanics)?",
+    "options": [
+      "Users are paid variable cash bonuses for writing comments across digital streaming platforms and social media feeds",
+      "Unpredictable reward schedules trigger massive surges of dopamine in the brain",
+      "The subscription fee changes every month based on viewership through algorithmic content curation and audience segmentation",
+      "Video streaming quality fluctuates randomly under contemporary digital platform governance and privacy norms",
+      "Advertisements are shown at random volume levels within modern audience reception and cultural media studies"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Unpredictable reward schedules trigger massive surges of dopamine in the brain (like a Las Vegas slot machine): because the user never knows whether the next swipe will reveal an uninteresting post or an extraordinarily exciting viral video, the anticipation of variable novelty compels compulsive repeated scrolling. B.F. Skinner discovered that pigeons pecked food levers most compulsively under variable-ratio schedules (unpredictable rewards) rather than fixed schedules. Pull-to-refresh and infinite feeds function like pocket slot machines: the unpredictable dopamine payoff of finding something interesting compels endless scrolling."
+  },
+  {
+    "id": 13,
+    "question": "What is the 'Viral Coefficient' (K-factor) in digital platform growth analytics, and what condition indicates exponential organic virality?",
+    "options": [
+      "K-factor must be exactly zero across converged mass media and interactive digital channels",
+      "K-factor measures the number of computer viruses detected on an app to maximize user engagement, retention, and monetization",
+      "K-factor is the ratio of server costs to marketing spend across virtual, augmented, and immersive media environments",
+      "K = i × c; a K-factor strictly greater than 1.0 (K > 1) indicates self-sustaining, exponential viral growth where each user brings more than one new user into the platform",
+      "K-factor must be less than 0.5 for a platform to survive in accordance with digital media ethics and regulatory standards"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: K = i × c (where i is the number of invitations sent per active user, and c is the conversion rate of invitees); a K-factor strictly greater than 1.0 (K > 1) indicates self-sustaining, exponential viral growth where each user brings more than one new user into the platform. The viral coefficient measures organic referral propagation: K = number of invites per customer (i) × conversion rate of invites (c). If K > 1, each cohort of users generates a larger subsequent cohort without paid advertising, leading to viral exponential network expansion. If K < 1, viral growth decays."
+  },
+  {
+    "id": 14,
+    "question": "What is 'Shadowbanning' on social media platforms?",
+    "options": [
+      "The covert suppression, algorithmic demotion, or de-ranking of a user's posts, account, or comments so that their content is hidden from public discovery feeds, search results, and hashtags",
+      "Banning users from posting content during nighttime hours within modern audience reception and cultural media studies",
+      "Deleting a user's account permanently from the server database by analyzing granular user interaction and telemetry data",
+      "Banning accounts that use black-colored profile pictures across global over-the-top (OTT) and creator economy platforms",
+      "A legal injunction issued by a criminal court against an influencer across digital streaming platforms and social media feeds"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The covert suppression, algorithmic demotion, or de-ranking of a user's posts, account, or comments so that their content is hidden from public discovery feeds, search results, and hashtags without the user being formally notified of any suspension or rule violation. Shadowbanning (stealth banning) is an algorithmic content moderation practice: an offending or borderline account is rendered invisible to non-followers or suppressed from exploration algorithms. The user continues to post normally without realizing that their reach has been artificially throttled to near zero."
+  },
+  {
+    "id": 15,
+    "question": "What is the 'Algorithmic Amplification of Outrage' on social media news feeds?",
+    "options": [
+      "A software bug that increases speaker volume during news broadcasts",
+      "A legal mandate requiring news channels to broadcast political debates during multi-stakeholder media negotiation and campaigning",
+      "The phenomenon where recommendation algorithms preferentially boost and viralize emotionally provocative, divisive, sensational, and morally outraged content, because high-arousal negative emotions drive more active user interaction than calm factual information",
+      "A technique for detecting copyright infringement in audio tracks within programmatic advertising and real-time bidding ecosystems",
+      "An increase in television subscription rates during national crises across converged mass media and interactive digital channels"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The phenomenon where recommendation algorithms (optimized to maximize user engagement signals like comments, retweets, and dwell time) preferentially boost and viralize emotionally provocative, divisive, sensational, and morally outraged content, because high-arousal negative emotions drive more active user interaction than calm factual information. Empirical studies (e.g. Brady et al., PNAS) show that moral-emotional language and outrage substantially increase retweets and shares. Because social media ranking algorithms optimize for engagement metrics (comments, quotes, replies), content that provokes outrage is systematically amplified, contributing to political polarization."
+  },
+  {
+    "id": 16,
+    "question": "What is a 'Deepfake' in digital entertainment and synthetic media?",
+    "options": [
+      "A submarine exploration video recorded deep in the ocean across digital streaming platforms and social media feeds",
+      "A counterfeit physical DVD sold on the black market through algorithmic content curation and audience segmentation",
+      "An error caused by low-resolution video compression under contemporary digital platform governance and privacy norms",
+      "A fictional novel written by a human author within modern audience reception and cultural media studies",
+      "Highly realistic synthetic media generated or manipulated using deep learning artificial neural networks to depict individuals saying or doing things that never actually occurred"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Highly realistic synthetic media (video, audio, or image) generated or manipulated using deep learning artificial neural networks (such as Generative Adversarial Networks - GANs or Diffusion Models) to depict individuals saying or doing things that never actually occurred. Deepfakes (deep learning + fake) use generative models (GANs, Autoencoders, Diffusion) to swap faces, clone human voices, or synthesize convincing video and audio depicting real people uttering fabricated statements or performing actions they never performed, raising severe challenges for electoral integrity and fraud."
+  },
+  {
+    "id": 17,
+    "question": "What is the 'C2PA' (Coalition for Content Provenance and Authenticity) standard in synthetic media governance?",
+    "options": [
+      "A global treaty governing commercial airline flights across converged mass media and interactive digital channels",
+      "An open technical standard that embeds cryptographically verifiable digital provenance metadata directly into media files at the point of capture, editing, or AI generation, establishing an immutable audit trail of who created the content and what AI tools were used to alter it",
+      "A software license for video editing applications to maximize user engagement, retention, and monetization",
+      "A union representing Hollywood cinema actors across virtual, augmented, and immersive media environments",
+      "A hardware standard for HDMI video cables in accordance with digital media ethics and regulatory standards"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: An open technical standard that embeds cryptographically verifiable digital provenance metadata (Content Credentials) directly into media files at the point of capture, editing, or AI generation, establishing an immutable audit trail of who created the content and what AI tools were used to alter it. C2PA (led by Adobe, Microsoft, Google, Intel) developed 'Content Credentials': a cryptographically signed metadata manifest embedded into media files. It tracks provenance (camera model, GPS, software edits, whether generative AI was used), allowing viewers to verify content authenticity and detect deepfake tampering."
+  },
+  {
+    "id": 18,
+    "question": "What is the psychological toll of 'Human Content Moderation' in digital media platforms?",
+    "options": [
+      "Moderators experiencing physical eye strain from reading books within modern audience reception and cultural media studies",
+      "Moderators feeling bored due to lack of work by analyzing granular user interaction and telemetry data",
+      "A physical condition caused by sitting in office chairs across global over-the-top (OTT) and creator economy platforms",
+      "Commercial content moderators suffering severe psychological trauma, PTSD, anxiety, and depression resulting from repeatedly reviewing thousands of graphic, violent, sexually abusive, and disturbing videos and images daily to keep social media platforms clean for public users",
+      "An allergic reaction to computer keyboards across digital streaming platforms and social media feeds"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Commercial content moderators suffering severe psychological trauma, PTSD, anxiety, and depression resulting from repeatedly reviewing thousands of graphic, violent, sexually abusive, and disturbing videos and images daily to keep social media platforms clean for public users. While AI algorithms flag suspected content, human moderators (often outsourced in low-wage hubs like Kenya, India, or the Philippines) must make final decisions on borderline content. Reviewing hundreds of graphic executions, self-harm, hate speech, and child exploitation images daily causes documented secondary traumatic stress and PTSD."
+  },
+  {
+    "id": 19,
+    "question": "What is the 'Dwell Time' metric in social media algorithmic feed ranking (e.g. TikTok, Instagram)?",
+    "options": [
+      "The precise amount of time a user pauses, lingers, or spends viewing a specific piece of content or video on their screen before scrolling past, serving as a powerful implicit signal of user interest even in the absence of explicit likes or comments",
+      "The physical lease duration of a company's corporate headquarters in accordance with digital media ethics and regulatory standards",
+      "The time taken to download an app from the app store during multi-stakeholder media negotiation and campaigning",
+      "The battery life of a smartphone during video streaming within programmatic advertising and real-time bidding ecosystems",
+      "The time delay between video production and broadcast across converged mass media and interactive digital channels"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The precise amount of time a user pauses, lingers, or spends viewing a specific piece of content or video on their screen before scrolling past, serving as a powerful implicit signal of user interest even in the absence of explicit likes or comments. Dwell time measures how long a user pauses on a post. Explicit signals (likes, shares) represent only a tiny fraction of interactions; dwell time captures implicit interest. If a user lingers on a video for 15 seconds instead of swiping past in 2 seconds, the algorithm immediately infers high interest and serves related content."
+  },
+  {
+    "id": 20,
+    "question": "What is 'Collaborative Filtering with Matrix Factorization' versus 'Deep Neural Collaborative Filtering'?",
+    "options": [
+      "Matrix factorization is supervised; deep neural filtering is unsupervised across digital streaming platforms and social media feeds",
+      "Deep neural filtering cannot run on GPU servers through algorithmic content curation and audience segmentation",
+      "Matrix Factorization models linear interactions between latent user and item vectors via simple dot products; Deep Neural Collaborative Filtering passes user and item latent embeddings through non-linear multi-layer perceptrons (MLP)",
+      "Matrix factorization is used only for audio podcasts under contemporary digital platform governance and privacy norms",
+      "There is no difference; both use identical mathematical equations within modern audience reception and cultural media studies"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Matrix Factorization models linear interactions between latent user and item vectors via simple dot products; Deep Neural Collaborative Filtering passes user and item latent embeddings through non-linear multi-layer perceptrons (MLP), capturing complex, non-linear feature interactions between users and items. Standard matrix factorization assumes linear user-item interactions (inner product p_u · q_i). Neural Collaborative Filtering (He et al., 2017) replaces the linear inner product with multi-layer neural networks, learning non-linear latent feature interactions and improving recommendation fidelity."
+  },
+  {
+    "id": 21,
+    "question": "What is 'Serendipity' in recommender systems and why is it important?",
+    "options": [
+      "A technical bug that causes video buffering errors across converged mass media and interactive digital channels",
+      "A legal requirement to show advertisements for books to maximize user engagement, retention, and monetization",
+      "A metric that evaluates network download speeds across virtual, augmented, and immersive media environments",
+      "An algorithm that sorts movies by release year in accordance with digital media ethics and regulatory standards",
+      "The ability of an algorithm to recommend unexpectedly delightful, surprising, and novel items that the user would not have otherwise discovered on their own"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The ability of an algorithm to recommend unexpectedly delightful, surprising, and novel items that the user would not have otherwise discovered on their own, preventing the user from being trapped in a narrow, boring bubble of obvious recommendations. If a recommender only suggests items similar to past watches (e.g. recommending more Marvel movies after one watch), the user experience becomes stale. Serendipity injects unexpected yet appealing diversity (e.g. suggesting an acclaimed foreign indie film that matches the user's taste pace), expanding user discovery."
+  },
+  {
+    "id": 22,
+    "question": "In digital entertainment metrics, what is 'ARPU' (Average Revenue Per User) and how is it calculated?",
+    "options": [
+      "ARPU = Total Operating Expenses / Number of Employees within modern audience reception and cultural media studies",
+      "ARPU = Total Revenue Generated in a Period / Total Average Number of Active Users during that Period",
+      "ARPU = Total Watch Time / Total Bandwidth Consumed by analyzing granular user interaction and telemetry data",
+      "ARPU = Number of Subscribers / Churn Rate across global over-the-top (OTT) and creator economy platforms",
+      "ARPU = Total Ad Impressions / Total Likes across digital streaming platforms and social media feeds"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: ARPU = Total Revenue Generated in a Period / Total Average Number of Active Users during that Period. ARPU (Average Revenue Per User) is a core KPI for telecommunications and streaming platforms: ARPU = Total Revenue / Average Active Subscribers over a month or quarter. Indian streaming platforms historically have lower ARPUs (~₹50–150/mo) compared to Western markets ($10–15/mo), driving ad-supported tier adoption."
+  },
+  {
+    "id": 23,
+    "question": "What is 'Direct-to-Consumer' (D2C) streaming media distribution?",
+    "options": [
+      "A traveling salesperson selling DVDs door-to-door in accordance with digital media ethics and regulatory standards",
+      "A government television broadcast to rural farmers during multi-stakeholder media negotiation and campaigning",
+      "A wholesale transaction between two broadcast studios within programmatic advertising and real-time bidding ecosystems",
+      "A business model where media studios and content owners bypass third-party television networks and cable distributors, delivering their proprietary content libraries directly to end-consumers via owned digital apps and managing customer relationships firsthand",
+      "An e-commerce website selling television sets across converged mass media and interactive digital channels"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A business model where media studios and content owners (e.g. Disney+, HBO Max, SonyLIV) bypass third-party television networks and cable distributors, delivering their proprietary content libraries directly to end-consumers via owned digital apps and managing customer relationships firsthand. D2C (Direct-to-Consumer) streaming eliminates middleman distributors (cable operators, third-party broadcasters). Studios interact directly with audiences, capturing 100% of subscription revenue, gathering first-party viewer telemetry, and controlling branding."
+  },
+  {
+    "id": 24,
+    "question": "What is 'Geoblocking' in digital streaming and copyright distribution?",
+    "options": [
+      "The technical practice of restricting access to digital content, websites, or video streams based on the geographic location of the user, enforcing territorial copyright licensing agreements and international distribution rights",
+      "A geological survey conducted using satellite imagery across digital streaming platforms and social media feeds",
+      "Blocking telephone calls from unknown numbers through algorithmic content curation and audience segmentation",
+      "A physical boundary fence around a movie studio under contemporary digital platform governance and privacy norms",
+      "A technical feature that speeds up video streaming within modern audience reception and cultural media studies"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The technical practice of restricting access to digital content, websites, or video streams based on the geographic location of the user (detected via IP address), enforcing territorial copyright licensing agreements and international distribution rights. Content rights are licensed territorially (e.g. a studio licenses a show to SonyLIV in India, but to Netflix in the UK). Geoblocking uses IP geolocation databases to detect the user's country and restrict playback if the platform lacks rights for that territory, prompting users to use VPNs to bypass restrictions."
+  },
+  {
+    "id": 25,
+    "question": "What is 'DRM' (Digital Rights Management) in streaming video technology (e.g. Widevine, FairPlay)?",
+    "options": [
+      "A software program that edits video subtitles across converged mass media and interactive digital channels",
+      "A daily radio broadcast schedule to maximize user engagement, retention, and monetization",
+      "A suite of access control and encryption technologies used by content providers to protect copyrighted digital media from unauthorized copying, ripping, redistribution, and piracy on client hardware devices",
+      "A marketing strategy for selling movie tickets across virtual, augmented, and immersive media environments",
+      "An accounting standard for paying actor salaries"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A suite of access control and encryption technologies used by content providers to protect copyrighted digital media from unauthorized copying, ripping, redistribution, and piracy on client hardware devices. Digital Rights Management (DRM) encrypts media streams (Google Widevine, Apple FairPlay, Microsoft PlayReady). Decryption keys are verified via secure hardware hardware-backed enclaves (Widevine L1) to prevent users from screen-recording or extracting raw video files from streams."
+  },
+  {
+    "id": 26,
+    "question": "What is 'Infinite Scroll' in user interface design and who invented it (subsequently expressing public regret)?",
+    "options": [
+      "A computer monitor that rolls up like paper within modern audience reception and cultural media studies",
+      "A programming loop that never terminates by analyzing granular user interaction and telemetry data",
+      "A video game with an infinite number of levels across global over-the-top (OTT) and creator economy platforms",
+      "A mouse wheel that spins without friction across digital streaming platforms and social media feeds",
+      "A web interface design that continuously loads content as the user scrolls down the page"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A web interface design that continuously loads content as the user scrolls down the page, eliminating pagination and natural pause points; invented by Aza Raskin (2006), who later critiqued it for contributing to behavioral addiction. Aza Raskin designed Infinite Scroll in 2006 to eliminate the friction of clicking 'Page 2'. However, removing natural stopping cues created an addictive design pattern: users keep scrolling endlessly, consuming hours of screen time without making a conscious choice to continue."
+  },
+  {
+    "id": 27,
+    "question": "What is 'Algorithmic Radicalization' in social media research?",
+    "options": [
+      "Teaching radical mathematics to university students in accordance with digital media ethics and regulatory standards",
+      "The tendency of recommendation algorithms to progressively suggest more extreme, polarizing, conspiratorial, and radical content to users over time to maintain high engagement, moving users from moderate topics into fringe ideological rabbit holes",
+      "An algorithm that deletes political posts during multi-stakeholder media negotiation and campaigning",
+      "A technique for optimizing neural network weights within programmatic advertising and real-time bidding ecosystems",
+      "A legal ban on political advertising across converged mass media and interactive digital channels"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The tendency of recommendation algorithms to progressively suggest more extreme, polarizing, conspiratorial, and radical content to users over time to maintain high engagement, moving users from moderate topics into fringe ideological rabbit holes. Research (e.g. Zeynep Tufekci) revealed that recommender systems can push users toward extreme content. Because extreme content stimulates high dwell times and strong emotional reactions, algorithms recommend progressively more radical videos to keep users hooked."
+  },
+  {
+    "id": 28,
+    "question": "What is 'Engagement Bait' on social media platforms?",
+    "options": [
+      "Buying engagement rings on digital e-commerce sites across digital streaming platforms and social media feeds",
+      "A paid marketing advertisement for a wedding venue through algorithmic content curation and audience segmentation",
+      "A phishing email that steals passwords under contemporary digital platform governance and privacy norms",
+      "Posts that explicitly coerce or manipulate users into liking, commenting, sharing, or tagging friends to artificially game the platform's engagement-ranking algorithm",
+      "A technique for accelerating video streaming within modern audience reception and cultural media studies"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Posts that explicitly coerce or manipulate users into liking, commenting, sharing, or tagging friends (e.g. 'Type YES if you agree!', 'Tag a friend who sleeps too much!') to artificially game the platform's engagement-ranking algorithm. Engagement bait manipulates algorithms by demanding low-effort user interactions ('Comment your favorite color to win', 'Share if you love your mother'). Platforms like Meta downrank accounts that use engagement bait because it degrades feed quality."
+  },
+  {
+    "id": 29,
+    "question": "What is 'Content Curation' versus 'Algorithmic Aggregation' in digital publishing?",
+    "options": [
+      "Content Curation is human-led selection, contextualization, and editorial commentary on high-quality media; Algorithmic Aggregation is automated scraping, collection, and algorithmic clustering of vast content streams from multiple web sources",
+      "Curation is automated; Aggregation is manual across converged mass media and interactive digital channels",
+      "Curation is used only in art museums; Aggregation is used for weather to maximize user engagement, retention, and monetization",
+      "There is no difference; both terms are exact synonyms across virtual, augmented, and immersive media environments",
+      "Algorithmic aggregation is illegal under Indian copyright laws in accordance with digital media ethics and regulatory standards"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Content Curation is human-led selection, contextualization, and editorial commentary on high-quality media; Algorithmic Aggregation is automated scraping, collection, and algorithmic clustering of vast content streams from multiple web sources without human editorial judgment. Content curation involves human judgment: an expert selects, contextualizes, and adds analytical perspective to a curated list (e.g. a curated newsletter). Algorithmic aggregation is automated: feeds like Google News or Apple News scrape and cluster thousands of stories using algorithms."
+  },
+  {
+    "id": 30,
+    "question": "In digital streaming, what is 'Bitrate' and how does it relate to video quality and bandwidth consumption?",
+    "options": [
+      "The number of actor credits displayed at the end of a movie",
+      "The price of a digital streaming subscription in Rupees",
+      "The amount of digital data processed or transmitted per unit of time",
+      "The battery consumption of a smartphone per minute",
+      "The physical dimensions of a television display screen"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The amount of digital data processed or transmitted per unit of time (typically measured in Megabits per second, Mbps); higher bitrates preserve finer visual detail and reduce compression artifacts, but require higher internet bandwidth. Bitrate represents data throughput: 1080p video typically streams at 4–8 Mbps, while 4K HDR streams at 15–25 Mbps. Higher bitrates yield sharper image fidelity and fewer compression artifacts, but consume more network bandwidth and risk buffering on unstable connections."
+  },
+  {
+    "id": 31,
+    "question": "What is 'Dayparting' in digital media and broadcast advertising scheduling?",
+    "options": [
+      "Splitting a calendar day into day and night",
+      "A daytime soap opera broadcast on television during multi-stakeholder media negotiation and campaigning",
+      "A legal restriction on working hours for journalists within programmatic advertising and real-time bidding ecosystems",
+      "A technique for adjusting screen brightness during daytime across converged mass media and interactive digital channels",
+      "The practice of scheduling advertisements to run during specific hours of the day or days of the week when the target audience is most active, receptive, or likely to convert"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The practice of scheduling advertisements to run during specific hours of the day or days of the week when the target audience is most active, receptive, or likely to convert (e.g. running food delivery ads at 7:00 PM). Dayparting optimizes ad spend by targeting specific time blocks (e.g. morning commute 8–10 AM for news podcasts; lunchtime 12–2 PM for quick-service restaurant ads; late evening for OTT streaming entertainment)."
+  },
+  {
+    "id": 32,
+    "question": "What is 'Programmatic Guaranteed' (Direct) in digital advertising sales?",
+    "options": [
+      "A promise that an ad will win an Oscar award across digital streaming platforms and social media feeds",
+      "A direct bilateral digital media agreement between an advertiser and a publisher where the buyer agrees to buy a fixed volume of ad impressions at a fixed, guaranteed price (CPM), executed automatically through programmatic APIs",
+      "A money-back guarantee if an ad campaign fails through algorithmic content curation and audience segmentation",
+      "A statutory guarantee issued by the Ministry of Information and Broadcasting under contemporary digital platform governance and privacy norms",
+      "An insurance policy covering computer hardware failure within modern audience reception and cultural media studies"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A direct bilateral digital media agreement between an advertiser and a publisher where the buyer agrees to buy a fixed volume of ad impressions at a fixed, guaranteed price (CPM), executed automatically through programmatic APIs without entering an open RTB auction. Programmatic Guaranteed combines traditional direct insertion orders with programmatic automation: the publisher reserves premium inventory exclusively for the buyer at a negotiated fixed CPM, and the transaction executes programmatically via DSP/SSP pipes."
+  },
+  {
+    "id": 33,
+    "question": "What is 'Private Marketplace' (PMP) in programmatic ad buying?",
+    "options": [
+      "A physical outdoor street market in a commercial district across converged mass media and interactive digital channels",
+      "A private corporate bank account for paying invoices to maximize user engagement, retention, and monetization",
+      "A black market for selling pirated video files across virtual, augmented, and immersive media environments",
+      "An invitation-only real-time auction where premium publishers make exclusive ad inventory available to a select group of invited advertisers via Deal IDs before opening it to the public open auction",
+      "A government procurement portal for buying computer equipment in accordance with digital media ethics and regulatory standards"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: An invitation-only real-time auction where premium publishers make exclusive ad inventory available to a select group of invited advertisers via Deal IDs before opening it to the public open auction. Private Marketplaces (PMPs) are closed auctions. Publishers invite select advertisers to bid on premium inventory using unique Deal IDs. Advertisers gain access to high-quality placements with brand safety, while publishers achieve higher CPMs than in open RTB exchanges."
+  },
+  {
+    "id": 34,
+    "question": "What is 'Dopamine's neurobiological role in digital media engagement loops?",
+    "options": [
+      "A neurotransmitter involved in reward prediction, anticipation, and motivation",
+      "A hormone that induces sleep in television viewers within modern audience reception and cultural media studies",
+      "A chemical that prevents computer eye strain by analyzing granular user interaction and telemetry data",
+      "A metric that evaluates audio podcast quality across global over-the-top (OTT) and creator economy platforms",
+      "A hormone that regulates body temperature in data centers across digital streaming platforms and social media feeds"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A neurotransmitter involved in reward prediction, anticipation, and motivation; dopamine spikes not upon receiving a reward, but in anticipation of a potential reward (craving), compelling users to click, refresh, and scroll in pursuit of psychological gratification. Neuroscientific research (Wolfram Schultz) proved that dopamine is a molecule of anticipation and reward prediction error, not just pleasure. When a user sees a notification badge or pulls down a feed, anticipation of potential social validation triggers dopamine release, driving habit-forming checking loops."
+  },
+  {
+    "id": 35,
+    "question": "What is 'Click-Through Rate' (CTR) in digital media performance analytics?",
+    "options": [
+      "The speed at which a computer mouse physically clicks in accordance with digital media ethics and regulatory standards",
+      "The total number of page views on a website during multi-stakeholder media negotiation and campaigning",
+      "The percentage of people who see an advertisement or media link and actually click on it",
+      "The ratio of likes to comments on a social media post within programmatic advertising and real-time bidding ecosystems",
+      "The percentage of subscribers who cancel their accounts across converged mass media and interactive digital channels"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The percentage of people who see an advertisement or media link and actually click on it: CTR = (Total Clicks / Total Impressions) × 100. Click-Through Rate (CTR) measures immediate ad engagement: CTR = (Clicks / Impressions) × 100. Average display ad CTRs are ~0.1%–0.35%, while high-intent search ads can achieve 3%–5%+, and native ads often reach 1%–2%."
+  },
+  {
+    "id": 36,
+    "question": "What is 'Conversion Rate' (CR) in digital consumer marketing?",
+    "options": [
+      "The rate at which foreign currency is exchanged at a bank across digital streaming platforms and social media feeds",
+      "The rate at which video files are compressed into MP4 format through algorithmic content curation and audience segmentation",
+      "The percentage of television viewers who change channels during ads under contemporary digital platform governance and privacy norms",
+      "The speed at which computer code is converted into binary within modern audience reception and cultural media studies",
+      "The percentage of users who take a desired action out of the total visitors who clicked or visited the landing page"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The percentage of users who take a desired action (e.g. purchasing a subscription, opening an NPS account, downloading a whitepaper) out of the total visitors who clicked or visited the landing page: Conversion Rate = (Conversions / Total Visitors) × 100. Conversion Rate measures bottom-of-funnel efficacy: Conversion Rate = (Total Conversions / Total Unique Visitors) × 100. If 1,000 people visit an NPS enrollment landing page and 40 open a PRAN, the conversion rate is 4%."
+  },
+  {
+    "id": 37,
+    "question": "What is 'A/B Testing' (Split Testing) in digital media UI/UX optimization?",
+    "options": [
+      "Testing software on two different brands of smartphones across converged mass media and interactive digital channels",
+      "An experimentation method where two variants of a media asset or webpage are shown to random subsets of users simultaneously to determine which version yields statistically significant improvements in conversion or watch time",
+      "Testing video playback on both Wi-Fi and mobile data to maximize user engagement, retention, and monetization",
+      "A legal trial conducted with two opposing lawyers across virtual, augmented, and immersive media environments",
+      "A test of audio quality using stereo headphones in accordance with digital media ethics and regulatory standards"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: An experimentation method where two variants of a media asset or webpage (Version A = Control, Version B = Challenger, varying a headline, thumbnail, or button color) are shown to random subsets of users simultaneously to determine which version yields statistically significant improvements in conversion or watch time. In A/B split testing, incoming traffic is randomly split between two variants (e.g. Netflix testing two different thumbnail images for a movie). The variant yielding higher click-through or watch time is automatically rolled out to the general user base."
+  },
+  {
+    "id": 38,
+    "question": "What is 'Net Promoter Score' (NPS) in consumer media satisfaction measurement?",
+    "options": [
+      "The National Pension System administered by PFRDA within modern audience reception and cultural media studies",
+      "The net profit margin of an advertising agency by analyzing granular user interaction and telemetry data",
+      "A score given to television shows by film critics across global over-the-top (OTT) and creator economy platforms",
+      "A customer loyalty metric based on a single survey question: 'How likely are you to recommend this service to a friend or colleague?' (rated 0–10)",
+      "The percentage of positive comments on a social media post across digital streaming platforms and social media feeds"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A customer loyalty metric based on a single survey question: 'How likely are you to recommend this service to a friend or colleague?' (rated 0–10); calculated as: % Promoters (scores 9–10) minus % Detractors (scores 0–6). Net Promoter Score (Fred Reichheld, Bain & Co.) measures customer advocacy on a scale of -100 to +100: Promoters (9–10), Passives (7–8), Detractors (0–6). NPS = % Promoters - % Detractors. A positive NPS (>0) is good, and >50 is world-class."
+  },
+  {
+    "id": 39,
+    "question": "What is 'Churn Prevention' and 'Win-Back Campaign' in streaming subscription management?",
+    "options": [
+      "Automated marketing interventions designed to re-engage at-risk subscribers before they cancel, and targeted promotional outreach to win back previously churned subscribers with special reactivation pricing",
+      "Filing lawsuits against former subscribers in accordance with digital media ethics and regulatory standards",
+      "A technique for deleting inactive user profiles from databases during multi-stakeholder media negotiation and campaigning",
+      "A sports tournament sponsored by a media company within programmatic advertising and real-time bidding ecosystems",
+      "An advertising campaign that runs exclusively on radio across converged mass media and interactive digital channels"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Automated marketing interventions designed to re-engage at-risk subscribers before they cancel (e.g. offering discounts or highlighting unviewed content), and targeted promotional outreach to win back previously churned subscribers with special reactivation pricing. Churn prevention uses ML predictive models to flag subscribers exhibiting declining usage (early warning signals), triggering targeted recommendations or retention discounts. Win-back campaigns target former subscribers with personalized emails highlighting new seasons or promotional reactivation rates."
+  },
+  {
+    "id": 40,
+    "question": "What is 'Dynamic Creative Optimization' (DCO) in programmatic digital advertising?",
+    "options": [
+      "Hiring professional painters to design billboard art across digital streaming platforms and social media feeds",
+      "A technique for compressing video files into smaller sizes through algorithmic content curation and audience segmentation",
+      "An ad technology that uses AI to automatically assemble and customize individualized advertising creatives in real-time, dynamically combining headlines, imagery, product recommendations, and calls-to-action based on the viewer's location, browsing history, device, and weather",
+      "A legal patent protecting advertising slogans under contemporary digital platform governance and privacy norms",
+      "An automated audio volume equalizer for television ads within modern audience reception and cultural media studies"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: An ad technology that uses AI to automatically assemble and customize individualized advertising creatives in real-time, dynamically combining headlines, imagery, product recommendations, and calls-to-action based on the viewer's location, browsing history, device, and weather. Dynamic Creative Optimization (DCO) generates custom ad variations on the fly. Rather than serving a static banner, DCO pulls from a library of assets (images, copy, offers) and serves a combination tailored to user context (e.g. showing a warm beverage ad if the user's local weather is cold and rainy)."
+  },
+  {
+    "id": 41,
+    "question": "What is 'Dwell Time vs Bounce Rate' in website media consumption?",
+    "options": [
+      "Dwell time applies to video; Bounce rate applies to audio",
+      "Bounce rate measures screen refresh speed in hertz",
+      "Dwell time is the physical time spent in an office lobby",
+      "There is no difference; both terms are exact synonyms",
+      "Bounce Rate is the percentage of visitors who enter a site and leave"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Bounce Rate is the percentage of visitors who enter a site and leave without interacting or viewing any other page; Dwell Time measures how long a user actually spends reading or consuming content on a page before returning to search results. Bounce Rate tracks single-page sessions without interaction. However, a user might read a comprehensive article for 10 minutes and leave satisfied (a 'bounce' with high dwell time). Search engines prioritize Dwell Time over raw bounce rate as an indicator of content quality."
+  },
+  {
+    "id": 42,
+    "question": "What is 'Cord-Cutting' in entertainment media market trends?",
+    "options": [
+      "Physically cutting electrical cords in television repair shops within modern audience reception and cultural media studies",
+      "The consumer trend of canceling traditional paid multichannel subscription television services in favor of broadband-based internet streaming and OTT subscription services",
+      "Replacing wired desktop computers with wireless laptops by analyzing granular user interaction and telemetry data",
+      "A decline in landline telephone subscriptions across global over-the-top (OTT) and creator economy platforms",
+      "The demolition of broadcast transmission towers across digital streaming platforms and social media feeds"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The consumer trend of canceling traditional paid multichannel subscription television services (cable TV or direct-to-home DTH satellite) in favor of broadband-based internet streaming and OTT subscription services. 'Cord-cutting' refers to viewers abandoning traditional cable and satellite DTH television bundles in favor of internet streaming apps. 'Cord-nevers' refers to younger digital natives who have never subscribed to a traditional pay-TV bundle in their lives."
+  },
+  {
+    "id": 43,
+    "question": "What is 'FAST' (Free Ad-supported Streaming TV) and why has it grown rapidly in India and globally?",
+    "options": [
+      "A broadband connection that downloads movies in 5 seconds",
+      "A paid premium subscription plan for sports channels",
+      "A government television network for civil servants",
+      "Linear streaming channels delivered over the internet for free",
+      "An e-commerce app that delivers electronics in 10 minutes"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Linear streaming channels delivered over the internet for free without requiring any login or subscription, supported entirely by digital video ad breaks, providing a relaxed 'lean-back' channel-surfing viewing experience reminiscent of classic broadcast TV. FAST platforms (Pluto TV, Samsung TV Plus, Tubi) deliver linear scheduled programming streams over connected TVs without subscription fees or logins. They appeal to viewers experiencing subscription fatigue and decision paralysis, offering simple, lean-back channel surfing monetized via programmatic TV ads."
+  },
+  {
+    "id": 44,
+    "question": "What is 'Content Cannibalization' in streaming platform release strategies?",
+    "options": [
+      "Releasing two high-profile original movies or major series simultaneously on the same platform on the same date",
+      "A violent horror movie genre across digital streaming platforms and social media feeds",
+      "Deleting old movie titles from an online catalog through algorithmic content curation and audience segmentation",
+      "A copyright dispute between two rival streaming apps under contemporary digital platform governance and privacy norms",
+      "An error that causes video files to become unplayable within modern audience reception and cultural media studies"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Releasing two high-profile original movies or major series simultaneously on the same platform on the same date, causing them to compete against each other for the same audience's limited attention and cannibalizing viewership and buzz. Streaming platforms carefully stagger release dates to avoid self-cannibalization. Launching two marquee original titles simultaneously forces subscribers to choose between them, fragmenting social media buzz and shortening the cumulative retention lifespan of both titles."
+  },
+  {
+    "id": 45,
+    "question": "What is 'Content Syndication' in television and digital media licensing?",
+    "options": [
+      "A labor union of television scriptwriters across converged mass media and interactive digital channels",
+      "A joint bank loan taken out by a movie studio to maximize user engagement, retention, and monetization",
+      "The practice of licensing broadcasting and streaming rights of media content to multiple third-party stations, cable networks, or regional streaming platforms outside the original producing network",
+      "An illegal pirate website that distributes movies across virtual, augmented, and immersive media environments",
+      "A government broadcast during national holidays in accordance with digital media ethics and regulatory standards"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The practice of licensing broadcasting and streaming rights of media content (such as television series or news features) to multiple third-party stations, cable networks, or regional streaming platforms outside the original producing network. Content syndication allows producers to monetize content beyond its original first-run broadcast. A studio licenses reruns to independent TV stations, regional networks, or international streaming platforms (e.g. Warner Bros licensing 'Friends' to Netflix and television networks globally)."
+  },
+  {
+    "id": 46,
+    "question": "What is 'Format Licensing' in international television production (e.g. 'Idol', 'Big Brother', 'Shark Tank')?",
+    "options": [
+      "A technical license required to manufacture DVD players within modern audience reception and cultural media studies",
+      "A software license for video editing suites by analyzing granular user interaction and telemetry data",
+      "A copyright registration for digital fonts across global over-the-top (OTT) and creator economy platforms",
+      "An import permit for television studio lighting across digital streaming platforms and social media feeds",
+      "Licensing the overarching conceptual blueprint, game rules, production bible, set design, and branding of a successful television show to foreign producers to produce localized domestic adaptations using local hosts and contestants"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Licensing the overarching conceptual blueprint, game rules, production bible, set design, and branding of a successful television show to foreign producers to produce localized domestic adaptations using local hosts and contestants (e.g. Shark Tank India). Format licensing exports the structural concept of a show rather than finished tape. The licensee receives the 'production bible' (set design, lighting, sound effects, casting formulas, game mechanics) to produce a culturally localized version (e.g. Big Boss adapted from Endemol's Big Brother)."
+  },
+  {
+    "id": 47,
+    "question": "What is 'Cross-Media Ownership' and why do democratic regulators enforce caps on it?",
+    "options": [
+      "Owning both an iPhone and an Android phone simultaneously in accordance with digital media ethics and regulatory standards",
+      "A corporate structure where a single business conglomerate owns and controls multiple diverse media channels within the same geographical market",
+      "A commercial bank that owns shares in an airline company during multi-stakeholder media negotiation and campaigning",
+      "A television set that has both HDMI and USB ports within programmatic advertising and real-time bidding ecosystems",
+      "An advertising agency that runs campaigns in two countries across converged mass media and interactive digital channels"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A corporate structure where a single business conglomerate owns and controls multiple diverse media channels (e.g. daily newspapers, television news channels, radio stations, and internet news portals) within the same geographical market; regulators enforce ownership caps to prevent monopolistic control over public information and preserve democratic pluralism. Cross-media ownership caps prevent media monopolies. If a single conglomerate owns the major local newspaper, dominant TV news channel, radio stations, and news websites in a region, it can monopolize information dissemination and stifle dissenting voices, threatening democratic debate."
+  },
+  {
+    "id": 48,
+    "question": "What is the 'Long Tail' theory in digital entertainment distribution (Chris Anderson, 2004)?",
+    "options": [
+      "A biological documentary about deep-sea marine animals across digital streaming platforms and social media feeds",
+      "A statistical distribution that has no mean through algorithmic content curation and audience segmentation",
+      "An advertising method used for pet food products under contemporary digital platform governance and privacy norms",
+      "The economic theory demonstrating that in digital markets with near-zero inventory and physical shelf-space storage costs, the collective sales volume of a vast number of non-hit, niche, and obscure titles can equal or exceed the sales of a small handful of top blockbuster hits (the head)",
+      "A decline in digital streaming subscription prices within modern audience reception and cultural media studies"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The economic theory demonstrating that in digital markets with near-zero inventory and physical shelf-space storage costs (e.g. Amazon, Netflix, Spotify), the collective sales volume of a vast number of non-hit, niche, and obscure titles (the long tail) can equal or exceed the sales of a small handful of top blockbuster hits (the head). Chris Anderson's 'The Long Tail' showed that physical retail stores (Blockbuster, bookstores) could only stock popular blockbusters due to shelf-space constraints. Digital platforms have near-zero marginal storage and distribution costs, allowing them to stock millions of niche titles whose collective viewership rivals blockbuster hits."
+  },
+  {
+    "id": 49,
+    "question": "What is 'Filter Failure' according to media theorist Clay Shirky ('It's Not Information Overload, It's Filter Failure', 2008)?",
+    "options": [
+      "The perspective that society does not suffer from too much information per se, but rather from the failure, inadequacy, and breakdown of our technological, social, and institutional filtering mechanisms that separate signal from noise",
+      "A physical breakdown in water filtration pipes in data centers across converged mass media and interactive digital channels",
+      "A computer virus that disables email spam filters to maximize user engagement, retention, and monetization",
+      "An optical failure in television broadcast cameras across virtual, augmented, and immersive media environments",
+      "The bankruptcy of print newspaper publishing companies"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The perspective that society does not suffer from too much information per se, but rather from the failure, inadequacy, and breakdown of our technological, social, and institutional filtering mechanisms that separate signal from noise. Clay Shirky argued that complaints of 'information overload' are misdiagnosed: human civilization has experienced informational surges since the printing press. The real problem is 'filter failure'—when legacy gatekeeping filters collapse before effective digital filtering and curation mechanisms mature."
+  },
+  {
+    "id": 50,
+    "question": "What is 'Social TV' and how has it reshaped live media broadcast programming?",
+    "options": [
+      "A television set donated to a public charitable community center",
+      "A television network that broadcasts only documentaries",
+      "The union of television broadcasting and social media interaction",
+      "An electronic device that connects televisions to landline phones",
+      "A government-owned social media platform"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The union of television broadcasting and social media interaction, where viewers actively discuss live broadcasts (e.g. cricket matches, award shows, breaking news) on social platforms simultaneously, prompting broadcasters to integrate live tweets, viewer polls, and real-time social metrics directly into the broadcast screen. Social TV bridges linear broadcasting and real-time social networking. Broadcasters integrate dedicated hashtags, live audience polls, on-screen tweets, and companion digital apps, transforming isolated living-room viewing into an interactive shared social event."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Media Mock 4",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Media Mock 4";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

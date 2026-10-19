@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Commerce &amp; Accountancy Mock Test 4 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject C: Commerce & Accountancy</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Commerce_Accountancy_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Commerce_Accountancy_Master_Revision_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Commerce_Accountancy_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Commerce_Accountancy_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Commerce_Accountancy_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Commerce_Accountancy_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Commerce_Accountancy_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &#183; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &#183; Paper 2 &#183; Commerce Mock 4</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Commerce &amp; Accountancy - Mock 4</h1>
+    <p class="start-subheading">Full-Length Topic Test &#183; 50 Questions &#183; Exam Pattern</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Accounting System:</b> Financial information system, bookkeeping vs accounting, concepts, conventions, capital vs revenue, errors.</li>
+                <li><b>Accounting Standards:</b> Depreciation (AS 10 / Ind AS 16), Inventories (AS 2 / Ind AS 2), Revenue Recognition (AS 9 / Ind AS 115), PPE (AS 10), Forex (AS 11 / Ind AS 21), Investments (AS 13).</li>
+                <li><b>Cash Flow &amp; Fund Flow:</b> Operating/Investing/Financing activities, Direct &amp; Indirect methods, Statement of Changes in Working Capital.</li>
+                <li><b>Ratio Analysis:</b> Liquidity, Solvency, Turnover, Profitability, and DuPont 3-stage model.</li>
+                <li><b>Share Capital &amp; Corporate Actions:</b> Share issue/forfeiture/reissue, Bonus shares (Sec 63), Rights issue (Sec 62), ESOPs, Buy-back (Sec 68-70).</li>
+                <li><b>Company Final Accounts:</b> Schedule III Balance Sheet and Statement of Profit &amp; Loss structure and disclosures.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "Which accounting concept forms the fundamental basis for preparing interim financial reports (such as quarterly financial statements) and requires dividing the indefinite life of an enterprise into specified artificial time intervals?",
+    "options": [
+      "Going Concern Concept",
+      "Cost Concept",
+      "Realisation Concept",
+      "Duality Concept",
+      "Periodicity (Time Period) Concept"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Periodicity (Time Period) Concept. The Periodicity (or Time Period) Concept requires that the indefinite economic life of an enterprise be segmented into discrete, regular calendar intervals (yearly, half-yearly, or quarterly) so that financial performance and financial position can be measured and reported periodically to stakeholders."
+  },
+  {
+    "id": 2,
+    "question": "What is the primary conceptual limitation of relying strictly on the 'Historical Cost Concept' during periods of prolonged and severe general price inflation?",
+    "options": [
+      "It requires excessive subjective market valuations.",
+      "Balance sheets show assets at historical amounts that significantly understate current economic value, and depreciation based on historical cost leads to overstatement of profits.",
+      "It violates the double-entry bookkeeping duality rule during the current accounting period.",
+      "It prevents auditors from examining physical purchase vouchers in accordance with the prudence and matching concepts.",
+      "It causes trial balances to become mathematically unbalanced in the books of account at the close of the financial year."
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Balance sheets show assets at historical amounts that significantly understate current economic value, and depreciation based on historical cost leads to overstatement of profits.. Under the Historical Cost Concept, assets are recorded and carried at their original acquisition price. During periods of sustained inflation, historical cost significantly understates the true replacement or current economic value of assets, while depreciation based on historical cost underestimates the cost of capital maintenance, thereby artificially overstating accounting profits."
+  },
+  {
+    "id": 3,
+    "question": "A consumer goods company spends ₹20,00,000 on a nationwide advertising and branding campaign to launch a new product line. Under Accounting Standard (AS) 26 (Intangible Assets) and modern accounting principles, how should this advertising expenditure be treated?",
+    "options": [
+      "Capitalized as an Intangible Brand Asset on the Balance Sheet as a separate line item in the financial statements",
+      "Deferred and amortized equally over 10 years upon recognition of the underlying commercial transaction",
+      "Debited directly to the Securities Premium Account under the accrual basis of financial accounting",
+      "Recognized in full as an expense in the Profit & Loss statement in the period in which it is incurred",
+      "Treated as an extraordinary capital deduction from Share Capital for presentation in the Balance Sheet and Profit & Loss Account"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Recognized in full as an expense in the Profit & Loss statement in the period in which it is incurred. Under AS 26 (paragraph 56) and Ind AS 38, expenditure on research, advertising, training, promotional activities, and start-up operations does not create an identifiable intangible asset over which the enterprise has legally enforceable control. Therefore, such expenditure must be recognized as an expense in the Profit & Loss statement in the period in which it is incurred."
+  },
+  {
+    "id": 4,
+    "question": "A customer returned goods worth ₹12,000 to the firm, but the bookkeeper mistakenly recorded the transaction in the 'Purchases Returns Book'. If this error is detected before closing the books, what is the correct rectification entry?",
+    "options": [
+      "Debit Sales Returns Account ₹12,000, Debit Purchases Returns Account ₹12,000; Credit Customer's Account ₹24,000",
+      "Debit Sales Returns Account ₹12,000; Credit Purchases Returns Account ₹12,000 in the books of account at the close of the financial year",
+      "Debit Sales Returns Account ₹12,000; Credit Suspense Account ₹12,000 in accordance with prescribed Accounting Standards",
+      "Debit Purchases Returns Account ₹12,000; Credit Sales Returns Account ₹12,000 under Schedule III of the Companies Act, 2013",
+      "Debit Suspense Account ₹24,000; Credit Purchases Returns Account ₹24,000 at historical cost less accumulated depreciation"
+    ],
+    "answer": 0,
+    "explanation": "Sales returns (debit) were omitted and purchase returns were credited with ₹12,000, while customer was credited twice or incorrectly. To rectify: Debit Sales Returns Account ₹12,000 (to record the return of goods sold), Debit Purchases Returns Account ₹12,000 (to cancel the wrong credit to purchase returns), and Credit Customer's Account ₹24,000 (to rectify the net position)."
+  },
+  {
+    "id": 5,
+    "question": "While preparing a Bank Reconciliation Statement starting from the Bank Balance as per Cash Book, how should 'Cheques issued by the firm but not yet presented for payment at the bank' be treated?",
+    "options": [
+      "Deducted from the Cash Book balance",
+      "Ignored until the next financial year",
+      "Added to the Cash Book balance",
+      "Deducted from the Pass Book balance",
+      "Credited directly to the Profit & Loss statement"
+    ],
+    "answer": 2,
+    "explanation": "When cheques are issued, the firm immediately credits (reduces) its Cash Book balance. Since the holders have not yet presented them to the bank for payment, the bank pass book balance is higher. Therefore, when reconciling starting from the Cash Book balance to reach the Pass Book balance, unpresented cheques must be ADDED back."
+  },
+  {
+    "id": 6,
+    "question": "Under the Prudence (Conservatism) convention, creating a 'Provision for Discount on Debtors' is an accepted practice, but creating a 'Provision for Discount on Creditors' is strictly discouraged. What is the accounting justification for this asymmetrical treatment?",
+    "options": [
+      "Discount on creditors cannot be mathematically computed.",
+      "The Income Tax Act mandates creating provisions on creditors but not debtors during the current accounting period.",
+      "Creditors never grant cash discounts in commercial practice in accordance with the prudence and matching concepts.",
+      "Double-entry bookkeeping only allows provisions on asset accounts.",
+      "Prudence requires anticipating and providing for all possible future losses and expenses, but prohibits anticipating or recognizing unrealized future gains."
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Prudence requires anticipating and providing for all possible future losses and expenses, but prohibits anticipating or recognizing unrealized future gains.. The Prudence (Conservatism) convention dictates: 'Do not anticipate profits, but provide for all possible losses.' Cash discounts to debtors are expected future expenses/losses that must be provided for. Conversely, expecting discounts from trade creditors represents an unrealized future gain, which should not be anticipated or recognized prior to realization."
+  },
+  {
+    "id": 7,
+    "question": "According to AS 1 (Disclosure of Accounting Policies), if an enterprise strictly adheres to the three fundamental accounting assumptions (Going Concern, Consistency, and Accrual) in preparing its financial statements:",
+    "options": [
+      "It must explicitly state and provide detailed justification for each assumption in its notes.",
+      "No specific disclosure is required in the financial statements regarding their adoption.",
+      "It must obtain a prior clearance certificate from ICAI and SEBI.",
+      "It must publish an advertisement in a national newspaper.",
+      "It must prepare an alternative cash-basis financial statement as an annexure."
+    ],
+    "answer": 1,
+    "explanation": "Under AS 1 (paragraph 14), if the fundamental accounting assumptions (Going Concern, Consistency, and Accrual) are followed in financial statements, specific disclosure is NOT required. However, if a fundamental accounting assumption is NOT followed, that fact must be specifically and clearly disclosed in the financial statements."
+  },
+  {
+    "id": 8,
+    "question": "A business owner pays ₹25,000 for her daughter's college tuition fee using a cheque drawn on the firm's business bank account. How should this transaction be recorded in the firm's journal?",
+    "options": [
+      "Debit Education Expenses Account ₹25,000; Credit Bank Account ₹25,000",
+      "Debit Bank Account ₹25,000; Credit Capital Account ₹25,000",
+      "Debit Salaries & Allowances Account ₹25,000; Credit Cash Account ₹25,000",
+      "Debit Drawings Account ₹25,000; Credit Bank Account ₹25,000",
+      "Debit Miscellaneous Office Expenses ₹25,000; Credit Bank Account ₹25,000"
+    ],
+    "answer": 3,
+    "explanation": "Under the Business Entity Concept, the owner and the business are treated as separate legal and economic entities. Any personal expenses of the proprietor paid out of business funds represent a withdrawal of capital and must be debited to the Drawings Account (or Capital Account), reducing owner's equity, and credited to the Bank Account."
+  },
+  {
+    "id": 9,
+    "question": "Under AS 2 (Valuation of Inventories), when is the 'Specific Identification Method' of inventory cost formula MANDATORILY required to be used?",
+    "options": [
+      "For items of inventory that are not ordinarily interchangeable, and goods or services produced and segregated for specific projects",
+      "For all fast-moving consumer goods (FMCG) inventories for presentation in the Balance Sheet and Profit & Loss Account",
+      "Whenever the enterprise uses continuous perpetual inventory records when preparing the annual financial statements of the entity",
+      "Whenever the total inventory value exceeds ₹10 Crores in the general ledger and trial balance",
+      "For valuation of raw materials in chemical refineries as a separate line item in the financial statements"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: For items of inventory that are not ordinarily interchangeable, and goods or services produced and segregated for specific projects. Under AS 2 (paragraph 14) and Ind AS 2, the cost of inventories of items that are not ordinarily interchangeable and goods or services produced and segregated for specific projects must be assigned by using specific identification of their individual costs."
+  },
+  {
+    "id": 10,
+    "question": "Under AS 2, which of the following costs is explicitly EXCLUDED from the cost of inventories and must be recognized as an expense in the period in which it is incurred?",
+    "options": [
+      "Direct wages paid to factory assembly line workers",
+      "Freight and cartage incurred to bring raw materials to the factory warehouse",
+      "Abnormal amounts of wasted materials, labor, or other production costs",
+      "Variable production overheads allocated based on actual machine hours",
+      "Customs import duties paid on imported raw materials"
+    ],
+    "answer": 2,
+    "explanation": "AS 2 (paragraph 13) specifically excludes the following from inventory cost: (a) abnormal amounts of wasted materials, labor, or other production costs; (b) storage costs (unless necessary in production process before a further production stage); (c) administrative overheads that do not contribute to bringing inventories to their present location and condition; and (d) selling and distribution costs."
+  },
+  {
+    "id": 11,
+    "question": "Under AS 9 (Revenue Recognition), in a 'Bill and Hold' sale—where delivery is delayed at the buyer's request but the buyer assumes title and accepts billing—revenue can be recognized when:",
+    "options": [
+      "Goods are physically delivered to the buyer's doorstep as a separate line item in the financial statements",
+      "The buyer pays 100% advance in unencumbered cash upon recognition of the underlying commercial transaction",
+      "The goods are insured against transit risk by the seller under the accrual basis of financial accounting",
+      "The seller enters into a buy-back agreement with the buyer for presentation in the Balance Sheet and Profit & Loss Account",
+      "It is probable that delivery will be made, the item is on hand, identified and ready for delivery, the buyer specifically acknowledges delayed delivery instructions, and usual payment terms apply"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: It is probable that delivery will be made, the item is on hand, identified and ready for delivery, the buyer specifically acknowledges delayed delivery instructions, and usual payment terms apply. Under AS 9 (Appendix clause 1) and Ind AS 115, in 'Bill and hold' sales, revenue is recognized before physical delivery provided: (i) it is probable that delivery will be made; (ii) the item is on hand, identified and ready for delivery to the buyer at the time the sale is recognized; (iii) the buyer specifically acknowledges the deferred delivery instructions; and (iv) the usual payment terms apply."
+  },
+  {
+    "id": 12,
+    "question": "Under AS 9, how should revenue from 'Royalties' for the use of enterprise assets (such as patents, trademarks, and copyrights) be recognized?",
+    "options": [
+      "100% upfront when the licensing agreement is executed",
+      "On an accrual basis in accordance with the terms of the relevant agreement",
+      "Only when cash is received into the bank account",
+      "Evenly over a mandatory period of 5 years",
+      "Capitalized into the cost of the underlying patent"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: On an accrual basis in accordance with the terms of the relevant agreement. Under AS 9 (paragraph 13), royalties should be recognized on an accrual basis in accordance with the terms of the relevant agreement, unless having regard to the substance of the transaction, it is more appropriate to recognize revenue on some other systematic and rational basis."
+  },
+  {
+    "id": 13,
+    "question": "Under AS 10 (Property, Plant and Equipment) and Ind AS 16, what is the accounting treatment for initial estimates of the costs of dismantling and removing the asset and restoring the site on which it is located?",
+    "options": [
+      "Expensed immediately in the year the asset is commissioned for presentation in the Balance Sheet and Profit & Loss Account",
+      "Charged against the Securities Premium Account when preparing the annual financial statements of the entity",
+      "Ignored until the actual dismantling occurs at the end of the asset's life in the general ledger and trial balance",
+      "Included in the initial cost of the asset with a corresponding provision recognized as a liability",
+      "Deducted from the salvage value of the asset"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Included in the initial cost of the asset with a corresponding provision recognized as a liability. Under AS 10 (Revised) and Ind AS 16, the cost of an item of PPE includes the initial estimate of the costs of dismantling and removing the item and restoring the site on which it is located, the obligation for which an enterprise incurs either when the item is acquired or as a consequence of having used the item during a particular period. This is capitalized into the asset cost and depreciated over its useful life, with a corresponding provision (discounted to present value under Ind AS 37) created as a liability."
+  },
+  {
+    "id": 14,
+    "question": "A mining company acquires a coal quarry on lease for ₹40,00,000. Total extractable mineral reserves are estimated at 8,00,000 tonnes with zero residual value. During the first operational year, 1,20,000 tonnes of coal are extracted. Using the Depletion Method, what is the depletion charge for the year?",
+    "options": [
+      "₹6,00,000",
+      "₹4,00,000",
+      "₹5,00,000",
+      "₹8,00,000",
+      "₹7,50,000"
+    ],
+    "answer": 0,
+    "explanation": "Depletion rate per tonne = Total Cost / Total Estimated Reserves = ₹40,00,000 / 8,00,000 tonnes = ₹5.00 per tonne. Depletion charge for the year = Actual tonnage extracted × Depletion rate = 1,20,000 tonnes × ₹5.00 = ₹6,00,000."
+  },
+  {
+    "id": 15,
+    "question": "Under AS 11 (The Effects of Changes in Foreign Exchange Rates), an Indian firm imports raw materials worth $40,000 on 15th January 2026 when the exchange rate is $1 = ₹82.50. On 31st March 2026 (the balance sheet date), the payable remains outstanding and the exchange rate is $1 = ₹84.00. How should the exchange difference be recognized in the financial statements?",
+    "options": [
+      "Added to the cost of raw materials inventory as a separate line item in the financial statements",
+      "Deferred in a suspense account until payment in 2026-27 upon recognition of the underlying commercial transaction",
+      "Recognized as an exchange loss of ₹60,000 in the Profit & Loss statement for 2025-26",
+      "Adjusted against General Reserve",
+      "Deducted from Share Capital"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Recognized as an exchange loss of ₹60,000 in the Profit & Loss statement for 2025-26. Trade Payables is a foreign currency monetary item. Under AS 11 (paragraph 11), foreign currency monetary items must be reported using the closing rate at each balance sheet date. Initial recording = $40,000 × ₹82.50 = ₹33,00,000. Balance sheet valuation = $40,00,000 × ₹84.00 = ₹33,60,000. The increase in liability of ₹60,000 is an exchange loss, which must be recognized in the Profit & Loss statement for the year ended 31st March 2026."
+  },
+  {
+    "id": 16,
+    "question": "Under AS 11, if an enterprise enters into a forward exchange contract for 'Speculative Purposes' (not to hedge an underlying transaction), how should the contract be accounted for at the balance sheet date?",
+    "options": [
+      "Premium or discount is amortized over the contract life in the books of account at the close of the financial year.",
+      "No gain or loss is recognized until final cash settlement in accordance with prescribed Accounting Standards.",
+      "Only losses are recognized; gains are ignored under prudence.",
+      "Gains are transferred directly to Capital Reserve at historical cost less accumulated depreciation.",
+      "The contract is marked-to-market using forward rates for the remaining maturity, and the resulting gain or loss is recognized in Profit & Loss."
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The contract is marked-to-market using forward rates for the remaining maturity, and the resulting gain or loss is recognized in Profit & Loss.. Under AS 11 (paragraph 39), in accounting for a forward exchange contract entered into for trading or speculation, the premium or discount is not recognized. Instead, at each balance sheet date, the value of the contract is marked to market by comparing the forward rate for the remaining term with the original forward rate, and the gain or loss is recognized in the Profit & Loss statement."
+  },
+  {
+    "id": 17,
+    "question": "Under AS 13 (Accounting for Investments), an enterprise holds 2,000 shares in Zenith Ltd. The company issues rights shares in the ratio of 1:2 at ₹120 per share. The enterprise decides NOT to subscribe to the rights shares and instead sells (renounces) its rights entitlements in the market for ₹30 per right. How should the sale proceeds of ₹30,000 (1,000 rights × ₹30) be treated under AS 13?",
+    "options": [
+      "Credited to the Investment Account to reduce the carrying cost of the original shares",
+      "Credited directly to the Profit & Loss statement as other income",
+      "Transferred to Capital Redemption Reserve",
+      "Credited to Securities Premium Account",
+      "Treated as an unearned liability"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Credited directly to the Profit & Loss statement as other income (unless the shares were purchased cum-rights shortly before). Under AS 13 (paragraph 13), when rights are sold without subscribing to the shares, the sale proceeds from the renunciation of rights are generally recognized as income in the Profit & Loss statement. (Only in situations where the investments were acquired on a cum-rights basis and the market value drops below cost on ex-rights date are the proceeds applied to reduce the carrying amount of the investment)."
+  },
+  {
+    "id": 18,
+    "question": "Under AS 13, how are 'Current Investments' valued at each balance sheet date?",
+    "options": [
+      "At historical cost less permanent diminution at historical cost less accumulated depreciation",
+      "At fair value (market value) with all changes in equity reserves during the current accounting period",
+      "At higher of cost and net realizable value in accordance with the prudence and matching concepts",
+      "At the lower of cost and fair value, computed either on an individual investment basis or by category of investment",
+      "At replacement cost"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: At the lower of cost and fair value, computed either on an individual investment basis or by category of investment. Under AS 13 (paragraph 28), the carrying amount for current investments is the lower of cost and fair value. In determining the carrying amount, the enterprise may determine the lower of cost and fair value either on an individual investment basis or by category of investment, but not on an overall (global) basis."
+  },
+  {
+    "id": 19,
+    "question": "Under AS 12 / AS 10, when an enterprise receives a government grant related to a specific depreciable fixed asset, which of the following is an acceptable accounting method?",
+    "options": [
+      "Deduct the grant from the gross book value of the asset, so that depreciation is charged on the reduced net book value",
+      "Treat the grant as deferred income, which is recognized in the Profit & Loss statement on a systematic and rational basis over the useful life of the asset",
+      "Either A or B is an acceptable method under AS 12",
+      "Credit the entire grant immediately to the Profit & Loss statement as current revenue",
+      "Credit the entire grant to Capital Redemption Reserve"
+    ],
+    "answer": 2,
+    "explanation": "Under AS 12 (Government Grants, paragraphs 14-16), government grants related to specific fixed assets can be presented in financial statements using either of two methods: (1) Deduction from the gross value of the asset in arriving at its book value (depreciation charged on net value); or (2) Treated as deferred income and recognized in the P&L statement over the useful life of the asset in proportion to depreciation."
+  },
+  {
+    "id": 20,
+    "question": "What is the primary difference in the classification of financial assets between AS 13 and Ind AS 109 (Financial Instruments)?",
+    "options": [
+      "AS 13 mandates fair value for all assets, whereas Ind AS 109 mandates historical cost in the books of account at the close of the financial year.",
+      "Ind AS 109 prohibits classification of equity investments.",
+      "AS 13 classifies into Current and Long-Term; Ind AS 109 classifies based on the entity's Business Model and contractual cash flow characteristics (SPPI test) into Amortised Cost, FVTOCI, and FVTPL.",
+      "AS 13 requires mark-to-market through other comprehensive income for all debentures under Schedule III of the Companies Act, 2013.",
+      "There is no difference; both standards follow identical terminology and measurement at historical cost less accumulated depreciation."
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: AS 13 classifies into Current and Long-Term; Ind AS 109 classifies based on the entity's Business Model and contractual cash flow characteristics (SPPI test) into Amortised Cost, FVTOCI, and FVTPL.. Under AS 13, investments are classified simply as Current Investments (held for <= 1 year, valued at lower of cost and fair value) or Long-Term Investments (valued at cost less permanent diminution). Under Ind AS 109, financial assets are classified into: (i) Amortised Cost, (ii) Fair Value through Other Comprehensive Income (FVTOCI), or (iii) Fair Value through Profit or Loss (FVTPL), based on the business model and the Solely Payments of Principal and Interest (SPPI) test."
+  },
+  {
+    "id": 21,
+    "question": "Under AS 3 (Cash Flow Statements), where should cash proceeds received from an insurance company in settlement of a major earthquake damage claim on a factory building be presented?",
+    "options": [
+      "Operating Activities as an extraordinary item for presentation in the Balance Sheet and Profit & Loss Account",
+      "Financing Activities as an extraordinary capital receipt when preparing the annual financial statements of the entity",
+      "Deducted directly from Share Capital in the general ledger and trial balance",
+      "Omitted from the Cash Flow Statement and disclosed only in the auditor's report",
+      "Investing Activities as an extraordinary item arising from investing activities"
+    ],
+    "answer": 4,
+    "explanation": "Under AS 3 (paragraphs 29-30), cash flows associated with extraordinary items should be classified as arising from operating, investing, or financing activities as appropriate and separately disclosed. Insurance proceeds received for damage/destruction of Property, Plant & Equipment relate to fixed capital assets, and are therefore classified as an extraordinary cash inflow under Investing Activities."
+  },
+  {
+    "id": 22,
+    "question": "Under AS 3, when translating the cash flows of a foreign subsidiary for inclusion in the consolidated Cash Flow Statement, what exchange rate should be used?",
+    "options": [
+      "The closing exchange rate on the balance sheet date for all cash flows",
+      "The exchange rates at the dates of the cash flows",
+      "The opening exchange rate of the financial year",
+      "The historical exchange rate on the date of incorporation of the subsidiary",
+      "The forward rate for 1-year currency futures"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The exchange rates at the dates of the cash flows (or an appropriate weighted average rate if not materially different). Under AS 3 (paragraph 25) and Ind AS 7, the cash flows of a foreign subsidiary should be translated at the exchange rates between the reporting currency and the foreign currency at the dates of the cash flows. A rate that approximates the actual rate (such as a weighted average exchange rate for the period) may be used for practical purposes."
+  },
+  {
+    "id": 23,
+    "question": "A company reports Operating Profit before Working Capital changes of ₹6,20,000. During the year: Trade Receivables increased by ₹80,000; Inventories decreased by ₹50,000; Trade Payables decreased by ₹40,000; and Prepaid Expenses increased by ₹10,000. What is the Cash Generated from Operations?",
+    "options": [
+      "₹6,20,000",
+      "₹7,00,000",
+      "₹5,80,000",
+      "₹5,40,000",
+      "₹6,60,000"
+    ],
+    "answer": 3,
+    "explanation": "Cash Generated from Operations = Operating Profit before Working Capital Changes (₹6,20,000) - Increase in Trade Receivables (₹80,000) + Decrease in Inventories (₹50,000) - Decrease in Trade Payables (₹40,000) - Increase in Prepaid Expenses (₹10,000) = ₹6,20,000 - ₹80,000 + ₹50,000 - ₹40,000 - ₹10,000 = ₹5,40,000."
+  },
+  {
+    "id": 24,
+    "question": "Under AS 3, how should the acquisition of a business entity for a total purchase consideration of ₹50,00,000 (settled by paying ₹35,00,000 in cash and taking over cash balances of ₹5,00,000 present in the acquired business) be presented under Investing Activities?",
+    "options": [
+      "Net cash outflow of ₹30,00,000 under Investing Activities",
+      "Gross cash outflow of ₹50,00,000",
+      "Gross cash outflow of ₹35,00,000 and gross cash inflow of ₹5,00,000",
+      "Classified under Financing Activities as a capital combination",
+      "Reported entirely in the Operating Activities section"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Net cash outflow of ₹30,00,000 (₹35,00,000 paid less ₹5,00,000 cash acquired) under Investing Activities. Under AS 3 (paragraph 38), the aggregate cash flows arising from acquisitions and from disposals of subsidiaries or other business units should be presented separately and classified as investing activities. The cash paid to acquire the business is shown net of cash and cash equivalents acquired (₹35,00,000 - ₹5,00,000 = ₹30,00,000 net cash outflow)."
+  },
+  {
+    "id": 25,
+    "question": "In a Funds Flow Statement, which of the following transactions constitutes a 'SOURCE OF FUNDS'?",
+    "options": [
+      "Purchase of long-term government bonds for cash",
+      "Payment of interim dividend to equity shareholders",
+      "Sale of plant & machinery for cash",
+      "Redemption of debentures out of profits",
+      "Increase in working capital"
+    ],
+    "answer": 2,
+    "explanation": "Sale of plant & machinery for cash involves a Non-Current Asset (Plant & Machinery) and a Current Asset (Cash), generating long-term inflows that increase net working capital. Hence, it is a Source of Funds. Purchase of bonds, payment of dividend, and redemption of debentures are Applications of Funds."
+  },
+  {
+    "id": 26,
+    "question": "Under the revised AS 4 and modern company accounting practice, how is a 'Dividend Proposed' by the Board of Directors after the balance sheet date treated in the Funds Flow Statement for the current year?",
+    "options": [
+      "Treated as an Application of Funds in the current year's funds flow statement",
+      "Deducted from Funds from Operations during the current accounting period",
+      "Added to the Schedule of Changes in Working Capital as a Current Liability in accordance with the prudence and matching concepts",
+      "Treated as a non-fund adjustment in P&L",
+      "Not included as an application of funds in the current year because it does not create a liability or cash outflow until approved in the subsequent year's AGM"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Not included as an application of funds in the current year because it does not create a liability or cash outflow until approved in the subsequent year's AGM. Under revised AS 4, proposed dividend declared after the balance sheet date is not recognized as a liability in the balance sheet, but only disclosed in the notes. Therefore, no outflow or fund commitment occurs in the current year; it will be treated as an Application of Funds only in the subsequent year when it is approved in the AGM and actually paid."
+  },
+  {
+    "id": 27,
+    "question": "If a company's Current Assets are ₹8,00,000 and Current Liabilities are ₹8,00,000 (Working Capital = ₹0), what will be the effect on Net Working Capital if the company borrows ₹1,00,000 as a 6-month bank loan and immediately uses the proceeds to pay off ₹1,00,000 of trade creditors?",
+    "options": [
+      "Net Working Capital increases by ₹1,00,000",
+      "Net Working Capital remains unchanged at ₹0",
+      "Net Working Capital decreases by ₹1,00,000",
+      "Current Ratio improves to 2:1",
+      "Causes a Source of Funds of ₹1,00,000"
+    ],
+    "answer": 1,
+    "explanation": "A short-term 6-month bank loan is a Current Liability (+₹1,00,000). Paying off Trade Creditors reduces a Current Liability (-₹1,00,000). Total Current Liabilities remain unchanged at ₹8,00,000. Current Assets are unaffected. Therefore, Net Working Capital (CA - CL) remains exactly ₹0 (no change in working capital)."
+  },
+  {
+    "id": 28,
+    "question": "A company has an Equity Share Capital of ₹20,00,000, Reserves & Surplus of ₹10,00,000, 10% Preference Share Capital of ₹5,00,000, and 12% Debentures of ₹15,00,000. What is the company's 'Capital Gearing Ratio'?",
+    "options": [
+      "1.50:1",
+      "0.50:1",
+      "2.00:1",
+      "0.67:1",
+      "1.00:1"
+    ],
+    "answer": 3,
+    "explanation": "Capital Gearing Ratio = Fixed Cost Bearing Capital / Equity (Variable Return) Funds. Fixed Cost Bearing Capital = Preference Share Capital (₹5,00,000) + Debentures (₹15,00,000) = ₹20,00,000. Equity Funds = Equity Share Capital (₹20,00,000) + Reserves & Surplus (₹10,00,000) = ₹30,00,000. Capital Gearing Ratio = ₹20,00,000 / ₹30,00,000 = 0.67:1."
+  },
+  {
+    "id": 29,
+    "question": "An enterprise reports Earnings Per Share (EPS) of ₹20 and pays an annual dividend of ₹8 per share. What are the 'Dividend Payout Ratio' and the 'Retention Ratio' of the enterprise?",
+    "options": [
+      "Dividend Payout: 40%; Retention Ratio: 60%",
+      "Dividend Payout: 60%; Retention Ratio: 40%",
+      "Dividend Payout: 25%; Retention Ratio: 75%",
+      "Dividend Payout: 50%; Retention Ratio: 50%",
+      "Dividend Payout: 35%; Retention Ratio: 65%"
+    ],
+    "answer": 0,
+    "explanation": "Dividend Payout Ratio = (Dividend Per Share / EPS) × 100 = (₹8 / ₹20) × 100 = 40%. Retention Ratio (b) = 100% - Dividend Payout Ratio = 100% - 40% = 60%."
+  },
+  {
+    "id": 30,
+    "question": "The market price of an equity share of Alpha Ltd. is ₹300, and its Earnings Per Share (EPS) is ₹25. What is the company's Price-to-Earnings (P/E) Ratio and its Earnings Yield?",
+    "options": [
+      "P/E Ratio: 10 times; Earnings Yield: 10.00%",
+      "P/E Ratio: 15 times; Earnings Yield: 6.67%",
+      "P/E Ratio: 12 times; Earnings Yield: 8.33%",
+      "P/E Ratio: 8.33 times; Earnings Yield: 12.00%",
+      "P/E Ratio: 14 times; Earnings Yield: 7.14%"
+    ],
+    "answer": 2,
+    "explanation": "Price-Earnings (P/E) Ratio = Market Price Per Share / EPS = ₹300 / ₹25 = 12 times. Earnings Yield = (EPS / Market Price Per Share) × 100 = (₹25 / ₹300) × 100 = 8.33% (which is the reciprocal of the P/E ratio: 1/12 = 8.33%)."
+  },
+  {
+    "id": 31,
+    "question": "Compute the 'Net Operating Cycle' (Working Capital Cycle) in days for an enterprise given: Raw Material Storage Period = 45 days; Work-in-Progress Conversion Period = 20 days; Finished Goods Holding Period = 30 days; Debtors Collection Period = 40 days; and Creditors Payment Period = 35 days.",
+    "options": [
+      "135 days",
+      "70 days",
+      "85 days",
+      "115 days",
+      "100 days"
+    ],
+    "answer": 4,
+    "explanation": "Gross Operating Cycle = Raw Material Days (45) + WIP Days (20) + Finished Goods Days (30) + Debtors Collection Days (40) = 135 days. Net Operating Cycle = Gross Operating Cycle - Creditors Payment Days = 135 - 35 = 100 days."
+  },
+  {
+    "id": 32,
+    "question": "In corporate finance and financial statement analysis, under what condition does 'Trading on Equity' (financial leverage) benefit equity shareholders by increasing Return on Equity (ROE)?",
+    "options": [
+      "When the cost of debt is higher than the Return on Assets in the books of account at the close of the financial year",
+      "When the Return on Capital Employed (ROCE / ROA) exceeds the fixed contractual interest rate (cost) of borrowed debt",
+      "When the Debt-Equity ratio is exactly 0:1 (zero debt) in accordance with prescribed Accounting Standards",
+      "When the corporate tax rate is 0% under Schedule III of the Companies Act, 2013",
+      "When the dividend payout ratio is 100%"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: When the Return on Capital Employed (ROCE / ROA) exceeds the fixed contractual interest rate (cost) of borrowed debt. Trading on equity is advantageous and magnifies EPS and ROE when the overall rate of return earned on assets (ROCE / ROA) is higher than the contractual rate of interest paid on debt capital. The surplus generated over the debt servicing cost accrues directly to equity shareholders."
+  },
+  {
+    "id": 33,
+    "question": "A firm has Total Debt of ₹40,00,000 and Shareholders' Equity of ₹60,00,000 (Total Assets = ₹1,00,00,000). What is the 'Equity Multiplier' of the firm used in DuPont analysis?",
+    "options": [
+      "2.50",
+      "0.60",
+      "1.40",
+      "1.67",
+      "0.40"
+    ],
+    "answer": 3,
+    "explanation": "In DuPont analysis, Equity Multiplier = Total Assets / Shareholders' Equity = ₹1,00,00,000 / ₹60,00,000 = 1.666... or 1.67."
+  },
+  {
+    "id": 34,
+    "question": "Which of the following financial ratios is NOT one of the five core financial ratios utilized in Professor Edward Altman's classic Z-score model for bankruptcy prediction of manufacturing firms?",
+    "options": [
+      "Current Ratio / Quick Ratio",
+      "Working Capital / Total Assets",
+      "Retained Earnings / Total Assets",
+      "EBIT / Total Assets",
+      "Market Value of Equity / Book Value of Total Liabilities"
+    ],
+    "answer": 0,
+    "explanation": "Altman's original Z-score model uses five ratios: X1 = Working Capital / Total Assets; X2 = Retained Earnings / Total Assets; X3 = EBIT / Total Assets; X4 = Market Value of Equity / Book Value of Total Liabilities; X5 = Sales / Total Assets. 'Current Ratio / Quick Ratio' is not a component of the Z-score."
+  },
+  {
+    "id": 35,
+    "question": "An enterprise has Sales of ₹50,00,000, Total Operating Cost of ₹42,00,000, and Net Capital Employed of ₹25,00,000. What is the 'Capital Turnover Ratio'?",
+    "options": [
+      "1.68 times",
+      "2.5 times",
+      "2.0 times",
+      "1.25 times",
+      "3.0 times"
+    ],
+    "answer": 2,
+    "explanation": "Capital Turnover Ratio = Net Sales / Capital Employed = ₹50,00,000 / ₹25,00,000 = 2.0 times. (If cost of goods sold were used, it would be specified, but standard turnover is Sales / Capital Employed)."
+  },
+  {
+    "id": 36,
+    "question": "A company forfeits 500 equity shares of ₹10 each (₹7 called up) held by Ashok for non-payment of first call of ₹2 per share. Subsequently, 300 of these forfeited shares are reissued to Binod as ₹7 paid up for ₹5 per share. What is the amount credited to the Capital Reserve Account upon reissue?",
+    "options": [
+      "₹1,500",
+      "₹600",
+      "₹1,200",
+      "₹2,500",
+      "₹900"
+    ],
+    "answer": 4,
+    "explanation": "Amount forfeited per share = ₹7 (called up) - ₹2 (unpaid call) = ₹5 per share. Total amount forfeited on the 300 reissued shares = 300 × ₹5 = ₹1,500. Discount allowed on reissue = ₹7 (paid up value) - ₹5 (reissue price) = ₹2 per share. Total discount allowed on 300 shares = 300 × ₹2 = ₹600. Amount transferred to Capital Reserve = ₹1,500 - ₹600 = ₹900."
+  },
+  {
+    "id": 37,
+    "question": "Under Section 55 of the Companies Act, 2013, which of the following is a mandatory condition for the redemption of preference shares?",
+    "options": [
+      "Preference shares can be redeemed even if they are partly paid up, provided the board passes a resolution.",
+      "Preference shares must be fully paid up before they can be redeemed.",
+      "Redemption can only be financed by liquidating fixed assets.",
+      "Redemption requires mandatory confirmation by the National Company Law Tribunal (NCLT).",
+      "Redemption can only take place after 30 years from the issue date."
+    ],
+    "answer": 1,
+    "explanation": "Under Section 55(2)(a) of the Companies Act, 2013, no preference shares shall be redeemed unless they are fully paid up. If any calls are in arrears, the shares cannot be redeemed until the arrears are paid or the shares are forfeited."
+  },
+  {
+    "id": 38,
+    "question": "An existing shareholder holds 500 equity shares of ABC Ltd. The company announces a Rights Issue in the ratio of 1:4 at an issue price of ₹120 per share. The prevailing cum-rights market price is ₹170 per share. What is the Theoretical Ex-Rights Price per share?",
+    "options": [
+      "₹150",
+      "₹155",
+      "₹162.50",
+      "₹160",
+      "₹145"
+    ],
+    "answer": 3,
+    "explanation": "Value of 4 existing shares @ ₹170 = ₹680. Cost of 1 new right share @ ₹120 = ₹120. Total cost for 5 shares = ₹680 + ₹120 = ₹800. Theoretical Ex-Rights Price per share = Total Value / Total Number of Shares = ₹800 / 5 = ₹160 per share."
+  },
+  {
+    "id": 39,
+    "question": "Using the data from the previous question (Cum-rights price ₹170, Ex-rights price ₹160, Rights ratio 1:4 at ₹120), what is the 'Value of a Right' per right share?",
+    "options": [
+      "₹10",
+      "₹50",
+      "₹40",
+      "₹12.50",
+      "₹8"
+    ],
+    "answer": 0,
+    "explanation": "Value of a Right = Cum-Rights Price - Ex-Rights Price = ₹170 - ₹160 = ₹10 per existing share (or for 1 right share acquired, the value is ₹160 - ₹120 = ₹40 per right share; per existing share it is ₹10)."
+  },
+  {
+    "id": 40,
+    "question": "Under Section 68(6) of the Companies Act, 2013, before a company makes a buy-back of shares, what statutory document must be verified by an affidavit and filed with the Registrar of Companies and SEBI?",
+    "options": [
+      "Statutory Audit Report on Net Worth in the books of account at the close of the financial year",
+      "Certificate of Commercial Operation from MCA in accordance with prescribed Accounting Standards",
+      "Declaration of Solvency (Form SH-9) signed by at least two directors, one of whom shall be the Managing Director",
+      "Fairness opinion from an investment merchant banker under Schedule III of the Companies Act, 2013",
+      "Letter of credit from the Reserve Bank of India at historical cost less accumulated depreciation"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Declaration of Solvency (Form SH-9) signed by at least two directors, one of whom shall be the Managing Director. Under Section 68(6) of the Companies Act, 2013, before making a buy-back, the company must file with the Registrar and SEBI a Declaration of Solvency in Form SH-9, verified by an affidavit to the effect that the Board has made full inquiry into the affairs of the company and has formed the opinion that it is capable of meeting its liabilities and will not be rendered insolvent within a period of one year from the date of declaration. It must be signed by at least two directors, one of whom shall be the Managing Director, if any."
+  },
+  {
+    "id": 41,
+    "question": "Under Section 68(2)(c) of the Companies Act, 2013, what is the maximum limit on the buy-back of equity shares in any single financial year?",
+    "options": [
+      "The buy-back shall not exceed 10% of total paid-up share capital for presentation in the Balance Sheet and Profit & Loss Account",
+      "The buy-back shall not exceed 50% of the free reserves when preparing the annual financial statements of the entity",
+      "The buy-back can be up to 100% of the net worth if approved unanimously in the general ledger and trial balance",
+      "The buy-back cannot exceed the total cash and bank balances as a separate line item in the financial statements",
+      "The buy-back shall not exceed 25% of the total paid-up equity capital in that financial year"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The buy-back shall not exceed 25% of the total paid-up equity capital in that financial year. Under Section 68(2)(c) of the Companies Act, 2013, the buy-back of equity shares in any financial year shall not exceed twenty-five percent (25%) of its total paid-up equity capital in that financial year."
+  },
+  {
+    "id": 42,
+    "question": "Under Section 68(2)(d) of the Companies Act, 2013, what is the mandatory 'Debt-Equity Ratio' requirement immediately following a buy-back of shares?",
+    "options": [
+      "Debt-Equity ratio must not exceed 1:1 at historical cost less accumulated depreciation",
+      "The ratio of the aggregate of secured and unsecured debts owed by the company after buy-back is not more than twice (2:1) the paid-up capital and its free reserves",
+      "Total debt must be completely liquidated prior to buy-back during the current accounting period",
+      "Debt-Equity ratio can be up to 5:1 for all manufacturing companies",
+      "No restriction on debt-equity ratio exists under the Act in the books of account at the close of the financial year"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The ratio of the aggregate of secured and unsecured debts owed by the company after buy-back is not more than twice (2:1) the paid-up capital and its free reserves. Section 68(2)(d) prescribes that the ratio of the aggregate of secured and unsecured debts owed by the company after buy-back must not be more than twice the paid-up capital and its free reserves (i.e. post-buyback Debt:Equity <= 2:1), provided that the Central Government may prescribe a higher ratio (such as 6:1) for government companies in NBFC/housing finance."
+  },
+  {
+    "id": 43,
+    "question": "Under SEBI (Share Based Employee Benefits) Regulations and Ind AS 102, which method of valuation is MANDATORY for accounting for employee stock options granted by listed companies?",
+    "options": [
+      "Intrinsic Value Method",
+      "Book Value Method",
+      "Historical Cost Method",
+      "Fair Value Method (using an option pricing model such as Black-Scholes or Binomial Model)",
+      "Face Value Method"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Fair Value Method (using an option pricing model such as Black-Scholes or Binomial Model). Under Ind AS 102 and the SEBI (Share Based Employee Benefits and Sweat Equity) Regulations, 2021, listed entities are required to account for employee share-based payment plans using the Fair Value Method, measuring the fair value of options granted at the grant date using recognized option pricing models such as the Black-Scholes formula or the Binomial lattice model."
+  },
+  {
+    "id": 44,
+    "question": "What is the operational distinction between an 'Employee Stock Option Plan' (ESOP) and an 'Employee Stock Purchase Scheme' (ESPS)?",
+    "options": [
+      "ESOP grants a right (option) to purchase shares in the future at a pre-determined exercise price after a vesting period.",
+      "ESOPs are issued to independent directors, while ESPS is issued only to contractors in the books of account at the close of the financial year.",
+      "ESPS shares have no lock-in period, whereas ESOPs have a 10-year lock-in.",
+      "ESOPs can only be cash-settled, whereas ESPS is always equity-settled.",
+      "There is no legal difference between ESOP and ESPS under SEBI regulations."
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: ESOP grants a right (option) to purchase shares in the future at a pre-determined exercise price after a vesting period, whereas ESPS allows employees to subscribe directly to shares as part of a public offering or upfront issue at a discounted price.. Under SEBI regulations, an ESOP is a scheme where the company grants an option to employees to acquire shares at a future date at a pre-determined price upon satisfying vesting conditions. An ESPS (Employee Stock Purchase Scheme) is a scheme under which a company offers shares to employees as part of a public issue or otherwise at a discounted price upfront."
+  },
+  {
+    "id": 45,
+    "question": "Under Section 63(2) of the Companies Act, 2013, which of the following is a statutory condition that a company must fulfill before issuing bonus shares?",
+    "options": [
+      "The bonus issue must be authorized by its Articles of Association.",
+      "It has, on the recommendation of the Board, been authorized in the general meeting of the company.",
+      "It has not defaulted in payment of interest or principal in respect of fixed deposits or debt securities issued by it.",
+      "It has not defaulted in respect of the payment of statutory dues of the employees, such as contribution to provident fund, gratuity, and bonus.",
+      "All of the above"
+    ],
+    "answer": 4,
+    "explanation": "Section 63(2) stipulates all of the following conditions: (a) authorization by articles; (b) authorization in general meeting on board recommendation; (c) no default in payment of interest/principal on fixed deposits or debt securities; (d) no default in statutory employee dues (PF, gratuity, bonus); (e) partly paid-up shares made fully paid-up; and (f) bonus shares cannot be issued in lieu of dividend."
+  },
+  {
+    "id": 46,
+    "question": "Under Schedule III of the Companies Act, 2013, how are 'Contingent Liabilities' and 'Capital Commitments' disclosed in the corporate financial statements?",
+    "options": [
+      "Added to the face of the Balance Sheet under Non-Current Liabilities at historical cost less accumulated depreciation",
+      "Deducted from the General Reserve in the Balance Sheet during the current accounting period",
+      "Recognized as an expense in the Statement of Profit and Loss in accordance with the prudence and matching concepts",
+      "Disclosed solely on the company's investor relations website in the books of account at the close of the financial year",
+      "Disclosed in the Notes to Accounts, forming an integral part of the financial statements"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Disclosed in the Notes to Accounts, forming an integral part of the financial statements. Under Schedule III, Contingent Liabilities (e.g. claims against the company not acknowledged as debt, guarantees given) and Capital Commitments (contracts remaining to be executed on capital account) are not recognized as balance sheet liabilities; they must be disclosed in the Notes to Accounts forming part of the financial statements."
+  },
+  {
+    "id": 47,
+    "question": "Under Schedule III (Part II), which of the following items is presented under 'Other Expenses' in the Statement of Profit and Loss?",
+    "options": [
+      "Interest paid on bank term loans as a separate line item in the financial statements",
+      "Rent, rates and taxes, insurance, repairs to machinery, and auditor's remuneration",
+      "Salaries, wages, and bonus paid to factory workers upon recognition of the underlying commercial transaction",
+      "Cost of raw materials consumed during production under the accrual basis of financial accounting",
+      "Depreciation on office computers"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Rent, rates and taxes, insurance, repairs to machinery, and auditor's remuneration. In the Schedule III Statement of Profit and Loss: Finance costs cover interest; Employee benefits expense covers salaries/wages; Cost of materials covers raw material consumption; Depreciation covers asset amortisation. All other operational and administrative overheads (rent, rates, taxes, insurance, repairs, audit fees, legal charges) are classified under 'Other Expenses'."
+  },
+  {
+    "id": 48,
+    "question": "Under the MCA amendments to Schedule III, what is the mandatory disclosure requirement regarding a company's relationship with 'Struck-off Companies' (companies whose names have been struck off under Section 248)?",
+    "options": [
+      "Transactions with struck-off companies are completely prohibited and make the company liable to immediate delisting.",
+      "Companies only need to disclose transactions if they exceed ₹10 Crores.",
+      "Disclosures are voluntary and only applicable to public sector banks.",
+      "Companies must disclose details of transactions with struck-off companies",
+      "Struck-off companies are treated as foreign subsidiaries."
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Companies must disclose details of transactions with struck-off companies, including nature of transactions, balance outstanding, and relationship with such companies.. The MCA amendments to Schedule III require companies to disclose details of any transactions with struck-off companies (under Section 248 or Section 560), including: name of the struck-off company, nature of transactions (investments, receivables, payables, shares held), balance outstanding, and relationship with the struck-off company."
+  },
+  {
+    "id": 49,
+    "question": "Under Schedule III, where should 'Stores and Spares' and 'Loose Tools' held by a manufacturing company be classified?",
+    "options": [
+      "Under Inventories within Current Assets",
+      "Under Property, Plant and Equipment",
+      "Under Other Non-Current Assets",
+      "Expensed in full upon purchase as Other Expenses",
+      "Under Intangible Assets"
+    ],
+    "answer": 0,
+    "explanation": "Under Schedule III (Part I), 'Inventories' explicitly includes: (a) Raw materials, (b) Work-in-progress, (c) Finished goods, (d) Stock-in-trade, (e) Stores and spares, and (f) Loose tools. (Note: Under Ind AS 16, major spare parts and stand-by equipment that meet the definition of PPE are capitalized as PPE; standard stores and spares remain in Inventories)."
+  },
+  {
+    "id": 50,
+    "question": "Under Schedule III, how should 'Promoters' Shareholding' be disclosed in the financial statements?",
+    "options": [
+      "Disclosed only if promoters hold more than 75% of the total equity capital at historical cost less accumulated depreciation",
+      "Only the names of the promoters need to be listed in alphabetical order during the current accounting period",
+      "A note disclosing the shares held by promoters at the end of the year, the percentage of total shares, and the percentage change during the year",
+      "Disclosed solely in the Chairman's speech at the AGM in accordance with the prudence and matching concepts",
+      "Promoters' shareholding is confidential and exempted from disclosure in the books of account at the close of the financial year"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A note disclosing the shares held by promoters at the end of the year, the percentage of total shares, and the percentage change during the year. As per the revised Schedule III disclosures, companies must include a note giving details of shareholding of promoters at the end of the financial year: Promoter name, number of shares, % of total shares, and % change in shareholding during the year."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Commerce & Accountancy Mock 4",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Commerce & Accountancy Mock 4";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br /><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br /><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br /><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br /><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

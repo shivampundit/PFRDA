@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFRDA Economics &amp; Financial Sector Mock Test 2 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject H: Economics</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Economics_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Economics_Master_Revision_and_Study_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Economics_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Economics_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Economics_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Economics_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Economics_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &middot; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &middot; Paper 2 &middot; Economics Mock 2</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Economics &amp; Financial Sector - Mock 2</h1>
+    <p class="start-subheading">Full 50 Questions &middot; Concept-Based &middot; PFRDA Grade A Level &middot; Precision Coaching</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant">
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com">
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Accounting System:</b> Financial information system, bookkeeping vs accounting, concepts, conventions, capital vs revenue, errors.</li>
+                <li><b>Accounting Standards:</b> Depreciation (AS 10 / Ind AS 16), Inventories (AS 2 / Ind AS 2), Revenue Recognition (AS 9 / Ind AS 115), PPE (AS 10), Forex (AS 11 / Ind AS 21), Investments (AS 13).</li>
+                <li><b>Cash Flow &amp; Fund Flow:</b> Operating/Investing/Financing activities, Direct &amp; Indirect methods, Statement of Changes in Working Capital.</li>
+                <li><b>Ratio Analysis:</b> Liquidity, Solvency, Turnover, Profitability, and DuPont 3-stage model.</li>
+                <li><b>Share Capital &amp; Corporate Actions:</b> Share issue/forfeiture/reissue, Bonus shares (Sec 63), Rights issue (Sec 62), ESOPs, Buy-back (Sec 68-70).</li>
+                <li><b>Company Final Accounts:</b> Schedule III Balance Sheet and Statement of Profit &amp; Loss structure and disclosures.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "What is the fundamental definition of Gross Domestic Product (GDP) in national income accounting?",
+    "options": [
+      "The total monetary value of all goods and services consumed by a country's citizens worldwide in a year across aggregate goods and money market schedules",
+      "The total revenue collected in taxes by the central and state governments as real output adjusts toward full-employment potential GDP",
+      "The total monetary market value of all final goods and services produced within the geographic boundaries of a country during a specified time period",
+      "The net sum of all financial transactions occurring on domestic stock exchanges under flexible price and wage adjustment mechanisms",
+      "The total value of physical currency notes printed by the central bank across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The total monetary market value of all final goods and services produced within the geographic boundaries of a country during a specified time period (typically one year). Gross Domestic Product (GDP) measures the total market value of all final goods and services produced within the geographic territory of a country over a specific time period. It excludes intermediate goods to prevent double counting and counts only domestic production regardless of ownership."
+  },
+  {
+    "id": 2,
+    "question": "How is Gross National Product (GNP) mathematically derived from Gross Domestic Product (GDP)?",
+    "options": [
+      "GNP = GDP + Depreciation",
+      "GNP = GDP - Net Indirect Taxes",
+      "GNP = GDP + Subsidies - Transfer Payments",
+      "GNP = GDP / Population",
+      "GNP = GDP + Net Factor Income from Abroad (NFIA)"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: GNP = GDP + Net Factor Income from Abroad (NFIA). GNP measures total output produced by the nationals/residents of a country, whether located at home or abroad: GNP = GDP + NFIA (Net Factor Income from Abroad). NFIA is the difference between factor income earned by domestic residents abroad and factor income earned by foreign residents domestically."
+  },
+  {
+    "id": 3,
+    "question": "How is Net Domestic Product (NDP) calculated from Gross Domestic Product (GDP)?",
+    "options": [
+      "NDP = GDP + Net Indirect Taxes",
+      "NDP = GDP - Consumption of Fixed Capital",
+      "NDP = GDP + Foreign Exchange Reserves",
+      "NDP = GDP / Consumer Price Index",
+      "NDP = GDP - Government Subsidies"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: NDP = GDP - Consumption of Fixed Capital (Depreciation). Net Domestic Product (NDP) accounts for the capital consumed or worn out during production: NDP = GDP - Depreciation (Consumption of Fixed Capital). Net measures are theoretically superior for tracking sustainable economic output because capital wear must be replaced."
+  },
+  {
+    "id": 4,
+    "question": "In national income accounting, what is the exact relationship between National Income at Market Prices and National Income at Factor Cost?",
+    "options": [
+      "$NNP_{FC} = NNP_{MP} + \\text{Depreciation}$ in the short-run and long-run macroeconomic equilibrium",
+      "$NNP_{FC} = NNP_{MP} + \\text{Direct Taxes}$ holding all other exogenous determinants constant (ceteris paribus)",
+      "$NNP_{FC} = NNP_{MP} \\times \\text{GDP Deflator}$ within the national income and product accounting framework",
+      "Net National Product at Factor Cost ($NNP_{FC}$) = Net National Product at Market Prices ($NNP_{MP}$) - Indirect Taxes + Subsidies",
+      "$NNP_{FC} = NNP_{MP} - \\text{NFIA}$ in response to shifts in aggregate demand and supply"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Net National Product at Factor Cost ($NNP_{FC}$) = Net National Product at Market Prices ($NNP_{MP}$) - Indirect Taxes + Subsidies (i.e. - Net Indirect Taxes). Market prices include indirect taxes imposed by government and exclude government production subsidies. To convert Market Price to Factor Cost (the earnings received by factors of production), we subtract Indirect Taxes and add Subsidies: $NNP_{FC} = NNP_{MP} - \\text{Net Indirect Taxes}$ (where Net Indirect Taxes = Indirect Taxes - Subsidies)."
+  },
+  {
+    "id": 5,
+    "question": "What is the relationship between Gross Value Added (GVA) at basic prices and GDP at market prices under India's national accounts methodology?",
+    "options": [
+      "GDP at market prices = GVA at basic prices + Product Taxes - Product Subsidies",
+      "GDP at market prices = GVA at basic prices - Production Taxes + Production Subsidies",
+      "GDP at market prices = GVA at basic prices + Depreciation as real output adjusts toward full-employment potential GDP",
+      "GDP at market prices = GVA at basic prices - Imports under flexible price and wage adjustment mechanisms",
+      "GDP at market prices is identical to GVA at factor cost across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 0,
+    "explanation": "Under the CSO/MoSPI national accounting revision: (1) GVA at basic prices = GVA at factor cost + (Production Taxes - Production Subsidies); (2) GDP at market prices = GVA at basic prices + (Product Taxes - Product Subsidies). GVA represents supply/producer value, while GDP represents final expenditure."
+  },
+  {
+    "id": 6,
+    "question": "What is the 'GDP Deflator' and how is it mathematically formulated?",
+    "options": [
+      "GDP Deflator = (Real GDP / Nominal GDP) * 100",
+      "GDP Deflator = Wholesale Price Index minus Consumer Price Index",
+      "GDP Deflator = (Nominal GDP / Real GDP) * 100",
+      "GDP Deflator = Nominal GDP minus Depreciation",
+      "GDP Deflator = Real GDP multiplied by the money multiplier"
+    ],
+    "answer": 2,
+    "explanation": "The GDP Deflator is a comprehensive measure of inflation reflecting the prices of all final goods and services produced domestically: GDP Deflator = (Nominal GDP / Real GDP) * 100. Unlike fixed-basket CPI, the GDP deflator weights change dynamically as the composition of production changes."
+  },
+  {
+    "id": 7,
+    "question": "Which of the following is strictly EXCLUDED when computing GDP via the Expenditure Method ($Y = C + I + G + NX$)?",
+    "options": [
+      "Household spending on newly constructed residential housing across the phases of the macroeconomic business cycle",
+      "Government purchases of defense equipment and infrastructure when evaluating social welfare and resource allocation efficiency",
+      "Business investment in non-residential factory machinery under competitive market clearing conditions",
+      "Net exports of goods and services (Exports minus Imports) across aggregate goods and money market schedules",
+      "Purchase of intermediate goods and government transfer payments (e.g., old-age pensions, unemployment benefits)"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Purchase of intermediate goods and government transfer payments (e.g., old-age pensions, unemployment benefits). Transfer payments (pensions, scholarships, subsidies) are excluded because they represent redistributions of purchasing power without corresponding production of goods or services. Intermediate goods are excluded to avoid double counting (their value is embedded in final goods)."
+  },
+  {
+    "id": 8,
+    "question": "In the circular flow of income in a four-sector open economy, what are the three economic 'Leakages' (Withdrawals) and three 'Injections'?",
+    "options": [
+      "Leakages: Investment, Exports, Consumption; Injections: Savings, Taxes, Imports",
+      "Leakages: Savings (S), Taxes (T), Imports (M); Injections: Investment (I), Government Expenditure (G), Exports (X)",
+      "Leakages: Wages, Rent, Interest; Injections: Profits, Dividends, Royalties holding all other exogenous determinants constant (ceteris paribus)",
+      "Leakages: Cash, Cheques, Gold; Injections: Bonds, Debentures, Equity within the national income and product accounting framework",
+      "Leakages: Depreciation, Subsidies, Inflation; Injections: Currency, Reserves, Gold in response to shifts in aggregate demand and supply"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Leakages: Savings (S), Taxes (T), Imports (M); Injections: Investment (I), Government Expenditure (G), Exports (X). In the circular flow of income: Leakages are funds withdrawn from the spending stream ($S + T + M$); Injections are additions of non-consumption spending into the circular flow ($I + G + X$). Macroeconomic equilibrium requires Total Injections = Total Leakages ($I + G + X = S + T + M$)."
+  },
+  {
+    "id": 9,
+    "question": "What is 'Say's Law of Markets', the foundational proposition of Classical Macroeconomics (Jean-Baptiste Say)?",
+    "options": [
+      "Demand creates its own supply through technological innovation across aggregate goods and money market schedules",
+      "Government regulation is mandatory to clear agricultural markets as real output adjusts toward full-employment potential GDP",
+      "Monetary policy is the sole determinant of real economic output under flexible price and wage adjustment mechanisms",
+      "'Supply creates its own demand'—the production of goods generates factor incomes sufficient to purchase the entire output, ruling out general overproduction or involuntary unemployment",
+      "Interest rates are determined strictly by central bank decree across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: 'Supply creates its own demand'—the production of goods generates factor incomes sufficient to purchase the entire output, ruling out general overproduction or involuntary unemployment. Say's Law asserts that 'supply creates its own demand'. The act of producing output generates equivalent factor payments (wages, rent, interest, profit) to purchase that output. Classical economists concluded that general gluts (overproduction) and prolonged involuntary unemployment are impossible in a flexible economy."
+  },
+  {
+    "id": 10,
+    "question": "What is the 'Classical Dichotomy' in macroeconomic monetary theory?",
+    "options": [
+      "The theoretical separation between the real sector and the monetary sector",
+      "The separation between microeconomics and corporate finance",
+      "The division of a nation's budget into revenue deficit and fiscal deficit",
+      "The split between commercial banks and shadow banking institutions",
+      "The conflict between labor unions and manufacturing corporate management"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The theoretical separation between the real sector (output, employment, relative prices determined by real forces like technology and preferences) and the monetary sector (money supply determining nominal variables and absolute price levels without affecting real output—Money Neutrality). The Classical Dichotomy states that nominal variables (money supply, general price level, nominal wages) and real variables (real GDP, employment, real wages, capital stock) can be analyzed independently. Money is a 'veil' that affects only price levels; in the long run, money is neutral."
+  },
+  {
+    "id": 11,
+    "question": "In Irving Fisher's Quantity Theory of Money (Equation of Exchange $MV = PT$), what are the classical assumptions regarding $V$ and $T$ in the short run?",
+    "options": [
+      "Velocity ($V$) and Volume of Transactions ($T$) are highly volatile and unpredictable across the phases of the macroeconomic business cycle",
+      "Price level is permanently fixed by statute when evaluating social welfare and resource allocation efficiency",
+      "Transaction velocity ($V$) is determined by stable payment habits/institutions and transaction volume ($T$) is fixed at the full-employment level",
+      "Money supply varies inversely with transaction velocity under competitive market clearing conditions",
+      "Transaction volume is zero in economic equilibrium across aggregate goods and money market schedules"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Transaction velocity ($V$) is determined by stable payment habits/institutions and transaction volume ($T$) is fixed at the full-employment level, meaning any percentage change in Money Supply ($M$) leads to a proportionate change in the Price Level ($P$). Fisher assumed that Velocity ($V$) is determined by institutional payment habits and technology (stable in short run) and Transactions ($T$ or real output $Y$) is fixed at full employment. Thus, $M \\rightarrow P$ is directly proportional: a doubling of money supply causes a doubling of the general price level."
+  },
+  {
+    "id": 12,
+    "question": "How did John Maynard Keynes' 'General Theory of Employment, Interest and Money' (1936) fundamentally refute Classical wage flexibility?",
+    "options": [
+      "Keynes proved that workers prefer receiving food instead of cash wages in the short-run and long-run macroeconomic equilibrium",
+      "Keynes demonstrated that wages always adjust within 24 hours to eliminate unemployment holding all other exogenous determinants constant (ceteris paribus)",
+      "Keynes claimed that all unemployment is voluntary within the national income and product accounting framework",
+      "Keynes advocated abolishing paper currency to restore classical barter in response to shifts in aggregate demand and supply",
+      "Keynes argued that nominal wages are 'sticky downward' due to labor contracts and trade unions, and even if money wages fell, workers' purchasing power would collapse"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Keynes argued that nominal wages are 'sticky downward' due to labor contracts and trade unions, and even if money wages fell, workers' purchasing power would collapse, causing aggregate demand to fall rather than restoring full employment. Keynes rejected the classical claim that wage cuts cure unemployment. First, wages are resistant to cuts (sticky downwards). Second, wages are both a cost of production and consumer income; cutting wages across the economy slashes aggregate demand, worsening the slump ('paradox of wage cuts')."
+  },
+  {
+    "id": 13,
+    "question": "What is the 'Principle of Effective Demand' in Keynesian macroeconomic theory?",
+    "options": [
+      "The demand for luxury goods by high-net-worth individuals across aggregate goods and money market schedules",
+      "The logical point of intersection between the Aggregate Demand Price (ADP) function and Aggregate Supply Price (ASP) function",
+      "The demand for physical currency notes at commercial bank ATM machines as real output adjusts toward full-employment potential GDP",
+      "The maximum demand for exports in international trade under flexible price and wage adjustment mechanisms",
+      "The legal demand for tax compliance by sovereign revenue authorities across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The logical point of intersection between the Aggregate Demand Price (ADP) function and Aggregate Supply Price (ASP) function, which determines the equilibrium level of employment and output in the economy. Keynes established that employment depends on Effective Demand—the level of aggregate demand actually realized in the market where Aggregate Demand Price equals Aggregate Supply Price ($ADP = ASP$). Unlike classical theory, this equilibrium can occur at less than full employment ('underemployment equilibrium')."
+  },
+  {
+    "id": 14,
+    "question": "In the Keynesian Consumption Function $C = \\bar{C} + cY$, what does the coefficient $c$ represent, and what are its standard mathematical bounds?",
+    "options": [
+      "Average Propensity to Save; $c > 1$",
+      "Autonomous Consumption; $c = 0$",
+      "Interest elasticity of savings; $c < 0$",
+      "Marginal Propensity to Consume (MPC); $0 < c < 1$",
+      "Capital-output ratio; $c = 2.5$"
+    ],
+    "answer": 3,
+    "explanation": "In $C = \\bar{C} + cY$: $\\bar{C}$ is autonomous consumption (spending when income is zero), and $c = \\frac{\\Delta C}{\\Delta Y}$ is the Marginal Propensity to Consume (MPC). Keynes' Fundamental Psychological Law posits that when income rises, consumption rises, but by less than the rise in income, so $0 < MPC < 1$."
+  },
+  {
+    "id": 15,
+    "question": "What is the mathematical relationship between the Marginal Propensity to Consume (MPC) and the Marginal Propensity to Save (MPS)?",
+    "options": [
+      "MPC + MPS = 1",
+      "MPC * MPS = 1",
+      "MPC - MPS = 1",
+      "MPC / MPS = 1",
+      "MPC + MPS = 0"
+    ],
+    "answer": 0,
+    "explanation": "Since disposable income ($Y$) is divided entirely between consumption ($C$) and saving ($S$), any change in income satisfies $\\Delta Y = \\Delta C + \\Delta S$. Dividing throughout by $\\Delta Y$ yields $\\frac{\\Delta C}{\\Delta Y} + \\frac{\\Delta S}{\\Delta Y} = 1$, which proves $MPC + MPS = 1$ (and similarly $APC + APS = 1$)."
+  },
+  {
+    "id": 16,
+    "question": "What was 'Simon Kuznets' Consumption Puzzle' that challenged Keynes' absolute income hypothesis?",
+    "options": [
+      "Kuznets discovered that consumers stop buying food during recessions",
+      "Kuznets proved that consumption is completely unrelated to disposable income holding all other exogenous determinants constant (ceteris paribus)",
+      "Short-run empirical budget studies showed that Average Propensity to Consume (APC) declines as income rises ($APC > MPC$), but Kuznets' long-run historical time-series data showed that APC remained remarkably constant over decades",
+      "Kuznets showed that savings rates are always negative in capitalist economies within the national income and product accounting framework",
+      "Kuznets proved that consumers spend 100% of their income on gold bullion in response to shifts in aggregate demand and supply"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Short-run empirical budget studies showed that Average Propensity to Consume (APC) declines as income rises ($APC > MPC$), but Kuznets' long-run historical time-series data showed that APC remained remarkably constant over decades ($APC \\approx MPC$). Kuznets (1946) found that despite massive long-term growth in US real income over 1869-1938, the savings ratio and APC remained stable at ~0.86 over the long run, contradicting Keynes' short-run hypothesis that $APC$ declines continuously as income expands."
+  },
+  {
+    "id": 17,
+    "question": "What are the 'Demonstration Effect' and 'Ratchet Effect' in James Duesenberry's Relative Income Hypothesis (1949)?",
+    "options": [
+      "Demonstration effect: Consuming goods demonstrated on television; Ratchet effect: Mechanical tools used in automobile repair across aggregate goods and money market schedules",
+      "Demonstration effect: Public protests by labor unions; Ratchet effect: Rapid increases in corporate taxes as real output adjusts toward full-employment potential GDP",
+      "Demonstration effect: Scientific laboratory testing; Ratchet effect: Central bank interest rate hikes under flexible price and wage adjustment mechanisms",
+      "There is no distinction; both describe speculative stock trading across the phases of the macroeconomic business cycle",
+      "Demonstration effect: An individual's consumption is influenced by the spending habits of higher-income peers; Ratchet effect: When income falls, consumers resist cutting consumption, ratcheting spending downward slowly"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Demonstration effect: An individual's consumption is influenced by the spending habits of higher-income peers ('keeping up with the Joneses'); Ratchet effect: When income falls, consumers resist cutting consumption, ratcheting spending downward slowly. Duesenberry's Relative Income Hypothesis showed: (1) Cross-section: People emulate wealthier peers (Demonstration Effect); (2) Time-series: Consumption depends on past peak income; when income drops during a recession, people defend standard of living, creating the asymmetric 'Ratchet Effect'."
+  },
+  {
+    "id": 18,
+    "question": "In Milton Friedman's 'Permanent Income Hypothesis' (1957), how does a consumer respond to a 'Transitory' windfall change in income (e.g. winning a one-time lottery prize)?",
+    "options": [
+      "The consumer immediately spends 100% of the transitory income on perishable food in response to shifts in aggregate demand and supply",
+      "Because consumption depends on Permanent Income, transitory income ($Y_t$) is mostly saved or invested",
+      "The consumer's consumption drops to zero within an open-economy balance of payments framework",
+      "The consumer donates all transitory income to government treasuries given the prevailing marginal propensity to consume and save",
+      "The consumer quits their job permanently in the short-run and long-run macroeconomic equilibrium"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Because consumption depends on Permanent Income ($Y_p$, estimated long-term lifetime earning capacity), transitory income ($Y_t$) is mostly saved or invested, resulting in a Marginal Propensity to Consume out of transitory income close to zero. Friedman split income into Permanent ($Y_p$) and Transitory ($Y_t$) components: $C = k \\cdot Y_p$. Consumers smooth consumption over time based on permanent expected wealth. Transitory windfalls (or unexpected tax rebates) have little immediate effect on current consumption because they are saved."
+  },
+  {
+    "id": 19,
+    "question": "What is the core premise of Franco Modigliani's 'Life Cycle Hypothesis' (LCH) of consumption?",
+    "options": [
+      "Consumers only spend money during the first ten years of life across the phases of the macroeconomic business cycle",
+      "Government pension programs determine 100% of household consumption when evaluating social welfare and resource allocation efficiency",
+      "Consumers consume at an exponential rate until they run out of bank credit under competitive market clearing conditions",
+      "Individuals plan their consumption and savings behavior over their entire lifespan, accumulating wealth through savings during productive working years and dissaving during retirement to smooth consumption",
+      "Savings rates are independent of age or life expectancy across aggregate goods and money market schedules"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Individuals plan their consumption and savings behavior over their entire lifespan, accumulating wealth through savings during productive working years and dissaving (drawing down wealth) during retirement to smooth consumption. Modigliani's LCH posits that individuals smooth consumption across their lifetime: Young adults borrow/save little; middle-aged workers save heavily and accumulate wealth; retirees dissave by consuming accumulated assets. Aggregate national saving thus depends heavily on demographic age structure."
+  },
+  {
+    "id": 20,
+    "question": "In Keynesian investment theory, what is the 'Marginal Efficiency of Capital' (MEC)?",
+    "options": [
+      "The expected rate of return over cost generated by an additional unit of physical capital asset over its entire economic working life",
+      "The historical accounting depreciation rate of factory machinery",
+      "The market interest rate charged by commercial banks on corporate overdraft loans holding all other exogenous determinants constant (ceteris paribus)",
+      "The ratio of corporate equity to corporate long-term bond debt within the national income and product accounting framework",
+      "The rate of technological obsolescence of computer equipment in response to shifts in aggregate demand and supply"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The expected rate of return (internal rate of return - IRR) over cost generated by an additional unit of physical capital asset over its entire economic working life. Keynes defined MEC as the discount rate that equates the present value of expected prospective yields of a capital asset over its lifetime to its supply price (replacement cost): $\\text{Supply Price} = \\sum_{t=1}^n \\frac{R_t}{(1 + \\text{MEC})^t}$. An investment is profitable if $\\text{MEC} > r$ (the market interest rate)."
+  },
+  {
+    "id": 21,
+    "question": "How does the Marginal Efficiency of Investment (MEI) differ from the Marginal Efficiency of Capital (MEC)?",
+    "options": [
+      "MEC and MEI are identical in every economic context across aggregate goods and money market schedules",
+      "MEC applies only to public sector investment; MEI applies to private investment",
+      "MEC represents the expected return on capital assuming fixed capital goods supply prices",
+      "MEI is calculated by central banks, whereas MEC is calculated by corporate accountants",
+      "MEC represents financial equity; MEI represents physical real estate across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: MEC represents the expected return on capital assuming fixed capital goods supply prices, whereas MEI takes into account that as aggregate investment surges across the economy, the rising price of capital goods depresses expected returns (MEI is steeper than MEC). MEC assumes capital goods supply prices are constant. However, during an economy-wide investment boom, heavy demand for capital goods bids up capital goods prices and raises financing costs. MEI reflects these endogenous price increases, showing lower actual returns than MEC for any given volume of investment."
+  },
+  {
+    "id": 22,
+    "question": "What is 'Tobin's q' theory of investment (James Tobin, 1969) and what investment decision is indicated when $q > 1$?",
+    "options": [
+      "$q = \\frac{\\text{Replacement Cost}}{\\text{Market Value}}$; if $q > 1$, firms should liquidate all physical machinery",
+      "$q$ measures corporate debt leverage; if $q > 1$, the firm is bankrupt within an open-economy balance of payments framework",
+      "$q$ measures labor productivity; if $q > 1$, the firm should fire workers given the prevailing marginal propensity to consume and save",
+      "$q$ is the ratio of inventory to sales; if $q > 1$, production should cease in the short-run and long-run macroeconomic equilibrium",
+      "$q = \\frac{\\text{Market Value of Capital}}{\\text{Replacement Cost of Capital}}$; if $q > 1$, firms should invest in new physical capital equipment because the market value exceeds its reproduction cost"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: $q = \\frac{\\text{Market Value of Capital}}{\\text{Replacement Cost of Capital}}$; if $q > 1$, firms should invest in new physical capital equipment because the market value exceeds its reproduction cost. Tobin's q is the ratio of market valuation of firm capital (via equity/debt markets) to the replacement cost of physical capital: $q = \\frac{\\text{Market Value}}{\\text{Replacement Cost}}$. When $q > 1$, firms can issue stock at high valuations to buy cheap physical machinery, stimulating high real physical investment."
+  },
+  {
+    "id": 23,
+    "question": "What is the formula for the standard Keynesian 'Investment Multiplier' ($k$) in a simple closed economy without government?",
+    "options": [
+      "$k = \\frac{MPC}{MPS}$",
+      "$k = \\frac{1}{1 - MPC} = \\frac{1}{MPS}$",
+      "$k = 1 - MPC$",
+      "$k = \\frac{1}{1 + MPC}$",
+      "$k = MPC \\times MPS$"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: $k = \\frac{1}{1 - MPC} = \\frac{1}{MPS}$. R.F. Kahn (1931) introduced the employment multiplier, and Keynes formalized the investment multiplier: $\\Delta Y = k \\cdot \\Delta I$. Since $\\Delta Y = \\Delta C + \\Delta I = c \\Delta Y + \\Delta I$, solving for $k = \\frac{\\Delta Y}{\\Delta I} = \\frac{1}{1 - c} = \\frac{1}{1 - MPC} = \\frac{1}{MPS}$."
+  },
+  {
+    "id": 24,
+    "question": "If the Marginal Propensity to Consume ($MPC$) in an economy is 0.80, and autonomous private investment increases by Rs 5,000 crore, by how much will equilibrium National Income increase?",
+    "options": [
+      "Rs 5,000 crore",
+      "Rs 6,250 crore",
+      "Rs 50,000 crore",
+      "Rs 25,000 crore",
+      "Rs 4,000 crore"
+    ],
+    "answer": 3,
+    "explanation": "Multiplier $k = \\frac{1}{1 - MPC} = \\frac{1}{1 - 0.80} = \\frac{1}{0.20} = 5$. Total increase in National Income $\\Delta Y = k \\times \\Delta I = 5 \\times 5,000 = \\text{Rs } 25,000\\text{ crore}$."
+  },
+  {
+    "id": 25,
+    "question": "What is the 'Balanced Budget Multiplier' theorem (Haavelmo Theorem) in Keynesian fiscal policy?",
+    "options": [
+      "When government expenditure ($G$) and tax revenues ($T$) increase by identical equal amounts, the resulting multiplier is exactly equal to 1, expanding national income by that exact amount",
+      "The multiplier is always zero because taxes cancel out spending across aggregate goods and money market schedules",
+      "The multiplier is infinite during severe economic recessions as real output adjusts toward full-employment potential GDP",
+      "The multiplier is negative because government spending crowds out private business under flexible price and wage adjustment mechanisms",
+      "The multiplier equals the foreign exchange reserve ratio across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: When government expenditure ($G$) and tax revenues ($T$) increase by identical equal amounts (maintaining a balanced budget $\\Delta G = \\Delta T$), the resulting multiplier is exactly equal to 1, expanding national income by that exact amount ($\\Delta Y = \\Delta G$). Government spending multiplier is $k_g = \\frac{1}{1 - c}$, while tax multiplier is $k_t = \\frac{-c}{1 - c}$. Under equal increases in spending and taxes ($\\Delta G = \\Delta T$): $\\Delta Y = \\left(\\frac{1}{1 - c} - \\frac{c}{1 - c}\\right) \\Delta G = \\frac{1 - c}{1 - c} \\Delta G = 1 \\cdot \\Delta G$, proving the balanced budget multiplier is exactly 1."
+  },
+  {
+    "id": 26,
+    "question": "In an open economy with international trade, what is the formula for the 'Foreign Trade Multiplier' ($k_f$)?",
+    "options": [
+      "$k_f = \\frac{1}{MPS - MPM}$ in response to shifts in aggregate demand and supply",
+      "$k_f = \\frac{MPS}{MPM}$",
+      "$k_f = \\frac{1}{MPS + MPM}$, where $MPS$ is marginal propensity to save and $MPM$ is marginal propensity to import",
+      "$k_f = 1 + MPS + MPM$ given the prevailing marginal propensity to consume and save",
+      "$k_f = \\frac{1}{MPC + MPM}$ in the short-run and long-run macroeconomic equilibrium"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: $k_f = \\frac{1}{MPS + MPM}$, where $MPS$ is marginal propensity to save and $MPM$ is marginal propensity to import. In an open economy, imports represent an additional expenditure leakage alongside domestic savings. Therefore, the open-economy multiplier is: $k_f = \\frac{1}{1 - c + m} = \\frac{1}{MPS + MPM}$ (where $m = MPM = \\frac{\\Delta M}{\\Delta Y}$). Imports reduce the domestic expansionary impact of investments."
+  },
+  {
+    "id": 27,
+    "question": "What does the 'Accelerator Principle' (J.M. Clark, 1917) describe in macroeconomic investment theory?",
+    "options": [
+      "The speed at which central banks print paper money across the phases of the macroeconomic business cycle",
+      "The acceleration of inflation caused by supply-side shocks when evaluating social welfare and resource allocation efficiency",
+      "The rapid depreciation of highway transportation trucks under competitive market clearing conditions",
+      "The speed of electronic digital wire transfers across aggregate goods and money market schedules",
+      "The proposition that induced net investment demand depends directly on the RATE OF CHANGE of output or consumer demand, rather than on the absolute level of output ($I_t = v$)"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The proposition that induced net investment demand depends directly on the RATE OF CHANGE of output or consumer demand, rather than on the absolute level of output ($I_t = v(Y_t - Y_{t-1})$). The Accelerator principle states that capital investment is induced by changes in consumer demand: $I_t = v \\cdot \\Delta Y_t$ (where $v$ is the capital-output ratio). A modest slowdown in the rate of output growth can trigger an absolute drop in capital goods investment, explaining violent business cycle swings."
+  },
+  {
+    "id": 28,
+    "question": "What is the 'Super-Multiplier' in macroeconomic business cycle models (Paul Samuelson, J.R. Hicks)?",
+    "options": [
+      "A multiplier that operates only during global wartime booms in the short-run and long-run macroeconomic equilibrium",
+      "The combined synergistic interaction between the Keynesian Multiplier and the Accelerator principle",
+      "A multiplier applied exclusively to foreign direct investment holding all other exogenous determinants constant (ceteris paribus)",
+      "A banking tool used to calculate commercial loan credit growth within the national income and product accounting framework",
+      "A statistical metric measuring stock market trading volume"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The combined synergistic interaction between the Keynesian Multiplier and the Accelerator principle, where autonomous spending induces consumption, which induces further investment, driving cumulative expansion or contraction in business cycles. Samuelson (1939) and Hicks integrated the multiplier and accelerator: initial autonomous spending increases income via the multiplier; the growth in income induces higher investment via the accelerator; this new investment feeds back into the multiplier, generating cyclical fluctuations in output."
+  },
+  {
+    "id": 29,
+    "question": "What is the 'Paradox of Thrift' popularized by John Maynard Keynes?",
+    "options": [
+      "The proposition that wealthy individuals hoard gold coins in bank vaults across aggregate goods and money market schedules",
+      "A state where commercial banks refuse to accept customer cash deposits",
+      "A legal doctrine preventing governments from running budget surpluses under flexible price and wage adjustment mechanisms",
+      "The counter-intuitive phenomenon where an autonomous attempt by all households in an economy to increase their savings rate during a recession causes aggregate demand to collapse",
+      "A tax exemption granted to corporate retirement pension trusts across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The counter-intuitive phenomenon where an autonomous attempt by all households in an economy to increase their savings rate during a recession causes aggregate demand to collapse, leading to a fall in total output and leaving total aggregate savings unchanged or lower. While saving is virtuous for an individual, if all households attempt to save more simultaneously without a rise in investment, aggregate consumption spending collapses. Lower spending reduces business revenues, cutting GDP until total savings falls back to equal the unchanged investment level."
+  },
+  {
+    "id": 30,
+    "question": "In national income accounting, what are 'Transfer Payments' and why are they treated differently from factor payments?",
+    "options": [
+      "Factor payments are made for services rendered by factors of production and are included in GDP; transfer payments are one-way payments made without any corresponding good or service produced and are excluded from GDP",
+      "Transfer payments are electronic wire transactions between commercial banks in response to shifts in aggregate demand and supply",
+      "Factor payments are made exclusively in gold bullion; transfer payments are in paper cash within an open-economy balance of payments framework",
+      "Transfer payments represent military equipment purchases given the prevailing marginal propensity to consume and save",
+      "Factor payments are illegal under antitrust regulations in the short-run and long-run macroeconomic equilibrium"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Factor payments are made for services rendered by factors of production (wages, rent, interest, profit) and are included in GDP; transfer payments are one-way payments made without any corresponding good or service produced (unemployment doles, pensions, disaster grants) and are excluded from GDP. Factor payments reward productive economic contributions (labor, capital, land, enterprise) and constitute National Income. Transfer payments (social security, scholarships, gifts) involve no productive output in exchange; including them would double-count income."
+  },
+  {
+    "id": 31,
+    "question": "What is 'Green GDP' in modern environmental and developmental economics?",
+    "options": [
+      "The total value of agricultural vegetables and fruit produced in a country across the phases of the macroeconomic business cycle",
+      "The total revenue earned by eco-friendly golf resorts when evaluating social welfare and resource allocation efficiency",
+      "An index of economic growth with the environmental consequences of that growth factored in, derived by deducting the monetary cost of natural resource depletion and environmental degradation from conventional GDP",
+      "The volume of paper currency notes printed with green security ink under competitive market clearing conditions",
+      "A carbon tax credit traded on European energy exchanges across aggregate goods and money market schedules"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: An index of economic growth with the environmental consequences of that growth factored in, derived by deducting the monetary cost of natural resource depletion and environmental degradation from conventional GDP. Green GDP adjusts conventional GDP by monetizing and subtracting environmental damage and natural resource depletion: $\\text{Green GDP} = \\text{GDP} - \\text{Environmental Degradation Costs} - \\text{Depletion of Natural Capital}$, providing a metric of ecologically sustainable development."
+  },
+  {
+    "id": 32,
+    "question": "What does the 'Cambridge Cash-Balance Approach' to the Quantity Theory of Money ($M = kPY$) emphasize compared to Fisher's equation?",
+    "options": [
+      "Cambridge economists eliminated prices from monetary equations",
+      "Fisher focused on credit cards, whereas Cambridge focused on gold bullion",
+      "Fisher was a Marxist economist, whereas Cambridge economists were classical",
+      "There is no difference; both equations are algebraically and conceptually identical",
+      "Fisher focused on money as a medium of exchange in transactions ($V$)"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Fisher focused on money as a medium of exchange in transactions ($V$), whereas Cambridge economists (Marshall, Pigou, Robertson, Keynes) emphasized money as a store of value and the proportion of income ($k$) people desire to hold in liquid cash. While algebraically related ($k = 1/V$), the conceptual foundations differ: Fisher's transactions approach ($MV = PT$) views money mechanically as a medium of exchange. The Cambridge cash-balance equation ($M = kPY$) focuses on behavioral demand for money as a store of wealth."
+  },
+  {
+    "id": 33,
+    "question": "In the Keynesian framework, what is the 'Liquidity Preference Theory' of interest and what are the three motives for holding money?",
+    "options": [
+      "The Consumption Motive, the Investment Motive, and the Export Motive",
+      "The Transaction Motive, the Precautionary Motive, and the Speculative Motive",
+      "The Commercial Motive, the Financial Motive, and the Sovereign Motive",
+      "The Domestic Motive, the Foreign Motive, and the Neutral Motive",
+      "The Legal Motive, the Tax Motive, and the Audit Motive"
+    ],
+    "answer": 1,
+    "explanation": "Keynes defined interest as the reward for parting with liquidity. Money is held for: (1) Transaction motive ($L_1(Y)$, for day-to-day purchases), (2) Precautionary motive ($L_1(Y)$, for unexpected emergencies), and (3) Speculative motive ($L_2(r)$, inversely related to bond interest rates to exploit market swings)."
+  },
+  {
+    "id": 34,
+    "question": "What is the 'Liquidity Trap' in Keynesian monetary economics?",
+    "options": [
+      "A physical vault failure inside a central bank building",
+      "A banking fraud where depositors cannot withdraw physical currency within an open-economy balance of payments framework",
+      "A legal freeze on commercial bank assets during bankruptcy given the prevailing marginal propensity to consume and save",
+      "A situation during a severe economic slump where nominal interest rates fall to near zero, the speculative demand for money becomes perfectly horizontal, and further injections of liquidity by the central bank are entirely hoarded in cash",
+      "An economic state where all businesses run out of working capital"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A situation during a severe economic slump where nominal interest rates fall to near zero, the speculative demand for money becomes perfectly horizontal (infinitely elastic), and further injections of liquidity by the central bank are entirely hoarded in cash without lowering interest rates or stimulating investment. In a Liquidity Trap, interest rates are so low that everyone expects bond prices to fall (interest rates to rise), so investors prefer holding cash over bonds. At this point, monetary policy is completely impotent ('pushing on a string'), and expansionary fiscal policy must step in."
+  },
+  {
+    "id": 35,
+    "question": "How is 'Personal Disposable Income' (PDI) calculated from Personal Income (PI)?",
+    "options": [
+      "PDI = PI - Personal Direct Taxes - Miscellaneous Administrative Fees/Fines",
+      "PDI = PI + Corporate Income Tax",
+      "PDI = PI - Depreciation",
+      "PDI = PI + Subsidies",
+      "PDI = PI / Total Population"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: PDI = PI - Personal Direct Taxes - Miscellaneous Administrative Fees/Fines. Personal Income (PI) is the total income actually received by households before personal direct taxes. Personal Disposable Income (PDI) is the actual spendable income left: $\\text{PDI} = \\text{PI} - \\text{Personal Direct Taxes} - \\text{Non-tax payments (fees, fines)} = \\text{Consumption} + \\text{Personal Savings}$."
+  },
+  {
+    "id": 36,
+    "question": "In national income accounting, what are 'Undistributed Corporate Profits' (Retained Earnings)?",
+    "options": [
+      "Profits that corporate management hid in illegal overseas tax havens in the short-run and long-run macroeconomic equilibrium",
+      "Dividends paid directly to sovereign wealth funds holding all other exogenous determinants constant (ceteris paribus)",
+      "The portion of net corporate post-tax profits that are retained within the firm for reinvestment and reserves rather than distributed to shareholders as dividends",
+      "Unpaid wages owed to corporate employees within the national income and product accounting framework",
+      "Losses incurred by state-owned public sector enterprises in response to shifts in aggregate demand and supply"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The portion of net corporate post-tax profits that are retained within the firm for reinvestment and reserves rather than distributed to shareholders as dividends. Net corporate profits are divided between Corporate Income Taxes, Dividends (distributed to households), and Retained Earnings (Undistributed Corporate Profits). When moving from National Income to Personal Income, undistributed corporate profits are deducted because households do not directly receive them."
+  },
+  {
+    "id": 37,
+    "question": "What is 'Autonomous Investment' in Keynesian macroeconomic models?",
+    "options": [
+      "Investment conducted by automated artificial intelligence bots across aggregate goods and money market schedules",
+      "Investment that varies in direct linear proportion to current consumer spending as real output adjusts toward full-employment potential GDP",
+      "Foreign portfolio equity purchases in domestic stock exchanges under flexible price and wage adjustment mechanisms",
+      "Corporate dividend reinvestment plans",
+      "Investment expenditure that is independent of changes in the level of national income or current interest rates, typically undertaken by government for public infrastructure or driven by long-term technological innovation"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Investment expenditure that is independent of changes in the level of national income or current interest rates, typically undertaken by government for public infrastructure or driven by long-term technological innovation. Autonomous investment ($I_0$) is constant with respect to income (represented as a horizontal line on an income graph). It is determined by exogenous factors: population growth, scientific invention, institutional reforms, and public capital projects (roads, dams, defense)."
+  },
+  {
+    "id": 38,
+    "question": "What is 'Induced Investment' in macroeconomic theory?",
+    "options": [
+      "Investment that is forced upon companies by government court orders in response to shifts in aggregate demand and supply",
+      "Investment that is directly dependent upon and induced by changes in the level of income, output, or consumer demand",
+      "Investment funded entirely through sovereign foreign aid loans within an open-economy balance of payments framework",
+      "Speculative purchases of cryptocurrency tokens given the prevailing marginal propensity to consume and save",
+      "Investment in gold jewelry during wedding seasons"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Investment that is directly dependent upon and induced by changes in the level of income, output, or consumer demand ($I = I_0 + vY$). Induced investment varies positively with economic activity. When national income and aggregate demand rise, business sales expand and factories reach capacity limits, inducing private profit-seeking firms to purchase additional capital equipment to expand production."
+  },
+  {
+    "id": 39,
+    "question": "What is the 'Marginal Propensity to Save' (MPS) and how is it related to the slope of the Saving Function?",
+    "options": [
+      "MPS represents the ratio of total savings to total income ($S/Y$) across the phases of the macroeconomic business cycle",
+      "MPS is always negative in growing capitalist economies when evaluating social welfare and resource allocation efficiency",
+      "MPS represents the percentage of income paid in income taxes under competitive market clearing conditions",
+      "MPS represents the change in saving resulting from a unit change in disposable income, and is exactly equal to the mathematical slope of the saving function",
+      "MPS equals the market interest rate set by the central bank across aggregate goods and money market schedules"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: MPS represents the change in saving resulting from a unit change in disposable income ($\\frac{\\Delta S}{\\Delta Y}$), and is exactly equal to the mathematical slope of the saving function. The saving function is $S = -\\bar{C} + (1 - c)Y = -\\bar{C} + sY$. The slope of this saving curve is $\\frac{\\Delta S}{\\Delta Y} = s = MPS$. Because $MPC + MPS = 1$, $MPS = 1 - MPC$."
+  },
+  {
+    "id": 40,
+    "question": "What is 'Average Propensity to Consume' (APC) and how does it behave in the short run as household income rises according to Keynes?",
+    "options": [
+      "APC is the ratio of total consumption to total income ($C/Y$), and it declines continuously as income rises because consumption increases at a slower rate than income",
+      "APC is the ratio of change in consumption to change in income, and it rises to infinity",
+      "APC is always constant at 0.50 for all households holding all other exogenous determinants constant (ceteris paribus)",
+      "APC is negative for wealthy individuals within the national income and product accounting framework",
+      "APC equals the national unemployment rate in response to shifts in aggregate demand and supply"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: APC is the ratio of total consumption to total income ($C/Y$), and it declines continuously as income rises because consumption increases at a slower rate than income. $APC = \\frac{C}{Y}$. In the short-run Keynesian consumption function $C = \\bar{C} + cY$, $\\frac{C}{Y} = \\frac{\\bar{C}}{Y} + c$. As income $Y$ rises, the fraction $\\frac{\\bar{C}}{Y}$ diminishes, causing the Average Propensity to Consume ($APC$) to decline."
+  },
+  {
+    "id": 41,
+    "question": "What happens to the Investment Multiplier when the Marginal Propensity to Save (MPS) increases from 0.10 to 0.25?",
+    "options": [
+      "The multiplier increases from 4 to 10",
+      "The multiplier remains unchanged at 5",
+      "The multiplier decreases from 10 to 4",
+      "The multiplier becomes zero",
+      "The multiplier becomes negative"
+    ],
+    "answer": 2,
+    "explanation": "Multiplier $k = \\frac{1}{MPS}$. When $MPS = 0.10$, $k = \\frac{1}{0.10} = 10$. When $MPS$ rises to $0.25$, $k = \\frac{1}{0.25} = 4$. Higher saving propensity represents a greater leak from the spending cycle, diminishing the expansionary impact of investments."
+  },
+  {
+    "id": 42,
+    "question": "What is the 'Tax Multiplier' ($k_t$) in a simple Keynesian macroeconomic model?",
+    "options": [
+      "$k_t = \\frac{1}{MPS}$",
+      "$k_t = 1 - MPC$",
+      "$k_t = \\frac{MPC + MPS}{2}$",
+      "$k_t = \\frac{1}{1 + MPC}$",
+      "$k_t = \\frac{-MPC}{1 - MPC} = \\frac{-MPC}{MPS}$"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: $k_t = \\frac{-MPC}{1 - MPC} = \\frac{-MPC}{MPS}$. When taxes increase by $\\Delta T$, disposable income falls by $\\Delta T$, reducing initial consumption spending by only $MPC \\times \\Delta T$. The resulting change in national income is $\\Delta Y = \\frac{-MPC}{1 - MPC} \\Delta T$. The tax multiplier is negative and smaller in absolute magnitude than the expenditure multiplier by exactly 1."
+  },
+  {
+    "id": 43,
+    "question": "What is the 'Inventory Valuation Adjustment' (IVA) in national income accounting?",
+    "options": [
+      "A tax penalty charged on retail store stockrooms across the phases of the macroeconomic business cycle",
+      "An accounting adjustment made to corporate profits to remove paper capital gains or losses resulting from inflation-driven changes in the replacement price of inventories over the accounting period",
+      "The physical recount of warehouse cartons by independent auditors when evaluating social welfare and resource allocation efficiency",
+      "The write-off of damaged agricultural food stocks under competitive market clearing conditions",
+      "A discount given to customers who purchase unsold inventory across aggregate goods and money market schedules"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: An accounting adjustment made to corporate profits to remove paper capital gains or losses resulting from inflation-driven changes in the replacement price of inventories over the accounting period. Inventories held in stock appreciate in paper value during inflation. To calculate true current economic output and avoid counting holding gains as real production, national income statisticians deduct the inventory valuation adjustment (IVA) from corporate profits."
+  },
+  {
+    "id": 44,
+    "question": "Why is the purchase of second-hand existing assets (like an existing 10-year-old house or used automobile) excluded from current-year GDP?",
+    "options": [
+      "Because used goods are illegal to buy under commercial trade laws in the short-run and long-run macroeconomic equilibrium",
+      "Because used goods carry zero market valuation holding all other exogenous determinants constant (ceteris paribus)",
+      "Because second-hand sales are not taxed by the government within the national income and product accounting framework",
+      "Because their value was already counted in the GDP of the year they were originally produced",
+      "Because used goods have zero physical utility in response to shifts in aggregate demand and supply"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Because their value was already counted in the GDP of the year they were originally produced; counting them again would represent double counting without representing current economic production. GDP measures current output of goods and services produced in the current year. Existing assets were already counted in the year of original construction/manufacture. However, real estate broker commissions or dealer fees earned on facilitating the resale ARE included as current productive services."
+  },
+  {
+    "id": 45,
+    "question": "What is the 'Output Gap' in macroeconomic stabilization policy?",
+    "options": [
+      "The difference between actual real GDP and potential GDP",
+      "The physical distance between factory assembly lines",
+      "The percentage of goods damaged during freight transportation",
+      "The difference between exports and imports in the foreign trade balance",
+      "The difference between direct tax and indirect tax revenues"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The difference between actual real GDP and potential GDP (the output an economy can sustainably produce at full employment without generating inflation): $\\text{Output Gap} = Y - Y^*$. Output Gap = Actual GDP - Potential GDP. If actual GDP > potential GDP, a 'positive output gap' exists, signaling inflationary pressures and overheating. If actual GDP < potential GDP, a 'negative output gap' exists, indicating idle factories, unemployment, and recession."
+  },
+  {
+    "id": 46,
+    "question": "What is 'Potential GDP'?",
+    "options": [
+      "The maximum possible output an economy could produce if all citizens worked 24 hours a day without sleep",
+      "The future GDP forecast projected by the World Bank for the next century",
+      "The highest level of real GDP that an economy can produce sustainably over the long run",
+      "The total value of mineral resources buried underground",
+      "The GDP of an economy if tax rates were reduced to zero"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The highest level of real GDP that an economy can produce sustainably over the long run without triggering accelerating inflation, utilizing available capital, technology, and natural rate of employment. Potential output represents the non-inflationary productive capacity of an economy when labor is at its Natural Rate of Unemployment (NAIRU) and capital utilization is normal. It is determined by supply-side fundamentals: labor force, capital stock, and total factor productivity."
+  },
+  {
+    "id": 47,
+    "question": "In macroeconomic growth theory, what does 'Capital Deepening' mean?",
+    "options": [
+      "Digging deeper foundations for corporate skyscraper buildings across the phases of the macroeconomic business cycle",
+      "Borrowing deep debt from international foreign banks when evaluating social welfare and resource allocation efficiency",
+      "Submerging factory machinery underwater for safety inspections under competitive market clearing conditions",
+      "A drop in national savings rates across aggregate goods and money market schedules",
+      "An increase in the amount of capital equipment and technology available per worker, boosting labor productivity and real wages"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: An increase in the amount of capital equipment and technology available per worker (increasing the capital-labor ratio $K/L$), boosting labor productivity and real wages. Capital deepening occurs when capital stock grows faster than the labor force, increasing the capital-to-worker ratio ($K/L$). This equips workers with more and better machines, raising marginal labor productivity, real wages, and potential GDP per capita."
+  },
+  {
+    "id": 48,
+    "question": "What does 'Total Factor Productivity' (TFP) measure in the Solow-Swan Neoclassical Growth Model?",
+    "options": [
+      "The total physical weight of all manufactured goods produced in a country",
+      "The efficiency and technological progress with which all combined inputs are utilized to produce economic output",
+      "The total number of hours worked by factory employees holding all other exogenous determinants constant (ceteris paribus)",
+      "The financial return on investment of corporate stock shares within the national income and product accounting framework",
+      "The speed at which capital depreciates in heavy manufacturing"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The efficiency and technological progress with which all combined inputs (both capital and labor) are utilized to produce economic output, representing the residual growth not explained by factor accumulation (the Solow Residual). In growth accounting ($Y = A F(K, L)$), TFP ($A$) captures technological innovation, institutional quality, managerial efficiency, and organizational improvements. It represents the 'Solow Residual'—the driver of long-run sustained increases in living standards."
+  },
+  {
+    "id": 49,
+    "question": "What is 'Crowding-Out Effect' in classical and monetarist critiques of expansionary fiscal policy?",
+    "options": [
+      "Shoppers crowding out retail stores during holiday clearance sales across aggregate goods and money market schedules",
+      "A sudden surge in immigration into metropolitan cities as real output adjusts toward full-employment potential GDP",
+      "Commercial banks running out of physical currency notes under flexible price and wage adjustment mechanisms",
+      "When increased government borrowing to finance fiscal deficits drives up real interest rates in capital markets",
+      "Private businesses forcing state-owned enterprises into bankruptcy across the phases of the macroeconomic business cycle"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: When increased government borrowing to finance fiscal deficits drives up real interest rates in capital markets, which increases borrowing costs and reduces (crowds out) private investment and consumer durable spending. When the government issues bonds to fund deficits, it competes with private borrowers for loanable funds, bidding up interest rates. Higher interest rates make private corporate investments and housing purchases unprofitable, offsetting some or all of the initial fiscal stimulus."
+  },
+  {
+    "id": 50,
+    "question": "What is the 'Ricardian Equivalence Proposition' (David Ricardo, Robert Barro)?",
+    "options": [
+      "The proposition that consumers are forward-looking and realize that a debt-financed tax cut today must be paid for with higher taxes in the future",
+      "Governments should always run budget deficits of 10% of GDP in response to shifts in aggregate demand and supply",
+      "Taxes should be levied exclusively on agricultural land rents within an open-economy balance of payments framework",
+      "All sovereign debt should be canceled every seven years given the prevailing marginal propensity to consume and save",
+      "Trade tariffs generate identical revenue to corporate income taxes"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The proposition that consumers are forward-looking and realize that a debt-financed tax cut today must be paid for with higher taxes in the future; therefore, households save the entire tax cut rather than spending it, rendering debt-financed fiscal policy ineffective in stimulating aggregate demand. Barro's Ricardian Equivalence posits that whether government finances spending through current taxation or debt issuance, the present value of tax liabilities is identical. Rational forward-looking households save the tax cut to pay future taxes, meaning private saving rises by the exact deficit amount and aggregate demand does not budge."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Economics Mock 2",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Economics Mock 2";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

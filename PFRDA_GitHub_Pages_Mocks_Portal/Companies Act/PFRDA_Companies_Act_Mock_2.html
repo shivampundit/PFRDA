@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Companies Act 2013 Mock Test 2 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject G: Companies Act</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Companies_Act_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Companies_Act_Master_Revision_and_Study_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Companies_Act_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Companies_Act_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Companies_Act_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Companies_Act_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Companies_Act_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &#183; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &#183; Paper 2 &#183; Companies Act Mock 2</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Companies Act, 2013 - Mock 2</h1>
+    <p class="start-subheading">Full 50 Questions &#183; Section-Based Precision &#183; PFRDA Grade A Level &#183; Specialized Coaching</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Chapter III (Prospectus &amp; Allotment):</b> Sections 23&#8211;42, Public Offer, Private Placement (Sec 42), Shelf &amp; Red Herring Prospectuses, Criminal &amp; Civil Liabilities (Sec 34&#8211;36), PAS Rules.</li>
+                <li><b>Chapter IV (Share Capital &amp; Debentures):</b> Sections 43&#8211;72, Equity &amp; Preference Shares, DVRs, Sweat Equity (Sec 54), ESOP (Sec 62), Bonus Shares (Sec 63), Buy-back of Securities (Sec 68&#8211;70), Debentures &amp; DRR (Sec 71).</li>
+                <li><b>Chapter VIII (Declaration &amp; Payment of Dividend):</b> Sections 123&#8211;127, Sources of Dividend, Rule 3 Past Reserves, Interim Dividend, Unpaid Dividend Account (UDA Sec 124), IEPF (Sec 125), Penalties (Sec 127).</li>
+                <li><b>Chapter X (Audit and Auditors):</b> Sections 139&#8211;148, Appointment &amp; Rotation, Resignation &amp; Removal (Sec 140), Qualifications &amp; Disqualifications (Sec 141), Prohibited Services (Sec 144), Fraud Reporting (Sec 143(12)), Cost Audit (Sec 148).</li>
+                <li><b>Chapter XI (Appointment &amp; Qualifications of Directors):</b> Sections 149&#8211;172, Board Composition, Resident &amp; Women Directors, Independent Directors (IDs), Small Shareholders Director (SSD), DIN, Disqualifications (Sec 164), Vacation &amp; Removal (Sec 167&#8211;169).</li>
+                <li><b>Chapter XII (Meetings of Board &amp; its Powers):</b> Sections 173&#8211;195, Board Meetings &amp; Quorum (Sec 173&#8211;174), Audit/NRC/SRC Committees (Sec 177&#8211;178), Board Powers (Sec 179&#8211;180), Political/Charity Contributions (Sec 181&#8211;182), Loans to Directors (Sec 185), Inter-corporate Loans (Sec 186), Related Party Transactions (Sec 188).</li>
+                <li><b>Chapter XXVII (NCLT &amp; NCLAT):</b> Sections 407&#8211;434, Constitution, Qualifications of President/Chairperson/Members, Benches, Appeals to NCLAT (Sec 421) and Supreme Court (Sec 423), Timelines &amp; Contempt.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "Under Section 56(1) of the Companies Act, 2013, what instrument is mandatory for the registration of transfer of securities held in physical form, and within what timeframe must it be delivered to the company?",
+    "options": [
+      "A verbal agreement between buyer and seller reported to the board within 90 days",
+      "A simple email sent to the company secretary within 15 days under the applicable provisions of the Companies Act, 2013",
+      "A proper instrument of transfer in Form SH-4, duly stamped, dated, and executed by or on behalf of the transferor and the transferee, delivered to the company within 60 days from the date of its execution",
+      "A certificate of good conduct issued by the police department within 30 days as disclosed in the Board's Report and annual return",
+      "An invoice stamped by the local municipal trade registrar within 120 days upon verification of statutory registers at the registered office"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A proper instrument of transfer in Form SH-4, duly stamped, dated, and executed by or on behalf of the transferor and the transferee, delivered to the company within 60 days from the date of its execution. Section 56(1) provides that a company shall not register a transfer of securities unless a proper instrument of transfer in Form SH-4, duly stamped, dated and executed by or on behalf of the transferor and transferee, specifying the name, father's name, address and occupation of transferee, is delivered to the company within 60 days from the date of its execution."
+  },
+  {
+    "id": 2,
+    "question": "What is the statutory timeframe under Section 56(4) for a company to deliver share certificates after the allotment or transfer of shares?",
+    "options": [
+      "Within 6 months from incorporation uniformly",
+      "Within 15 days from the date of board meeting",
+      "Within 1 year from the annual general meeting",
+      "Share certificates are optional and need never be delivered",
+      "Within 2 months from the date of allotment"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Within 2 months from the date of allotment; within 1 month from the date of receipt of the instrument of transfer. Under Section 56(4), every company shall deliver certificates: (a) within 2 months from incorporation for subscribers to the memorandum; (b) within 2 months from allotment of shares; (c) within 1 month from receipt of the instrument of transfer or transmission; and (d) within 6 months from allotment of debentures."
+  },
+  {
+    "id": 3,
+    "question": "Under Section 58 of the Companies Act, 2013, if a Private Company refuses to register the transfer of securities, within how many days must it send notice of refusal to the transferor and transferee?",
+    "options": [
+      "Within 7 days of the board meeting upon verification of statutory registers at the registered office",
+      "Within 30 days from the date on which the instrument of transfer was delivered to the company",
+      "Within 60 days from the date of execution of Form SH-4 subject to the conditions notified by the Ministry of Corporate Affairs",
+      "Within 90 days from the end of the financial quarter subject to prior filing with the Registrar of Companies",
+      "A private company is never required to send a notice of refusal within thirty days from the date of the general meeting"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Within 30 days from the date on which the instrument of transfer was delivered to the company. Section 58(1) mandates that if a private company limited by shares refuses to register the transfer of, or the transmission by operation of law of the right to any securities, it shall, within a period of thirty days from the date on which the instrument of transfer or the intimation of transmission was delivered to the company, send notice of the refusal to the transferor and the transferee."
+  },
+  {
+    "id": 4,
+    "question": "What is the limitation period under Section 58(3) for an aggrieved transferee to appeal to the National Company Law Tribunal (NCLT) against a Private Company's refusal to register a share transfer?",
+    "options": [
+      "Within 10 days of the refusal notice pursuant to a resolution passed by the Board of Directors",
+      "Within 1 year under the general Limitation Act in accordance with the rules prescribed by the Central Government",
+      "Within 90 days from the annual general meeting subject to approval by a special resolution of shareholders",
+      "Within 30 days of the receipt of the notice of refusal, or in case no notice has been sent, within 60 days from the date on which the instrument of transfer was delivered",
+      "No appeal lies against a private company's refusal with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Within 30 days of the receipt of the notice of refusal, or in case no notice has been sent, within 60 days from the date on which the instrument of transfer was delivered. Under Section 58(3), the transferee may appeal to the Tribunal against the refusal within a period of 30 days from the date of receipt of the notice or in case no notice has been sent by the company, within a period of 60 days from the date on which the instrument of transfer or intimation of transmission was delivered to the company."
+  },
+  {
+    "id": 5,
+    "question": "In the case of a Public Company, what is the limitation period under Section 58(4) for an aggrieved transferee to appeal to the Tribunal against refusal or failure to register a share transfer?",
+    "options": [
+      "Within 60 days of the receipt of notice of refusal, or in case no notice has been sent, within 90 days from the date on which the instrument of transfer was delivered",
+      "Within 15 days of the refusal notice within thirty days from the date of the general meeting",
+      "Within 30 days from the date of the annual general meeting under the applicable provisions of the Companies Act, 2013",
+      "Within 180 days with prior leave of the High Court as disclosed in the Board's Report and annual return",
+      "Public companies cannot refuse transfers under any circumstances upon verification of statutory registers at the registered office"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Within 60 days of the receipt of notice of refusal, or in case no notice has been sent, within 90 days from the date on which the instrument of transfer was delivered. Section 58(4) provides that for a public company, if the company refuses registration without sufficient cause within 30 days, the transferee may appeal to the Tribunal within 60 days of receipt of the refusal notice, or in case no notice has been sent, within 90 days from the delivery of the instrument of transfer."
+  },
+  {
+    "id": 6,
+    "question": "Under Section 61(1) of the Companies Act, 2013, which of the following alterations of share capital can a limited company with a share capital alter in its memorandum if authorized by its articles?",
+    "options": [
+      "Reduce its paid-up capital without any court or tribunal oversight with the prior sanction of the National Company Law Tribunal",
+      "Convert debt into equity without shareholder approval in compliance with corporate governance norms",
+      "Increase its authorized share capital, consolidate and divide share capital into shares of larger amount, convert fully paid-up shares into stock, sub-divide shares into smaller amounts, and cancel unissued shares",
+      "Expropriate minority shareholder equity shares without compensation within the statutory timeline prescribed under the Act",
+      "A company can alter its capital only once every 25 years pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Increase its authorized share capital, consolidate and divide share capital into shares of larger amount, convert fully paid-up shares into stock, sub-divide shares into smaller amounts, and cancel unissued shares. Section 61(1) allows a limited company having a share capital, if authorized by its articles, to alter its memorandum in general meeting to: (a) increase its authorized share capital; (b) consolidate and divide all or any of its share capital; (c) convert fully paid-up shares into stock; (d) sub-divide its shares; (e) cancel unissued shares."
+  },
+  {
+    "id": 7,
+    "question": "What type of resolution is required for the alteration of share capital under Section 61(1)?",
+    "options": [
+      "A Special Resolution passed by 75% majority",
+      "A unanimous resolution signed by all shareholders",
+      "A resolution passed exclusively by the board of directors",
+      "Approval from the President of India",
+      "An Ordinary Resolution passed in a general meeting"
+    ],
+    "answer": 4,
+    "explanation": "Alteration of share capital under Section 61(1) requires only an Ordinary Resolution passed by the company in a general meeting, provided such alteration is authorized by the company's Articles of Association (AOA). If the AOA does not authorize it, the AOA must first be altered via Special Resolution."
+  },
+  {
+    "id": 8,
+    "question": "Under Section 61(2), does the cancellation of unissued shares (diminution of capital) be deemed to be a 'Reduction of Share Capital' within the meaning of this Act?",
+    "options": [
+      "Yes, it is treated as a formal reduction of capital requiring NCLT sanction pursuant to a resolution passed by the Board of Directors",
+      "The cancellation of unissued shares under Section 61(1)(e) shall NOT be deemed to be a reduction of share capital within the meaning of the Act",
+      "Yes, if the amount of unissued shares cancelled exceeds Rs 1 crore in accordance with the rules prescribed by the Central Government",
+      "Yes, but only for listed public companies subject to approval by a special resolution of shareholders",
+      "It requires the consent of 100% of secured creditors with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The cancellation of unissued shares under Section 61(1)(e) shall NOT be deemed to be a reduction of share capital within the meaning of the Act. Section 61(2) explicitly clarifies: 'The cancellation of shares under clause (e) of sub-section (1) shall not be deemed to be a reduction of share capital within the meaning of this Act.' Therefore, cancelling unissued shares does not require the elaborate procedure or NCLT confirmation prescribed under Section 66."
+  },
+  {
+    "id": 9,
+    "question": "Under Section 62(1)(a) of the Companies Act, 2013 (Rights Issue), what is the statutory offer window for existing equity shareholders to accept the offer?",
+    "options": [
+      "The offer must be open for exactly 90 days within thirty days from the date of the general meeting",
+      "The offer must be open for 24 hours only under the applicable provisions of the Companies Act, 2013",
+      "The offer must remain open until all shares are subscribed as disclosed in the Board's Report and annual return",
+      "The offer must be open for not less than 15 days and not exceeding 30 days from the date of the offer",
+      "There is no time limit; shareholders can accept anytime within 5 years upon verification of statutory registers at the registered office"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The offer must be open for not less than 15 days (or such lesser number of days as may be prescribed, minimum 7 days if 90% members agree) and not exceeding 30 days from the date of the offer. Section 62(1)(a)(i) provides that the offer of a rights issue shall be made by notice specifying the number of shares offered and limiting a time not being less than 15 days (amended to allow lesser days if 90% members consent, but not less than 7 days) and not exceeding 30 days from the date of the offer, after which it is deemed declined."
+  },
+  {
+    "id": 10,
+    "question": "Unless the articles of the company otherwise provide, does an existing shareholder receiving a Rights Issue offer have the right of 'Renunciation' under Section 62(1)(a)(ii)?",
+    "options": [
+      "Yes, the offer shall be deemed to include a right exercisable by the person concerned to renounce the shares offered to him in favour of any other person",
+      "No, rights shares can never be renounced to anyone else with the prior sanction of the National Company Law Tribunal",
+      "Yes, but only in favour of immediate blood relatives in compliance with corporate governance norms",
+      "Only with the prior unanimous approval of all other shareholders within the statutory timeline prescribed under the Act",
+      "Renunciation is permitted only if the company is listed on the stock exchange pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Yes, the offer shall be deemed to include a right exercisable by the person concerned to renounce the shares offered to him in favour of any other person. Section 62(1)(a)(ii) states that unless the articles of the company otherwise provide, the offer shall be deemed to include a right exercisable by the person concerned to renounce the shares offered to him or any of them in favour of any other person; and the notice shall contain a statement of this right."
+  },
+  {
+    "id": 11,
+    "question": "What resolution is required for issuing shares to employees under an 'Employees' Stock Option' (ESOP) scheme under Section 62(1)(b)?",
+    "options": [
+      "A Board Resolution approved by the Managing Director alone",
+      "A unanimous resolution of debenture holders",
+      "An Ordinary Resolution passed in general meeting",
+      "Sanction from the High Court",
+      "No resolution is needed; the CEO can grant options at will"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: An Ordinary Resolution passed in general meeting (amended for private companies to ordinary resolution, while public companies require Special Resolution). Under Section 62(1)(b), shares may be offered to employees under an ESOP scheme subject to a Special Resolution passed by the company in general meeting (for private companies, by an MCA notification dated June 5, 2015, an Ordinary Resolution is sufficient)."
+  },
+  {
+    "id": 12,
+    "question": "Under Section 63(1) of the Companies Act, 2013, out of which of the following sources may a company issue fully paid-up 'Bonus Shares' to its members?",
+    "options": [
+      "Out of revaluation reserves created by upward revaluation of fixed assets pursuant to a resolution passed by the Board of Directors",
+      "Out of borrowed funds from commercial banks in accordance with the rules prescribed by the Central Government",
+      "Out of unpaid employee provident fund balances subject to approval by a special resolution of shareholders",
+      "Out of government industrial development grants with the prior sanction of the National Company Law Tribunal",
+      "Only out of its free reserves, the securities premium account, or the capital redemption reserve account"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Only out of its free reserves, the securities premium account, or the capital redemption reserve account. Section 63(1) states that a company may issue fully paid-up bonus shares to its members out of: (i) its free reserves; (ii) the securities premium account; or (iii) the capital redemption reserve account. Proviso to Section 63(1) explicitly states: 'no issue of bonus shares shall be made by capitalizing reserves created by the revaluation of assets.'"
+  },
+  {
+    "id": 13,
+    "question": "Can a company issue bonus shares 'in lieu of dividend' under Section 63(3) of the Companies Act, 2013?",
+    "options": [
+      "Yes, if approved by a special resolution within thirty days from the date of the general meeting",
+      "The bonus shares shall NOT be issued in lieu of dividend under any circumstances",
+      "Yes, if the company faces a temporary cash flow shortage under the applicable provisions of the Companies Act, 2013",
+      "Yes, with prior permission of the Registrar of Companies as disclosed in the Board's Report and annual return",
+      "Yes, if the bonus ratio is at least 1:1 upon verification of statutory registers at the registered office"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The bonus shares shall NOT be issued in lieu of dividend under any circumstances. Section 63(3) states unequivocally: 'The bonus shares shall not be issued in lieu of dividend.' A company cannot evade declaring or distributing dividends by substituting bonus shares; dividends and capitalization through bonus shares are legally distinct corporate actions."
+  },
+  {
+    "id": 14,
+    "question": "Can a company withdraw a recommendation of bonus issue once it has been announced by the Board of Directors under Rule 14 of the Share Capital Rules?",
+    "options": [
+      "Yes, the Board can withdraw the bonus issue anytime within 30 days",
+      "Yes, if the stock market crashes by more than 10% in compliance with corporate governance norms",
+      "Yes, if approved by an ordinary resolution in general meeting within the statutory timeline prescribed under the Act",
+      "The company which has once announced the decision of its Board recommending a bonus issue shall NOT subsequently withdraw the same (Rule 14)",
+      "Yes, with the consent of the statutory auditor pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 3,
+    "explanation": "Rule 14 of the Companies (Share Capital and Debentures) Rules, 2014 expressly mandates: 'The company which has once announced the decision of its Board recommending a bonus issue, shall not subsequently withdraw the same.' An announced bonus issue creates a binding market expectation."
+  },
+  {
+    "id": 15,
+    "question": "Under Section 66(1) of the Companies Act, 2013, what approvals are mandatory for a company to effect a 'Reduction of Share Capital'?",
+    "options": [
+      "A Special Resolution passed by the company in general meeting AND confirmation by the National Company Law Tribunal (NCLT) on an application made to it",
+      "A Board Resolution and notification to the local police department upon verification of statutory registers at the registered office",
+      "An Ordinary Resolution and approval from the Reserve Bank of India subject to the conditions notified by the Ministry of Corporate Affairs",
+      "A resolution passed by 51% of creditors without tribunal oversight subject to prior filing with the Registrar of Companies",
+      "Reduction of share capital is completely prohibited under the 2013 Act within thirty days from the date of the general meeting"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A Special Resolution passed by the company in general meeting AND confirmation by the National Company Law Tribunal (NCLT) on an application made to it. Section 66(1) provides that subject to confirmation by the Tribunal (NCLT) on an application by the company, a company limited by shares or limited by guarantee and having a share capital may, by a Special Resolution, reduce the share capital in any manner. Notice must also be sent to Central Govt, RoC, SEBI, and creditors."
+  },
+  {
+    "id": 16,
+    "question": "Under Section 66(3), what condition regarding creditors must be satisfied before the NCLT confirms a Reduction of Share Capital?",
+    "options": [
+      "Creditors must waive 50% of their outstanding loans pursuant to a resolution passed by the Board of Directors",
+      "Creditors must be allotted equity shares in exchange for their debt in accordance with the rules prescribed by the Central Government",
+      "The Tribunal must be satisfied that the debt or claim of every creditor has either been discharged, determined, or secured, or their consent to the reduction has been obtained",
+      "All creditors must attend the annual general meeting in person subject to approval by a special resolution of shareholders",
+      "Creditors have no legal standing to object to capital reduction with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The Tribunal must be satisfied that the debt or claim of every creditor has either been discharged, determined, or secured, or their consent to the reduction has been obtained. Section 66(3) mandates that the Tribunal may make an order confirming the reduction of share capital on such terms and conditions as it may think fit, if it is satisfied that the debt or claim of every creditor of the company has been discharged or has been determined or has been secured or his consent is obtained."
+  },
+  {
+    "id": 17,
+    "question": "Under Section 68(1) of the Companies Act, 2013, out of which three sources may a company purchase its own shares or other specified securities (Buy-Back)?",
+    "options": [
+      "Out of borrowed bank overdraft funds, revaluation reserves, and public deposits within thirty days from the date of the general meeting",
+      "Out of unpaid employee wages and gratuity reserves under the applicable provisions of the Companies Act, 2013",
+      "Out of government capital subsidies exclusively as disclosed in the Board's Report and annual return",
+      "Out of capital gains realized on foreign sovereign bonds upon verification of statutory registers at the registered office",
+      "Out of its Free Reserves; the Securities Premium Account; or the proceeds of the issue of any shares or other specified securities"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Out of its Free Reserves; the Securities Premium Account; or the proceeds of the issue of any shares or other specified securities (excluding proceeds of an earlier issue of the same kind of shares). Section 68(1) provides that a company may purchase its own shares or other specified securities out of: (a) its free reserves; (b) the securities premium account; or (c) the proceeds of the issue of any shares or other specified securities. Proviso: No buy-back shall be made out of the proceeds of an earlier issue of the same kind of shares."
+  },
+  {
+    "id": 18,
+    "question": "What is the maximum limit on the Buy-Back of shares in any financial year under Section 68(2)(c)?",
+    "options": [
+      "Maximum 50% of paid-up share capital with the prior sanction of the National Company Law Tribunal",
+      "The buy-back of equity shares in any financial year shall not exceed 25% of its total paid-up equity capital in that financial year, and the total buy-back shall not exceed 25% of the aggregate of paid-up capital and free reserves of the company",
+      "Maximum 10% of authorized share capital in compliance with corporate governance norms",
+      "Maximum 5% of annual gross revenues within the statutory timeline prescribed under the Act",
+      "There is no statutory percentage cap on buy-back pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 1,
+    "explanation": "Section 68(2)(c) establishes two distinct 25% caps: (1) The overall buy-back of securities cannot exceed 25% of the aggregate of paid-up capital and free reserves of the company; and (2) The buy-back of equity shares in any financial year shall not exceed 25% of its total paid-up equity capital in that financial year."
+  },
+  {
+    "id": 19,
+    "question": "Under Section 68(2)(b), when is a Special Resolution NOT required to authorize a Buy-Back of shares?",
+    "options": [
+      "When the buy-back is conducted on foreign stock exchanges upon verification of statutory registers at the registered office",
+      "When the company is a wholly owned subsidiary of a foreign multinational subject to the conditions notified by the Ministry of Corporate Affairs",
+      "When the company has reported zero debt in its balance sheet subject to prior filing with the Registrar of Companies",
+      "Where the buy-back is 10% or less of the total paid-up equity capital and free reserves of the company, and such buy-back has been authorized by the Board of Directors by means of a resolution passed at its meeting",
+      "A special resolution is mandatory for every buy-back regardless of size within thirty days from the date of the general meeting"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Where the buy-back is 10% or less of the total paid-up equity capital and free reserves of the company, and such buy-back has been authorized by the Board of Directors by means of a resolution passed at its meeting. Proviso to Section 68(2)(b) creates an exception: A special resolution is not required if: (a) the buy-back is 10% or less of the total paid-up equity capital and free reserves of the company; and (b) such buy-back has been authorized by the Board of Directors by means of a resolution passed at its meeting."
+  },
+  {
+    "id": 20,
+    "question": "What is the maximum post-buy-back Debt-to-Equity ratio permitted for a company under Section 68(2)(d)?",
+    "options": [
+      "The ratio of the aggregate of secured and unsecured debts owed by the company after buy-back is not more than twice the paid-up capital and its free reserves (Debt)",
+      "Debt-to-Equity ratio shall not exceed 1:1 pursuant to a resolution passed by the Board of Directors",
+      "Debt-to-Equity ratio shall not exceed 5:1 in accordance with the rules prescribed by the Central Government",
+      "The company must have zero outstanding debt post buy-back subject to approval by a special resolution of shareholders",
+      "The ratio is determined by commercial banks with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The ratio of the aggregate of secured and unsecured debts owed by the company after buy-back is not more than twice the paid-up capital and its free reserves (Debt:Equity not exceeding 2:1). Section 68(2)(d) prescribes that the ratio of the aggregate of secured and unsecured debts owed by the company after buy-back must not be more than twice the paid-up capital and its free reserves ($2:1$). Note: The Central Government may notify higher ratios for certain classes of companies (e.g. government NBFCs/HFCs can be up to 6:1)."
+  },
+  {
+    "id": 21,
+    "question": "Within what timeframe must a company extinguish and physically destroy the share certificates bought back under Section 68(7)?",
+    "options": [
+      "Within 15 days of the board meeting",
+      "Within 30 days of the filing of return with RoC",
+      "Within 7 days of the completion of the buy-back",
+      "Within 60 days from the closure of the offer",
+      "Bought-back shares are kept in treasury and never extinguished"
+    ],
+    "answer": 2,
+    "explanation": "Section 68(7) requires that where a company buys back its own shares or other specified securities, it shall extinguish and physically destroy the shares or securities so bought back within seven days of the last date of completion of buy-back. India does not permit 'treasury shares' for buy-backs."
+  },
+  {
+    "id": 22,
+    "question": "What is the statutory 'Cooling-Off Period' under Section 68(8) during which a company cannot make a further issue of the same kind of shares after a Buy-Back?",
+    "options": [
+      "3 months",
+      "1 year",
+      "2 years",
+      "There is no cooling-off period pursuant to a resolution passed by the Board of Directors",
+      "6 months (except by way of a bonus issue or in the discharge of subsisting obligations such as conversion of warrants, stock options, or preference shares)"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: 6 months (except by way of a bonus issue or in the discharge of subsisting obligations such as conversion of warrants, stock options, or preference shares). Section 68(8) mandates that where a company completes a buy-back of its shares, it shall not make a further issue of the same kind of shares including allotment of further shares under Section 62(1)(a) within a period of six months, except by way of a bonus issue or in the discharge of subsisting obligations like ESOPs, sweat equity, or conversion."
+  },
+  {
+    "id": 23,
+    "question": "What is the cooling-off period between two successive Buy-Back offers under the proviso to Section 68(2)?",
+    "options": [
+      "At least 6 months",
+      "No offer of buy-back under this sub-section shall be made within a period of one year reckoned from the date of closure of the preceding offer of buy-back, if any",
+      "At least 2 years",
+      "At least 3 years",
+      "A company can launch consecutive buy-backs immediately without any gap within thirty days from the date of the general meeting"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: No offer of buy-back under this sub-section shall be made within a period of one year reckoned from the date of closure of the preceding offer of buy-back, if any. Proviso to Section 68(2) dictates that no offer of buy-back shall be made within a period of one year reckoned from the date of the closure of the preceding offer of buy-back, if any. This prevents companies from circumventing the 25% annual cap through continuous rolling buy-backs."
+  },
+  {
+    "id": 24,
+    "question": "What statutory reserve must be created under Section 69(1) when a company buys back its shares out of Free Reserves or Securities Premium Account?",
+    "options": [
+      "General Reserve Fund",
+      "Debenture Sinking Fund",
+      "Investor Protection Fund",
+      "Capital Redemption Reserve (CRR) account, to which a sum equal to the nominal value of the shares so purchased must be transferred, and details disclosed in the balance sheet",
+      "Revaluation Reserve Account"
+    ],
+    "answer": 3,
+    "explanation": "Section 69(1) provides that where a company purchases its own shares out of free reserves or securities premium account, a sum equal to the nominal value of the shares so purchased shall be transferred to the Capital Redemption Reserve (CRR) account, preserving the capital base of the company for creditor protection."
+  },
+  {
+    "id": 25,
+    "question": "Under Section 70(1) of the Companies Act, 2013, in which of the following circumstances is a company completely PROHIBITED from buying back its shares?",
+    "options": [
+      "Through any subsidiary company including its own subsidiary companies",
+      "If the company has earned more than Rs 100 crore in profits",
+      "If the company has female directors on its board",
+      "If the company is listed on the National Stock Exchange",
+      "If the shares are held in dematerialized form"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Through any subsidiary company including its own subsidiary companies; through any investment company or group of investment companies; or if there is any subsisting default in repayment of deposits, interest thereon, redemption of debentures/preference shares, or payment of dividend. Section 70(1) prohibits buy-backs: (a) through any subsidiary company; (b) through any investment company; or (c) if there is default in repayment of deposits, interest, debentures, preference shares, dividend, or term loan repayment to financial institutions (unless the default is remedied and 3 years have lapsed)."
+  },
+  {
+    "id": 26,
+    "question": "Can a company issue Debentures carrying voting rights under Section 71(2) of the Companies Act, 2013?",
+    "options": [
+      "Yes, if approved by an extraordinary general meeting",
+      "Yes, if the debentures are convertible into equity within 12 months",
+      "No company shall issue any debentures carrying voting rights",
+      "Yes, if issued to public financial institutions",
+      "Yes, with the prior approval of the Central Government"
+    ],
+    "answer": 2,
+    "explanation": "Section 71(2) states with absolute clarity: 'No company shall issue any debentures carrying voting rights.' Debenture holders are creditors of the company, not equity owners, and cannot participate in corporate management voting."
+  },
+  {
+    "id": 27,
+    "question": "What is the statutory requirement under Section 71(4) regarding the creation of a 'Debenture Redemption Reserve' (DRR)?",
+    "options": [
+      "DRR must be created out of the proceeds of fresh equity issues upon verification of statutory registers at the registered office",
+      "DRR is created out of revaluation reserves subject to the conditions notified by the Ministry of Corporate Affairs",
+      "DRR is required only for foreign multinational companies subject to prior filing with the Registrar of Companies",
+      "DRR was completely abolished by the 2013 Act within thirty days from the date of the general meeting",
+      "Where debentures are issued by a company under this section, the company shall create a Debenture Redemption Reserve (DRR) account out of the profits of the company available for payment of dividend, and the amount credited shall not be utilized for any purpose other than redemption of debentures"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Where debentures are issued by a company under this section, the company shall create a Debenture Redemption Reserve (DRR) account out of the profits of the company available for payment of dividend, and the amount credited shall not be utilized for any purpose other than redemption of debentures. Section 71(4) mandates that where debentures are issued, the company shall create a Debenture Redemption Reserve (DRR) account out of the profits of the company available for payment of dividend, which shall be utilized exclusively for the redemption of debentures."
+  },
+  {
+    "id": 28,
+    "question": "Under Section 71(5), when is a company mandatorily required to appoint a 'Debenture Trustee' before issuing debentures?",
+    "options": [
+      "Only if the debenture issue size exceeds Rs 1,000 crore pursuant to a resolution passed by the Board of Directors",
+      "Before making an issue of prospectus or an offer or invitation to the public or to its members exceeding 500 for the subscription of its debentures",
+      "Only when debentures are issued to foreign investors",
+      "Only if the company has reported losses in three consecutive years subject to approval by a special resolution of shareholders",
+      "A debenture trustee is completely optional for all corporate bond issues with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Before making an issue of prospectus or an offer or invitation to the public or to its members exceeding 500 for the subscription of its debentures. Section 71(5) provides that no company shall issue a prospectus or make an offer or invitation to the public or to its members exceeding five hundred for the subscription of its debentures, unless the company has, before such issue or offer, appointed one or more debenture trustees."
+  },
+  {
+    "id": 29,
+    "question": "Under Section 123(1) of the Companies Act, 2013, what are the legitimate sources out of which a company can declare or pay a Dividend?",
+    "options": [
+      "Out of fresh bank borrowings and trade credit within thirty days from the date of the general meeting",
+      "Out of revaluation reserves created by land valuation under the applicable provisions of the Companies Act, 2013",
+      "Out of Securities Premium Account as disclosed in the Board's Report and annual return",
+      "Out of the profits of the company for that year arrived at after providing for depreciation",
+      "Out of Capital Redemption Reserve upon verification of statutory registers at the registered office"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Out of the profits of the company for that year arrived at after providing for depreciation; out of the profits of previous financial years after depreciation; or out of money provided by the Central Government or a State Government for payment of dividend in pursuance of a guarantee. Section 123(1) restricts dividend sources to: (a) profits of the current financial year after providing for depreciation; (b) undistributed profits of previous financial years after depreciation; or (c) money provided by Central or State Government pursuant to a sovereign guarantee. Revaluation reserves, capital reserves, and borrowed money cannot be used."
+  },
+  {
+    "id": 30,
+    "question": "Is it mandatory under the Companies Act, 2013 for a company to transfer a fixed percentage of its profits to reserves before declaring any dividend?",
+    "options": [
+      "No, transferring profits to reserves before declaring dividend is purely discretionary",
+      "Yes, at least 10% must be transferred to general reserves every year with the prior sanction of the National Company Law Tribunal",
+      "Yes, at least 5% if dividend exceeds 10% in compliance with corporate governance norms",
+      "Yes, at least 25% for listed public companies within the statutory timeline prescribed under the Act",
+      "Transfer to reserves is prohibited under the 2013 Act pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: No, transferring profits to reserves before declaring dividend is purely discretionary; the company may transfer such percentage of its profits to reserves as it may consider appropriate, or may transfer zero percent. First proviso to Section 123(1) provides that a company may, before the declaration of any dividend in any financial year, transfer such percentage of its profits for that financial year as it may consider appropriate to the reserves of the company. Unlike the 1956 Act (which mandated compulsory transfer), it is now completely voluntary/discretionary."
+  },
+  {
+    "id": 31,
+    "question": "Under Rule 3 of the Companies (Declaration and Payment of Dividend) Rules, 2014, what is the maximum rate of dividend that can be declared out of accumulated past reserves in the event of inadequacy or absence of profits in any year?",
+    "options": [
+      "Maximum 25% on paid-up equity capital upon verification of statutory registers at the registered office",
+      "Maximum 5% of net free reserves subject to the conditions notified by the Ministry of Corporate Affairs",
+      "The rate of dividend declared shall not exceed the average of the rates at which dividend was declared by it in the three years immediately preceding that year (Condition 1)",
+      "A company cannot declare dividend if it suffers a loss in the current year subject to prior filing with the Registrar of Companies",
+      "The rate is determined by the Comptroller and Auditor General within thirty days from the date of the general meeting"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The rate of dividend declared shall not exceed the average of the rates at which dividend was declared by it in the three years immediately preceding that year (Condition 1). Rule 3 Condition (1) stipulates that the rate of dividend declared out of accumulated reserves shall not exceed the average of the rates at which dividend was declared by it in the three years immediately preceding that year (provided this condition does not apply if the company did not declare any dividend in each of the three preceding years)."
+  },
+  {
+    "id": 32,
+    "question": "Under Rule 3 Condition (2), what is the maximum total amount that can be drawn from accumulated past reserves for the declaration of dividend in a year of profit inadequacy?",
+    "options": [
+      "Maximum 50% of free reserves pursuant to a resolution passed by the Board of Directors",
+      "Maximum 25% of annual revenue turnover in accordance with the rules prescribed by the Central Government",
+      "Maximum 5% of authorized share capital subject to approval by a special resolution of shareholders",
+      "The entire balance of general reserves can be drawn with the prior sanction of the National Company Law Tribunal",
+      "The total amount to be drawn from such accumulated profits shall not exceed one-tenth (10%) of the sum of its paid-up share capital and free reserves as appearing in the latest audited financial statement"
+    ],
+    "answer": 4,
+    "explanation": "Rule 3 Condition (2) mandates: 'The total amount to be drawn from such accumulated profits shall not exceed one-tenth (10%) of the sum of its paid-up share capital and free reserves as appearing in the latest audited financial statement.' The amount drawn must first be used to set off current year losses."
+  },
+  {
+    "id": 33,
+    "question": "Under Rule 3 Condition (4), what minimum balance of reserves must remain after drawing funds to pay dividend out of past reserves?",
+    "options": [
+      "Reserves cannot fall below 50% of total long-term debt within thirty days from the date of the general meeting",
+      "The balance of reserves remaining after such withdrawal shall not fall below 15% of its paid-up share capital as appearing in the latest audited financial statement",
+      "Reserves must remain at least Rs 100 crore under the applicable provisions of the Companies Act, 2013",
+      "The balance of reserves can fall to zero as disclosed in the Board's Report and annual return",
+      "Reserves must equal the current year's depreciation upon verification of statutory registers at the registered office"
+    ],
+    "answer": 1,
+    "explanation": "Rule 3 Condition (4) provides: 'The balance of reserves remaining after such withdrawal shall not fall below 15% of its paid-up share capital as appearing in the latest audited financial statement.' This ensures an adequate capital cushion remains intact."
+  },
+  {
+    "id": 34,
+    "question": "Under Section 123(3) of the Companies Act, 2013, who has the authority to declare an 'Interim Dividend'?",
+    "options": [
+      "Shareholders in an annual general meeting by passing a special resolution with the prior sanction of the National Company Law Tribunal",
+      "The Central Government via gazette notification in compliance with corporate governance norms",
+      "The statutory auditor of the company within the statutory timeline prescribed under the Act",
+      "The Board of Directors of a company may declare interim dividend during any financial year or at any time during the period from close of financial year till holding of the AGM",
+      "The National Company Law Tribunal pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The Board of Directors of a company may declare interim dividend during any financial year or at any time during the period from close of financial year till holding of the AGM. Section 123(3) provides that the Board of Directors of a company may declare interim dividend during any financial year or at any time during the period from closure of financial year till holding of the AGM, out of the surplus in the profit and loss account or out of profits of the financial year in which such interim dividend is sought to be declared."
+  },
+  {
+    "id": 35,
+    "question": "Under Section 123(4), within how many days from the date of declaration of dividend must the total dividend amount be deposited in a separate bank account?",
+    "options": [
+      "Within 5 days from the date of declaration of such dividend in a scheduled bank",
+      "Within 3 days",
+      "Within 7 days of the board meeting subject to the conditions notified by the Ministry of Corporate Affairs",
+      "Within 15 days of the AGM subject to prior filing with the Registrar of Companies",
+      "Within 30 days of the financial year-end within thirty days from the date of the general meeting"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Within 5 days from the date of declaration of such dividend in a scheduled bank. Section 123(4) mandates: 'The amount of the dividend, including interim dividend, shall be deposited in a scheduled bank in a separate account within five days from the date of declaration of such dividend.' This ensures funds are earmarked and ring-fenced for shareholders."
+  },
+  {
+    "id": 36,
+    "question": "Under Section 124(1) of the Companies Act, 2013, within what timeframe must any unpaid or unclaimed dividend be transferred to the 'Unpaid Dividend Account' (UDA)?",
+    "options": [
+      "Within 15 days of the declaration date pursuant to a resolution passed by the Board of Directors",
+      "Within 60 days of the AGM in accordance with the rules prescribed by the Central Government",
+      "Where a dividend has not been paid or claimed within 30 days from the date of declaration, the company shall, within 7 days from the expiry of the said 30 days, transfer the total unpaid amount to a special account called the Unpaid Dividend Account",
+      "Within 90 days from the end of the fiscal year subject to approval by a special resolution of shareholders",
+      "Unpaid dividends remain in the company's operating account indefinitely with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 2,
+    "explanation": "Section 124(1) provides: Where a dividend has not been paid or claimed within 30 days from the date of the declaration, the company shall, within seven days from the date of expiry of the said period of thirty days, transfer the total amount of dividend which remains unpaid or unclaimed to a special account opened in any scheduled bank called the 'Unpaid Dividend Account'."
+  },
+  {
+    "id": 37,
+    "question": "What interest penalty must a company pay under Section 124(3) if it fails to transfer unpaid dividend to the Unpaid Dividend Account within the stipulated 7 days?",
+    "options": [
+      "Simple interest at 6% per annum within thirty days from the date of the general meeting",
+      "Compound interest at 18% per annum under the applicable provisions of the Companies Act, 2013",
+      "A flat fine of Rs 50,000 per director as disclosed in the Board's Report and annual return",
+      "No interest applies if the transfer is completed within 1 year upon verification of statutory registers at the registered office",
+      "Interest on so much of the amount as has not been transferred at the rate of 12% per annum from the date of default"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Interest on so much of the amount as has not been transferred at the rate of 12% per annum from the date of default, which interest shall enure to the benefit of the members in proportion to the amount remaining unpaid. Section 124(3) stipulates: If any default is made in transferring the total amount referred to in sub-section (1) or any part thereof to the Unpaid Dividend Account, the company shall pay, from the date of such default, interest on so much of the amount as has not been transferred to the said account, at the rate of twelve per cent per annum."
+  },
+  {
+    "id": 38,
+    "question": "Within how many days of transferring unpaid dividend to the Unpaid Dividend Account must the company prepare a statement containing names, last known addresses, and unpaid amounts on its website under Section 124(2)?",
+    "options": [
+      "Within 30 days",
+      "Within 60 days of making any transfer of an amount under sub-section (1) to the Unpaid Dividend Account",
+      "Within 90 days of the AGM in compliance with corporate governance norms",
+      "Within 180 days of the financial year-end within the statutory timeline prescribed under the Act",
+      "Statements on websites are strictly voluntary pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Within 60 days of making any transfer of an amount under sub-section (1) to the Unpaid Dividend Account. Section 124(2) states that the company shall, within a period of ninety days of making any transfer of an amount under sub-section (1) to the Unpaid Dividend Account, prepare a statement containing the names, their last known addresses and the unpaid dividend to be paid to each person, and place it on the website of the company in Form DIV-3."
+  },
+  {
+    "id": 39,
+    "question": "Under Section 124(5) of the Companies Act, 2013, when must money transferred to the Unpaid Dividend Account be transferred to the 'Investor Education and Protection Fund' (IEPF)?",
+    "options": [
+      "After remaining unpaid or unclaimed for 3 consecutive years upon verification of statutory registers at the registered office",
+      "After remaining unpaid for 10 years subject to the conditions notified by the Ministry of Corporate Affairs",
+      "After remaining unpaid for 15 years subject to prior filing with the Registrar of Companies",
+      "Any money transferred to the Unpaid Dividend Account of a company which remains unpaid or unclaimed for a period of seven years from the date of such transfer shall be transferred by the company along with interest accrued to the IEPF",
+      "Unpaid dividend is never transferred to government funds within thirty days from the date of the general meeting"
+    ],
+    "answer": 3,
+    "explanation": "Section 124(5) states: 'Any money transferred to the Unpaid Dividend Account of a company which remains unpaid or unclaimed for a period of seven years from the date of such transfer shall be transferred by the company along with interest accrued, if any, thereon to the Fund established under sub-section (1) of section 125 (IEPF).'"
+  },
+  {
+    "id": 40,
+    "question": "Under Section 124(6), what happens to the underlying SHARES in respect of which dividend has not been paid or claimed for seven consecutive years?",
+    "options": [
+      "All shares in respect of which dividend has not been paid or claimed for seven consecutive years or more shall be transferred by the company in the name of the Investor Education and Protection Fund (IEPF)",
+      "The shares are cancelled and extinguished by the company pursuant to a resolution passed by the Board of Directors",
+      "The shares are forfeited and sold at public auction to the highest bidder in accordance with the rules prescribed by the Central Government",
+      "The shares are gifted to the company's employee union subject to approval by a special resolution of shareholders",
+      "The shares remain registered with the original owner with voting rights suspended with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: All shares in respect of which dividend has not been paid or claimed for seven consecutive years or more shall be transferred by the company in the name of the Investor Education and Protection Fund (IEPF). Section 124(6) provides that all shares in respect of which dividend has not been paid or claimed for seven consecutive years or more shall be transferred by the company in the name of the Investor Education and Protection Fund (IEPF). Any claimant of such shares may claim them back from the IEPF Authority under prescribed rules."
+  },
+  {
+    "id": 41,
+    "question": "What is the penalty under Section 124(7) if a company fails to comply with the provisions of Section 124 regarding the Unpaid Dividend Account?",
+    "options": [
+      "The company's commercial banking accounts are permanently frozen within thirty days from the date of the general meeting",
+      "Immediate winding up of the corporate entity under the applicable provisions of the Companies Act, 2013",
+      "The company shall be liable to a penalty of one lakh rupees and in case of continuing failure, a further penalty of five hundred rupees for each day",
+      "Imprisonment of the company secretary for 5 years as disclosed in the Board's Report and annual return",
+      "A verbal caution issued by the Registrar of Companies upon verification of statutory registers at the registered office"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The company shall be liable to a penalty of one lakh rupees and in case of continuing failure, a further penalty of five hundred rupees for each day, subject to a maximum of ten lakh rupees, and every officer in default shall be liable to a penalty of twenty-five thousand rupees plus fifty rupees per day, up to two lakh rupees. Section 124(7) (as amended by Companies Amendment Act, 2020) provides specific monetary penalties: The company is liable to a penalty of Rs 1 lakh plus Rs 500 per day during continuing default (max Rs 10 lakh), and every officer in default is liable to a penalty of Rs 25,000 plus Rs 50 per day (max Rs 2 lakh)."
+  },
+  {
+    "id": 42,
+    "question": "Under Section 127 of the Companies Act, 2013, what is the criminal and financial punishment if a dividend declared by a company is NOT paid or the warrant posted within 30 days?",
+    "options": [
+      "The company must double its authorized share capital with the prior sanction of the National Company Law Tribunal",
+      "Directors are disqualified for life from serving on corporate boards in compliance with corporate governance norms",
+      "The dividend amount is converted into irredeemable preference shares within the statutory timeline prescribed under the Act",
+      "No punishment applies if the dividend was declared at an AGM pursuant to a resolution passed by the Board of Directors",
+      "Every director who is knowingly a party to the default shall be punishable with imprisonment which may extend to two years and with fine not less than Rs 1,000 for every day during which the default continues, and the company shall be liable to pay simple interest at 18% per annum during the period of default"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Every director who is knowingly a party to the default shall be punishable with imprisonment which may extend to two years and with fine not less than Rs 1,000 for every day during which the default continues, and the company shall be liable to pay simple interest at 18% per annum during the period of default. Section 127 states that where a dividend has been declared by a company but has not been paid or the warrant posted within 30 days from declaration, every director knowingly a party to the default shall be punishable with imprisonment up to 2 years and with fine min Rs 1,000 for every day of default, and the company shall pay simple interest at 18% per annum."
+  },
+  {
+    "id": 43,
+    "question": "Under the proviso to Section 127, in which of the following cases is an officer of the company NOT deemed to have committed an offense for non-payment of dividend within 30 days?",
+    "options": [
+      "Where the company's managing director forgot to sign the dividend warrants upon verification of statutory registers at the registered office",
+      "Where the dividend could not be paid by reason of the operation of any law, or where a shareholder has given directions regarding payment which cannot be complied with and the same has been communicated to him",
+      "Where the company spent the dividend money on purchasing raw materials subject to the conditions notified by the Ministry of Corporate Affairs",
+      "Where the company reported a loss in the subsequent quarter subject to prior filing with the Registrar of Companies",
+      "There are zero exceptions; every non-payment is an automatic criminal offense within thirty days from the date of the general meeting"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Where the dividend could not be paid by reason of the operation of any law, or where a shareholder has given directions regarding payment which cannot be complied with and the same has been communicated to him. Section 127 proviso lists 5 statutory exceptions: (a) non-payment by operation of law; (b) shareholder gave directions that cannot be complied with and was informed; (c) dispute regarding the right to receive dividend; (d) dividend lawfully adjusted against calls in arrears; (e) failure was not due to any default on the part of the company."
+  },
+  {
+    "id": 44,
+    "question": "Under Section 125(1) of the Companies Act, 2013, what is the 'Investor Education and Protection Fund' (IEPF) and who establishes it?",
+    "options": [
+      "A fund established by the Reserve Bank of India to bail out NBFCs pursuant to a resolution passed by the Board of Directors",
+      "A private mutual fund managed by commercial banks in accordance with the rules prescribed by the Central Government",
+      "A charitable trust established by stock exchange brokers subject to approval by a special resolution of shareholders",
+      "A Fund established by the Central Government for the promotion of investor awareness, education, and protection of the interests of investors, administered by the IEPF Authority",
+      "A sovereign wealth fund investing in foreign real estate with the prior sanction of the National Company Law Tribunal"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A Fund established by the Central Government for the promotion of investor awareness, education, and protection of the interests of investors, administered by the IEPF Authority. Section 125(1) provides that the Central Government shall establish a Fund to be called the Investor Education and Protection Fund (IEPF). Under Section 125(5), the Central Government constitutes the IEPF Authority consisting of a Chairperson (Secretary, MCA) and members to manage the Fund."
+  },
+  {
+    "id": 45,
+    "question": "Which of the following amounts is statutorily credited to the Investor Education and Protection Fund (IEPF) under Section 125(2)?",
+    "options": [
+      "Unpaid dividend transferred under Section 124(5), matured deposits and debentures remaining unpaid for 7 years, application money received for allotment and due for refund remaining unclaimed for 7 years, sale proceeds of fractional shares unclaimed for 7 years, and redemption proceeds of preference shares unclaimed for 7 years",
+      "All corporate income tax revenues collected by the central board of direct taxes within thirty days from the date of the general meeting",
+      "Profits earned by state-owned railway enterprises under the applicable provisions of the Companies Act, 2013",
+      "Fines collected by municipal traffic police departments as disclosed in the Board's Report and annual return",
+      "Cash donations made by foreign sovereign embassies upon verification of statutory registers at the registered office"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Unpaid dividend transferred under Section 124(5), matured deposits and debentures remaining unpaid for 7 years, application money received for allotment and due for refund remaining unclaimed for 7 years, sale proceeds of fractional shares unclaimed for 7 years, and redemption proceeds of preference shares unclaimed for 7 years. Section 125(2) lists items credited to IEPF: grants by Central Govt; donations; unpaid dividend under Sec 124(5); application money due for refund unclaimed for 7 years; matured deposits/debentures unclaimed for 7 years (with interest); sale proceeds of fractional shares unclaimed for 7 years; redemption proceeds of preference shares unclaimed for 7 years; disgorgement amounts."
+  },
+  {
+    "id": 46,
+    "question": "Under Section 67(1) of the Companies Act, 2013, can a company limited by shares purchase its own shares, except by way of reduction of capital or buy-back under the Act?",
+    "options": [
+      "Yes, if approved by a board resolution with the prior sanction of the National Company Law Tribunal",
+      "Yes, if the shares are purchased from the stock market at a discount in compliance with corporate governance norms",
+      "No company limited by shares or by guarantee and having a share capital shall have the power to buy its own shares unless the consequent reduction of capital is effected under Section 66 or buy-back under Section 68",
+      "Yes, if the company is an infrastructure enterprise within the statutory timeline prescribed under the Act",
+      "A company can purchase up to 10% of its own shares every month freely pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 2,
+    "explanation": "Section 67(1) prohibits capital reduction through the backdoor: 'No company limited by shares or by guarantee and having a share capital shall have the power to buy its own shares unless the consequent reduction of capital is effected under the provisions of this Act (Section 66 or Section 68).'"
+  },
+  {
+    "id": 47,
+    "question": "Under Section 67(2), is a public company permitted to give financial assistance (loans, guarantees, or security) for the purchase of its own shares?",
+    "options": [
+      "Yes, public companies can finance the purchase of their shares freely upon verification of statutory registers at the registered office",
+      "Yes, provided the loan interest rate is above 15% p.a subject to the conditions notified by the Ministry of Corporate Affairs.",
+      "Yes, if the loan is approved by the trade union subject to prior filing with the Registrar of Companies",
+      "Financial assistance is permitted up to 50% of net profits within thirty days from the date of the general meeting",
+      "No public company shall give, whether directly or indirectly and whether by means of a loan, guarantee, or provision of security, any financial assistance for the purpose of, or in connection with, a purchase or subscription of any shares in the company or its holding company"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: No public company shall give, whether directly or indirectly and whether by means of a loan, guarantee, or provision of security, any financial assistance for the purpose of, or in connection with, a purchase or subscription of any shares in the company or its holding company. Section 67(2) strictly prohibits public companies from providing financial assistance (loans, guarantees, security) for purchasing or subscribing to their own shares or their holding company's shares. Statutory exceptions under Section 67(3) include: banking companies lending in ordinary course, ESOP schemes for employees, or loans to non-director employees up to 6 months' salary."
+  },
+  {
+    "id": 48,
+    "question": "What is the penalty under Section 67(4) if a company contravenes the provisions of Section 67 regarding financial assistance for purchase of its shares?",
+    "options": [
+      "A verbal warning from the Registrar of Companies pursuant to a resolution passed by the Board of Directors",
+      "The company shall be punishable with fine not less than Rs 1 lakh but which may extend to Rs 25 lakh, and every officer in default shall be punishable with imprisonment up to 3 years and with fine not less than Rs 1 lakh up to Rs 25 lakh",
+      "Immediate forfeiture of all shares in the company",
+      "A mandatory fine of Rs 500 on the company secretary subject to approval by a special resolution of shareholders",
+      "No penalty applies if the loan is repaid within 30 days"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The company shall be punishable with fine not less than Rs 1 lakh but which may extend to Rs 25 lakh, and every officer in default shall be punishable with imprisonment up to 3 years and with fine not less than Rs 1 lakh up to Rs 25 lakh. Section 67(4) imposes severe criminal and monetary penalties: If a company contravenes Section 67, it shall be punishable with fine which shall not be less than Rs 1 lakh but which may extend to Rs 25 lakh, and every officer in default shall be punishable with imprisonment up to 3 years and with fine from Rs 1 lakh to Rs 25 lakh."
+  },
+  {
+    "id": 49,
+    "question": "Under Section 59 of the Companies Act, 2013, on what grounds can an aggrieved person or member appeal to the Tribunal for 'Rectification of the Register of Members'?",
+    "options": [
+      "If the company fails to pay annual employee bonuses within thirty days from the date of the general meeting",
+      "If the market price of the company's shares declines on the stock exchange under the applicable provisions of the Companies Act, 2013",
+      "If the company changes its registered office address to another state as disclosed in the Board's Report and annual return",
+      "If the name of any person is, without sufficient cause, entered in or omitted from the register of members, or if default is made or unnecessary delay takes place in entering on the register the fact of any person having become or ceased to be a member",
+      "If the board of directors rejects an application for employment upon verification of statutory registers at the registered office"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: If the name of any person is, without sufficient cause, entered in or omitted from the register of members, or if default is made or unnecessary delay takes place in entering on the register the fact of any person having become or ceased to be a member. Section 59(1) provides remedy for register defects: If the name of any person is without sufficient cause entered in or omitted from the register of members, or default is made or unnecessary delay occurs in entering the fact of someone becoming or ceasing to be a member, the aggrieved person, member, or company may appeal to the Tribunal for rectification."
+  },
+  {
+    "id": 50,
+    "question": "Under Section 56(6), what is the penalty for a company and defaulting officer for contravening the provisions regarding transfer and transmission of securities?",
+    "options": [
+      "The company and every officer of the company who is in default shall be liable to a penalty of fifty thousand rupees",
+      "A fine of Rs 1,000 on the company with the prior sanction of the National Company Law Tribunal",
+      "Imprisonment for 7 years under Section 447 in compliance with corporate governance norms",
+      "Cancellation of all share certificates issued by the company within the statutory timeline prescribed under the Act",
+      "The transfer is automatically ratified by the Central Government pursuant to a resolution passed by the Board of Directors"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The company and every officer of the company who is in default shall be liable to a penalty of fifty thousand rupees. Section 56(6) (amended by Companies Amendment Act, 2020) provides: 'Where any default is made in complying with the provisions of sub-sections (1) to (5), the company and every officer of the company who is in default shall be liable to a penalty of fifty thousand rupees.'"
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Companies Act Mock 2",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Companies Act Mock 2";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br /><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br /><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br /><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br /><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

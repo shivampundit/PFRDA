@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFRDA Marketing &amp; Communication Mock Test 4 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject L: Marketing & Communication</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Marketing_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Marketing_Communication_Master_Revision_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Marketing_Communication_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Marketing_Communication_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Marketing_Communication_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Marketing_Communication_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Marketing_Communication_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &middot; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &middot; Paper 2 &middot; Marketing &amp; Communication Mock 4</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Marketing &amp; Communication - Mock 4</h1>
+    <p class="start-subheading">Full 50 Questions &middot; Concept-Based &middot; PFRDA Grade A Level &middot; Precision Coaching</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant">
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com">
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Accounting System:</b> Financial information system, bookkeeping vs accounting, concepts, conventions, capital vs revenue, errors.</li>
+                <li><b>Accounting Standards:</b> Depreciation (AS 10 / Ind AS 16), Inventories (AS 2 / Ind AS 2), Revenue Recognition (AS 9 / Ind AS 115), PPE (AS 10), Forex (AS 11 / Ind AS 21), Investments (AS 13).</li>
+                <li><b>Cash Flow &amp; Fund Flow:</b> Operating/Investing/Financing activities, Direct &amp; Indirect methods, Statement of Changes in Working Capital.</li>
+                <li><b>Ratio Analysis:</b> Liquidity, Solvency, Turnover, Profitability, and DuPont 3-stage model.</li>
+                <li><b>Share Capital &amp; Corporate Actions:</b> Share issue/forfeiture/reissue, Bonus shares (Sec 63), Rights issue (Sec 62), ESOPs, Buy-back (Sec 68-70).</li>
+                <li><b>Company Final Accounts:</b> Schedule III Balance Sheet and Statement of Profit &amp; Loss structure and disclosures.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "In marketing channel design, what defines a 'Zero-Level Channel' (Direct Marketing Channel)?",
+    "options": [
+      "A channel with no customers and zero revenue throughout the stages of the product life cycle (PLC)",
+      "A distribution channel that includes one wholesaler and two independent retailers",
+      "An illegal channel selling uninspected contraband goods in alignment with strategic brand management objectives",
+      "A channel that operates exclusively through third-party logistics freight forwarders",
+      "A distribution channel consisting of a manufacturer selling directly to the final consumer"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A distribution channel consisting of a manufacturer selling directly to the final consumer without any independent intermediaries (e.g., door-to-door, company-owned retail stores, direct website). A Zero-Level Channel (direct channel) connects the producer directly to the end consumer with no intermediaries (e.g., Apple selling via its website, Tupperware home parties, Dell's direct sales model). A One-Level channel includes one intermediary (typically a retailer); a Two-Level channel has two (wholesaler and retailer)."
+  },
+  {
+    "id": 2,
+    "question": "What is a 'Vertical Marketing System' (VMS) and how does it fundamentally overcome the weaknesses of a 'Conventional Marketing Channel'?",
+    "options": [
+      "A VMS is a distribution channel that operates only in multi-story high-rise shopping towers",
+      "A conventional channel consists of independent producers, wholesalers, and retailers each seeking to maximize their own individual profits, often leading to channel conflict",
+      "A VMS eliminates all physical transportation trucks in favor of air freight cargo during interpersonal and organizational communication",
+      "A conventional channel is digital-only, whereas a VMS relies on physical mailers within the holistic marketing and value delivery framework",
+      "A VMS requires government equity ownership in all participating retail stores across target market segments and consumer touchpoints"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A conventional channel consists of independent producers, wholesalers, and retailers each seeking to maximize their own individual profits, often leading to channel conflict; a VMS unites producers, wholesalers, and retailers acting as a unified system under common ownership, contracts, or dominant power. In conventional channels, each member behaves opportunistically, generating destructive double-marginalization and vertical conflict. A VMS aligns channel goals through: Corporate VMS (common ownership), Contractual VMS (franchises, cooperatives), or Administered VMS (economic leadership of a dominant player)."
+  },
+  {
+    "id": 3,
+    "question": "In a 'Corporate Vertical Marketing System' (Corporate VMS), how is channel coordination achieved?",
+    "options": [
+      "Through informal verbal agreements negotiated over business lunches to maximize customer acquisition, retention, and advocacy",
+      "Through independent third-party legal mediation in commercial arbitration courts through active listening and empathetic stakeholder engagement",
+      "Through government price-support programs that fix distribution margins within the integrated marketing communications (IMC) mix",
+      "Through single ownership of successive stages of production and distribution under one corporate parent",
+      "Through open-market bidding on commodity futures exchanges throughout the stages of the product life cycle (PLC)"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Through single ownership of successive stages of production and distribution under one corporate parent (e.g., Zara owning its fabric weaving, design, factories, and retail storefronts). A Corporate VMS combines successive stages of production and distribution under single corporate ownership (e.g., Inditex/Zara owning manufacturing facilities, design houses, and global retail outlets; or petroleum giants owning oil wells, refineries, and branded gas stations)."
+  },
+  {
+    "id": 4,
+    "question": "What is a 'Contractual Vertical Marketing System' (Contractual VMS) and which of the following is its most prominent modern manifestation?",
+    "options": [
+      "Independent firms at different levels of production and distribution joining together through formal contracts to obtain greater economies or sales impact than they could achieve alone",
+      "A company acquiring 100% of its competitors through hostile stock takeovers across target market segments and consumer touchpoints",
+      "An unwritten gentleman's handshake agreement between two family businesses to build long-term customer lifetime value and brand equity",
+      "A government mandate that requires state-run rationing distribution based on primary consumer research and behavioral segmentation",
+      "A spot-market commodity auction conducted over agricultural wholesale mandis to strengthen competitive positioning in the target market"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Independent firms at different levels of production and distribution joining together through formal contracts to obtain greater economies or sales impact than they could achieve alone; the Franchise Organization is the most prominent type. Contractual VMS coordinates independent channel partners through legal contracts. Major types include: (1) Wholesaler-sponsored voluntary chains, (2) Retailer cooperatives, and (3) Franchise organizations (e.g., McDonald's, Subway, Marriott), which represent the fastest-growing form of contractual VMS."
+  },
+  {
+    "id": 5,
+    "question": "In an 'Administered Vertical Marketing System' (Administered VMS), what enables channel leadership and coordination without common ownership or formal contracts?",
+    "options": [
+      "A court injunction issued by a district civil judge",
+      "Compulsory state licensing under domestic commerce ministries",
+      "The sheer size, dominant market share, and economic power of one channel member",
+      "A trade union collective bargaining agreement across transportation workers",
+      "Random drawing of lottery tickets among participating regional wholesalers"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The sheer size, dominant market share, and economic power of one channel member (e.g., Walmart, Amazon, or Procter & Gamble commanding compliance from partners). An Administered VMS coordinates distribution stages not through shared ownership or contractual ties, but through the overwhelming market power and brand influence of one dominant channel member (e.g., Walmart dictating shelf placement, inventory terms, and pricing to suppliers)."
+  },
+  {
+    "id": 6,
+    "question": "What is 'Vertical Channel Conflict' in marketing channels?",
+    "options": [
+      "Conflict between two competing retailers located on the same city street",
+      "A dispute between two competing freight shipping companies over maritime lanes",
+      "A disagreement between the marketing department and the human resources division",
+      "An ideological dispute between consumer protection activists and environmentalists",
+      "Conflict occurring between different levels within the same distribution channel"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Conflict occurring between different levels within the same distribution channel (e.g., a manufacturer disputing retail pricing, shelf placement, or profit margins with its independent retailers). Vertical channel conflict occurs between different levels of the same channel hierarchy (e.g., a manufacturer conflicting with its distributors over minimum advertised pricing, or a franchisor conflicting with franchisees over royalty fees and store remodeling costs)."
+  },
+  {
+    "id": 7,
+    "question": "What is 'Horizontal Channel Conflict'?",
+    "options": [
+      "A dispute between a raw material supplier and a shipping dockworker union",
+      "Conflict between channel members at the same level of the distribution channel",
+      "A legal conflict between a private corporation and national tax inspectors",
+      "A conflict between a firm's marketing director and its chief financial officer",
+      "A disagreement between customers waiting in a long checkout line"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Conflict between channel members at the same level of the distribution channel (e.g., two authorized car dealerships in neighboring districts undercutting each other's prices). Horizontal channel conflict occurs between intermediaries at the same channel level (e.g., two independent franchise owners in adjacent territories complaining that one is aggressively advertising in the other's designated market territory or engaging in unauthorized cross-border discounting)."
+  },
+  {
+    "id": 8,
+    "question": "What is 'Multichannel Conflict' and how has e-commerce exacerbated it?",
+    "options": [
+      "Interference on commercial television broadcast frequencies during bad weather across target market segments and consumer touchpoints",
+      "Disputes between radio disc jockeys over music playlists to build long-term customer lifetime value and brand equity",
+      "Disagreements between different advertising copywriting agencies based on primary consumer research and behavioral segmentation",
+      "Conflict arising when a manufacturer establishes two or more channels that compete against each other for the same customers",
+      "Shipping delays caused by maritime port strikes to strengthen competitive positioning in the target market"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Conflict arising when a manufacturer establishes two or more channels that compete against each other for the same customers (e.g., selling directly on its own website at deep discounts, undercutting its traditional brick-and-mortar retail dealers). Multichannel conflict erupts when a producer bypasses physical retail partners to sell direct-to-consumer (D2C) online, or sells to major online marketplaces (Amazon) at prices lower than independent franchisees can match, prompting threats of retail boycotts."
+  },
+  {
+    "id": 9,
+    "question": "Which distribution intensity strategy involves stocking the product in as many outlets as possible to maximize consumer convenience and exposure (standard for convenience goods like chewing gum, soap, and soda)?",
+    "options": [
+      "Intensive Distribution",
+      "Exclusive Distribution",
+      "Selective Distribution",
+      "Franchise Distribution",
+      "Direct Distribution"
+    ],
+    "answer": 0,
+    "explanation": "Intensive distribution places products in maximum accessible retail outlets (supermarkets, convenience stores, vending machines, mom-and-pop shops). It is essential for routine convenience goods where brand switching occurs instantly if the preferred brand is not immediately in stock."
+  },
+  {
+    "id": 10,
+    "question": "What is 'Exclusive Distribution' and what are its typical strategic tradeoffs?",
+    "options": [
+      "Selling products exclusively through government ration shops at subsidized rates to strengthen competitive positioning in the target market",
+      "Distributing products only to consumers who hold private corporate memberships during interpersonal and organizational communication",
+      "Severely limiting the number of intermediaries by granting only one or very few dealers the exclusive right to distribute the company's products in their respective territories",
+      "Selling exclusively during the midnight hours between 12:00 AM and 4:00 AM within the holistic marketing and value delivery framework",
+      "Restricting product sales to individuals over 65 years of age across target market segments and consumer touchpoints"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Severely limiting the number of intermediaries by granting only one or very few dealers the exclusive right to distribute the company's products in their respective territories (e.g., luxury sports cars, high-end designer couture); enhances brand prestige and dealer commitment, but limits total sales volume. Exclusive distribution grants sole territorial rights to selected dealers. It gives the manufacturer tight control over service standards, showroom presentation, and retail pricing, cultivating an aura of luxury and prestige, but sacrifices mass market volume."
+  },
+  {
+    "id": 11,
+    "question": "What is 'Selective Distribution' in channel management?",
+    "options": [
+      "Selecting distributors based on a lottery drawing to maximize customer acquisition, retention, and advocacy",
+      "Distributing products only in capital cities of countries through active listening and empathetic stakeholder engagement",
+      "Selling only to customers who pass a background credit investigation within the integrated marketing communications (IMC) mix",
+      "Allowing customers to select their own wholesale purchase price throughout the stages of the product life cycle (PLC)",
+      "Using more than one, but fewer than all, of the intermediaries who are willing to carry the company's products"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Using more than one, but fewer than all, of the intermediaries who are willing to carry the company's products (e.g., consumer electronics, major home appliances, premium footwear). Selective distribution sits between intensive and exclusive. The producer partners with established, reputable retail intermediaries with good store ambiance and knowledgeable staff, achieving adequate market coverage with better control and lower distribution cost than intensive distribution."
+  },
+  {
+    "id": 12,
+    "question": "In logistics and supply chain management, what is the 'Economic Order Quantity' (EOQ) formula used to minimize total inventory holding and ordering costs?",
+    "options": [
+      "EOQ = (D * S) / H across target market segments and consumer touchpoints",
+      "EOQ = sqrt((2 * D * S) / H), where D is annual demand, S is setup/ordering cost per order, and H is holding cost per unit per year",
+      "EOQ = sqrt((D * H) / (2 * S)) to build long-term customer lifetime value and brand equity",
+      "EOQ = (2 * D + S) / H based on primary consumer research and behavioral segmentation",
+      "EOQ = D * S * H to strengthen competitive positioning in the target market"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: EOQ = sqrt((2 * D * S) / H), where D is annual demand, S is setup/ordering cost per order, and H is holding cost per unit per year. The EOQ formula, derived by Ford W. Harris, balances ordering costs against inventory holding costs: EOQ = sqrt((2 * D * S) / H). At this order quantity, annual ordering costs equal annual holding costs, minimizing total inventory management expense."
+  },
+  {
+    "id": 13,
+    "question": "What is 'Just-in-Time' (JIT) inventory management, originally pioneered by the Toyota Production System?",
+    "options": [
+      "Stockpiling six months of raw materials in massive warehouses to prevent shortages throughout the stages of the product life cycle (PLC)",
+      "Delivering customer orders late in the evening to avoid daytime traffic congestion across omnichannel retail and digital distribution networks",
+      "A pricing model where prices change just in time before final customer checkout in alignment with strategic brand management objectives",
+      "A lean supply chain strategy where materials and components arrive at the production facility exactly as they are needed in the assembly process, drastically reducing inventory holding costs and warehouse storage space",
+      "An accounting practice where financial statements are audited at the last minute to maximize customer acquisition, retention, and advocacy"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A lean supply chain strategy where materials and components arrive at the production facility exactly as they are needed in the assembly process, drastically reducing inventory holding costs and warehouse storage space. JIT (lean manufacturing) minimizes waste and working capital by having raw materials delivered precisely when needed in the production cycle. It requires exceptional supplier reliability, total quality management (zero defects), and synchronized digital communication."
+  },
+  {
+    "id": 14,
+    "question": "What is the 'Bullwhip Effect' in supply chain distribution logistics?",
+    "options": [
+      "The phenomenon where small fluctuations in retail consumer demand get amplified into progressively larger, extreme swings in inventory orders as one moves upstream along the supply chain toward wholesalers, manufacturers, and raw material suppliers",
+      "A physical disciplinary measure used by shipping ship captains to strengthen competitive positioning in the target market",
+      "A rapid decrease in transportation freight shipping costs during economic booms during interpersonal and organizational communication",
+      "The sudden collapse of an e-commerce website due to holiday shopping server overload within the holistic marketing and value delivery framework",
+      "A legal dispute between competing logistics trucking fleets across target market segments and consumer touchpoints"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The phenomenon where small fluctuations in retail consumer demand get amplified into progressively larger, extreme swings in inventory orders as one moves upstream along the supply chain toward wholesalers, manufacturers, and raw material suppliers. The Bullwhip Effect occurs when lack of real-time demand visibility, order batching, price fluctuations, and lead-time delays cause distorted demand forecasts upstream. A minor 5% shift in retail sales can produce a 40% surge in raw material orders, causing severe inventory shortages and surpluses."
+  },
+  {
+    "id": 15,
+    "question": "In Integrated Marketing Communications (IMC), what is the core governing philosophy according to Don Schultz and Philip Kotler?",
+    "options": [
+      "Investing all advertising dollars into television commercials while abandoning print and radio to maximize customer acquisition, retention, and advocacy",
+      "Assigning each marketing team complete autonomy to use different brand slogans and colors through active listening and empathetic stakeholder engagement",
+      "Carefully coordinating and integrating the company's many communication channels to deliver a clear, consistent, and compelling message about the organization and its brands across all customer touchpoints",
+      "Outsourcing all corporate public relations communications to foreign call centers within the integrated marketing communications (IMC) mix",
+      "Eliminating personal selling teams to fund digital social media advertising throughout the stages of the product life cycle (PLC)"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Carefully coordinating and integrating the company's many communication channels (advertising, personal selling, sales promotion, PR, direct marketing, and digital) to deliver a clear, consistent, and compelling message about the organization and its brands across all customer touchpoints. IMC ensures that all promotional tools work in harmony. Instead of disparate, uncoordinated messages from advertising agencies, PR firms, and sales reps, IMC synthesizes all customer touchpoints into a single, cohesive brand voice ('one voice, one look, one sound')."
+  },
+  {
+    "id": 16,
+    "question": "What are the classic '5 Ms of Advertising' formulated by Philip Kotler to design an advertising campaign?",
+    "options": [
+      "Marketing, Management, Manufacturing, Materials, and Money",
+      "Motivation, Morale, Maintenance, Monitoring, and Momentum",
+      "Manpower, Machinery, Methods, Materials, and Minutes",
+      "Merchandise, Margin, Markup, Markdown, and Movement",
+      "Mission, Money, Message, Media, and Measurement"
+    ],
+    "answer": 4,
+    "explanation": "Kotler's 5 Ms structure advertising management: (1) Mission (sales goals and advertising objectives), (2) Money (budget allocation across stages of PLC), (3) Message (creative generation, execution, and legal review), (4) Media (reach, frequency, vehicle selection), and (5) Measurement (communication effect and sales impact)."
+  },
+  {
+    "id": 17,
+    "question": "What does the classic 'AIDA Model' of advertising response hierarchy represent?",
+    "options": [
+      "Awareness, Involvement, Dedication, and Agreement",
+      "Attention, Interest, Desire, and Action",
+      "Attitude, Incentive, Decision, and Acquisition",
+      "Advertising, Integration, Distribution, and Analytics",
+      "Audience, Impression, Deliverability, and Attribution"
+    ],
+    "answer": 1,
+    "explanation": "Formulated by E. St. Elmo Lewis (1898), the AIDA model outlines the four cognitive and affective stages a consumer passes through: First, attract Attention; second, hold Interest; third, arouse Desire; and fourth, compel purchasing Action."
+  },
+  {
+    "id": 18,
+    "question": "In advertising objective formulation, what does the 'DAGMAR' model stand for (Russell Colley, 1961)?",
+    "options": [
+      "Direct Advertising Guidelines for Modern Audience Reach",
+      "Digital Marketing Analytics for Global Market Assessment",
+      "Data Acquisition Growth Model for Advertising Return",
+      "Defining Advertising Goals for Measured Advertising Results",
+      "Dynamic Advertising Governance and Media Allocation Rules"
+    ],
+    "answer": 3,
+    "explanation": "DAGMAR stands for 'Defining Advertising Goals for Measured Advertising Results'. Colley proposed that an advertising goal is a specific communication task to be accomplished among a defined audience to a given degree in a specified period of time, moving prospects through Awareness, Comprehension, Conviction, and Action (ACCA)."
+  },
+  {
+    "id": 19,
+    "question": "In media planning, how is 'Gross Rating Points' (GRP) mathematically calculated?",
+    "options": [
+      "GRP = Reach (as a % of target audience) multiplied by Average Frequency",
+      "GRP = Total Advertising Spend divided by Total Impressions",
+      "GRP = Cost Per Thousand (CPM) multiplied by Click-Through Rate (CTR)",
+      "GRP = Total Viewers divided by Total Households in a country",
+      "GRP = Net Profit generated divided by Number of Ad Broadcasts"
+    ],
+    "answer": 0,
+    "explanation": "Gross Rating Points (GRP) measures the total advertising weight or volume delivered by a media vehicle: GRP = Reach (% of target audience exposed at least once) * Frequency (average number of times exposed). For example, reaching 60% of the target market an average of 4 times yields 240 GRPs."
+  },
+  {
+    "id": 20,
+    "question": "What is 'Cost Per Thousand' (CPM) in advertising media buying?",
+    "options": [
+      "The cost of buying 1,000 physical billboard posters across target market segments and consumer touchpoints",
+      "The commission fee paid to an advertising agency for every 1,000 hours of design work to build long-term customer lifetime value and brand equity",
+      "The dollar/rupee cost an advertiser pays to deliver an advertising message or impression to one thousand people or households",
+      "The monthly salary paid to 1,000 telemarketing representatives based on primary consumer research and behavioral segmentation",
+      "The printing expense of producing 1,000 product catalog booklets to strengthen competitive positioning in the target market"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The dollar/rupee cost an advertiser pays to deliver an advertising message or impression to one thousand people or households: CPM = (Total Ad Cost / Total Impressions) * 1,000. CPM (Cost Per Mille / Thousand) is the universal metric used across print, TV, radio, and digital media to compare the cost-efficiency of different advertising vehicles: CPM = (Cost of Advertising / Total Audience or Impressions) * 1,000."
+  },
+  {
+    "id": 21,
+    "question": "In promotion strategy, what is the fundamental difference between a 'Push Strategy' and a 'Pull Strategy'?",
+    "options": [
+      "Push strategies use physical mail; Pull strategies use digital email throughout the stages of the product life cycle (PLC)",
+      "Push strategies are for heavy industrial machinery; Pull strategies are for digital software across omnichannel retail and digital distribution networks",
+      "Push strategies are illegal under antitrust laws; Pull strategies are government subsidized in alignment with strategic brand management objectives",
+      "There is no operational difference between Push and Pull strategies to maximize customer acquisition, retention, and advocacy",
+      "A Push strategy directs promotional efforts at channel intermediaries to induce them to carry and push the product to consumers; a Pull strategy directs promotional efforts at end consumers to pull them into retail stores to demand the product"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A Push strategy directs promotional efforts (trade promotions, personal selling) at channel intermediaries (wholesalers, retailers) to induce them to carry and push the product to consumers; a Pull strategy directs promotional efforts (mass advertising, consumer promotions) at end consumers to pull them into retail stores to demand the product. A Push strategy pushes products through distribution channels via personal selling and trade allowances to motivate retail shelf space. A Pull strategy invests heavily in consumer advertising to pull consumers into retail stores requesting the product, forcing retailers to order from manufacturers."
+  },
+  {
+    "id": 22,
+    "question": "What characterizes 'Sales Promotion' compared to traditional Brand Advertising?",
+    "options": [
+      "Sales promotion is permanent, while advertising is temporary",
+      "Advertising builds long-term brand awareness and equity",
+      "Advertising is used only by non-profit charities",
+      "Sales promotion is executed exclusively by government trade ministries",
+      "Sales promotion never impacts short-term sales volume"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Advertising builds long-term brand awareness and equity ('offers a reason to buy'), whereas sales promotion consists of short-term incentives ('offers an incentive to buy now') designed to stimulate quicker or larger purchase of products (coupons, discounts, contests, premiums). Sales promotion provides direct, short-term economic or hedonic inducements (discounts, buy-one-get-one-free, scratch cards, trade allowances) to generate an immediate spike in sales. While effective for short-term volume, excessive sales promotion can erode brand equity and train buyers to wait for discounts."
+  },
+  {
+    "id": 23,
+    "question": "What is 'Public Relations' (PR) and how does 'Publicity' differ from paid advertising?",
+    "options": [
+      "PR involves bribing news journalists to suppress negative stories",
+      "Publicity is ten times more expensive per minute than prime-time television advertising through active listening and empathetic stakeholder engagement",
+      "PR applies exclusively to political election campaigns within the integrated marketing communications (IMC) mix",
+      "Publicity is non-personal communication regarding an organization or product that is not directly paid for or run under identified sponsorship, giving it higher credibility than paid advertising",
+      "Publicity is completely controlled by corporate marketing executives throughout the stages of the product life cycle (PLC)"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Publicity is non-personal communication regarding an organization or product that is not directly paid for or run under identified sponsorship (e.g., news stories, editorial coverage, press releases), giving it higher credibility than paid advertising. Public Relations manages relationships with key publics. Publicity is editorial media coverage generated by PR efforts. Because it appears as objective news rather than paid promotion, publicity carries significantly higher credibility and trust than paid advertising, though the firm cannot control its exact timing or framing."
+  },
+  {
+    "id": 24,
+    "question": "In personal selling, what is the traditional seven-step sequential Personal Selling Process?",
+    "options": [
+      "Prospecting & Qualifying -> Preapproach -> Approach -> Presentation & Demonstration -> Handling Objections -> Closing -> Follow-up & Maintenance",
+      "Cold Calling -> Discounting -> Contract Signing -> Shipping -> Invoicing -> Auditing -> Arbitration across target market segments and consumer touchpoints",
+      "Advertising -> Promotion -> Telemarketing -> Delivery -> Collection -> Return -> Liquidation to build long-term customer lifetime value and brand equity",
+      "Interviewing -> Testing -> Screening -> Hiring -> Onboarding -> Training -> Appraising based on primary consumer research and behavioral segmentation",
+      "Research -> Segmentation -> Targeting -> Positioning -> Pricing -> Promotion -> Place to strengthen competitive positioning in the target market"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Prospecting & Qualifying -> Preapproach -> Approach -> Presentation & Demonstration -> Handling Objections -> Closing -> Follow-up & Maintenance. The classic personal selling process involves: (1) Prospecting & Qualifying (finding leads), (2) Preapproach (researching the prospect), (3) Approach (initial contact), (4) Presentation & Demonstration (FAB: features, advantages, benefits), (5) Handling Objections (answering reservations), (6) Closing (asking for the order), and (7) Follow-up (ensuring customer satisfaction)."
+  },
+  {
+    "id": 25,
+    "question": "In digital marketing, what is 'Search Engine Optimization' (SEO) and what are its three core operational pillars?",
+    "options": [
+      "Paying Google to place banner advertisements on YouTube videos throughout the stages of the product life cycle (PLC)",
+      "Hacking search engine algorithms to delete competitor websites across omnichannel retail and digital distribution networks",
+      "The process of optimizing website content, technical architecture, and authority to maximize organic (non-paid) visibility and rankings on Search Engine Results Pages (SERPs)",
+      "Buying expired internet domain names and redirecting traffic to gambling portals",
+      "Printing QR codes on physical roadside billboards to maximize customer acquisition, retention, and advocacy"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The process of optimizing website content, technical architecture, and authority to maximize organic (non-paid) visibility and rankings on Search Engine Results Pages (SERPs); its 3 pillars are On-Page SEO, Off-Page SEO (backlinks), and Technical SEO (site speed, mobile crawlability, indexation). SEO optimizes a web property for search engines without paying for ad placement. On-Page SEO optimizes keywords, titles, and content relevance; Off-Page SEO builds domain authority through high-quality external backlinks; Technical SEO ensures fast page speed, mobile-friendliness, and crawlable site architecture."
+  },
+  {
+    "id": 26,
+    "question": "In Search Engine Marketing (SEM / Google Ads), what factors determine an advertisement's 'Ad Rank' in the instant auction when a search occurs?",
+    "options": [
+      "The physical geographic size of the advertiser's corporate office to strengthen competitive positioning in the target market",
+      "The total number of years the advertiser has been in business during interpersonal and organizational communication",
+      "The total market capitalization of the advertising company on the stock exchange within the holistic marketing and value delivery framework",
+      "The font size and color saturation of the company's logo across target market segments and consumer touchpoints",
+      "Ad Rank is a function of Bid Amount (maximum CPC), Quality Score, and the expected impact of Ad Assets (extensions)"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Ad Rank is a function of Bid Amount (maximum CPC), Quality Score (expected CTR, ad relevance, landing page experience), and the expected impact of Ad Assets (extensions). Google Ads does not simply award top position to the highest cash bidder. Ad Rank = Bid (Max CPC) * Quality Score + Ad Extensions impact. This mechanism ensures that highly relevant, high-quality ads can beat lower-quality ads with larger financial bids, preserving search user experience."
+  },
+  {
+    "id": 27,
+    "question": "What is 'Quality Score' in Google Ads and what are its three fundamental components?",
+    "options": [
+      "A rating assigned by government consumer protection inspectors to physical goods",
+      "A 1-to-10 diagnostic rating measuring the quality of ads relative to other advertisers",
+      "A financial solvency rating calculated by credit rating bureaus through active listening and empathetic stakeholder engagement",
+      "The number of likes and shares on an advertiser's Facebook page within the integrated marketing communications (IMC) mix",
+      "The physical durability score of a manufactured product throughout the stages of the product life cycle (PLC)"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A 1-to-10 diagnostic rating measuring the quality of ads relative to other advertisers; composed of Expected Click-Through Rate (CTR), Ad Relevance, and Landing Page Experience. Quality Score (rated 1-10) measures ad relevance and landing page utility. High Quality Scores earn higher Ad Ranks and lower actual Cost-Per-Click (CPC), acting as a direct discount for providing relevant search experiences."
+  },
+  {
+    "id": 28,
+    "question": "What is 'Click-Through Rate' (CTR) in digital advertising and how is it calculated?",
+    "options": [
+      "The total revenue earned from digital advertising divided by operating costs",
+      "The percentage of website visitors who make a financial purchase",
+      "The number of times a user clicks on their computer mouse during an office workday",
+      "The percentage of people who see an ad and proceed to click on it",
+      "The speed at which a webpage loads on a 5G mobile connection"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The percentage of people who see an ad and proceed to click on it: CTR = (Total Clicks / Total Ad Impressions) * 100. Click-Through Rate (CTR) gauges ad creative resonance and relevance: CTR = (Clicks / Impressions) * 100. A high CTR signals to search engines and ad networks that users find the advertisement compelling, improving Quality Scores."
+  },
+  {
+    "id": 29,
+    "question": "What is 'Cost Per Acquisition' (CPA) / Cost Per Action in performance marketing?",
+    "options": [
+      "A pricing model and performance metric where advertisers pay only when a specific desired action is completed",
+      "The total cost of purchasing a corporate competitor through a hostile takeover throughout the stages of the product life cycle (PLC)",
+      "The hourly billing rate charged by digital marketing consultants across omnichannel retail and digital distribution networks",
+      "The legal fees paid to register a corporate patent in alignment with strategic brand management objectives",
+      "The monthly cloud hosting invoice paid to Amazon Web Services to maximize customer acquisition, retention, and advocacy"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A pricing model and performance metric where advertisers pay only when a specific desired action (such as a purchase, form sign-up, app installation, or lead capture) is completed: CPA = Total Ad Spend / Total Conversions. Cost Per Acquisition (CPA) measures the marketing cost required to generate a paying customer or qualified conversion: CPA = Total Marketing Spend / Number of Conversions. Comparing CPA with Customer Lifetime Value (CLV) determines unit economic viability (healthy ratio is CLV:CPA > 3:1)."
+  },
+  {
+    "id": 30,
+    "question": "What is 'Return on Ad Spend' (ROAS) and how does it differ from traditional Return on Investment (ROI)?",
+    "options": [
+      "ROAS applies only to newspaper print advertising",
+      "ROAS measures the physical return of defective merchandise by dissatisfied shoppers",
+      "ROAS is gross revenue generated per rupee/dollar spent strictly on advertising",
+      "ROI is calculated daily, whereas ROAS is calculated once a decade",
+      "ROAS is legally mandated under corporate accounting standards, while ROI is optional"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: ROAS is gross revenue generated per rupee/dollar spent strictly on advertising (ROAS = Revenue from Ads / Cost of Ads), whereas ROI accounts for all operating, product, and overhead expenses (ROI = [Net Profit / Total Investment] * 100). ROAS measures ad campaign revenue efficiency: ROAS = Ad-Driven Gross Revenue / Ad Spend (e.g. Rs 50,000 revenue from Rs 10,000 ad spend = 5x or 500% ROAS). ROI is broader and subtracts Cost of Goods Sold (COGS) and overhead to determine true bottom-line profitability."
+  },
+  {
+    "id": 31,
+    "question": "What is the 'Inbound Marketing Flywheel' concept popularized by HubSpot as an evolution of the traditional linear sales funnel?",
+    "options": [
+      "Replacing human sales agents with automated email spam bots to maximize customer acquisition, retention, and advocacy",
+      "A mechanical turbine that powers data centers using renewable wind energy through active listening and empathetic stakeholder engagement",
+      "A corporate restructuring that eliminates customer support teams within the integrated marketing communications (IMC) mix",
+      "A legal framework defining customer liability under commercial contracts throughout the stages of the product life cycle (PLC)",
+      "A circular model that stores and releases momentum through three stages—Attract, Engage, and Delight—where satisfied customers become the primary driving force that spins the wheel and powers future business growth through referrals and advocacy"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A circular model that stores and releases momentum through three stages—Attract, Engage, and Delight—where satisfied customers become the primary driving force that spins the wheel and powers future business growth through referrals and advocacy. The Flywheel model replaces the leaky funnel (which views customers as an output) with a circular growth engine where customers are the central input. By delivering exceptional experiences during Attract, Engage, and Delight phases, customer delight reduces friction and spins the flywheel faster through organic referrals."
+  },
+  {
+    "id": 32,
+    "question": "What is 'Retargeting' (Remarketing) in programmatic digital display and social media advertising?",
+    "options": [
+      "Firing an entire marketing department and hiring new staff across target market segments and consumer touchpoints",
+      "A cookie/pixel-based advertising strategy that tracks visitors who leave a company's website",
+      "Switching an advertising campaign from Facebook to print newspapers",
+      "Changing the company's registered trademark logo every six months based on primary consumer research and behavioral segmentation",
+      "Sending postal brochures to random residential addresses to strengthen competitive positioning in the target market"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A cookie/pixel-based advertising strategy that tracks visitors who leave a company's website without completing a purchase and serves them targeted display or social ads across other web properties to bring them back to complete the conversion. Retargeting uses browser tracking cookies or mobile device IDs to identify high-intent consumers who browsed a product page or abandoned a shopping cart, serving them dynamic ads across Google Display Network or Meta to overcome friction and secure the purchase."
+  },
+  {
+    "id": 33,
+    "question": "In digital marketing attribution, what is 'Last-Click (Last-Touch) Attribution' and why is it increasingly criticized by modern growth marketers?",
+    "options": [
+      "It charges advertisers every time a user double-clicks on an ad throughout the stages of the product life cycle (PLC)",
+      "It is a legal doctrine that forbids users from clicking back buttons on web browsers across omnichannel retail and digital distribution networks",
+      "It allocates conversion credit equally across all marketing channels",
+      "It gives 100% of the conversion credit to the very final touchpoint the customer clicked before purchasing, completely ignoring and undervaluing top-of-funnel awareness channels that initially introduced the customer to the brand",
+      "It is an artificial intelligence algorithm that predicts future purchases to maximize customer acquisition, retention, and advocacy"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: It gives 100% of the conversion credit to the very final touchpoint the customer clicked before purchasing, completely ignoring and undervaluing top-of-funnel awareness channels (like blogs, social videos, or display ads) that initially introduced the customer to the brand. Last-Click attribution is simplistic: if a consumer first learned of a product via a YouTube ad, researched it on a blog, and finally searched the brand name on Google, Last-Click awards 100% credit to the final Google Search ad, leading marketers to starve vital top-of-funnel discovery channels."
+  },
+  {
+    "id": 34,
+    "question": "What is 'Data-Driven (Algorithmic) Attribution' in advanced marketing analytics?",
+    "options": [
+      "Using machine learning algorithms to analyze both converting and non-converting customer journeys, mathematically determining the true incremental impact and fractional credit of each touchpoint based on how its presence shifts conversion probability",
+      "Allocating ad credits randomly through algorithmic dice rolls to strengthen competitive positioning in the target market",
+      "Relying strictly on the marketing CEO's intuition to divide ad credits during interpersonal and organizational communication",
+      "Giving all credit to the cheapest digital advertising channel within the holistic marketing and value delivery framework",
+      "Deleting all customer tracking data every 24 hours across target market segments and consumer touchpoints"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Using machine learning algorithms to analyze both converting and non-converting customer journeys, mathematically determining the true incremental impact and fractional credit of each touchpoint based on how its presence shifts conversion probability. Data-Driven Attribution (DDA) uses cooperative game theory (e.g. Shapley values) and machine learning to evaluate thousands of customer paths. It calculates the counterfactual impact of removing a specific touchpoint, assigning fractional attribution based on actual incremental contribution."
+  },
+  {
+    "id": 35,
+    "question": "In email marketing deliverability and security, what do SPF, DKIM, and DMARC protocols protect against?",
+    "options": [
+      "They prevent computer screens from overheating during long email writing sessions to maximize customer acquisition, retention, and advocacy",
+      "They are copyright licenses governing fonts used in corporate newsletters through active listening and empathetic stakeholder engagement",
+      "They are email authentication protocols that verify the sender's identity, protect domains from email spoofing, phishing, and forged sender headers, and ensure legitimate marketing emails reach the recipient's primary inbox rather than the spam folder",
+      "They are billing codes used to calculate postal postage stamps within the integrated marketing communications (IMC) mix",
+      "They are international treaties governing television satellite broadcasts throughout the stages of the product life cycle (PLC)"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: They are email authentication protocols that verify the sender's identity, protect domains from email spoofing, phishing, and forged sender headers, and ensure legitimate marketing emails reach the recipient's primary inbox rather than the spam folder. SPF (Sender Policy Framework), DKIM (DomainKeys Identified Mail), and DMARC (Domain-based Message Authentication, Reporting, and Conformance) form the gold standard of email domain security. Major mailbox providers (Google, Yahoo) mandate full DMARC compliance to prevent spoofing and guarantee inbox delivery."
+  },
+  {
+    "id": 36,
+    "question": "What is the difference between a 'Hard Bounce' and a 'Soft Bounce' in email marketing campaigns?",
+    "options": [
+      "A Hard Bounce breaks the user's computer keyboard; a Soft Bounce does not",
+      "A Hard Bounce occurs on desktop computers; a Soft Bounce occurs on mobile phones",
+      "A Hard Bounce occurs in B2B marketing; a Soft Bounce occurs in B2C marketing",
+      "There is no technical difference between the two terms",
+      "A Hard Bounce is a permanent delivery failure"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A Hard Bounce is a permanent delivery failure (e.g., non-existent, invalid, or blocked email address), whereas a Soft Bounce is a temporary delivery failure (e.g., recipient's mailbox is full, server is temporarily down, or message is too large). Hard bounces indicate permanent delivery impossibility (must be purged immediately from the mailing list to protect domain sender reputation). Soft bounces are temporary delivery roadblocks where the email server may re-attempt delivery over 72 hours."
+  },
+  {
+    "id": 37,
+    "question": "What is 'Affiliate Marketing' and what is the typical compensation structure for affiliates?",
+    "options": [
+      "A full-time employment contract governed by national labor union laws throughout the stages of the product life cycle (PLC)",
+      "A performance-based marketing system where an external third-party publisher/affiliate earns a commission for promoting a merchant's products and driving successful sales or leads through unique tracking affiliate links",
+      "A scheme where customers are forced to recruit friends in an illegal multi-level pyramid across omnichannel retail and digital distribution networks",
+      "A government subsidy program for small physical grocery shops in alignment with strategic brand management objectives",
+      "A barter system where goods are exchanged without financial transactions to maximize customer acquisition, retention, and advocacy"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A performance-based marketing system where an external third-party publisher/affiliate earns a commission for promoting a merchant's products and driving successful sales or leads through unique tracking affiliate links (Revenue Share or Cost Per Sale). Affiliate marketing pays external content creators, review sites, or coupon aggregators a performance commission (Cost Per Sale or Cost Per Lead) tracked via specialized UTM tracking parameters and affiliate network tracking cookies (e.g. Amazon Associates)."
+  },
+  {
+    "id": 38,
+    "question": "In social media influencer marketing, what characterizes 'Nano-Influencers' and 'Micro-Influencers' compared to Celebrity Macro-Influencers?",
+    "options": [
+      "They produce microscopic miniature videos that can only be viewed through magnifying glasses",
+      "They are automated computer-generated bots with zero real human followers during interpersonal and organizational communication",
+      "They are legally prohibited from accepting commercial product endorsements within the holistic marketing and value delivery framework",
+      "They have smaller follower counts but typically exhibit significantly higher engagement rates, niche credibility, authentic community trust, and lower partnership acquisition costs than mass celebrities",
+      "They charge millions of dollars for a single sponsored Instagram story across target market segments and consumer touchpoints"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: They have smaller follower counts (e.g., 1k-10k for Nano, 10k-100k for Micro) but typically exhibit significantly higher engagement rates, niche credibility, authentic community trust, and lower partnership acquisition costs than mass celebrities. While macro-influencers offer broad reach, nano- and micro-influencers often deliver superior Return on Investment (ROI) because their followers perceive them as authentic peers and trusted subject-matter experts, driving higher conversion rates at fractional costs."
+  },
+  {
+    "id": 39,
+    "question": "What is 'Conversion Rate Optimization' (CRO) in digital website management?",
+    "options": [
+      "The systematic process of increasing the percentage of website or mobile app visitors who take a desired action through usability research, user journey auditing, and A/B testing",
+      "Converting physical paper records into scanned digital PDF files to maximize customer acquisition, retention, and advocacy",
+      "Converting foreign currency revenues into domestic sovereign currency through active listening and empathetic stakeholder engagement",
+      "Converting diesel delivery trucks into electric battery vehicles within the integrated marketing communications (IMC) mix",
+      "Converting employee stock options into cash bonuses throughout the stages of the product life cycle (PLC)"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The systematic process of increasing the percentage of website or mobile app visitors who take a desired action (e.g. making a purchase, filling out a lead form, subscribing to a newsletter) through usability research, user journey auditing, and A/B testing. CRO focuses on extracting more value from existing web traffic. By identifying drop-off friction points, streamlining checkout funnels, improving copywriting, and running split tests on calls-to-action, CRO lowers Customer Acquisition Cost (CAC) and boosts profitability."
+  },
+  {
+    "id": 40,
+    "question": "What does 'Bounce Rate' mean in Google Analytics 4 (GA4) and how is it related to 'Engagement Rate'?",
+    "options": [
+      "The number of times a user drops their physical mobile phone while browsing",
+      "The speed at which a computer cursor bounces across a webpage",
+      "Bounce Rate in GA4 is the exact inverse of Engagement Rate",
+      "The percentage of website visitors who return a physical product for refund",
+      "The time it takes for a digital email to be delivered to a recipient"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Bounce Rate in GA4 is the exact inverse of Engagement Rate; it represents the percentage of sessions that were NOT engaged (sessions that lasted less than 10 seconds, had no conversion event, and had fewer than 2 pageviews). In Google Analytics 4 (GA4), an 'Engaged Session' is defined as lasting 10+ seconds, having 1+ conversion events, or viewing 2+ pages. Engagement Rate = Engaged Sessions / Total Sessions. Bounce Rate is simply the percentage of non-engaged sessions: Bounce Rate = 100% - Engagement Rate."
+  },
+  {
+    "id": 41,
+    "question": "What is 'Content Marketing' as defined by the Content Marketing Institute (CMI)?",
+    "options": [
+      "Spamming commercial sales brochures across thousands of internet discussion forums throughout the stages of the product life cycle (PLC)",
+      "Writing product instruction manuals to comply with consumer protection statutes across omnichannel retail and digital distribution networks",
+      "Publishing annual financial balance sheets in national daily newspapers in alignment with strategic brand management objectives",
+      "Creating paid 30-second television commercials during sporting finals to maximize customer acquisition, retention, and advocacy",
+      "A strategic marketing approach focused on creating and distributing valuable, relevant, and consistent content to attract and retain a clearly defined audience—and, ultimately, to drive profitable customer action—without overtly pitching products"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A strategic marketing approach focused on creating and distributing valuable, relevant, and consistent content to attract and retain a clearly defined audience—and, ultimately, to drive profitable customer action—without overtly pitching products. Content marketing provides truly relevant, valuable educational or entertainment content to prospects to solve their problems (e.g., whitepapers, podcasts, tutorials, explainer videos), establishing thought leadership and earning customer trust rather than interrupting them with cold pitches."
+  },
+  {
+    "id": 42,
+    "question": "In digital marketing analytics, what is 'UTM Tagging' (Urchin Tracking Module parameters)?",
+    "options": [
+      "A cryptographic blockchain token used to purchase online advertising space to strengthen competitive positioning in the target market",
+      "Simple text codes appended to URLs that allow analytics software to track the exact source, medium, campaign name, term, and content of incoming web traffic",
+      "A legal watermark stamped on digital video files to prevent copyright theft during interpersonal and organizational communication",
+      "A computer virus that infects digital marketing tracking databases within the holistic marketing and value delivery framework",
+      "A hardware component installed inside commercial web servers across target market segments and consumer touchpoints"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Simple text codes appended to URLs that allow analytics software (like Google Analytics) to track the exact source, medium, campaign name, term, and content of incoming web traffic. UTM parameters (utm_source, utm_medium, utm_campaign, utm_term, utm_content) are query string snippets added to destination URLs. When a user clicks the link, web analytics platforms parse the parameters to track exactly which email link, banner ad, or tweet generated the visit."
+  },
+  {
+    "id": 43,
+    "question": "What is 'Native Advertising' in modern digital journalism and media publishing?",
+    "options": [
+      "Advertising produced exclusively in the indigenous languages of regional tribal territories",
+      "Billboards constructed using native timber and organic vegetative materials through active listening and empathetic stakeholder engagement",
+      "Radio broadcasts transmitted across shortwave military frequencies within the integrated marketing communications (IMC) mix",
+      "Paid advertising content that matches the visual form, editorial style, tone, and functional feel of the organic media platform on which it appears",
+      "Advertisements promoting domestic national tourism destinations throughout the stages of the product life cycle (PLC)"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Paid advertising content that matches the visual form, editorial style, tone, and functional feel of the organic media platform on which it appears (e.g. sponsored articles in newspapers, in-feed promoted posts on LinkedIn or Instagram). Native ads blend seamlessly into the surrounding editorial content stream ('looks like news, reads like news, but is labeled as Sponsored/Promoted'). Because they do not disrupt the reading flow like traditional banner ads, they bypass 'banner blindness' and generate higher engagement."
+  },
+  {
+    "id": 44,
+    "question": "What is 'Programmatic Advertising' in modern digital media buying?",
+    "options": [
+      "The automated, algorithmic purchase and sale of digital advertising inventory in real-time across ad exchanges, using software algorithms, Demand-Side Platforms (DSPs), and data-driven audience targeting",
+      "Manual paper negotiations conducted by print media buying executives over several weeks across target market segments and consumer touchpoints",
+      "Writing software code to build e-commerce shopping cart websites to build long-term customer lifetime value and brand equity",
+      "Advertising broadcast software programming languages on technical universities based on primary consumer research and behavioral segmentation",
+      "A legal regulation governing intellectual property rights of computer software to strengthen competitive positioning in the target market"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The automated, algorithmic purchase and sale of digital advertising inventory in real-time across ad exchanges, using software algorithms, Demand-Side Platforms (DSPs), and data-driven audience targeting. Programmatic advertising replaces manual insertion orders, human RFP negotiations, and phone calls with automated software exchanges. Advertisers set parameters (audience, budget, bids), and algorithmic auctions buy targeted impressions across millions of websites in fractions of a second."
+  },
+  {
+    "id": 45,
+    "question": "In digital media planning, what is 'Viewability' according to Media Rating Council (MRC) standards for desktop display ads?",
+    "options": [
+      "100% of the ad must be visible on the screen for at least sixty seconds throughout the stages of the product life cycle (PLC)",
+      "The user must click on the advertisement and stay on the landing page for 5 minutes across omnichannel retail and digital distribution networks",
+      "At least 50% of the advertisement's pixels must be in view on the user's screen for a minimum of one continuous second",
+      "The advertisement must be broadcast with high-definition audio enabled in alignment with strategic brand management objectives",
+      "The user must share the advertisement on their personal social media profile to maximize customer acquisition, retention, and advocacy"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: At least 50% of the advertisement's pixels must be in view on the user's screen for a minimum of one continuous second. The MRC standard for a viewable display ad impression requires at least 50% of the ad's pixels to be in the viewable viewport of the browser window for at least one continuous second (two continuous seconds for video ads)."
+  },
+  {
+    "id": 46,
+    "question": "What is 'Geofencing' in mobile location-based marketing?",
+    "options": [
+      "Building physical security fences around warehouse storage yards",
+      "Censoring internet websites based on national geographic territory borders during interpersonal and organizational communication",
+      "Measuring satellite elevation levels for agricultural crop insurance within the holistic marketing and value delivery framework",
+      "Restricting international wire money transfers between sovereign nations across target market segments and consumer touchpoints",
+      "Setting up a virtual geographic perimeter around a real-world location using GPS or RFID technology, triggering automated mobile push notifications or targeted digital ads when mobile devices cross the boundary"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Setting up a virtual geographic perimeter around a real-world location (e.g., within 500 meters of a competitor's store or a convention hall) using GPS or RFID technology, triggering automated mobile push notifications or targeted digital ads when mobile devices cross the boundary. Geofencing creates a virtual boundary around a physical venue. When opt-in mobile users enter or exit the geofenced area, location services trigger hyper-contextual promotions (e.g. a coffee shop sending a 20% discount coupon to commuters walking past its storefront)."
+  },
+  {
+    "id": 47,
+    "question": "What is 'Lookalike Audience' modeling in social media and programmatic advertising platforms?",
+    "options": [
+      "Hiring professional celebrity lookalike actors to star in television commercials to maximize customer acquisition, retention, and advocacy",
+      "An algorithmic targeting capability where machine learning identifies and builds an audience of new prospective consumers whose demographic attributes, online behaviors, and interests mirror those of an existing high-value seed audience",
+      "Targeting consumers who have identical facial photographs in corporate directories through active listening and empathetic stakeholder engagement",
+      "A copyright infringement violation where an ad copies a competitor's visual graphics within the integrated marketing communications (IMC) mix",
+      "Surveying twins and siblings in medical genetic research studies throughout the stages of the product life cycle (PLC)"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: An algorithmic targeting capability where machine learning identifies and builds an audience of new prospective consumers whose demographic attributes, online behaviors, and interests mirror those of an existing high-value seed audience (e.g. existing VIP buyers). Lookalike modeling analyzes the shared characteristics of a merchant's best existing customers (the seed list from CRM or pixel data) and scans the ad platform's massive user base to find prospects who look, behave, and purchase like those top customers, delivering high conversion efficiency."
+  },
+  {
+    "id": 48,
+    "question": "What is 'Omnichannel Retailing' and how does it fundamentally differ from 'Multichannel Retailing'?",
+    "options": [
+      "Omnichannel sells exclusively on television home shopping channels across target market segments and consumer touchpoints",
+      "Multichannel uses only cash; Omnichannel uses only cryptocurrency",
+      "Multichannel is for small retailers; Omnichannel is strictly for government agencies based on primary consumer research and behavioral segmentation",
+      "Multichannel operates multiple separate channels as isolated, siloed entities; Omnichannel provides a fully integrated, seamless customer experience where all touchpoints share unified inventory, customer data, pricing, and purchase histories",
+      "There is no practical difference between multichannel and omnichannel to strengthen competitive positioning in the target market"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Multichannel operates multiple separate channels (physical store, website, mobile app) as isolated, siloed entities; Omnichannel provides a fully integrated, seamless customer experience where all touchpoints share unified inventory, customer data, pricing, and purchase histories (e.g., Buy Online, Pick Up in Store - BOPIS). Multichannel offers multiple ways to buy, but systems are siloed (e.g., online store has different inventory and returns policies than physical stores). Omnichannel unifies all channels into a seamless journey: a customer can browse on an app, try in-store, buy online, pick up at a locker, and return by mail."
+  },
+  {
+    "id": 49,
+    "question": "In digital consumer privacy, what is the primary technical distinction between 'First-Party Cookies' and 'Third-Party Cookies'?",
+    "options": [
+      "First-party cookies are created and stored directly by the website the user is visiting; Third-party cookies are set by external domains across multiple websites to track cross-site browsing histories for ad targeting",
+      "First-party cookies are baked inside corporate bakeries; third-party cookies are imported throughout the stages of the product life cycle (PLC)",
+      "First-party cookies are illegal under international cybersecurity laws; third-party cookies are mandatory across omnichannel retail and digital distribution networks",
+      "First-party cookies are used on smartphones; third-party cookies are used on desktop computers in alignment with strategic brand management objectives",
+      "First-party cookies contain encrypted credit card passwords; third-party cookies contain plain text to maximize customer acquisition, retention, and advocacy"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: First-party cookies are created and stored directly by the website the user is visiting (preserving logins, shopping cart items); Third-party cookies are set by external domains (ad networks, tracking trackers) across multiple websites to track cross-site browsing histories for ad targeting. First-party cookies belong to the publisher domain being visited, enabling core site functionality. Third-party cookies belong to external tracking ad tech platforms embedded on the site, enabling cross-web profiling. Privacy regulations (GDPR, CCPA) and browser deprecation have crippled third-party tracking."
+  },
+  {
+    "id": 50,
+    "question": "What is 'Zero-Party Data' in modern customer data collection strategies?",
+    "options": [
+      "Data that has been corrupted or erased due to hard drive server failure",
+      "Data scraped illegally from public social media profiles without user consent",
+      "Data that a customer intentionally, explicitly, and proactively shares with a brand",
+      "Anonymous census data published by national statistical departments",
+      "Data generated by automated artificial intelligence bots with zero human input"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Data that a customer intentionally, explicitly, and proactively shares with a brand (such as personal preferences, sizing, dietary needs, product interests, and purchase motivations through quizzes or profile settings). Coined by Forrester, Zero-Party Data is data that consumers deliberately and directly volunteer to a brand (e.g., completing an onboarding quiz detailing skin type, favorite fashion styles, or planned travel dates) in exchange for personalized recommendations and tailored value."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Marketing & Communication Mock 4",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Marketing & Communication Mock 4";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

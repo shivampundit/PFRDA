@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Commerce &amp; Accountancy Mock Test 1 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject C: Commerce & Accountancy</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Commerce_Accountancy_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Commerce_Accountancy_Master_Revision_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Commerce_Accountancy_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Commerce_Accountancy_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Commerce_Accountancy_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Commerce_Accountancy_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Commerce_Accountancy_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &#183; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &#183; Paper 2 &#183; Commerce Mock 1</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Commerce &amp; Accountancy - Mock 1</h1>
+    <p class="start-subheading">Full-Length Topic Test &#183; 50 Questions &#183; Exam Pattern</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Accounting System:</b> Financial information system, bookkeeping vs accounting, concepts, conventions, capital vs revenue, errors.</li>
+                <li><b>Accounting Standards:</b> Depreciation (AS 10 / Ind AS 16), Inventories (AS 2 / Ind AS 2), Revenue Recognition (AS 9 / Ind AS 115), PPE (AS 10), Forex (AS 11 / Ind AS 21), Investments (AS 13).</li>
+                <li><b>Cash Flow &amp; Fund Flow:</b> Operating/Investing/Financing activities, Direct &amp; Indirect methods, Statement of Changes in Working Capital.</li>
+                <li><b>Ratio Analysis:</b> Liquidity, Solvency, Turnover, Profitability, and DuPont 3-stage model.</li>
+                <li><b>Share Capital &amp; Corporate Actions:</b> Share issue/forfeiture/reissue, Bonus shares (Sec 63), Rights issue (Sec 62), ESOPs, Buy-back (Sec 68-70).</li>
+                <li><b>Company Final Accounts:</b> Schedule III Balance Sheet and Statement of Profit &amp; Loss structure and disclosures.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "original_id": 1,
+    "question": "Which of the following is not an accounting equation?",
+    "options": [
+      "Liabilities = Assets – Capital",
+      "Assets = Liabilities – Capital",
+      "Assets – Liabilities = Capital",
+      "Assets = Liabilities + Capital",
+      "None of the above"
+    ],
+    "answer": 1,
+    "answer_letter": "B",
+    "explanation": "Assets = Liabilities – Capital Accounting Equation is Asset = Liabilities + Capital Except (2) all options are correct formulation of the above equation."
+  },
+  {
+    "id": 2,
+    "original_id": 2,
+    "question": "Advance amount received from customers is not considered as sale. It is based on which concept?",
+    "options": [
+      "Conservatism",
+      "Consistency",
+      "Money Measurement",
+      "Accrual",
+      "Accounting Period"
+    ],
+    "answer": 3,
+    "answer_letter": "D",
+    "explanation": "Accrual The accrual accounting concept recognizes revenue when it is earned and expenses when they are incurred, regardless of the timing of cash transactions. When an advance amount is received from customers, it represents a liability until the goods or services are delivered. It is only considered as a sale when the revenue is earned, which aligns with the accrual accounting principle."
+  },
+  {
+    "id": 3,
+    "original_id": 4,
+    "question": "Which of the following is NOT considered a basic accounting assumption?",
+    "options": [
+      "Going Concern",
+      "Consistency",
+      "Accrual",
+      "Materiality",
+      "None of the above"
+    ],
+    "answer": 3,
+    "answer_letter": "D",
+    "explanation": "Materiality The three basic accounting assumptions are 1. Going Concern; 2. Consistency & 3. Accrual."
+  },
+  {
+    "id": 4,
+    "original_id": 7,
+    "question": "Revenues and expenses must be recorded in the accounting period in which they were earned or incurred, no matter when cash receipts or outlays occur”. This is followed as per which of the following accounting methods?",
+    "options": [
+      "Mercantile basis accounting.",
+      "Cash basis accounting.",
+      "Tax basis accounting.",
+      "Revenue basis accounting.",
+      "None of the above"
+    ],
+    "answer": 0,
+    "answer_letter": "A",
+    "explanation": "Mercantile basis accounting The mercantile basis of accounting, also known as the accrual basis of accounting, records revenues when they are earned and records expenses when they are incurred, regardless of when the cash transactions occur. This method is in contrast to cash basis accounting, which records transactions only when cash is exchanged. The accrual method provides a more accurate financial picture of a company's financial position by recognizing economic events regardless of when cash transactions happen."
+  },
+  {
+    "id": 5,
+    "original_id": 8,
+    "question": "A company purchases a car for 3,00,000, paying 50,000 in cash and borrowing 2,50,000. What is the effect on the accounting equation?",
+    "options": [
+      "Total assets increase by 3,00,000; total liabilities remain unchanged.",
+      "Total assets decrease by 50,000; total liabilities increase by 2,50,000.",
+      "Total assets remain unchanged; total liabilities increase by 2,50,000.",
+      "Total assets increase by 50,000; total liabilities increase by 2,50,000.",
+      "Total assets increase by 2,50,000; total liabilities increase by 2,50,000."
+    ],
+    "answer": 4,
+    "answer_letter": "E",
+    "explanation": "Total assets increase by 2,50,000; total liabilities increase by 2,50,000. The car's purchase increases the asset value by 3,00,000 but the cash payment reduces another asset (cash) by 50,000, netting a total asset increase of 250,000. Meanwhile, the new debt of 250,000 raises liabilities by the same amount. This keeps the accoun ting equation balanced, as both sides of the equation increase equally."
+  },
+  {
+    "id": 6,
+    "original_id": 10,
+    "question": "Rs. 100,000 spent by a factory in overhauling of its existing plant & machinery. It has enhanced its working life by five years. The aforesaid expenditure is:",
+    "options": [
+      "Capital expenditure.",
+      "Revenue expenditure",
+      "Deferred revenue expenditure",
+      "Any of the above",
+      "None of the above"
+    ],
+    "answer": 0,
+    "answer_letter": "A",
+    "explanation": "Capital expenditure Capital Expenditure is money used to buy, improve or extend the life of fixed asset in an organization and with a useful life for one year or more."
+  },
+  {
+    "id": 7,
+    "original_id": 11,
+    "question": "Carriage paid on the purchase of furniture is a:",
+    "options": [
+      "Capital expenditure",
+      "Capital loss",
+      "Revenue expenditure",
+      "Revenue loss",
+      "None of the above"
+    ],
+    "answer": 0,
+    "answer_letter": "A",
+    "explanation": "Capital expenditure Carriage costs associated with the purchase of furniture are added to the cost of the furniture itself and are considered a capital expenditure. Capital expenditures are costs incurred to acquire or upgrade physical assets such as property, industrial buildings, or equipment (in this case, furniture), and these costs are not expensed in full in the year of purchase but are capitalized and depreciated over the useful life of the asset. This is because they provide a benefit to the business for more than one accounting period."
+  },
+  {
+    "id": 8,
+    "original_id": 13,
+    "question": "How should \"Outstanding Rent\" be classified according to the traditional rules of accounting?",
+    "options": [
+      "Personal Account",
+      "Real Account",
+      "Nominal Account",
+      "Either a or b",
+      "Either a or c"
+    ],
+    "answer": 0,
+    "answer_letter": "A",
+    "explanation": "Personal Account Outstanding Rent is classified as a Personal Account because it represents an amount receivable from a person or entity, essentially making it a debtor's account."
+  },
+  {
+    "id": 9,
+    "original_id": 40,
+    "question": "What is the full form of NFRA?",
+    "options": [
+      "National Fiscal Responsibility Agency",
+      "National Fund Reconciliation Association",
+      "National Financial Reporting Authority",
+      "National Finance and Revenues Authority",
+      "National Framework for Regulatory Applications"
+    ],
+    "answer": 2,
+    "answer_letter": "C",
+    "explanation": "National Financial Reporting Authority NFRA stands for National Financial Reporting Authority. It was established by the Government of India under the Ministry of Corporate Affairs to oversee the quality of service of the professions associated with ensuring compliance with financial audit and accounting standards in India. This organization aims to enhance investor and public confidence in financial statements of companies. The other options, while plausible sounding, are not related to the established functions or the correct expansion of NFRA."
+  },
+  {
+    "id": 10,
+    "original_id": 47,
+    "question": "Which of the following Accounting Standard is related to the accounting for depreciation?",
+    "options": [
+      "AS 2",
+      "AS 4",
+      "AS 6",
+      "AS 8",
+      "AS 10"
+    ],
+    "answer": 4,
+    "answer_letter": "E",
+    "explanation": "AS 10 AS 10, titled \"Property, Plant and Equipment,\" was revised to provide a more comprehensive framework regarding the recognition, measurement, and disclosure of fixed assets. Previously, depreciation was primarily covered under AS 6, titled \"Depreciation Accounting.\" However, AS 6 was superseded when the scope of AS 10 was expanded to include more detailed guidance on depreciation, among other aspects of handling fixed assets."
+  },
+  {
+    "id": 11,
+    "original_id": 48,
+    "question": "Which of the following Accounting Standard is related to the accounting for inventories?",
+    "options": [
+      "AS 1",
+      "AS 2",
+      "AS 3",
+      "AS 4",
+      "AS 5"
+    ],
+    "answer": 1,
+    "answer_letter": "B",
+    "explanation": "AS 2 A primary issue in accounting for inventories is the determination of the value at which inventories are carried in the financial statements until the related revenues are recognised. This Standard deals with the determination of such value, including the ascertainment of cost of inventories and any write-down thereof to net realisable value. Basic definitions: Inventories are assets: (a) held for sale in the ordinary course of business. (b) in the process of production for such sale. (c) in the form of materials or supplies to be consumed in the production process or in the rendering of services. Net realisable value is the estimated selling price in the ordinary course of business less the estimated costs of completion and the estimated costs necessary to make the sale."
+  },
+  {
+    "id": 12,
+    "original_id": 50,
+    "question": "As per the Accounting Standard AS 2 (Valuation of Inventories), the costs of purchase consist of which of the following items? 1. Purchase price 2. Duties and taxes (other than those subsequently recoverable by the enterprise from the taxing authorities) 3. Freight inwards 4. Other expenditure directly attributable to the acquisition. 5. Trade discounts, 6. Rebates 7. Duty drawbacks",
+    "options": [
+      "All except 3, 4, 5",
+      "All except 4, 5, 6",
+      "All except 3, 4, 5, 6, 7",
+      "All except 5, 6, 7",
+      "All correct"
+    ],
+    "answer": 3,
+    "answer_letter": "D",
+    "explanation": "All except 5, 6, 7 Explanation: The cost of inventories should comprise all costs of purchase, costs of conversion and other costs incurred in bringing the inventories to their present location and condition. Trade discounts, rebates and duty drawbacks are not included."
+  },
+  {
+    "id": 13,
+    "original_id": 51,
+    "question": "As per the Accounting Standard AS 2 (Valuation of Inventories), in determining the cost of inventories, it is appropriate to exclude certain costs and recognise them as expenses in the period in which they are incurred. Which of the following are excluded? 1. Abnormal amounts of wasted materials, labour, or other production costs. 2. Storage costs, unless those costs are necessary in the production process prior to a further production stage. 3. Administrative overheads that do not contribute to bringing the inventories to their present location and condition 4. Selling and distribution costs.",
+    "options": [
+      "All excluded",
+      "All except 1",
+      "All except 2",
+      "All except 3",
+      "All except 4"
+    ],
+    "answer": 0,
+    "answer_letter": "A",
+    "explanation": "All excluded"
+  },
+  {
+    "id": 14,
+    "original_id": 53,
+    "question": "Which of the following Accounting Standard is related to the Revenue Recognition?",
+    "options": [
+      "AS 5",
+      "AS 7",
+      "AS 9",
+      "AS 8",
+      "AS 10"
+    ],
+    "answer": 2,
+    "answer_letter": "C",
+    "explanation": "AS 9 Explanation: Technical definition of revenue. Revenue is the gross inflow of cash, receivables or other consideration arising in the course of the ordinary activities of an enterprise from the sale of goods, from the rendering of services, and from the use by others of enterprise resources yielding interest, royalties and dividends. Revenue is measured by the charges made to customers or clients for goods supplied and services rendered to them and by the charges and rewards arising from the use of resources by them. In an agency relationship, the revenue is the amount of commission an d not the gross inflow of cash, receivables or other consideration."
+  },
+  {
+    "id": 15,
+    "original_id": 54,
+    "question": "Accounting Standard AS 9 (Revenue Recognition) deals with the bases for recognition of revenue in the statement of profit and loss of an enterprise. The Standard is concerned with the recognition of revenue arising in the course of the ordinary activities of the enterprise from which of the following activities? 1. The sale of goods 2. The rendering of services 3. The use by others of enterprise resources yielding interest, royalties and dividends.",
+    "options": [
+      "All except 1",
+      "All except 2",
+      "All except 3",
+      "All except 1,2",
+      "All correct"
+    ],
+    "answer": 4,
+    "answer_letter": "E",
+    "explanation": "All correct This Standard AS 9 (Revenue Recognition) does not deal with the following aspects of revenue recognition to which special considerations apply: 1. Revenue arising from construction contracts 2. Revenue arising from hire-purchase, lease agreements 3. Revenue arising from government grants and other similar subsidies 4. Revenue of insurance companies arising from insurance contracts."
+  },
+  {
+    "id": 16,
+    "original_id": 56,
+    "question": "As per Accounting Standard AS 9 (Revenue Recognition), Revenue arising from the use by others of enterprise resources yielding interest, royalties and dividends should only be recognised when no significant uncertainty as to measurability or collectability exists. These revenues are recognised on the following bases. Match the pairs from list I and list II. List I 1. Interest 2. Royalties 3. Dividends from investments in shares List II",
+    "options": [
+      "On an accrual basis in accordance with the terms of the relevant agreement in the books of account at the close of the financial year.",
+      "On a time proportion basis taking into account the amount outstanding and the rate applicable.",
+      "When the owner’s right to receive payment is established in accordance with prescribed Accounting Standards.",
+      "1-a, 2-b, 3-c",
+      "1-a, 2-c, 3-b"
+    ],
+    "answer": 1,
+    "answer_letter": "B",
+    "explanation": "Complete Answer Detail: On a time proportion basis taking into account the amount outstanding and the rate applicable.. 1-a, 2-b, 3-c"
+  },
+  {
+    "id": 17,
+    "original_id": 58,
+    "question": "Which of the following transaction is related to the foreign exchange transaction?",
+    "options": [
+      "AS 12",
+      "AS 13",
+      "AS 14",
+      "AS 11",
+      "AS 15"
+    ],
+    "answer": 3,
+    "answer_letter": "D",
+    "explanation": "AS 11 This standards actual name is AS 11, The Effects of Changes in Foreign Exchange Rates"
+  },
+  {
+    "id": 18,
+    "original_id": 59,
+    "question": "As per AS 11 (The Effects of Changes in Foreign Exchange Rates) which of the following transactions are considered as foreign currency transactions? 1. Buying or selling goods or services whose price is denominated in a foreign currency. 2. 2. Borrowing or lending funds when the amounts payable or receivable are denominated in a foreign currency. 3. Becoming a party to an unperformed forward exchange contract. 4. Otherwise acquiring or disposing of assets, or incurring or settling liabilities, denominated in a foreign currency.",
+    "options": [
+      "All correct",
+      "All except 1",
+      "All except 2",
+      "All except 3",
+      "All except 4"
+    ],
+    "answer": 0,
+    "answer_letter": "A",
+    "explanation": "All correct Explanation: Simple rule is the any transaction done in foreign currency. Additional Information: Important definitions related to the foreign exchange transactions. • Average rate is the mean of the exchange rates in force during a period. • Closing rate is the exchange rate at the balance sheet date. • Exchange difference is the difference resulting from reporting the same number of units of a foreign currency in the reporting currency at different exchange rates. • Exchange rate is the ratio for exchange of two currencies. • Fair value is the amount for which an asset could be exchanged, or a liability settled, between knowledgeable, willing parties in an arm’s length transaction. • Foreign currency is a currency other than the reporting currency of an enterprise. • Foreign operation is a subsidiary , associate , joint venture or branch of the reporting enterprise, the activities of which are based or conducted in a country other than the country of the reporting enterprise. • Forward exchange contract means an agreement to exchange different currencies at a forward rate. • Forward rate is the specified exchange rate for exchange of two currencies at a specified future date. • Integral foreign operation is a foreign operation, the activities of which are an integral part of those of the reporting enterprise. • Monetary items are money held and assets and liabilities to be received or paid in fixed or determinable amounts of money. • Net investment in a non -integral foreign operation is the reporting enterprise’s share in the net assets of that operation. • Non-integral foreign operation is a foreign operation that is not an integral foreign operation. • Non-monetary items are assets and liabilities other than monetary items. • Reporting currency is the currency used in presenting the financial statements."
+  },
+  {
+    "id": 19,
+    "original_id": 60,
+    "question": "Accounting Standard AS 13 is related to which of the following items?",
+    "options": [
+      "Accounting for Government Grants",
+      "Accounting for Amalgamations",
+      "Accounting for Investments",
+      "Employee Benefits",
+      "Borrowing Costs"
+    ],
+    "answer": 2,
+    "answer_letter": "C",
+    "explanation": "Accounting for Investments Additional Information: This Standard deals with accounting for investments in the financial statements of enterprises and related disclosure requirements. This Standard does not deal with: (a) The bases for recognition of interest, dividends and rentals earned on investments which are covered by Accounting Standard 9 on Revenue Recognition; (b) Operating or finance leases; (c) Investments of retirement benefit plans and life insurance enterprises; and (d) Mutual funds and venture capital funds and/or the related asset management companies, banks and public financial institutions formed under a Central or State Government Act or so declared under the Companies Act, 1956. The following terms are used in this Standard with the meanings assigned: Investments are assets held by an enterprise for earning income by way of dividends, interest, and rentals, for capital appreciation, or for other benefits to the investing enterprise. Assets held as stock-in-trade are not ‘investments’. A current investment is an investment that is by its nature readily realisable and is intended to be held for not more than one year from the date on which such investment is made. A long term investment is an investment other than a current investment. An investment property is an investment in land or buildings that are not intended to be occupied substantially for use by, or in the operations of, the investing enterprise. Fair value is the amount for which an asset could be exchanged between a knowledgeable, willing buyer and a knowledgeable, willing seller in an arm’s length transaction. Under appropriate circumstances, market value or net realisable value provides an evid ence of fair value. Market value is the amount obtainable from the sale of an investment in an open market, net of expenses necessarily to be incurred on or before disposal."
+  },
+  {
+    "id": 20,
+    "original_id": 20,
+    "question": "If the asset has been purchased at Rs. 50,000 and installation expenses of Rs. 7000 are incurred. After 5 years, it can be sold at a scrap value of Rs. 2000, then the depreciation as per constant usage will be:",
+    "options": [
+      "10000 p.a.",
+      "11400 p.a.",
+      "7000 p.a.",
+      "5000 p.a.",
+      "11000 p.a."
+    ],
+    "answer": 4,
+    "answer_letter": "E",
+    "explanation": "11000 p.a. Straight Line Method also known as Fixed % on Original Cost/ Fixed Installment Method Depreciation = (Cost - Salvage Value)/ Estimated useful life"
+  },
+  {
+    "id": 21,
+    "original_id": 61,
+    "question": "Which of the following Accounting Standard is related to the Cash Flow Statement?",
+    "options": [
+      "AS 1",
+      "AS 3",
+      "AS 2",
+      "AS 4",
+      "AS 5"
+    ],
+    "answer": 1,
+    "answer_letter": "B",
+    "explanation": "AS 3 A cash flow statement, when used in conjunction with the other financial statements, provides information that enables users to evaluate the changes in net assets of an enterprise, its financial structure (including its liquidity and solvency) and its abil ity to affect the amounts and timing of cash flows in order to adapt to changing circumstances and opportunities. Cash flow information is useful in assessing the ability of the enterprise to generate cash and cash equivalents and enables users to develop models to assess and compare the present value of the future cash flows of different enterprises. It also enhances the comparability of the reporting of operating performance by different enterprises because it eliminates the effects of using different accounting treatments for the same transactions and events. Historical cash flow information is often used as an indicator of the amount, timing and certainty of future cash flows. It is also useful in checking the accuracy of past assessments of future cash flows and in examining the relationship between profitabi lity and net cash flow and the impact of changing prices."
+  },
+  {
+    "id": 22,
+    "original_id": 181,
+    "question": "If investment income in advance has been received by a manufacturing enterprise of Rs.1300, in that case what effect will it have on its Cash flow statement?",
+    "options": [
+      "Cash flow from Operating activities will go up by Rs.1300",
+      "Cash and Cash equivalents will go up by Rs.1300",
+      "Cash flow from Financing activities will go up by Rs.1300",
+      "Cash flow from Investing activities will go up by Rs.1300",
+      "Cash flow from Operating and investing activities will go up by Rs.1300"
+    ],
+    "answer": 3,
+    "answer_letter": "D",
+    "explanation": "Cash flow from Investing activities will go up by Rs.1300 Since this is the investment income, this will have a positive effect on the cash flows of investing activities by 1300."
+  },
+  {
+    "id": 23,
+    "original_id": 183,
+    "question": "Cash flows from operating activities are primarily derived from the principal revenue - producing activities of the enterprise. Therefore, they generally result from the transactions and other events that enter into the determination of net profit or loss. Examples of cash flows from operating activities are given below, which of the following activity is correctly mentioned? 1. Cash receipts from the sale of goods and the rendering of services. 2. Cash receipts from royalties, fees, commissions and other revenue. 3. Cash payments to suppliers for goods and services 4. Cash payments to and on behalf of employees. 5. Cash receipts and cash payments of an insurance enterprise for premiums and claims, annuities and other policy benefits.",
+    "options": [
+      "All correct",
+      "All except 1",
+      "All except 2",
+      "All except 3, 5",
+      "All except 4"
+    ],
+    "answer": 0,
+    "answer_letter": "A",
+    "explanation": "All correct Additional Information: Following activities are also included i the list. 1. Cash payments or refunds of income taxes unless they can be specifically identified with financing and investing activities. 2. Cash receipts and payments relating to futures contracts, forward contracts, option contracts and swap contracts when the contracts are held for dealing or trading purposes. ‘Cash Flows’ implies movement of cash in and out due to some non-cash items. Receipt of cash from a non-cash item is termed as cash inflow while cash payment in respect of such items as cash outflow. For example, purchase of machinery by paying cash is cas h outflow while sale proceeds received from sale of machinery is cash inflow. Other examples of cash flows include collection of cash from trade receivables, payment to trade payables, payment to employees, receipt of dividend, interest payments, etc. Cash management includes the investment of excess cash in cash equivalents. Hence, purchase of marketable securities or short-term investment which constitutes cash equivalents is not considered while preparing cash flow statement."
+  },
+  {
+    "id": 24,
+    "original_id": 185,
+    "question": "Under direct method of Cash Flow calculation, major heads of cash inflows and outflows (such as cash received from trade receivables, employee benefits expenses paid, etc.) are considered. It is important to note here that items are recorded on accrual basis in statement of profit and loss. Hence, certain adjustments are made to convert them into cash basis such as the following. Identify the correct equation. 1. Cash receipts from customers = Revenue from operations + Trade receivables in the beginning – Trade receivables in the end. 2. Cash payments to suppliers = Purchases - Trade Payables in the beginning + Trade Payables in the end. 3. Purchases = Cost of Revenue from Operations – Opening Inventory + Closing Inventory. 4. Cash expenses = Expenses on accrual basis + Prepaid expenses in the beginning and Outstanding expenses in the end – Prepaid expenses in the end and Outstanding expenses in the beginning.",
+    "options": [
+      "All except 1",
+      "All except 3",
+      "All except 2",
+      "All except 4",
+      "All correct"
+    ],
+    "answer": 2,
+    "answer_letter": "C",
+    "explanation": "All except 2 Correct equation should be as follows: Cash payments to suppliers = Purchases + Trade Payables in the beginning - Trade Payables in the end."
+  },
+  {
+    "id": 25,
+    "original_id": 188,
+    "question": "Which statement is prepared in the process of funds flow analysis?",
+    "options": [
+      "Schedule of changes in working capital",
+      "Inventory Flow Statement",
+      "Cash Flow Statement",
+      "Both A and B",
+      "None of the above"
+    ],
+    "answer": 0,
+    "answer_letter": "A",
+    "explanation": "Schedule of changes in working capital Fund Flow Statement implies a snapshot of the movement of funds, i.e. inflow or outflows of the firm’s financial assets for a specific period. It represents, from where the funds are received and where the funds are utilised by the company during a particular period. Statement of Changes in working capital is a summary that shows the net increase or decrease in the working capital of the business. The working capital of the firm increases if there is an increase in the current assets or decrease in the current liabilities. However, the working capital of the firm decreases if there is a decrease in the current assets and an increase in the current liabilities."
+  },
+  {
+    "id": 26,
+    "original_id": 190,
+    "question": "Identify the sources of funds while preparing fund flow statement. 1. Issue of shares 2. Issue of debentures 3. Long term borrowing 4. Sale of fixed assets 5. Sale of investment",
+    "options": [
+      "All except 1",
+      "All correct",
+      "All except 2",
+      "All except 3, 4",
+      "All except 5"
+    ],
+    "answer": 1,
+    "answer_letter": "B",
+    "explanation": "All correct Additional Information: Examples of uses of funds are as follows. • Payment of divided • Payment of taxes • Purchase of fixed assets • Repayment of loans • Redemption of debentures • Redemption of preferential shares"
+  },
+  {
+    "id": 27,
+    "original_id": 191,
+    "question": "An annual report contains which of the following basic financial statements. 1. Balance Sheet 2. Statement of Profit and Loss 3. Cash Flow Statement 4. Fund Flow Statement 5. Management’s discussion of corporate performance",
+    "options": [
+      "All except 2",
+      "All except 3, 4",
+      "All except 4, 5",
+      "All except 4",
+      "All correct"
+    ],
+    "answer": 3,
+    "answer_letter": "D",
+    "explanation": "All except 4"
+  },
+  {
+    "id": 28,
+    "original_id": 201,
+    "question": "Which of the following transaction will affect the current ratio?",
+    "options": [
+      "Debentures issued in consideration of Machinery purchased",
+      "Conversion of Debentures into Equity shares",
+      "Purchased goods on credit.",
+      "Goods sold for cash.",
+      "None of the above"
+    ],
+    "answer": 2,
+    "answer_letter": "C",
+    "explanation": "Purchased goods on credit. We can take an example and understand how option c. will affect current ratio: Current Asset and Current liability are 100 & 60 respectively. Current ratio will be 1.66. Now let’s assume we Purchased goods on credit amount to 10 Rs. So due to this transaction, both CA & CL will increase by 10 Rs. Current Asset and Current liability will now be 110 & 70 respectively. Current ratio will change to 1.57."
+  },
+  {
+    "id": 29,
+    "original_id": 208,
+    "question": "Which of the following ratios are used to calculate solvency of the business. 1. Debt-Equity Ratio 2. Debt to Capital Employed Ratio 3. Quick Ratio 4. Proprietary Ratio 5. Total Assets to Debt Ratio 6. Interest Coverage Ratio",
+    "options": [
+      "All except 1",
+      "All except 2",
+      "All except 3",
+      "All except 4, 6",
+      "All except 5, 6"
+    ],
+    "answer": 2,
+    "answer_letter": "C",
+    "explanation": "All except 3 Quick Ratio is a part of liquidity ratios. Debt-Equity ratio measures the relationship between long -term debt and equity. If debt component of the total long -term funds employed is small, outsiders feel more secure. From security point of view, capital structure with less debt and more equity is considered favourable as it reduces the chances of bankruptcy. Normally, it is considered to be safe if debt equity ratio is 2 : 1. The debt to capital employed ratio refers to the ratio of long -term debt to the total of external and internal funds (capital employed or net assets). It is computed as follows: Debt to Capital Employed Ratio = Long-term Debt/Capital Employed (or Net Assets) Proprietary ratio expresses relationship of proprietor’s (shareholders) funds to net assets and is calculated as follows : Proprietary Ratio = Shareholders’, Funds/Capital employed (or net assets) Total assets to debt ratio measures the extent of the coverage of long -term debts by assets. It is calculated as Total assets to Debt Ratio = Total assets/Long-term debts Interest coverage ratio deals with the servicing of interest on loan. It is a measure of security of interest payable on long-term debts. It expresses the relationship between profits available for payment of interest and the amount of interest payable. It is calculated as follows: Interest Coverage Ratio = Net Profit before Interest and Tax / Interest on long-term debts"
+  },
+  {
+    "id": 30,
+    "original_id": 209,
+    "question": "Net Profit before Interest and Tax / Interest on long-term debts Above equation shows which of the following ratio? 1. Net Tax Ratio 2. Profitability Ratio 3. Total Assets to Debt Ratio 4. Interest Coverage Ratio",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "None of these"
+    ],
+    "answer": 3,
+    "answer_letter": "D",
+    "explanation": "4 Interest Coverage Ratio= Profit before Interest and Tax / Interest on long-term debts It is a ratio which deals with the servicing of interest on loan. It is a measure of security of interest payable on long-term debts. It expresses the relationship between profits available for payment of interest and the amount of interest payable. It is calculated as follows: Interest Coverage Ratio = Net Profit before Interest and Tax / Interest on long-term debts Significance: It reveals the number of times interest on long-term debts is covered by the profits available for interest. A higher ratio ensures safety of interest on debts."
+  },
+  {
+    "id": 31,
+    "original_id": 210,
+    "question": "Which of following is/are not a type of Activity (or Turnover) Ratio? 1. Inventory Turnover Ratio 2. Sales Turnover Ratio 3. Trade Receivable Turnover Ratio 4. Trade Payable Turnover Ratio 5. Investment (Net assets) Turnover Ratio 6. Fixed Assets Turnover Ratio 7. Working Capital Turnover Ratio",
+    "options": [
+      "3",
+      "2",
+      "4",
+      "5, 6",
+      "6, 7"
+    ],
+    "answer": 1,
+    "answer_letter": "B",
+    "explanation": "2 Sales Turnover Ratio is not commonly used term, but it can be calculates for analysis purpose. These turnover ratios indicate the speed at which, activities of the business are being performed. The activity ratios express the number of times assets employed, or, for that matter, any constituent of assets, is turned into sales during an accounting pe riod. Higher turnover ratio means better utilisation of assets and signifies improved efficiency and profitability, and as such are known as efficiency ratios."
+  },
+  {
+    "id": 32,
+    "original_id": 221,
+    "question": "If sales are 50000 and GP ratio is 20% and average inventory is 5000, calculate inventory turnover ratio.",
+    "options": [
+      "10",
+      "9",
+      "7",
+      "8",
+      "6"
+    ],
+    "answer": 3,
+    "answer_letter": "D",
+    "explanation": "8 Inventory Turnover Ratio = COGS/ Average Inventory COGS = Sales – gross profit = 50,000 – 20% of 50,000 = = 40,000 Inventory turnover = 40,000/5000 = 8"
+  },
+  {
+    "id": 33,
+    "original_id": 225,
+    "question": "If the Net Working Capital is 60,000 and the Current Assets are 80,000, then what is the current ratio?",
+    "options": [
+      "4:1",
+      "3:4",
+      "4:3",
+      "1:4",
+      "1:1"
+    ],
+    "answer": 0,
+    "answer_letter": "A",
+    "explanation": "Net Working Capital = Current Assets – Current Liabilities 60000 = 80,000 – current liabilities Or Current Liabilities = 20,000 Current Ratio = Current assets/ current liabilities = 80,000/20,000 = 4:1"
+  },
+  {
+    "id": 34,
+    "original_id": 230,
+    "question": "If Equity is 100000 and the Total Assets are 500000, and Current Assets are 50000, Calculate the Proprietary Ratio:",
+    "options": [
+      "4:5",
+      "5:4",
+      "1:5",
+      "5:1",
+      "1:10"
+    ],
+    "answer": 2,
+    "answer_letter": "C",
+    "explanation": "The proprietary ratio is expressed in the form of a percentage and is calculated by dividing the shareholders equity with the total assets of the business. Therefore, 100000/500000."
+  },
+  {
+    "id": 35,
+    "original_id": 251,
+    "question": "What is the effect on the Quick Ratio when a company successfully collects cash from its trade receivables?",
+    "options": [
+      "It will lead to an increase in quick ratio",
+      "It will decrease the quick ratio",
+      "There's a slight decline in the ratio.",
+      "The ratio experiences a temporary increase.",
+      "The ratio remains unaffected."
+    ],
+    "answer": 4,
+    "answer_letter": "E",
+    "explanation": "The ratio remains unaffected Both cash and debtors are part of Quick assets. The collection of cash from receivables shifts the composition of quick assets without changing the total amount, thus not affecting the Quick Ratio."
+  },
+  {
+    "id": 36,
+    "original_id": 100,
+    "question": "The balance sheet of a company may show various terms related to capital being disclosed. Which of the following is the correct relation?",
+    "options": [
+      "Authorised Capital >= Issued capital >= Called up Capital",
+      "Authorised Capital <= Issued capital <= Called up Capital",
+      "Subscribed Capital <= Issued capital <= Called up Capital",
+      "Subscribed Capital >= Issued capital >= Called up Capital",
+      "None of the above is correct"
+    ],
+    "answer": 0,
+    "answer_letter": "A",
+    "explanation": "Authorised Capital >= Issued capital >= Called up Capital"
+  },
+  {
+    "id": 37,
+    "original_id": 101,
+    "question": "Which among the following best describes “Calls in arrears” for a company issuing capital?",
+    "options": [
+      "Liability",
+      "Capital",
+      "Revenue",
+      "Asset",
+      "Expense"
+    ],
+    "answer": 3,
+    "answer_letter": "D",
+    "explanation": "When some allottees fail to pay the allotment money or call money or any call getting due, that will be referred to as “Calls in arrears”. It is an asset for the company. However it is shown in the balance sheet on the liability side as a deduction from capital. The total amount of calls in arrears is deducted from called up capital in the balance sheet to arrive at the paid-up capital."
+  },
+  {
+    "id": 38,
+    "original_id": 106,
+    "question": "As per _______of Companies Act, 2013, a company may issue fully paid-up bonus shares.",
+    "options": [
+      "Section 63 (1)",
+      "Section 33 (1)",
+      "Section 43 (1)",
+      "Section 53 (1)",
+      "Section 73 (1)"
+    ],
+    "answer": 0,
+    "answer_letter": "A",
+    "explanation": "Section 63 (1)"
+  },
+  {
+    "id": 39,
+    "original_id": 108,
+    "question": "No company shall capitalise its profits or reserves for the purpose of issuing fully paid - up bonus shares, unless: 1. It is authorised by its articles 2. It has, on the recommendation of the Board, been authorised in the general meeting of the company. 1. 3.It has not defaulted in payment of interest or principal in respect of fixed deposits or debt securities issued by it. 3. It has not defaulted in respect of the payment of statutory dues of the employees, such as, contribution to provident fund, gratuity and bonus. 4. The partly paid-up shares, if any outstanding on the date of allotment, are made fully paid-up. 5. It complies with such conditions as may be prescribed. Identify the incorrect option/s.",
+    "options": [
+      "2",
+      "3",
+      "All correct",
+      "4, 5",
+      "1, 6"
+    ],
+    "answer": 2,
+    "answer_letter": "C",
+    "explanation": "All correct These provisions are given in the Section 63(2) of the Companies Act, 2013. Here simple meaning of to capitalise is to convert into capital or to supply capital for."
+  },
+  {
+    "id": 40,
+    "original_id": 75,
+    "question": "Which term describes the market price of a share before a rights issue is announced?",
+    "options": [
+      "Ex-dividend price",
+      "Ex-right market price",
+      "Pre-issue market price",
+      "Nominal share price",
+      "Cum-right market price"
+    ],
+    "answer": 4,
+    "answer_letter": "E",
+    "explanation": "Cum-right market price The term \"Cum-right market price\" refers to the market price of shares before a rights issue is announced. This price includes the value of the forthcoming rights, meaning that anyone who purchases the shares at this price is entitled to participate in the rights issue."
+  },
+  {
+    "id": 41,
+    "original_id": 76,
+    "question": "How is the value of a right calculated in the context of a rights issue?",
+    "options": [
+      "By subtracting the ex-dividend price from the cum-dividend price of the share.",
+      "By subtracting the ex-right market price of the share from the cum-right market price of the share.",
+      "By adding the cum-right market price of the share to the ex-right market price of the share.",
+      "By dividing the ex-right market price of the share by the cum-right market price of the share.",
+      "By multiplying the ex-right market price of the share with the cum-right market price of the share."
+    ],
+    "answer": 1,
+    "answer_letter": "B",
+    "explanation": "By subtracting the ex-right market price of the share from the cum-right market price of the share. The value of a right is determined during a rights issue by taking the difference between the cum-right market price (the share price before the rights issue) and the ex-right market price (the share price after the rights issue). The value of the right gives existing shareholders an indication of the value of the opportunity to purchase additional shares at the rights issue price."
+  },
+  {
+    "id": 42,
+    "original_id": 77,
+    "question": "What is the maximum limit for a share buy -back as a percentage of the total paid -up capital and free reserves in a financial year?",
+    "options": [
+      "10% of the total paid-up capital and free reserves by value at historical cost less accumulated depreciation",
+      "15% of the total paid-up equity by volume during the current accounting period",
+      "20% of the total paid-up capital and free reserves by value in accordance with the prudence and matching concepts",
+      "25% of the total paid-up capital and free reserves by value and 25% of equity by volume",
+      "30% of the total paid-up capital and free reserves by value in the books of account at the close of the financial year"
+    ],
+    "answer": 3,
+    "answer_letter": "D",
+    "explanation": "25% of the total paid -up capital and free reserves by value and 25% of equity by volume A company may buy back shares up to a certain limit, which is set at 25% of the total paid-up capital and free reserves by value, and also up to 25% of the total equity by volume, within one financial year. This limit is intended to balance the benefit of share buy-backs to shareholders and the company’s overall financial stability."
+  },
+  {
+    "id": 43,
+    "original_id": 78,
+    "question": "What will be the fair value of the ESOP which was offered at Rs.75 when market value of the share was Rs.90 and market price on the date of exercising was Rs.84?",
+    "options": [
+      "Rs.15",
+      "Rs.75",
+      "Rs.9",
+      "Rs.84",
+      "Rs.90"
+    ],
+    "answer": 0,
+    "answer_letter": "A",
+    "explanation": "Rs.15 Fair value for ESOP is calculated with reference to the grant date, based on market prices, if available, taking into account the terms and conditions upon which those shares or stock options were granted. Therefore FV = Rs.90 – Rs.75 = Rs.15"
+  },
+  {
+    "id": 44,
+    "original_id": 84,
+    "question": "After a company conducts a share buyback, what is the required status of the debt-equity ratio according to most financial regulatory guidelines?",
+    "options": [
+      "The debt-equity ratio should be at least 1:1.",
+      "The debt-equity ratio should be at least 2:1.",
+      "The debt-equity ratio must not exceed 2:1.",
+      "The debt-equity ratio must not exceed 1:2.",
+      "There is no specific requirement for the debt-equity ratio after a buyback."
+    ],
+    "answer": 2,
+    "answer_letter": "C",
+    "explanation": "The debt-equity ratio must not exceed 2:1. After a share buyback, financial regulations generally stipulate that a company's debt-equity ratio should not be too high to ensure the company does not become over-leveraged. A common standard is that the debt should not be more than twice the equity (a ratio of 2:1). This guideline is to ensure the company maintains a healthy balance between debt and equity financing, preserving financial stability and retaining investor confidence."
+  },
+  {
+    "id": 45,
+    "original_id": 138,
+    "question": "Which of the Section of the Companies Act 2013 is related to the Power of company to purchase its own securities (Buy-back of shares)?",
+    "options": [
+      "Section 28",
+      "Section 38",
+      "Section 48",
+      "Section 58",
+      "Section 68"
+    ],
+    "answer": 4,
+    "answer_letter": "E",
+    "explanation": "Section 68 68. (1) Notwithstanding anything contained in this Act, but subject to the provisions of sub - section (2), a company may purchase its own shares or other specified securities (hereinafter referred to as buy-back) out of— (a) its free reserves; (b) the securities premium account; or (c) the proceeds of the issue of any shares or other specified securities. Provided that no buy-back of any kind of shares or other specified securities shall be made out of the proceeds of an earlier issue of the same kind of shares or same kind of other specified securities."
+  },
+  {
+    "id": 46,
+    "original_id": 145,
+    "question": "The following provisions are mentioned in which section of the Companies Act 2013? The financial statements shall give a true and fair view of the state of affairs of the company or companies, comply with the accounting standards notified under section 133 and shall be in the form or forms as may be provided for different class or classes of companies in Schedule III.",
+    "options": [
+      "Section 99 (1)",
+      "Section 129 (1)",
+      "Section 109 (1)",
+      "Section 119 (1)",
+      "Section 139 (1)"
+    ],
+    "answer": 1,
+    "answer_letter": "B",
+    "explanation": "Section 129 (1) Information about some basic accounting terms. What is the difference between outstanding expenses and prepaid expenses? Outstanding expenses are the expenses, which have been incurred, but not paid. Prepaid expenses are the amounts paid for which benefit has not been received during the year in which the payment has been made. What is depreciation? What adjustment entry is made for it? Depreciation is a reduction in the value of the asset for use, wear and tear etc. Depreciation account is debited and the concerned asset account is credited with the amount of depreciation. What is the need for providing depreciation, when there is no cash outgo? Depreciation is an expense as an asset has been used in conducting the business. Adjustment for depreciation is to be made before drawing the financial statements to show proper operating results and financial position."
+  },
+  {
+    "id": 47,
+    "original_id": 161,
+    "question": "Where should the amount incurred on a patent, which is still in the process of being developed, be shown according to Schedule III of the Companies Act, 2013?",
+    "options": [
+      "Intangible assets",
+      "Fixed Assets",
+      "Other Non-Current Assets",
+      "Intangible assets under development",
+      "Intangible assets in process"
+    ],
+    "answer": 3,
+    "answer_letter": "D",
+    "explanation": "Intangible assets under development According to Schedule III of the Companies Act, 2013, expenses incurred on an intangible asset, such as a patent, which is still in the process of development and not yet ready for its intended use, should be classified as \"Intangible assets under development.\""
+  },
+  {
+    "id": 48,
+    "original_id": 168,
+    "question": "As per Schedule III of the Companies Act, 2013, the current maturities of long term debt have to be shown under which of the following heading?",
+    "options": [
+      "Short Term borrowings",
+      "Long Term Borrowings",
+      "Other Long Term liabilities",
+      "Other current liabilities",
+      "Contingent liabilities"
+    ],
+    "answer": 0,
+    "answer_letter": "A",
+    "explanation": "As per Amendment notification to Schedule III of Companies Act, 2013, applicable from April 01, 2021, the current maturities of long term borrowings shall be disclosed separately under short term borrowings. The Current maturities of finance lease obligations continue to be disclosed under other current liabilities."
+  },
+  {
+    "id": 49,
+    "original_id": 169,
+    "question": "Which of the following items of income or expenditure are required to be disclosed separately in the notes to profit and loss as per the Schedule III?",
+    "options": [
+      "Items that exceed 1% of revenue from operations or Rs.1 lakh, whichever is lower",
+      "Items that exceed 5% of revenue from operations or Rs.5 lakh, whichever is higher",
+      "Items that exceed 1% of revenue from operations or Rs.1 lakh, whichever is higher",
+      "Items that exceed 5% of revenue from operations or Rs.5 lakh, whichever is lower",
+      "No such requirement"
+    ],
+    "answer": 2,
+    "answer_letter": "C",
+    "explanation": "Items that exceed 1% of revenue from operations or Rs.1 lakh, whichever is higher. As per Schedule III, a Company shall disclose by way of notes additional information regarding aggregate expenditure and income on the following items:— a. Employee benefits expenses showing separately: i. Salaries and Wages ii. Contribution to provident and other funds iii. Expense on Employee Stock Option Scheme iv. Staff Welfare Expenses b. Depreciation and amortization expense c. Any item if income or expenditure which exceeds 1% of the revenue from operations or Rs.1,00,000 whichever is higher d. Interest Income e. Adjustments to carrying amount of investments f. Payment to auditors g. Incase of companies covered under Sec 135, expense on CSR activities h. Details of items of exceptional and extraordinary nature i. Prior Period Items – example tax adjustments which relate to previous year’s tax expenses"
+  },
+  {
+    "id": 50,
+    "original_id": 171,
+    "question": "Division III was inserted in Schedule III of the Companies Act, 2013 which prescribes the format for preparation of financial statements for _________.",
+    "options": [
+      "Manufacturing companies",
+      "Trading companies",
+      "Banks",
+      "Foreign companies",
+      "NBFCs"
+    ],
+    "answer": 4,
+    "answer_letter": "E",
+    "explanation": "NBFCs • Division I – relates to format for preparation of financial statements for companies complying with Accounting Standards (AS) • Division II - relates to format for preparation of financial statements for companies complying with Indian Accounting Standards (Ind AS) • Division III - relates to format for preparation of financial statements for NBFCs complying with Indian Accounting Standards (Ind AS)"
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Commerce & Accountancy Mock 1",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Commerce & Accountancy Mock 1";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br /><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br /><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br /><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br /><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

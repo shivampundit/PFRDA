@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFRDA Marketing &amp; Communication Mock Test 5 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject L: Marketing & Communication</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Marketing_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Marketing_Communication_Master_Revision_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Marketing_Communication_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Marketing_Communication_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Marketing_Communication_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Marketing_Communication_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Marketing_Communication_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &middot; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &middot; Paper 2 &middot; Marketing &amp; Communication Mock 5</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Marketing &amp; Communication - Mock 5</h1>
+    <p class="start-subheading">Full 50 Questions &middot; Concept-Based &middot; PFRDA Grade A Level &middot; Precision Coaching</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant">
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com">
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Accounting System:</b> Financial information system, bookkeeping vs accounting, concepts, conventions, capital vs revenue, errors.</li>
+                <li><b>Accounting Standards:</b> Depreciation (AS 10 / Ind AS 16), Inventories (AS 2 / Ind AS 2), Revenue Recognition (AS 9 / Ind AS 115), PPE (AS 10), Forex (AS 11 / Ind AS 21), Investments (AS 13).</li>
+                <li><b>Cash Flow &amp; Fund Flow:</b> Operating/Investing/Financing activities, Direct &amp; Indirect methods, Statement of Changes in Working Capital.</li>
+                <li><b>Ratio Analysis:</b> Liquidity, Solvency, Turnover, Profitability, and DuPont 3-stage model.</li>
+                <li><b>Share Capital &amp; Corporate Actions:</b> Share issue/forfeiture/reissue, Bonus shares (Sec 63), Rights issue (Sec 62), ESOPs, Buy-back (Sec 68-70).</li>
+                <li><b>Company Final Accounts:</b> Schedule III Balance Sheet and Statement of Profit &amp; Loss structure and disclosures.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "What is the strategic 5C approach adopted in India's 'National Strategy for Financial Education' (NFES 2020-2025) released by the National Centre for Financial Education (NCFE) in consultation with RBI, SEBI, IRDAI, and PFRDA?",
+    "options": [
+      "Content, Capacity, Community, Communication, and Collaboration",
+      "Cash, Credit, Capital, Collateral, and Capacity",
+      "Customer, Cost, Convenience, Communication, and Care",
+      "Compliance, Control, Clearance, Coverage, and Certification",
+      "Curriculum, Classes, Coaching, Credentials, and Career"
+    ],
+    "answer": 0,
+    "explanation": "NFES 2020-2025 lays down a multi-stakeholder 5C approach: (1) Content (standardized financial literacy curriculum), (2) Capacity (developing certified financial educators), (3) Community (community-led peer learning via SHGs, rural hubs), (4) Communication (multimedia campaigns across regional languages), and (5) Collaboration (inter-regulatory integration among RBI, SEBI, IRDAI, PFRDA)."
+  },
+  {
+    "id": 2,
+    "question": "Under the Pension Fund Regulatory and Development Authority Act, 2013 (PFRDA Act), what is the statutory fund created to promote pension awareness, subscriber education, and protect citizen interests?",
+    "options": [
+      "Investor Education and Protection Fund (IEPF)",
+      "National Pension Settlement Reserve (NPSR)",
+      "Subscriber Education and Protection Fund (SEPF)",
+      "Depositor Education and Awareness Fund (DEAF)",
+      "Social Security Guarantee Fund (SSGF)"
+    ],
+    "answer": 2,
+    "explanation": "Under Section 41 of the PFRDA Act, 2013, the 'Subscriber Education and Protection Fund' (SEPF) is established. Grants, designated levies, and uncredited amounts are pooled into the SEPF to promote public awareness, education on retirement planning, and subscriber welfare programs."
+  },
+  {
+    "id": 3,
+    "question": "Which dedicated mobile application was launched by the Securities and Exchange Board of India (SEBI) to empower individual retail investors with authentic financial literacy, KYC rules, and grievance redressal mechanisms?",
+    "options": [
+      "BHIM App",
+      "UMANG App",
+      "DigiLocker App",
+      "YONO App",
+      "Saa₹thi App"
+    ],
+    "answer": 4,
+    "explanation": "SEBI launched the 'Saa₹thi' mobile application to provide retail investors with unbiased investor education, mutual fund basics, KYC processes, trading mechanisms, and fraud awareness directly from the securities market regulator."
+  },
+  {
+    "id": 4,
+    "question": "What is 'SCORES' (SEBI Complaints Redress System) in the Indian financial regulatory architecture?",
+    "options": [
+      "A national credit rating scoring system for corporate bonds across target market segments and consumer touchpoints",
+      "A centralized, web-based online grievance redressal platform launched by SEBI where retail investors can lodge complaints against listed companies, registered intermediaries, and market entities",
+      "An algorithmic trading software used by institutional stockbrokers",
+      "An examination conducted to recruit Grade A regulatory officers based on primary consumer research and behavioral segmentation",
+      "A financial solvency index measuring commercial bank liquidity to strengthen competitive positioning in the target market"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A centralized, web-based online grievance redressal platform launched by SEBI where retail investors can lodge complaints against listed companies, registered intermediaries, and market entities. SCORES (SEBI Complaints Redress System) is SEBI's digital portal for resolving investor grievances. Listed companies and registered intermediaries are mandated to review and resolve investor complaints within stipulated regulatory turnaround times."
+  },
+  {
+    "id": 5,
+    "question": "What is the 'Rule of 72' in financial literacy and retirement planning calculations?",
+    "options": [
+      "The mandatory retirement age for pension fund trustees throughout the stages of the product life cycle (PLC)",
+      "The maximum percentage of equities allowed in conservative pension schemes across omnichannel retail and digital distribution networks",
+      "The percentage of salary an employee must contribute to provident funds in alignment with strategic brand management objectives",
+      "A mental math shortcut that estimates the approximate number of years required to double an invested sum of money at a fixed annual compound rate of return",
+      "A corporate governance rule requiring 72 hours notice for board meetings to maximize customer acquisition, retention, and advocacy"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A mental math shortcut that estimates the approximate number of years required to double an invested sum of money at a fixed annual compound rate of return: Years to Double ≈ 72 / Annual Interest Rate. The Rule of 72 states that Years to Double = 72 / r, where r is the annual compound return percentage. For example, an investment compounding at 8% per annum will double in approximately 72 / 8 = 9 years. At 12%, it doubles in approximately 6 years."
+  },
+  {
+    "id": 6,
+    "question": "What is the critical distinction between 'Nominal Return' and 'Real Return' on an investment asset?",
+    "options": [
+      "Nominal return is the stated percentage growth of an investment before adjusting for inflation",
+      "Nominal return applies only to sovereign bonds; Real return applies to real estate",
+      "Nominal return is calculated annually; Real return is calculated once per century",
+      "Nominal return is taxed at zero percent; Real return is taxed at corporate rates",
+      "Nominal return is guaranteed by the central bank; Real return is speculative"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Nominal return is the stated percentage growth of an investment before adjusting for inflation, whereas Real Return is the purchasing-power return calculated after deducting the rate of inflation: Real Return ≈ Nominal Return - Inflation Rate. The Fisher equation shows that Real Interest Rate ≈ Nominal Interest Rate - Inflation Rate. If a fixed deposit yields a nominal 7% interest while annual consumer inflation runs at 6%, the real return is only ~1%, demonstrating why equity and growth assets are critical for long-term purchasing power."
+  },
+  {
+    "id": 7,
+    "question": "What is 'Rupee Cost Averaging' (or Dollar Cost Averaging) through Systematic Investment Plans (SIPs) in financial planning?",
+    "options": [
+      "Exchanging foreign currencies at official central bank benchmark exchange rates",
+      "A legal method of evading capital gains taxes through offshore trusts",
+      "Investing a fixed sum of money at regular periodic intervals (e.g. monthly)",
+      "Borrowing money from commercial banks at subsidized interest rates",
+      "Calculating the average cost of printing physical currency notes"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Investing a fixed sum of money at regular periodic intervals (e.g. monthly), thereby automatically purchasing more mutual fund units when market prices are low and fewer units when prices are high, lowering the average cost per unit over time. Rupee Cost Averaging via SIPs removes the emotional temptation to 'time the market'. By investing an identical monetary amount periodically, the investor buys more units during market dips and fewer during rallies, evening out market volatility and yielding an attractive average cost per unit."
+  },
+  {
+    "id": 8,
+    "question": "In financial literacy, why is a high 'Credit Score' (such as a CIBIL score between 750 and 900) essential for an individual consumer?",
+    "options": [
+      "It gives the individual automatic immunity from income tax scrutiny",
+      "It increases the consumer's monthly pension payout under social security",
+      "It legally certifies that the individual holds zero personal debt",
+      "It permits the consumer to issue legal tender currency promissory notes",
+      "It reflects high creditworthiness and repayment discipline"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: It reflects high creditworthiness and repayment discipline, enabling the borrower to secure loans faster, negotiate lower interest rates, and obtain higher credit card limits. A credit score (300-900) summarizes an individual's credit history, repayment punctuality, credit utilization ratio, and credit mix. Scores above 750 classify a borrower as low risk, securing preferential borrowing rates and fast approvals from lenders."
+  },
+  {
+    "id": 9,
+    "question": "What is the primary objective of the 'Banning of Unregulated Deposit Schemes Act, 2019' (BUDS Act) in India?",
+    "options": [
+      "To ban all commercial banks from accepting fixed deposits from senior citizens throughout the stages of the product life cycle (PLC)",
+      "To provide a comprehensive legislative ban on all illicit deposit-taking schemes, Ponzi operations, and illegal chit funds that solicit public money",
+      "To prohibit the usage of physical cash in retail transactions over Rs 500 across omnichannel retail and digital distribution networks",
+      "To nationalize all private corporate pension funds under central government control in alignment with strategic brand management objectives",
+      "To impose strict limits on foreign direct investment in manufacturing to maximize customer acquisition, retention, and advocacy"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: To provide a comprehensive legislative ban on all illicit deposit-taking schemes, Ponzi operations, and illegal chit funds that solicit public money without regulatory approval, safeguarding poor and gullible depositors. The BUDS Act, 2019 criminalizes illicit deposit schemes and Ponzi operations that exploit savers by promising unrealistic returns. Any deposit-taking scheme not registered with designated regulators (RBI, SEBI, IRDAI, PFRDA, Ministry of Corporate Affairs) is strictly illegal."
+  },
+  {
+    "id": 10,
+    "question": "In personal financial management, what is the 'Emergency Fund' rule of thumb recommended by certified financial planners?",
+    "options": [
+      "Keeping 100% of one's net worth in physical cash hidden in a home vault to strengthen competitive positioning in the target market",
+      "Borrowing from credit cards whenever an emergency occurs during interpersonal and organizational communication",
+      "Investing all emergency savings into volatile high-beta equity shares within the holistic marketing and value delivery framework",
+      "Maintaining 3 to 6 months of mandatory living expenses in highly liquid, capital-safe instruments to cushion against unexpected job loss or medical crises",
+      "Purchasing lottery tickets every month to create a windfall safety net across target market segments and consumer touchpoints"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Maintaining 3 to 6 months of mandatory living expenses (rent, EMIs, food, utilities, insurance) in highly liquid, capital-safe instruments (savings accounts or liquid mutual funds) to cushion against unexpected job loss or medical crises. An emergency fund acts as a financial shock absorber. By maintaining 3 to 6 months of living expenses in liquid, risk-free avenues, households avoid being forced to liquidate long-term equity or pension investments at distressed market valuations during unforeseen emergencies."
+  },
+  {
+    "id": 11,
+    "question": "What are the '7 Cs of Effective Communication' formulated by Cutlip and Center?",
+    "options": [
+      "Clear, Concise, Concrete, Correct, Coherent, Complete, and Courteous",
+      "Control, Command, Coordination, Compliance, Cost, Capital, and Caution",
+      "Customer, Care, Channel, Content, Creativity, Campaign, and Conversion",
+      "Cognitive, Conceptual, Contextual, Critical, Complex, Circular, and Casual",
+      "Curiosity, Confidence, Charisma, Charm, Character, Courage, and Calmness"
+    ],
+    "answer": 0,
+    "explanation": "The classic 7 Cs of communication are: (1) Clear (unambiguous purpose), (2) Concise (no unnecessary words), (3) Concrete (specific facts and figures), (4) Correct (accurate language and data), (5) Coherent (logical sequence), (6) Complete (all necessary info provided), and (7) Courteous (respectful and empathetic tone)."
+  },
+  {
+    "id": 12,
+    "question": "In the foundational 'Shannon-Weaver Model of Communication' (1949), what is 'Noise' defined as?",
+    "options": [
+      "Audible shouting by an angry speaker in a meeting across target market segments and consumer touchpoints",
+      "Music played during corporate slide presentations to build long-term customer lifetime value and brand equity",
+      "Any extraneous disturbance, static, interference, or distortion that alters, impairs, or obstructs the accurate transmission and reception of a message between sender and receiver",
+      "A defect in the physical construction of a telephone handset based on primary consumer research and behavioral segmentation",
+      "The volume level of a loudspeaker measured in decibels to strengthen competitive positioning in the target market"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Any extraneous disturbance, static, interference, or distortion that alters, impairs, or obstructs the accurate transmission and reception of a message between sender and receiver. Shannon and Weaver defined 'Noise' broadly as any factor in the transmission channel that degrades message fidelity. It can be physical (acoustic interference), physiological (hearing impairment), psychological (prejudice, anxiety), or semantic (confusing jargon)."
+  },
+  {
+    "id": 13,
+    "question": "What is David Berlo's 'SMCR Model of Communication' and what do the letters represent?",
+    "options": [
+      "Sender, Medium, Customer, and Response",
+      "Strategy, Management, Control, and Results",
+      "Speech, Movement, Clarity, and Resonance",
+      "Speaker, Moderator, Committee, and Reporter",
+      "Source, Message, Channel, and Receiver"
+    ],
+    "answer": 4,
+    "explanation": "Berlo's SMCR model breaks communication down into 4 elements: Source (sender's communication skills, attitude, knowledge, culture), Message (content, elements, treatment, code), Channel (the 5 human senses: seeing, hearing, touching, smelling, tasting), and Receiver (receiver's skills, attitude, context)."
+  },
+  {
+    "id": 14,
+    "question": "What is a 'Semantic Barrier' to effective communication in an organization?",
+    "options": [
+      "A faulty telephone wire that causes static noise during a call to strengthen competitive positioning in the target market",
+      "A breakdown in communication arising from differences in language, vocabulary, technical jargon, ambiguous words, or differing interpretations of symbols between sender and receiver",
+      "A physical concrete wall separating two corporate cubicles during interpersonal and organizational communication",
+      "A strict corporate policy requiring written memos instead of verbal chats within the holistic marketing and value delivery framework",
+      "An employee arriving late to an annual general meeting across target market segments and consumer touchpoints"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A breakdown in communication arising from differences in language, vocabulary, technical jargon, ambiguous words, or differing interpretations of symbols between sender and receiver. Semantic barriers arise when words, acronyms, or technical jargon mean different things to different people (e.g. a financial analyst using complex actuarial terms with a retail pensioner), creating cognitive confusion and misinterpretation."
+  },
+  {
+    "id": 15,
+    "question": "What are the '3 As of Active Listening' recognized in professional communication skills?",
+    "options": [
+      "Audience, Action, and Agreement",
+      "Articulation, Accuracy, and Authority",
+      "Awareness, Assessment, and Application",
+      "Attitude, Attention, and Adjustment",
+      "Analysis, Alignment, and Approval"
+    ],
+    "answer": 3,
+    "explanation": "The 3 As of active listening are: (1) Attitude (approaching the speaker with an open, non-defensive mindset), (2) Attention (maintaining focused, undivided mental presence and eye contact), and (3) Adjustment (adapting to the speaker's train of thought and emotional state)."
+  },
+  {
+    "id": 16,
+    "question": "In listening taxonomy, what is 'Empathetic (Empathetic/Therapeutic) Listening'?",
+    "options": [
+      "Listening deeply to understand the speaker's emotions, feelings, and personal worldview from their perspective",
+      "Listening purely to find logical flaws and critique the speaker's grammar across target market segments and consumer touchpoints",
+      "Listening casually while simultaneously reading emails on a smartphone to build long-term customer lifetime value and brand equity",
+      "Listening solely to memorize numerical data for an upcoming written exam based on primary consumer research and behavioral segmentation",
+      "Listening only to polite compliments while tuning out constructive feedback to strengthen competitive positioning in the target market"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Listening deeply to understand the speaker's emotions, feelings, and personal worldview from their perspective ('walking in their shoes') without passing judgment or offering unsolicited advice. Empathetic listening goes beyond understanding facts to connect emotionally with the speaker. It involves listening with empathy, withholding premature evaluation, validating feelings, and offering supportive presence."
+  },
+  {
+    "id": 17,
+    "question": "What is 'Paraphrasing' in active listening techniques and why is it powerful in workplace communication?",
+    "options": [
+      "Repeating the speaker's exact sentences word-for-word in a robotic monotone throughout the stages of the product life cycle (PLC)",
+      "Interrupting the speaker halfway through to finish their sentence across omnichannel retail and digital distribution networks",
+      "Restating the speaker's core message, ideas, and emotional essence in the listener's own words to confirm accurate mutual understanding and demonstrate genuine engagement",
+      "Translating an English speech into a foreign language without permission in alignment with strategic brand management objectives",
+      "Taking verbatim shorthand notes during an executive board meeting to maximize customer acquisition, retention, and advocacy"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Restating the speaker's core message, ideas, and emotional essence in the listener's own words to confirm accurate mutual understanding and demonstrate genuine engagement. Paraphrasing ('So what you are saying is that...') proves to the speaker that they have been truly heard, clears up ambiguities before misunderstandings escalate, and allows the speaker to correct or elaborate on their thoughts."
+  },
+  {
+    "id": 18,
+    "question": "In non-verbal communication, what does the study of 'Kinesics' encompass?",
+    "options": [
+      "The study of vocal pitch, tone, and speaking speed to strengthen competitive positioning in the target market",
+      "The study of physical distance and personal space between individuals during interpersonal and organizational communication",
+      "The study of touch communication and handshake pressure within the holistic marketing and value delivery framework",
+      "The study of chronological time management and punctuality across target market segments and consumer touchpoints",
+      "The study of body movement, facial expressions, eye contact (oculesics), gestures, and physical postures as non-verbal communication signals"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The study of body movement, facial expressions, eye contact (oculesics), gestures, and physical postures as non-verbal communication signals. Ray Birdwhistell coined 'Kinesics' to describe the interpretation of body language—including gestures, head nods, leg crossing, posture, and facial expressions—which convey powerful conscious and subconscious emotional cues."
+  },
+  {
+    "id": 19,
+    "question": "In Edward T. Hall's 'Proxemics' (the study of interpersonal personal space), what are the four spatial distance zones (for North American/Western culture)?",
+    "options": [
+      "Micro Space (0-1 ft), Meso Space (1-5 ft), Macro Space (5-10 ft), and Mega Space (10+ ft) to maximize customer acquisition, retention, and advocacy",
+      "Intimate Space (0-1.5 ft), Personal Space (1.5-4 ft), Social Space (4-12 ft), and Public Space (12+ ft)",
+      "Private Space, Corporate Space, Public Space, and Sovereign Space through active listening and empathetic stakeholder engagement",
+      "Inner Circle, Middle Circle, Outer Circle, and Horizon within the integrated marketing communications (IMC) mix",
+      "Desk Space, Room Space, Hall Space, and Street Space throughout the stages of the product life cycle (PLC)"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Intimate Space (0-1.5 ft), Personal Space (1.5-4 ft), Social Space (4-12 ft), and Public Space (12+ ft). Edward T. Hall categorized human spatial distance: (1) Intimate Distance (0 to 1.5 feet - for close physical contact), (2) Personal Distance (1.5 to 4 feet - for friends and acquaintances), (3) Social Distance (4 to 12 feet - for business interactions and meetings), and (4) Public Distance (12 feet and beyond - for public speaking)."
+  },
+  {
+    "id": 20,
+    "question": "What is 'Paralanguage' (Vocalics) in communication theory?",
+    "options": [
+      "A foreign dialect spoken in bilingual diplomatic meetings",
+      "Written subtitles displayed beneath video presentations",
+      "A formal programming language used in digital telephony",
+      "The non-verbal vocal qualities that accompany spoken words",
+      "Hand signals used by air traffic control ground marshals"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The non-verbal vocal qualities that accompany spoken words, including pitch, tone, tempo, volume, resonance, inflection, pauses, and vocal non-fluencies ('um', 'ah'). Paralanguage is 'how' something is said rather than 'what' is said. Vocal inflections, pauses, and pitch drastically alter meaning (e.g. emphasizing different words in 'I didn't say you stole the money' creates seven different meanings)."
+  },
+  {
+    "id": 21,
+    "question": "What are 'Micro-expressions' discovered by Paul Ekman in emotion research?",
+    "options": [
+      "Brief, involuntary facial expressions lasting a fraction of a second that reveal true, unvarnished underlying emotions that a person is trying to conceal or repress",
+      "Tiny emojis sent across mobile instant messaging apps throughout the stages of the product life cycle (PLC)",
+      "Microscopic cosmetic tattoos applied to facial skin across omnichannel retail and digital distribution networks",
+      "Short verbal sighs emitted during tense business negotiations",
+      "Minor typographical errors in corporate annual reports to maximize customer acquisition, retention, and advocacy"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Brief, involuntary facial expressions lasting a fraction of a second (1/15th to 1/25th of a second) that reveal true, unvarnished underlying emotions that a person is trying to conceal or repress. Ekman's research proved that when people attempt to suppress their emotions, true feelings leak out as rapid, involuntary micro-expressions. Across all human cultures, seven universal emotions display identical facial muscle configurations: Anger, Fear, Disgust, Sadness, Happiness, Surprise, and Contempt."
+  },
+  {
+    "id": 22,
+    "question": "What is the 'Minto Pyramid Principle' developed by Barbara Minto (McKinsey & Company) for executive communication clarity?",
+    "options": [
+      "Structuring corporate memos like ancient Egyptian hierarchical monuments to strengthen competitive positioning in the target market",
+      "Hiding the final conclusion until the very end of an 80-page slide deck to build suspense during interpersonal and organizational communication",
+      "Presenting the key conclusion, main takeaway, or core recommendation upfront at the top of the pyramid",
+      "Arranging employee office cubicles in a triangular architectural formation within the holistic marketing and value delivery framework",
+      "A fraudulent multi-level financial scheme prohibited by corporate regulators across target market segments and consumer touchpoints"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Presenting the key conclusion, main takeaway, or core recommendation upfront at the top of the pyramid, followed by supporting logical arguments, and finally the detailed granular data below (Top-Down executive communication). The Minto Pyramid Principle states that executive communication must be top-down: start with the Core Answer/Recommendation (SCQA: Situation, Complication, Question, Answer), supported by mutually exclusive, collectively exhaustive (MECE) arguments, backed by granular evidence below."
+  },
+  {
+    "id": 23,
+    "question": "What does the 'MECE' framework stand for in clear structured communication and problem-solving?",
+    "options": [
+      "Management Efficiency, Corporate Excellence",
+      "Market Expansion, Customer Engagement",
+      "Measured Execution, Controlled Expense",
+      "Mainstream Economics, Capital Evaluation",
+      "Mutually Exclusive, Collectively Exhaustive"
+    ],
+    "answer": 4,
+    "explanation": "MECE (Mutually Exclusive, Collectively Exhaustive) requires that ideas or categories in a breakdown do not overlap with each other (mutually exclusive) and together cover all possible aspects of the problem without leaving gaps (collectively exhaustive)."
+  },
+  {
+    "id": 24,
+    "question": "In the Thomas-Kilmann Conflict Mode Instrument (TKI), what are the two underlying psychological dimensions used to map conflict-handling styles?",
+    "options": [
+      "Intelligence and Emotional Stability",
+      "Assertiveness and Cooperativeness",
+      "Introversion and Extraversion",
+      "Risk Tolerance and Time Horizon",
+      "Authoritarianism and Laissez-faire"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Assertiveness (the extent to which an individual attempts to satisfy their own concerns) and Cooperativeness (the extent to which an individual attempts to satisfy the other person's concerns). The TKI model plots conflict behavior along two axes: Assertiveness (focus on self) and Cooperativeness (focus on others), defining 5 distinct conflict styles: Competing, Collaborating, Compromising, Avoiding, and Accommodating."
+  },
+  {
+    "id": 25,
+    "question": "In the Thomas-Kilmann Conflict Mode Instrument (TKI), which style is characterized by HIGH Assertiveness and HIGH Cooperativeness, aiming for a true win-win solution?",
+    "options": [
+      "Competing",
+      "Accommodating",
+      "Avoiding",
+      "Collaborating",
+      "Compromising"
+    ],
+    "answer": 3,
+    "explanation": "Collaborating (High Assertiveness, High Cooperativeness) explores disagreement in depth to uncover root causes and find a creative, integrative solution that completely satisfies both parties' core concerns ('two heads are better than one')."
+  },
+  {
+    "id": 26,
+    "question": "In the TKI conflict model, when is the 'Avoiding' mode (Low Assertiveness, Low Cooperativeness) appropriate to deploy?",
+    "options": [
+      "When the issue is trivial or tangential, when potential disruption outweighs the benefits of resolution, or when emotions are running too high and parties need time to cool down and regain perspective",
+      "When resolving core strategic corporate mergers to strengthen competitive positioning in the target market",
+      "When an immediate decisive emergency action is vital for safety during interpersonal and organizational communication",
+      "When harmony and preserving the relationship is paramount to all else within the holistic marketing and value delivery framework",
+      "When seeking a permanent, deep integrative consensus across target market segments and consumer touchpoints"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: When the issue is trivial or tangential, when potential disruption outweighs the benefits of resolution, or when emotions are running too high and parties need time to cool down and regain perspective. Avoiding is appropriate when the issue is minor, when you have no power, when others can resolve it more effectively, or as a tactical delay to reduce destructive emotional tension before addressing the substantive issue."
+  },
+  {
+    "id": 27,
+    "question": "In the Harvard Principled Negotiation framework (Getting to Yes by Fisher, Ury, and Patton), what does 'BATNA' stand for?",
+    "options": [
+      "Basic Agreement on Trade, Net Assets",
+      "Benchmark Assessment of Transactional Net Allocation",
+      "Best Alternative To a Negotiated Agreement",
+      "Bilateral Arbitration Terms for National Assets",
+      "Bargaining Approach Towards Neutral Alliances"
+    ],
+    "answer": 2,
+    "explanation": "BATNA (Best Alternative To a Negotiated Agreement) is the course of action a party will take if negotiations fail to produce an agreement. It is your true source of negotiating power and defines the walk-away threshold—you should never accept an offer worse than your BATNA."
+  },
+  {
+    "id": 28,
+    "question": "In negotiation theory, what is the 'Zone of Possible Agreement' (ZOPA)?",
+    "options": [
+      "An international demilitarized border zone recognized by the United Nations across target market segments and consumer touchpoints",
+      "A physical meeting room where labor contracts are signed to build long-term customer lifetime value and brand equity",
+      "A legally binding cooling-off period mandated by corporate law based on primary consumer research and behavioral segmentation",
+      "The geographical area within 10 kilometers of a corporate headquarters to strengthen competitive positioning in the target market",
+      "The overlapping bargaining range between the buyer's reservation price and the seller's reservation price where a mutually acceptable deal can be struck"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The overlapping bargaining range between the buyer's reservation price (maximum they will pay) and the seller's reservation price (minimum they will accept) where a mutually acceptable deal can be struck. ZOPA is the overlap between both parties' reservation prices (walk-away points). If a buyer is willing to pay up to Rs 100,000 and the seller is willing to accept as low as Rs 80,000, the ZOPA is Rs 80,000 to Rs 100,000. If there is no overlap, no deal can be reached."
+  },
+  {
+    "id": 29,
+    "question": "What is the core principle of 'Separating the People from the Problem' in Harvard Principled Negotiation?",
+    "options": [
+      "Firing the negotiation team members and bringing in automated algorithms",
+      "Dealing with human relational dynamics directly and empathetically",
+      "Conducting negotiations strictly through anonymous encrypted emails",
+      "Holding negotiations in separate soundproof isolation booths",
+      "Refusing to shake hands with opposing negotiators"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Dealing with human relational dynamics (emotions, perceptions, ego) directly and empathetically, while treating the substantive problem (terms, prices, deadlines) objectively and collaboratively without personal attack. Negotiators are people with feelings, biases, and egos. Separating the people from the problem means addressing relational issues with active listening and emotional intelligence, so both sides can collaborate as side-by-side problem solvers tackling the objective issue."
+  },
+  {
+    "id": 30,
+    "question": "In public speaking and rhetoric, what are Aristotle's three classical modes of persuasion?",
+    "options": [
+      "Thesis, Antithesis, and Synthesis",
+      "Input, Process, and Output",
+      "Volume, Pitch, and Cadence",
+      "Ethos, Pathos, and Logos",
+      "Beginning, Middle, and Conclusion"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Ethos (credibility/character), Pathos (emotional appeal), and Logos (logic/reasoning). Aristotle's Rhetoric identified: (1) Ethos (the speaker's moral character, credibility, and authority), (2) Pathos (connecting with the audience's values, hopes, and emotions), and (3) Logos (the internal consistency, logical reasoning, and evidence of the argument)."
+  },
+  {
+    "id": 31,
+    "question": "What is 'Glossophobia' in public speaking and communication psychology?",
+    "options": [
+      "The acute speech anxiety or severe psychological fear of public speaking",
+      "An obsession with collecting glossy fashion magazines",
+      "A linguistic speech impediment that prevents pronunciation of vowels",
+      "An aversion to using computerized presentation slide software",
+      "A fear of bright stage lighting in auditoriums"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The acute speech anxiety or severe psychological fear of public speaking, accompanied by autonomic nervous system fight-or-flight symptoms (racing heart, trembling voice, dry mouth). Glossophobia is the fear of public speaking. It triggers the sympathetic nervous system, releasing cortisol and adrenaline. Proven management techniques include deep diaphragmatic breathing, cognitive reframing (excitement instead of fear), thorough rehearsal, and focusing on audience value."
+  },
+  {
+    "id": 32,
+    "question": "In speech delivery, what does 'Vocal Variety' encompass and why is it vital for audience engagement?",
+    "options": [
+      "Singing opera songs between speech paragraphs across target market segments and consumer touchpoints",
+      "Speaking in multiple foreign languages simultaneously to build long-term customer lifetime value and brand equity",
+      "Varying vocal pitch (intonation), pace, volume, and strategic pauses to prevent a monotone delivery, maintain listener attention, and emphasize critical points",
+      "Using digital voice distortion microphones based on primary consumer research and behavioral segmentation",
+      "Speaking at the fastest possible speed to cover more slides"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Varying vocal pitch (intonation), pace (speed of delivery), volume (loudness/softness), and strategic pauses to prevent a monotone delivery, maintain listener attention, and emphasize critical points. Monotone delivery causes listener fatigue and disengagement. Skilled orators vary their tempo, raise or lower their volume to draw listeners in, use upward and downward pitch inflections, and deploy deliberate pauses ('the power of the pause') to let key points sink in."
+  },
+  {
+    "id": 33,
+    "question": "What is the 'Rule of Three' in speechwriting and rhetoric?",
+    "options": [
+      "A speaker must repeat every word three times in succession throughout the stages of the product life cycle (PLC)",
+      "Speeches must be restricted to exactly three minutes duration across omnichannel retail and digital distribution networks",
+      "A speaker must deliver their presentation to three separate audiences in alignment with strategic brand management objectives",
+      "Only three audience members are permitted to ask questions",
+      "A rhetorical principle stating that concepts, arguments, or examples presented in triads are inherently more satisfying, memorable, and impactful to the human brain"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A rhetorical principle stating that concepts, arguments, or examples presented in triads (groups of three) are inherently more satisfying, memorable, and impactful to the human brain (e.g., 'Life, liberty, and the pursuit of happiness'). Human cognition excels at recognizing patterns, and three is the smallest number needed to create a pattern. Classic examples include 'Veni, vidi, vici', 'Government of the people, by the people, for the people', and structuring speeches into three core pillars."
+  },
+  {
+    "id": 34,
+    "question": "What are the five core emotional intelligence components outlined by Daniel Goleman in his seminal book 'Emotional Intelligence' (1995)?",
+    "options": [
+      "Cognition, Memory, Perception, Spatial Reasoning, and Logic",
+      "Self-Awareness, Self-Regulation, Internal Motivation, Empathy, and Social Skills",
+      "Assertiveness, Aggressiveness, Passivity, Dominance, and Submission",
+      "Extroversion, Neuroticism, Openness, Agreeableness, and Conscientiousness",
+      "Intelligence Quotient, Emotional Quotient, Spiritual Quotient, Physical Quotient, and Social Quotient"
+    ],
+    "answer": 1,
+    "explanation": "Goleman structured Emotional Intelligence (EQ) into: (1) Self-Awareness (recognizing one's own moods and emotions), (2) Self-Regulation (controlling disruptive impulses), (3) Motivation (passion to pursue goals with persistence), (4) Empathy (understanding the emotional makeup of others), and (5) Social Skills (building rapport and networks)."
+  },
+  {
+    "id": 35,
+    "question": "What is 'Self-Regulation' (Self-Management) in Daniel Goleman's emotional intelligence framework?",
+    "options": [
+      "Suppressing all emotions until one feels completely numb to maximize customer acquisition, retention, and advocacy",
+      "Setting up automated calendar notifications for daily tasks through active listening and empathetic stakeholder engagement",
+      "A legal policy where a corporation audits its own financial accounts within the integrated marketing communications (IMC) mix",
+      "The ability to control, redirect, or suspend disruptive emotional impulses and moods, maintain composure under intense stress, and adapt constructively to changing circumstances",
+      "Allowing emotions to dictate immediate workplace reactions throughout the stages of the product life cycle (PLC)"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The ability to control, redirect, or suspend disruptive emotional impulses and moods, maintain composure under intense stress, and adapt constructively to changing circumstances. Self-regulation is the hallmark of professional maturity. It is the capacity to manage emotional hijackings (the 'amygdala hijack'), pause before reacting, act with integrity under pressure, and remain open to change rather than becoming defensive."
+  },
+  {
+    "id": 36,
+    "question": "What is the 'Johari Window' model developed by Joseph Luft and Harrington Ingham for self-awareness and interpersonal dynamics?",
+    "options": [
+      "A 2x2 matrix that maps information known/unknown to self against information known/unknown to others across four quadrants",
+      "A stained-glass window installed in corporate boardrooms across target market segments and consumer touchpoints",
+      "A financial auditing balance sheet for investment banks to build long-term customer lifetime value and brand equity",
+      "A psychological test measuring mathematical IQ based on primary consumer research and behavioral segmentation",
+      "A legal disclosure document required for public stock offerings"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A 2x2 matrix that maps information known/unknown to self against information known/unknown to others across four quadrants: Open/Arena, Blind Spot, Hidden/Façade, and Unknown. The Johari Window maps interpersonal awareness: (1) Open/Arena (known to self and others), (2) Blind Spot (unknown to self, known to others—reduced via feedback), (3) Hidden/Façade (known to self, unknown to others—reduced via self-disclosure), and (4) Unknown (unknown to both). Expanding the Open Area enhances workplace trust."
+  },
+  {
+    "id": 37,
+    "question": "In the Johari Window, how does an individual reduce their 'Blind Spot' quadrant and increase their 'Open Area'?",
+    "options": [
+      "By refusing to speak to team colleagues throughout the stages of the product life cycle (PLC)",
+      "By hiding their true emotions behind a corporate façade across omnichannel retail and digital distribution networks",
+      "By actively seeking, listening to, and acting upon constructive feedback from colleagues and peers regarding their behaviors and communication impact",
+      "By filing formal complaints against critical managers in alignment with strategic brand management objectives",
+      "By delegating all communication tasks to subordinate staff"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: By actively seeking, listening to, and acting upon constructive feedback from colleagues and peers regarding their behaviors and communication impact. The Blind Spot contains things others see about us that we do not realize (e.g. interrupting people, defensive body language). The only way to shrink this quadrant and expand the Open Arena is through humble, active feedback-seeking."
+  },
+  {
+    "id": 38,
+    "question": "What is the Mayer-Salovey-Caruso Emotional Intelligence Model (Ability Model)?",
+    "options": [
+      "A personality test measuring sales aggressiveness to strengthen competitive positioning in the target market",
+      "A model classifying employees into nine astrological archetypes during interpersonal and organizational communication",
+      "A physical health assessment for industrial workers within the holistic marketing and value delivery framework",
+      "An accounting model measuring the financial cost of executive burnout across target market segments and consumer touchpoints",
+      "A model that views emotional intelligence as a set of mental cognitive abilities across four branches"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A model that views emotional intelligence as a set of mental cognitive abilities across four branches: (1) Perceiving emotions, (2) Facilitating thought using emotions, (3) Understanding emotions, and (4) Managing emotions. Peter Salovey and John Mayer conceptualized EI as an objective cognitive ability measured via testing (MSCEIT). The 4 branches are: Perceiving emotions (in faces/art), Using emotions to enhance thinking, Understanding emotional causes and progressions, and Managing emotions in oneself and relationships."
+  },
+  {
+    "id": 39,
+    "question": "What is the critical distinction between 'Empathy' and 'Sympathy' in interpersonal emotional intelligence?",
+    "options": [
+      "Empathy is an emotion; sympathy is a cognitive thought to maximize customer acquisition, retention, and advocacy",
+      "Sympathy involves feeling pity, sorrow, or compassion for someone else's misfortune from an external vantage point",
+      "Sympathy is positive; empathy is negative through active listening and empathetic stakeholder engagement",
+      "Empathy applies only to animals; sympathy applies to humans within the integrated marketing communications (IMC) mix",
+      "There is no difference between empathy and sympathy throughout the stages of the product life cycle (PLC)"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Sympathy involves feeling pity, sorrow, or compassion for someone else's misfortune from an external vantage point ('I feel sorry for you'), whereas Empathy involves emotionally perspective-taking and deeply feeling with the person ('I feel with you'). Brené Brown and EQ researchers emphasize that sympathy drives disconnection by maintaining distance ('at least it wasn't worse'), whereas empathy creates connection by bravely stepping into someone's emotional space, suspending judgment, and validating their pain."
+  },
+  {
+    "id": 40,
+    "question": "What is an 'Amygdala Hijack' as described by Daniel Goleman?",
+    "options": [
+      "A physical airplane hijacking investigated by aviation authorities across target market segments and consumer touchpoints",
+      "A neurological disease that impairs visual eyesight to build long-term customer lifetime value and brand equity",
+      "A corporate takeover where a CEO is fired without warning based on primary consumer research and behavioral segmentation",
+      "An immediate, overwhelming, and irrational emotional response that bypasses the rational prefrontal cortex when the amygdala perceives a threat, triggering sudden anger or panic",
+      "A marketing tactic where digital ads hijack browser tabs to strengthen competitive positioning in the target market"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: An immediate, overwhelming, and irrational emotional response that bypasses the rational prefrontal cortex when the amygdala perceives a threat (social, professional, or physical), triggering sudden anger or panic. In high-stress situations, the amygdala (the brain's emotional threat center) reacts within milliseconds, before signals reach the neocortex (rational prefrontal brain). This produces impulsive, regrettable outbursts. Emotional intelligence trains individuals to recognize physical cues and take a pause before responding."
+  },
+  {
+    "id": 41,
+    "question": "In the Thomas-Kilmann Conflict Mode Instrument, what defines the 'Compromising' style?",
+    "options": [
+      "Intermediate Assertiveness and Intermediate Cooperativeness",
+      "Zero assertiveness and complete surrender to the other party's demands",
+      "Total pursuit of one's own agenda at the expense of others",
+      "Refusing to participate in conflict resolution discussions",
+      "Spending infinite hours to achieve 100% agreement on every detail"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Intermediate Assertiveness and Intermediate Cooperativeness; seeking an expedient, mutually acceptable solution that partially satisfies both parties ('splitting the difference'). Compromising sits dead center on the TKI grid. Parties split the difference, exchange concessions, or seek a quick middle-ground. While fast and pragmatic, it may lead to sub-optimal solutions where neither party is truly fully satisfied."
+  },
+  {
+    "id": 42,
+    "question": "In the TKI conflict model, when is the 'Competing' style (High Assertiveness, Low Cooperativeness) appropriate to deploy?",
+    "options": [
+      "When building long-term team harmony and nurturing subordinates to strengthen competitive positioning in the target market",
+      "When the issue is of minor importance to you and very important to the other party during interpersonal and organizational communication",
+      "When quick, decisive emergency action is vital, or on important company issues where unpopular courses of action need implementing",
+      "When exploring creative alternative ideas from diverse stakeholders within the holistic marketing and value delivery framework",
+      "When attempting to buy time to gather more research information across target market segments and consumer touchpoints"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: When quick, decisive emergency action is vital (e.g. safety emergencies, vital company cost-cutting crises), or on important company issues where unpopular courses of action need implementing. Competing (forcing one's position) is necessary when quick, decisive emergency execution is critical (e.g. immediate evacuation, fraud cessation, vital cost cuts), or to protect oneself against parties who take ruthless advantage of cooperative behavior."
+  },
+  {
+    "id": 43,
+    "question": "In conflict de-escalation, what is the 'I-Message' (or 'I-Statement') technique originally developed by Thomas Gordon?",
+    "options": [
+      "Starting every sentence with an aggressive personal accusation to maximize customer acquisition, retention, and advocacy",
+      "Sending formal corporate memos via Apple iOS iMessage software through active listening and empathetic stakeholder engagement",
+      "A public speaking technique where the speaker talks only about themselves",
+      "A legal statement submitted to an industrial labor tribunal throughout the stages of the product life cycle (PLC)",
+      "Framing feelings and concerns from one's own perspective rather than accusing the other party"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Framing feelings and concerns from one's own perspective rather than accusing the other party (e.g., 'I feel concerned when reports are submitted past deadline because it delays our client filing', instead of 'You are always late and lazy'). 'You-messages' immediately trigger defensiveness and counter-attacks. An 'I-message' takes responsibility for one's own feelings, states the specific objective behavior observed, and explains its tangible consequence without labeling or attacking the other person's character."
+  },
+  {
+    "id": 44,
+    "question": "What is 'Emotional Contagion' in organizational leadership and team dynamics?",
+    "options": [
+      "The spread of infectious seasonal viral illnesses through office air conditioning across target market segments and consumer touchpoints",
+      "The psychological phenomenon where emotions, facial expressions, postures, and vocal tones of one individual trigger similar emotions and moods in surrounding group members",
+      "A computer virus that sends angry emails to corporate contact lists to build long-term customer lifetime value and brand equity",
+      "An increase in retail customer foot traffic during clearance sales based on primary consumer research and behavioral segmentation",
+      "A legal doctrine governing industrial workplace sanitation to strengthen competitive positioning in the target market"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The psychological phenomenon where emotions, facial expressions, postures, and vocal tones of one individual (especially an authoritative team leader) trigger similar emotions and moods in surrounding group members. Human mirror neurons cause individuals to automatically synchronize their emotions with those around them. Leaders act as emotional thermostats: an anxious, irritable manager spreads panic and paralysis, while a calm, composed, and empathetic leader instills psychological safety and resilience."
+  },
+  {
+    "id": 45,
+    "question": "What is 'Psychological Safety' in team communication and performance, as established by Amy Edmondson (Harvard Business School)?",
+    "options": [
+      "Installing security cameras and biometric access locks in corporate offices throughout the stages of the product life cycle (PLC)",
+      "A medical insurance plan that covers psychiatric counseling expenses across omnichannel retail and digital distribution networks",
+      "A legal contract indemnifying employees against corporate financial losses",
+      "A shared belief held by members of a team that the team is safe for interpersonal risk-taking",
+      "An automated computer backup system that prevents data loss to maximize customer acquisition, retention, and advocacy"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A shared belief held by members of a team that the team is safe for interpersonal risk-taking, where individuals feel confident speaking up with questions, ideas, or mistakes without fear of humiliation, punishment, or retaliation. Edmondson's research (and Google's Project Aristotle) proved that psychological safety is the single most important prerequisite for high-performing teams. Without it, team members hide errors, withhold creative ideas, and silently allow systemic failures to multiply."
+  },
+  {
+    "id": 46,
+    "question": "In public speaking, what is an 'Elevator Pitch' and what are its key structural components?",
+    "options": [
+      "A concise, compelling overview of a product, company, or idea delivered within 30 to 60 seconds, highlighting the problem, the unique solution/value proposition, and a clear call to action",
+      "A speech delivered strictly inside moving mechanical elevators",
+      "A technical engineering lecture on skyscraper vertical transportation during interpersonal and organizational communication",
+      "A high-volume shouted sales pitch delivered in noisy shopping malls within the holistic marketing and value delivery framework",
+      "A continuous uninterrupted two-hour keynote address across target market segments and consumer touchpoints"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A concise, compelling overview of a product, company, or idea delivered within 30 to 60 seconds (the duration of an elevator ride), highlighting the problem, the unique solution/value proposition, and a clear call to action. An elevator pitch is a punchy, 30-to-60-second summary: Hook -> Problem -> Solution -> Value Proposition / Proof Point -> Call to Action. It cuts through executive clutter to spark immediate curiosity and secure a follow-up conversation."
+  },
+  {
+    "id": 47,
+    "question": "What is 'Mirroring' (the Chameleon Effect) in non-verbal rapport building?",
+    "options": [
+      "Holding a physical mirror in front of a negotiating partner to maximize customer acquisition, retention, and advocacy",
+      "Copying a competitor's exact corporate marketing brochure word-for-word through active listening and empathetic stakeholder engagement",
+      "Subtly and naturally matching the body posture, gesture pacing, vocal tone, or energy level of the person you are communicating with to establish subconscious rapport, connection, and mutual comfort",
+      "Wearing identical clothing to an executive job interview within the integrated marketing communications (IMC) mix",
+      "Repeating every question asked by an interviewer before answering throughout the stages of the product life cycle (PLC)"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Subtly and naturally matching the body posture, gesture pacing, vocal tone, or energy level of the person you are communicating with to establish subconscious rapport, connection, and mutual comfort. Subtle mirroring creates subconscious feelings of trust and similarity ('people like people who are like themselves'). When done naturally and respectfully without caricature, it signals deep alignment, lowering interpersonal guard and facilitating collaborative agreement."
+  },
+  {
+    "id": 48,
+    "question": "In professional communication, what is the 'Ladder of Inference' model developed by Chris Argyris?",
+    "options": [
+      "A physical ladder used to change lightbulbs in corporate auditoriums across target market segments and consumer touchpoints",
+      "A corporate promotion ladder for advancing from junior clerk to executive director",
+      "A financial scale used to determine employee annual salary increments based on primary consumer research and behavioral segmentation",
+      "A mathematical algorithm used to rank search engine search results to strengthen competitive positioning in the target market",
+      "A cognitive model illustrating how humans leap from observable data to selected data, interpret meanings, make assumptions, draw conclusions, adopt beliefs, and take actions, highlighting how cognitive leaps can lead to misunderstandings"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A cognitive model illustrating how humans leap from observable data to selected data, interpret meanings, make assumptions, draw conclusions, adopt beliefs, and take actions, highlighting how cognitive leaps can lead to misunderstandings. The Ladder of Inference shows our rapid mental leaps: Pool of Observable Reality -> Selected Data -> Inferred Meanings -> Assumptions -> Conclusions -> Beliefs -> Actions. By 'walking down the ladder' and asking 'What observable data led you to that conclusion?', professionals untangle heated misunderstandings."
+  },
+  {
+    "id": 49,
+    "question": "What is the 'SBI Feedback Model' developed by the Center for Creative Leadership (CCL) for delivering constructive performance communication?",
+    "options": [
+      "State Bank of India Corporate Lending Guidelines",
+      "Situation, Behavior, and Impact",
+      "Strategy, Branding, and Implementation",
+      "Sales, Billing, and Invoicing",
+      "Standardization, Benchmarking, and Inspection"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Situation, Behavior, and Impact: Describing the specific Situation (when/where), the observable objective Behavior (what was seen/heard), and the resulting tangible Impact (how it affected the team/work). The SBI model eliminates defensiveness because it focuses strictly on observable facts rather than personal character attacks: (1) Situation ('In yesterday's 10 AM client meeting'), (2) Behavior ('You interrupted the client three times'), and (3) Impact ('The client felt frustrated and withheld key requirements')."
+  },
+  {
+    "id": 50,
+    "question": "What is 'Cultural Intelligence' (CQ) in modern global corporate communication and leadership?",
+    "options": [
+      "The memorization of historical dates and names of national monuments to strengthen competitive positioning in the target market",
+      "A test measuring fluency in classical literature and fine art during interpersonal and organizational communication",
+      "A legal certification required to conduct international commercial trade within the holistic marketing and value delivery framework",
+      "A person's capability to function, communicate, and manage effectively across culturally diverse settings and work environments, comprising Cognitive, Metacognitive, Motivational, and Behavioral facets",
+      "The ability to cook traditional ethnic dishes from multiple countries across target market segments and consumer touchpoints"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A person's capability to function, communicate, and manage effectively across culturally diverse settings and work environments, comprising Cognitive, Metacognitive, Motivational, and Behavioral facets. Earley and Ang defined Cultural Intelligence (CQ) as the capability to adapt and relate effectively across different cultural contexts. It encompasses CQ Drive (motivation), CQ Knowledge (norms, values), CQ Strategy (metacognition/awareness), and CQ Action (flexible verbal and non-verbal behaviors)."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Marketing & Communication Mock 5",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Marketing & Communication Mock 5";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+</script>
+</body>
+</html>

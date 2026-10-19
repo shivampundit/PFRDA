@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA AI &amp; Machine Learning Mock Test 5 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        /* Top Header */
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Start Page */
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        /* Test Interface */
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Question Area */
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        /* Sidebar Tracker */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Post-submission Grid Colors */
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Submit Button */
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Scorecard Box (Post Submission) */
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        /* Result Colors for Questions */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject J: Artificial Intelligence & Machine Learning</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_AI_ML_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_AIML_Master_Revision_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_AI_ML_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_AI_ML_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_AI_ML_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_AI_ML_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_AI_ML_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &#183; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &#183; Paper 2 &#183; AI &amp; ML Mock 5</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">AI &amp; Machine Learning - Mock 5</h1>
+    <p class="start-subheading">Full 50 Questions &#183; Machine Learning, NLP, LLM, Agentic AI &#183; PFRDA Grade A Level</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="e.g. Rahul Sharma" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="e.g. rahul@example.com" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Machine Learning Fundamentals:</b> Supervised, Unsupervised &amp; Reinforcement Learning paradigms, Parametric vs Non-parametric.</li>
+                <li><b>Data Preprocessing &amp; Feature Engineering:</b> Imputation (MCAR, MAR, MNAR), Outlier treatment (Tukey IQR, Z-Score), Scaling (Min-Max, Standard, Robust), Encoding, SMOTE, ADASYN.</li>
+                <li><b>Model Evaluation &amp; Overfitting:</b> Bias-Variance Tradeoff, Confusion Matrix (Accuracy, Precision, Recall, F1, ROC-AUC), Regularization (L1 Lasso, L2 Ridge, ElasticNet), K-Fold, Stratified K-Fold.</li>
+                <li><b>Unsupervised Learning:</b> K-Means, K-Medoids, Hierarchical (Agglomerative, Dendrogram), DBSCAN, PCA, t-SNE, UMAP.</li>
+                <li><b>Natural Language Processing (NLP):</b> Tokenization, TF-IDF, Word Embeddings, Sentiment Analysis, VADER.</li>
+                <li><b>LLMs &amp; Agentic AI:</b> Transformer Architecture (Self-Attention, Multi-Head, Positional Encoding), BERT vs GPT, LoRA, QLoRA, RAG, ReAct Agent loop, Tool calling.</li>
+                <li><b>Reinforcement Learning:</b> Markov Decision Process (MDP), Bellman Equation, Q-Learning, SARSA, PPO, DPO, RLHF.</li>
+                <li><b>Responsible AI &amp; Governance:</b> Explainable AI (SHAP, LIME), Fairness, DPDP Act 2023, EU AI Act risk tiers.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Mock Test
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+// <![CDATA[
+
+/**
+ * 50 QUESTIONS DATA: COMMERCE & ACCOUNTANCY
+ */
+const questionsData = [
+  {
+    "id": 1,
+    "question": "In Reinforcement Learning (RL), what mathematical framework formalizes the sequential decision-making problem between an Agent and an Environment?",
+    "options": [
+      "Markov Decision Process (MDP), formally defined as a 5-tuple",
+      "Ordinary Least Squares (OLS) Regression",
+      "Principal Component Analysis",
+      "Support Vector Classification",
+      "K-Means clustering"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Markov Decision Process (MDP), formally defined as a 5-tuple: (S, A, P, R, γ) representing States, Actions, Transition Probabilities, Rewards, and Discount Factor. A Markov Decision Process (MDP) provides the mathematical formalization for reinforcement learning. An MDP consists of: S (set of states), A (set of actions), P (state transition probability matrix: P(s'|s, a)), R (reward function: R(s, a, s')), and γ (discount factor ∈ [0, 1))."
+  },
+  {
+    "id": 2,
+    "question": "What is the 'Markov Property' in a Markov Decision Process?",
+    "options": [
+      "The future rewards are always zero when evaluating unseen test instances",
+      "All actions have equal probability of selection during iterative hyperparameter tuning",
+      "The conditional probability distribution of future states depends solely upon the present state and action, and is conditionally independent of the past history of states and actions",
+      "The transition matrix has an inverse within the feature extraction and transformation pipeline",
+      "The reward function is strictly linear during model training and cross-validation"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The conditional probability distribution of future states depends solely upon the present state and action, and is conditionally independent of the past history of states and actions ('the future is independent of the past, given the present'). The Markov Property states: P(S_{t+1} = s' | S_t = s_t, A_t = a_t, S_{t-1} = s_{t-1}, ..., S_0 = s_0) = P(S_{t+1} = s' | S_t = s_t, A_t = a_t). The current state s_t encapsulates all relevant historical information needed to predict the future state transition."
+  },
+  {
+    "id": 3,
+    "question": "In Reinforcement Learning, what is the role of the 'Discount Factor' (γ, where 0 ≤ γ < 1)?",
+    "options": [
+      "It discounts trading commissions paid to stock brokers",
+      "It sets the learning rate in gradient descent",
+      "It controls the number of clusters in K-Means",
+      "It normalizes feature values to zero mean",
+      "It determines the present value of future rewards"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: It determines the present value of future rewards: a reward received k steps in the future is discounted by γ^k, ensuring mathematical convergence of infinite-horizon returns and modeling temporal preference (γ near 0 makes the agent myopic; γ near 1 makes the agent farsighted). The return G_t is the discounted sum of future rewards: G_t = ∑_{k=0}^∞ γ^k R_{t+k+1}. The discount factor γ balances immediate versus delayed gratification. If γ = 0, the agent cares only about immediate reward R_{t+1} (myopic). As γ approaches 1, the agent weighs future rewards more heavily, and γ < 1 guarantees mathematical convergence for continuing tasks."
+  },
+  {
+    "id": 4,
+    "question": "What is the difference between the State-Value Function V^π(s) and the Action-Value Function Q^π(s, a) under a policy π?",
+    "options": [
+      "V measures accuracy; Q measures precision during model training and cross-validation",
+      "V^π(s) is the expected return starting from state s and following policy π thereafter; Q^π(s, a) is the expected return starting from state s, taking specific action a, and thereafter following policy π",
+      "Q is used only in robotics; V is used in board games under empirical risk minimization on the training set",
+      "V applies only to supervised learning; Q applies to unsupervised learning across out-of-sample validation datasets",
+      "There is no difference; V and Q are identical functions when evaluating unseen test instances"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: V^π(s) is the expected return starting from state s and following policy π thereafter; Q^π(s, a) is the expected return starting from state s, taking specific action a, and thereafter following policy π. V^π(s) evaluates how good it is to be in state s: V^π(s) = E_π [G_t | S_t = s]. Q^π(s, a) evaluates how good it is to take action a in state s: Q^π(s, a) = E_π [G_t | S_t = s, A_t = a]. The relationship is V^π(s) = ∑_{a ∈ A} π(a|s) Q^π(s, a)."
+  },
+  {
+    "id": 5,
+    "question": "What is the 'Bellman Optimality Equation' for the optimal action-value function Q*(s, a)?",
+    "options": [
+      "Q*(s, a) = R(s, a) / γ",
+      "Q*(s, a) = max [R(s, a) - Q(s, a)]",
+      "Q*(s, a) = Q(s, a) + α * TD_error",
+      "Q*(s, a) = R(s, a) + γ ∑_{s'} P(s' | s, a) max_{a'} Q*(s', a')",
+      "Q*(s, a) = ∑ P(s'|s) * V(s')"
+    ],
+    "answer": 3,
+    "explanation": "The Bellman Optimality Equation for Q* states that the expected return from taking the optimal action in state s equals the immediate expected reward plus the discounted expected value of the optimal action chosen in the next state s': Q*(s, a) = R(s, a) + γ ∑_{s'} P(s' | s, a) max_{a'} Q*(s', a')."
+  },
+  {
+    "id": 6,
+    "question": "What is the 'Exploration vs. Exploitation' dilemma in Reinforcement Learning?",
+    "options": [
+      "The fundamental tradeoff between choosing the best action based on current knowledge to maximize immediate reward versus trying new or less-explored actions to discover potentially superior long-term rewards (Exploration)",
+      "Choosing between deep neural networks and decision trees when evaluating unseen test instances",
+      "The choice between training on CPU or GPU during iterative hyperparameter tuning",
+      "The decision to collect more training data versus pruning features within the feature extraction and transformation pipeline",
+      "The conflict between privacy and security under the DPDP Act during model training and cross-validation"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The fundamental tradeoff between choosing the best action based on current knowledge to maximize immediate reward (Exploitation) versus trying new or less-explored actions to discover potentially superior long-term rewards (Exploration). Exploitation maximizes reward based on existing estimates (which may be suboptimal). Exploration tries sub-optimal actions to gather new information about the environment. An agent that only exploits risks getting stuck in local optima; an agent that only explores never leverages what it has learned."
+  },
+  {
+    "id": 7,
+    "question": "How does the 'Epsilon-Greedy' (ε-greedy) action selection strategy balance exploration and exploitation?",
+    "options": [
+      "It picks actions with probability proportional to the learning rate across multi-class probability distributions",
+      "It selects only actions that have negative rewards",
+      "With probability (1 - ε), the agent exploits by selecting the greedy action with the highest estimated Q-value (argmax_a Q(s, a))",
+      "It runs a genetic algorithm to find actions across high-dimensional input feature vectors",
+      "It sets all Q-values to zero at every step when optimizing the objective loss function"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: With probability (1 - ε), the agent exploits by selecting the greedy action with the highest estimated Q-value (argmax_a Q(s, a)); with probability ε, the agent explores by selecting an action uniformly at random from all available actions. In ε-greedy action selection: with probability 1 - ε, the agent exploits its current knowledge: a = argmax_a Q(s, a). With probability ε, it explores randomly. In practice, ε is often decayed over time (e.g. from 1.0 down to 0.01) so that the agent explores heavily early in training and transitions toward exploitation as estimates mature."
+  },
+  {
+    "id": 8,
+    "question": "What is the update rule of the 'Q-Learning' algorithm (Watkins, 1989), and why is it categorized as an 'Off-Policy' algorithm?",
+    "options": [
+      "Q-Learning updates weights using linear regression on policy gradients",
+      "Q-Learning is on-policy because it uses the SARSA trajectory",
+      "Q-Learning requires a complete transition probability model of the environment",
+      "Q-Learning updates only the state-value function V(s)",
+      "Update: Q(s, a) ← Q(s, a) + α [R + γ max_{a'} Q(s', a') - Q(s, a)]"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Update: Q(s, a) ← Q(s, a) + α [R + γ max_{a'} Q(s', a') - Q(s, a)]; it is 'off-policy' because it evaluates and updates the target optimal policy (using max_{a'} Q(s', a')) independently of the behavior policy (e.g. ε-greedy) used to generate actions in the environment. Q-Learning is an off-policy Temporal Difference (TD) control algorithm. Its TD target uses max_{a'} Q(s', a') (the greedy action), irrespective of the actual next action a' chosen by the exploratory behavior policy (e.g. ε-greedy). The difference [R + γ max Q(s', a') - Q(s, a)] is the TD error, scaled by learning rate α."
+  },
+  {
+    "id": 9,
+    "question": "How does 'SARSA' (State-Action-Reward-State-Action) differ from Q-Learning?",
+    "options": [
+      "SARSA uses neural networks; Q-Learning uses decision trees when optimizing the objective loss function",
+      "SARSA is an 'on-policy' TD control algorithm that updates Q(s, a) using the Q-value of the actual next action a' selected by its current behavior policy",
+      "SARSA cannot handle continuous state spaces within the neural network hidden layer architecture",
+      "SARSA has no discount factor under parametric statistical learning assumptions",
+      "SARSA does not compute TD errors across multi-class probability distributions"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: SARSA is an 'on-policy' TD control algorithm that updates Q(s, a) using the Q-value of the actual next action a' selected by its current behavior policy: Q(s, a) ← Q(s, a) + α [R + γ Q(s', a') - Q(s, a)], rather than the maximum theoretical Q-value. SARSA updates Q(s, a) using the tuple (s, a, r, s', a'): Q(s, a) ← Q(s, a) + α [R + γ Q(s', a') - Q(s, a)], where a' is the actual action taken in state s' under policy π. Because the update reflects the actual behavior policy (including exploratory steps), SARSA is an on-policy method that learns safer paths in environments with hazardous states."
+  },
+  {
+    "id": 10,
+    "question": "In 'Deep Q-Networks' (DQN - Mnih et al., 2015), what two key architectural innovations overcame the instability of using deep neural networks for Q-value function approximation?",
+    "options": [
+      "L1 regularization and dropout layers",
+      "Softmax normalization and sigmoid activation",
+      "Batch normalization and early stopping",
+      "Experience Replay Buffer and a separate Target Network",
+      "K-Fold cross-validation and SMOTE sampling"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Experience Replay Buffer (storing transitions and sampling random mini-batches to break serial correlation) and a separate Target Network (freezing target Q-network parameters for fixed intervals to stabilize the moving target problem). Standard Q-learning with deep networks suffered from instability and divergence due to: (1) Correlations between consecutive samples, and (2) Small updates to Q altering policy targets. DeepMind's DQN introduced: (a) Experience Replay: transitions (s, a, r, s') are stored in a buffer and sampled uniformly in mini-batches, decorrelating inputs; and (b) Target Network: a copy of network weights frozen for C steps, stabilizing the target Q-value calculation."
+  },
+  {
+    "id": 11,
+    "question": "What is the foundational concept of 'Policy Gradient' methods (e.g. REINFORCE, PPO) compared to Value-Based methods (Q-Learning)?",
+    "options": [
+      "Policy gradient methods parameterize the policy directly as π_θ(a|s) and optimize the parameters θ via gradient ascent on expected cumulative reward J(θ)",
+      "Policy gradients estimate only the transition probability matrix across multi-class probability distributions",
+      "Policy gradients can only be applied to board games",
+      "Policy gradient methods eliminate the need for reward signals across high-dimensional input feature vectors",
+      "Value-based methods optimize parameters directly using the chain rule when optimizing the objective loss function"
+    ],
+    "answer": 0,
+    "explanation": "Value-based methods (Q-learning) learn value functions and derive deterministic greedy policies, which struggles with continuous or high-dimensional action spaces. Policy gradient methods parameterize the policy π_θ(a|s) directly and update parameters along the gradient of expected return: ∇_θ J(θ) = E_π [∇_θ log π_θ(a|s) Q^π(s, a)]."
+  },
+  {
+    "id": 12,
+    "question": "What is 'Proximal Policy Optimization' (PPO - Schulman et al., 2017) and what is its primary stabilizing mechanism?",
+    "options": [
+      "A model that optimizes database query times during model training and cross-validation",
+      "A clustering algorithm used for high-frequency trading under empirical risk minimization on the training set",
+      "An on-policy policy gradient algorithm that uses a Clipped Surrogate Objective function to constrain policy updates",
+      "An unsupervised method for training word embeddings across out-of-sample validation datasets",
+      "A technique that replaces backpropagation with genetic crossover when evaluating unseen test instances"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: An on-policy policy gradient algorithm that uses a Clipped Surrogate Objective function to constrain policy updates, preventing the new policy from deviating excessively from the old policy in a single update step, ensuring stable and reliable training. Large policy updates can cause policy performance to collapse. PPO introduces a clipped surrogate objective: L^CLIP(θ) = E_t [min(r_t(θ) Â_t, clip(r_t(θ), 1 - ε, 1 + ε) Â_t)], where r_t(θ) is the probability ratio π_θ(a|s) / π_old(a|s). Clipping the ratio within [1 - ε, 1 + ε] penalizes excessively large policy updates, providing stable convergence."
+  },
+  {
+    "id": 13,
+    "question": "What are the three sequential stages in the Reinforcement Learning from Human Feedback (RLHF) alignment pipeline used for large language models?",
+    "options": [
+      "(1) Data cleaning; (2) Feature scaling; (3) Linear regression when optimizing the objective loss function",
+      "(1) Tokenization; (2) Embedding; (3) Cosine similarity search within the neural network hidden layer architecture",
+      "(1) K-Means clustering; (2) PCA dimensionality reduction; (3) Random forest under parametric statistical learning assumptions",
+      "(1) Prompt injection; (2) Jailbreaking; (3) Constitutional critique across multi-class probability distributions",
+      "(1) Supervised Fine-Tuning (SFT): training the base model on curated instruction pairs; (2) Reward Model (RM) Training: collecting human pairwise preference comparisons between model outputs and training a neural reward model to score responses; (3) Reinforcement Learning Optimization: fine-tuning the SFT policy against the Reward Model using PPO with a KL-divergence penalty"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: (1) Supervised Fine-Tuning (SFT): training the base model on curated instruction pairs; (2) Reward Model (RM) Training: collecting human pairwise preference comparisons between model outputs and training a neural reward model to score responses; (3) Reinforcement Learning Optimization: fine-tuning the SFT policy against the Reward Model using PPO with a KL-divergence penalty. The standard RLHF pipeline consists of: (1) SFT: fine-tuning the base LLM on high-quality instruction demonstrations; (2) Reward Model (RM): presenting multiple model outputs to human annotators who rank them, and training an RM to predict human preference scores; (3) RL Policy Optimization: using PPO to optimize the LLM policy to maximize reward scores from the RM, with a KL-penalty to prevent policy collapse."
+  },
+  {
+    "id": 14,
+    "question": "How is Reinforcement Learning applied in financial portfolio management and institutional pension asset allocation?",
+    "options": [
+      "By replacing human board members with chatbots when evaluating unseen test instances",
+      "By modeling dynamic asset allocation as an MDP where the state represents market indicators, macroeconomic data, and current asset holdings",
+      "By generating synthetic pension PRAN numbers automatically during iterative hyperparameter tuning",
+      "By calculating compound interest using fixed algebraic formulas within the feature extraction and transformation pipeline",
+      "By converting government circulars into audio files during model training and cross-validation"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: By modeling dynamic asset allocation as an MDP where the state represents market indicators, macroeconomic data, and current asset holdings; actions represent rebalancing portfolio weights (across equities, bonds, G-Secs); and the reward function is parameterized as risk-adjusted return (e.g. Sharpe ratio or Sortino ratio minus transaction costs). In algorithmic portfolio management, RL agents continuously observe market states (volatility, macro indicators, yields, valuations), select portfolio weight adjustments (actions), and receive rewards based on risk-adjusted performance (Sharpe, Sortino) net of slippage and transaction costs, learning dynamic hedging and rebalancing strategies."
+  },
+  {
+    "id": 15,
+    "question": "What are the Five Foundational Pillars of 'Responsible AI' recognized by international regulatory bodies and NITI Aayog?",
+    "options": [
+      "Speed, Profitability, Exclusivity, Automation, and Scalability across multi-class probability distributions",
+      "Hardware efficiency, Cloud migration, Python compatibility, Cost reduction, and Mobile support during stochastic gradient descent weight updates",
+      "Proprietary IP protection, Patenting, Monopolization, Trade secrets, and Litigation across high-dimensional input feature vectors",
+      "Fairness & Non-discrimination, Transparency & Explainability (XAI), Privacy & Data Governance, Robustness & Security, and Accountability & Human Oversight",
+      "Marketing analytics, Customer acquisition, Revenue maximization, Billing, and Advertising when optimizing the objective loss function"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Fairness & Non-discrimination, Transparency & Explainability (XAI), Privacy & Data Governance, Robustness & Security, and Accountability & Human Oversight. The globally accepted pillars of Responsible AI (endorsed by OECD, UNESCO, and NITI Aayog) are: (1) Fairness (mitigating demographic bias); (2) Transparency & Explainability (interpreting decisions); (3) Privacy & Data Governance (safeguarding personal data); (4) Robustness & Safety (resilience against failures and attacks); and (5) Accountability (traceability, governance, and human-in-the-loop oversight)."
+  },
+  {
+    "id": 16,
+    "question": "What is 'Explainable AI' (XAI), and why is it a regulatory requirement in financial credit scoring, pension claim adjudication, and automated underwriting?",
+    "options": [
+      "Methods and techniques that enable human stakeholders to understand, interpret, and audit the reasoning behind an AI system's predictions",
+      "Translating Python code into plain English documentation during model training and cross-validation",
+      "Publishing proprietary neural network source code online under empirical risk minimization on the training set",
+      "Writing promotional press releases explaining product features across out-of-sample validation datasets",
+      "A technique that forces all models to be linear regression when evaluating unseen test instances"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Methods and techniques that enable human stakeholders to understand, interpret, and audit the reasoning behind an AI system's predictions, ensuring compliance with adverse action notification laws (e.g. providing concrete reasons why a loan or claim was rejected). Complex 'black-box' models (deep neural networks, gradient boosted ensembles) make high-stakes decisions without transparent reasoning. XAI provides post-hoc interpretability, ensuring regulatory compliance (e.g. RBI and PFRDA fair lending guidelines) and allowing individuals to understand adverse decisions (e.g. reasons for credit refusal or claim denial)."
+  },
+  {
+    "id": 17,
+    "question": "What is 'SHAP' (SHapley Additive exPlanations - Lundberg & Lee, 2017) based on, and what does a SHAP value represent?",
+    "options": [
+      "A geometric formula that measures the shape of a decision boundary when optimizing the objective loss function",
+      "A metric that evaluates training loss in neural networks within the neural network hidden layer architecture",
+      "Based on cooperative game theory; it calculates the fair marginal contribution of each feature to the difference between the actual model prediction and the base expected value, averaged across all possible feature coalitions",
+      "A sorting algorithm for database query results under parametric statistical learning assumptions",
+      "A method of generating synthetic minority samples across multi-class probability distributions"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Based on cooperative game theory (Lloyd Shapley, 1953); it calculates the fair marginal contribution of each feature to the difference between the actual model prediction and the base expected value, averaged across all possible feature coalitions. SHAP unifies post-hoc feature attribution using Shapley values from cooperative game theory: considering features as players in a coalition, the Shapley value φ_i represents feature i's average marginal contribution to the model's payout (prediction) across all possible subsets of features. SHAP is consistent and locally accurate."
+  },
+  {
+    "id": 18,
+    "question": "Which of the following is NOT one of the four foundational mathematical axioms uniquely satisfied by Shapley Values in cooperative game theory?",
+    "options": [
+      "Efficiency (the sum of feature contributions equals the difference between model output and baseline expected output)",
+      "Symmetry (two features that contribute identically to all possible coalitions receive identical Shapley values)",
+      "Dummy / Null Player (a feature that has zero impact on model output across all coalitions receives a Shapley value of zero)",
+      "Additivity (for a model formed by summing two games, Shapley values equal the sum of Shapley values for each individual game)",
+      "Orthogonality (all Shapley values must be perpendicular in Hilbert space)"
+    ],
+    "answer": 4,
+    "explanation": "Shapley values are the unique attribution method satisfying four properties: (1) Efficiency (local accuracy: ∑ φ_i = f(x) - E[f(x)]); (2) Symmetry (identical contributions yield identical attributions); (3) Dummy/Null player (irrelevant features receive φ_i = 0); and (4) Additivity (linear combination of models combines their Shapley values). Orthogonality is not a Shapley axiom."
+  },
+  {
+    "id": 19,
+    "question": "What is 'LIME' (Local Interpretable Model-agnostic Explanations - Ribeiro et al., 2016)?",
+    "options": [
+      "A citrus-flavored cooling fluid for data centers across multi-class probability distributions",
+      "A surrogate interpretability method that explains individual predictions by perturbing the target instance in its local feature neighborhood, obtaining predictions from the black-box model, and fitting an inherently interpretable local surrogate model weighted by proximity",
+      "A technique that converts deep learning models into decision trees globally during stochastic gradient descent weight updates",
+      "A software license for open-source AI libraries across high-dimensional input feature vectors",
+      "A database tool for indexing unstructured text when optimizing the objective loss function"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A surrogate interpretability method that explains individual predictions by perturbing the target instance in its local feature neighborhood, obtaining predictions from the black-box model, and fitting an inherently interpretable local surrogate model (e.g. a sparse linear model) weighted by proximity. LIME approximates a complex black-box model locally around a specific prediction instance x. It generates synthetic perturbed samples around x, obtains black-box predictions, weights them by proximity to x, and fits a simple, interpretable model (e.g. linear regression or small decision tree) to explain that specific decision."
+  },
+  {
+    "id": 20,
+    "question": "What is the primary difference in scope between LIME and SHAP?",
+    "options": [
+      "SHAP works only on linear models; LIME works on all models during model training and cross-validation",
+      "LIME requires training on quantum computers; SHAP does not under empirical risk minimization on the training set",
+      "LIME computes exact game-theoretic solutions; SHAP uses heuristics across out-of-sample validation datasets",
+      "LIME provides only local explanations around individual instances; SHAP provides both local explanations for individual instances and consistent global explanations across the entire dataset by aggregating individual Shapley values",
+      "There is no difference; both tools use identical algorithms when evaluating unseen test instances"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: LIME provides only local explanations around individual instances; SHAP provides both local explanations for individual instances and consistent global explanations across the entire dataset by aggregating individual Shapley values. LIME builds local surrogate models for individual points and cannot reliably aggregate them into a globally consistent feature importance ranking. SHAP provides unified local attributions for single predictions and aggregates them across the dataset (e.g. SHAP summary plots, mean |SHAP|) to provide consistent global feature importance."
+  },
+  {
+    "id": 21,
+    "question": "What is 'Demographic Parity' (Statistical Parity) in algorithmic fairness?",
+    "options": [
+      "A fairness criterion requiring that the decision/acceptance rate of the model is equal across all demographic groups defined by a protected attribute",
+      "Ensuring that all employees have identical bank accounts when optimizing the objective loss function",
+      "A requirement that models must have 100% accuracy within the neural network hidden layer architecture",
+      "Ensuring that dataset rows are sorted by age under parametric statistical learning assumptions",
+      "Balancing training and testing set sizes equally across multi-class probability distributions"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A fairness criterion requiring that the decision/acceptance rate of the model is equal across all demographic groups defined by a protected attribute: P(Ŷ = 1 | A = 0) = P(Ŷ = 1 | A = 1) (e.g. loan approval rates must be identical for male and female applicants regardless of underlying score distributions). Demographic (Statistical) Parity requires independence between the model's predictions Ŷ and protected sensitive attribute A: P(Ŷ=1 | A=a) = P(Ŷ=1 | A=b). While it enforces equal positive outcomes across groups, it does not account for differences in underlying qualifications or base rates across groups."
+  },
+  {
+    "id": 22,
+    "question": "What is 'Equalized Odds' in algorithmic fairness, and how does it differ from Demographic Parity?",
+    "options": [
+      "Equalized odds requires all odds ratios in logistic regression to be 1.0 when evaluating unseen test instances",
+      "Equalized odds requires that all applicants receive identical loans during iterative hyperparameter tuning",
+      "Equalized Odds requires that the model's True Positive Rate (TPR) and False Positive Rate (FPR) are identical across protected demographic groups, conditional on the true outcome Y",
+      "Equalized odds is used only in medical imaging within the feature extraction and transformation pipeline",
+      "There is no difference; both terms define identical mathematical metrics during model training and cross-validation"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Equalized Odds requires that the model's True Positive Rate (TPR) and False Positive Rate (FPR) are identical across protected demographic groups, conditional on the true outcome Y: P(Ŷ = 1 | A = 0, Y = y) = P(Ŷ = 1 | A = 1, Y = y) for y ∈ {0, 1}. Unlike Demographic Parity (which ignores true labels Y), Equalized Odds (Hardt et al., 2016) conditions on actual ground truth: both TPR (recall) and FPR must be equal across protected groups A. A related relaxation, 'Equal Opportunity', requires only that the True Positive Rates are equal across groups (P(Ŷ=1 | A=0, Y=1) = P(Ŷ=1 | A=1, Y=1))."
+  },
+  {
+    "id": 23,
+    "question": "What is 'Disparate Impact' versus 'Disparate Treatment' in legal and regulatory AI compliance?",
+    "options": [
+      "Disparate impact is a criminal offense; disparate treatment is a civil dispute across multi-class probability distributions",
+      "Disparate impact applies only to physical hardware manufacturing during stochastic gradient descent weight updates",
+      "Disparate treatment is permitted under Indian banking laws across high-dimensional input feature vectors",
+      "There is no legal difference between the two concepts when optimizing the objective loss function",
+      "Disparate Treatment is intentional discrimination where decisions explicitly use a protected characteristic as an input variable; Disparate Impact is unintentional discrimination where a facially neutral model"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Disparate Treatment is intentional discrimination where decisions explicitly use a protected characteristic (e.g. gender, race, religion) as an input variable; Disparate Impact is unintentional discrimination where a facially neutral model without protected attributes produces disproportionately adverse outcomes for a protected group through correlated proxy variables. Disparate Treatment is explicit, intentional discrimination using protected characteristics. Disparate Impact refers to models that do not use protected attributes directly, but rely on correlated proxies (e.g. PIN code, educational institute, browsing history) that yield disproportionate adverse selection against protected groups (the US EEOC 'Four-Fifths / 80% Rule' is a common benchmark)."
+  },
+  {
+    "id": 24,
+    "question": "What is 'Proxy Discrimination' (or Proxy Variable Bias) in financial machine learning models?",
+    "options": [
+      "Using a VPN proxy server to download dataset files during model training and cross-validation",
+      "A scenario where an algorithm inadvertently discriminates against a protected demographic group because it relies on non-protected input features that are strongly correlated with sensitive attributes",
+      "A server proxy that intercepts API calls to vector databases under empirical risk minimization on the training set",
+      "A proxy vote cast during a corporate shareholder meeting across out-of-sample validation datasets",
+      "An error caused by missing values in a database table when evaluating unseen test instances"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A scenario where an algorithm inadvertently discriminates against a protected demographic group because it relies on non-protected input features (e.g. residential postal code, mobile phone model, consumer purchase habits) that are strongly correlated with sensitive attributes (e.g. caste, religion, socio-economic status). Simply excluding sensitive protected attributes (gender, caste, religion) does not guarantee fairness ('fairness through unawareness'). Algorithms can reconstruct protected characteristics through correlated proxy variables (e.g. geographic postal codes correlating with ethnic segregation, or shopping habits correlating with gender), reproducing biased outcomes."
+  },
+  {
+    "id": 25,
+    "question": "What is an 'Adversarial Attack' in machine learning (e.g. the Fast Gradient Sign Method - FGSM by Goodfellow et al., 2014)?",
+    "options": [
+      "A physical cyberattack on data center power grids when optimizing the objective loss function",
+      "A distributed denial-of-service (DDoS) attack on a web portal within the neural network hidden layer architecture",
+      "A software virus that corrupts Python libraries under parametric statistical learning assumptions",
+      "Crafting imperceptible, carefully calculated perturbations to input data along the direction of the gradient of the loss function",
+      "A technique that resets all weights to zero across multi-class probability distributions"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Crafting imperceptible, carefully calculated perturbations to input data along the direction of the gradient of the loss function, causing a trained machine learning model to make high-confidence incorrect predictions while the input appears unchanged to human observers. Adversarial attacks exploit linearity in high-dimensional feature spaces. FGSM computes perturbations in the direction of the gradient: x_adv = x + ε * sign(∇_x L(θ, x, y)). Adding this imperceptible perturbation causes the model to misclassify the sample with high confidence."
+  },
+  {
+    "id": 26,
+    "question": "What is 'Data Poisoning' (Backdoor Attack) in machine learning security?",
+    "options": [
+      "An adversarial attack where malicious training data is injected into the model's training pipeline",
+      "Spilling liquid onto computer server motherboards when evaluating unseen test instances",
+      "Deleting all negative numbers from a database during iterative hyperparameter tuning",
+      "A technique to speed up neural network training within the feature extraction and transformation pipeline",
+      "An error that occurs when data exceeds RAM limits during model training and cross-validation"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: An adversarial attack where malicious training data is injected into the model's training pipeline (or existing data is corrupted), causing the model to learn hidden backdoors (e.g. a specific watermark or keyword triggers the model to predict 'Approved' for fraudulent applications) while performing normally on clean data. Data Poisoning attacks contaminate the training set. In backdoor attacks, the adversary embeds a subtle trigger pattern (e.g. a specific phrase or pixel cluster) associated with a target label. The model performs well on standard benchmarks, but when the adversary includes the trigger at test time, the model executes the attacker's desired prediction."
+  },
+  {
+    "id": 27,
+    "question": "What is a 'Membership Inference Attack' against a machine learning model?",
+    "options": [
+      "An attack that cancels user memberships in a gym club across multi-class probability distributions",
+      "A technique that cracks database passwords using brute force during stochastic gradient descent weight updates",
+      "A privacy attack where an adversary queries a trained model and analyzes its output prediction probabilities/confidence distributions to determine whether a specific individual's private record was part of the model's training dataset, violating data privacy",
+      "An algorithm that predicts customer loyalty status across high-dimensional input feature vectors",
+      "A method to delete users from a CRM platform when optimizing the objective loss function"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A privacy attack where an adversary queries a trained model and analyzes its output prediction probabilities/confidence distributions to determine whether a specific individual's private record was part of the model's training dataset, violating data privacy. Membership Inference (Shokri et al., 2017) exploits the fact that models often output higher confidence probabilities and lower loss on instances they were trained on compared to unseen test instances. By training shadow models on known subsets, an attacker can determine whether a specific sensitive record (e.g. a clinical or financial record) was used in training."
+  },
+  {
+    "id": 28,
+    "question": "What is 'Model Inversion' in AI security and privacy?",
+    "options": [
+      "Inverting a matrix in linear regression during model training and cross-validation",
+      "Reversing the direction of gradient descent under empirical risk minimization on the training set",
+      "Converting a neural network into a decision tree across out-of-sample validation datasets",
+      "Swapping the X-axis and Y-axis on an ROC curve when evaluating unseen test instances",
+      "An attack where an adversary uses model outputs and confidence scores to reconstruct or synthesize recognizable representations of sensitive training data inputs"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: An attack where an adversary uses model outputs and confidence scores to reconstruct or synthesize recognizable representations of sensitive training data inputs (such as reconstructing recognizable human faces or confidential medical records from facial recognition models). Model Inversion (Fredrikson et al., 2015) reconstructs sensitive input attributes by gradient-based optimization on model outputs. By querying the model repeatedly and optimizing an input image or feature vector to maximize the output probability of a target class, the attacker can reconstruct recognizable representations of private training data."
+  },
+  {
+    "id": 29,
+    "question": "What is 'Differential Privacy' (Dwork et al., 2006) in secure data science?",
+    "options": [
+      "A legal NDA signed by research scientists when optimizing the objective loss function",
+      "A mathematical framework guaranteeing that the inclusion or exclusion of any single individual's data record in a dataset has an imperceptible statistical effect on the output of any computational query or trained model",
+      "A method of encrypting data on hard drives within the neural network hidden layer architecture",
+      "A technique that deletes 50% of columns under parametric statistical learning assumptions",
+      "A clustering algorithm for differential equations across multi-class probability distributions"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A mathematical framework guaranteeing that the inclusion or exclusion of any single individual's data record in a dataset has an imperceptible statistical effect (bounded by ε) on the output of any computational query or trained model: P(M(D) ∈ S) ≤ e^ε * P(M(D') ∈ S). Differential Privacy provides a rigorous mathematical privacy guarantee. An algorithm M is (ε, δ)-differentially private if for any two neighboring datasets D and D' differing by a single record, the probability of any output S satisfies: P(M(D) ∈ S) ≤ e^ε * P(M(D') ∈ S) + δ. Adding calibrated noise (Laplace or Gaussian) prevents adversaries from inferring the presence of an individual."
+  },
+  {
+    "id": 30,
+    "question": "What is 'Federated Learning' (McMahan et al., 2017) in privacy-preserving collaborative AI?",
+    "options": [
+      "A centralized government database holding all citizen data when evaluating unseen test instances",
+      "A cloud computing service managed by the federal government during iterative hyperparameter tuning",
+      "A method of sharing raw customer data via CSV files within the feature extraction and transformation pipeline",
+      "A decentralized machine learning framework where local edge devices or institutional entities train models on their local data privately, and only send model weight updates / gradients to a central server for aggregation (e.g. FedAvg)",
+      "A neural network architecture that operates without backpropagation during model training and cross-validation"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A decentralized machine learning framework where local edge devices or institutional entities (e.g. different banks or hospitals) train models on their local data privately, and only send model weight updates / gradients (not raw data) to a central server for aggregation (e.g. FedAvg). Federated Learning enables collaborative model training without centralizing sensitive raw data. Each participant trains a local model on private data and transmits only parameter updates/gradients to a central server. The server aggregates the updates (e.g. using Federated Averaging - FedAvg) into a global model, preserving data privacy at the edge."
+  },
+  {
+    "id": 31,
+    "question": "In June 2018, NITI Aayog released India's foundational national AI strategy paper. What was its overarching theme and national branding?",
+    "options": [
+      "National Strategy for Artificial Intelligence: #AIforAll",
+      "National Digital Literacy Mission",
+      "Vision 2020: Information Technology Superpower",
+      "Digital India AI Mandate",
+      "Make in India AI Directive"
+    ],
+    "answer": 0,
+    "explanation": "In June 2018, NITI Aayog published the 'National Strategy for Artificial Intelligence' under the banner '#AIforAll'. It identified five core focus areas for AI application: Healthcare, Agriculture, Education, Smart Cities and Infrastructure, and Smart Mobility and Transportation."
+  },
+  {
+    "id": 32,
+    "question": "In 2021, NITI Aayog published an operational policy framework for AI in India. What was this document titled, and what were its primary ethical principles?",
+    "options": [
+      "Indian AI Penal Code",
+      "Digital India Regulatory Guidelines",
+      "'Principles for Responsible AI'",
+      "Information Technology Amendment Rules",
+      "Cyber Security Framework for Financial Sector"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: 'Principles for Responsible AI' (covering System Considerations: Principle of Safety & Reliability, Principle of Equality, Principle of Inclusivity & Non-discrimination, Principle of Privacy & Security, Principle of Transparency & Explainability, Principle of Accountability). In 2021, NITI Aayog released 'Principles for Responsible AI' (Part 1: Principles and Part 2: Operationalizing Principles for the Approach). It outlined core system principles: Safety and Reliability, Equality, Inclusivity and Non-discrimination, Privacy and Security, Transparency and Explainability, Appropriateness, and Accountability."
+  },
+  {
+    "id": 33,
+    "question": "Under the Digital Personal Data Protection (DPDP) Act, 2023, what is an entity that determines the purpose and means of processing personal data called, and what is the maximum financial penalty for failing to implement reasonable security safeguards to prevent a personal data breach?",
+    "options": [
+      "Data Controller; ₹10 Crore",
+      "Data Processor; ₹50 Crore",
+      "Data Intermediary; ₹100 Crore",
+      "Data Trustee; ₹500 Crore",
+      "Data Fiduciary; up to ₹250 Crore"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: Data Fiduciary; up to ₹250 Crore (under Schedule to the Act). The DPDP Act, 2023 defines a 'Data Fiduciary' (Section 2(i)) as any person who determines the purpose and means of processing of personal data. Under the Schedule to the Act, failure to take reasonable security safeguards to prevent personal data breach carries a penalty of up to two hundred and fifty crore rupees (₹250 Crore)."
+  },
+  {
+    "id": 34,
+    "question": "What regulatory reporting framework did the Securities and Exchange Board of India (SEBI) mandate regarding AI and Machine Learning applications used by market intermediaries (stock brokers, mutual funds, depositories)?",
+    "options": [
+      "A complete ban on using computers in trading when evaluating unseen test instances",
+      "Mandatory periodic reporting and filing of an AI/ML inventory form by registered intermediaries, detailing whether they use AI/ML systems, the type of technology, the business areas of deployment, and risk mitigation safeguards",
+      "Daily submission of source code to SEBI headquarters during iterative hyperparameter tuning",
+      "Mandatory 50% equity investment in AI startups within the feature extraction and transformation pipeline",
+      "Registration of AI models as chartered accountants during model training and cross-validation"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Mandatory periodic reporting and filing of an AI/ML inventory form by registered intermediaries, detailing whether they use AI/ML systems, the type of technology (natural language processing, neural networks), the business areas of deployment, and risk mitigation safeguards. SEBI issued circulars on 'Reporting of Artificial Intelligence (AI) and Machine Learning (ML) applications and systems offered and used by Market Intermediaries'. Intermediaries must submit quarterly/half-yearly disclosures detailing their AI/ML systems, technologies used, operational domains, and safeguards against market disruption."
+  },
+  {
+    "id": 35,
+    "question": "In August 2022, the Reserve Bank of India (RBI) issued 'Guidelines on Digital Lending'. What key requirement was mandated regarding automated algorithmic credit underwriting and lending decisions?",
+    "options": [
+      "All loans must be approved by an algorithm with zero human oversight across multi-class probability distributions",
+      "Digital lending was declared illegal across all states during stochastic gradient descent weight updates",
+      "Interest rates must be set dynamically by deep reinforcement learning across high-dimensional input feature vectors",
+      "Lending decisions must be auditable and transparent, credit assessment algorithms must be verified for non-discrimination and fairness, and Regulated Entities (REs) must ensure that outsourcing of tech/algorithms does not diminish their responsibility to protect borrowers",
+      "Borrowers must be evaluated using their social media sentiment score when optimizing the objective loss function"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Lending decisions must be auditable and transparent, credit assessment algorithms must be verified for non-discrimination and fairness, and Regulated Entities (REs) must ensure that outsourcing of tech/algorithms does not diminish their responsibility to protect borrowers. RBI's Digital Lending Guidelines mandate that credit underwriting models used by Lending Service Providers (LSPs) or Regulated Entities (REs) must be auditable, transparent, free from bias, and compliant with fair lending principles. The responsibility for regulatory compliance and consumer grievance redressal rests with the Regulated Entity."
+  },
+  {
+    "id": 36,
+    "question": "What is the global regulatory structure established by the European Union AI Act (EU AI Act, 2024)?",
+    "options": [
+      "A Risk-Tiered Classification Framework categorizing AI systems into four tiers: (1) Unacceptable Risk",
+      "A flat ban on all generative AI systems across Europe during model training and cross-validation",
+      "A tax on all computer servers using more than 100 watts of power under empirical risk minimization on the training set",
+      "A requirement that all AI models must be trained on European languages across out-of-sample validation datasets",
+      "An international treaty establishing a global AI military force when evaluating unseen test instances"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A Risk-Tiered Classification Framework categorizing AI systems into four tiers: (1) Unacceptable Risk (strictly prohibited, e.g. social scoring, biometric categorization based on protected attributes); (2) High Risk (strictly regulated, e.g. credit scoring, employment, biometric identification); (3) Limited / Specific Transparency Risk (e.g. chatbots, deepfakes requiring clear labels); and (4) Minimal / Zero Risk (unregulated). The EU AI Act (2024) is the world's first comprehensive horizontal AI law, applying a risk-based approach: (1) Unacceptable risk: prohibited (social credit scoring, cognitive behavioral manipulation, untargeted scraping of facial images); (2) High risk: mandatory conformity assessments, fundamental rights impact assessments, data governance, and human oversight; (3) Specific transparency risk: mandatory disclosure of AI-generated content; (4) Minimal risk: free use."
+  },
+  {
+    "id": 37,
+    "question": "What are the 'OECD Principles on Artificial Intelligence' adopted in 2019 (and endorsed by G20 nations)?",
+    "options": [
+      "A set of rules for pricing semiconductor export tariffs when optimizing the objective loss function",
+      "A treaty on intellectual property rights for computer software within the neural network hidden layer architecture",
+      "The first intergovernmental standard for trustworthy AI, outlining five value-based principles: (1) Inclusive growth, sustainable development and well-being",
+      "A technical specification for training neural networks on supercomputers under parametric statistical learning assumptions",
+      "A guideline for eliminating corporate taxation on tech startups across multi-class probability distributions"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The first intergovernmental standard for trustworthy AI, outlining five value-based principles: (1) Inclusive growth, sustainable development and well-being; (2) Human-centered values and fairness; (3) Transparency and explainability; (4) Robustness, security and safety; and (5) Accountability. Adopted in May 2019 by OECD members and endorsed by G20 leaders (including India), the OECD AI Principles promote trustworthy, human-centered AI: inclusive growth, human-centered values/fairness, transparency/explainability, robustness/security, and accountability."
+  },
+  {
+    "id": 38,
+    "question": "What is 'Model Drift' (Concept Drift and Data Drift) in production machine learning monitoring?",
+    "options": [
+      "The physical relocation of servers to a different city when evaluating unseen test instances",
+      "An error that occurs when training data is stored in different file formats during iterative hyperparameter tuning",
+      "The loss of accuracy caused by upgrading Python versions within the feature extraction and transformation pipeline",
+      "A failure in network cables connecting database servers during model training and cross-validation",
+      "The degradation of model predictive performance over time caused by changes in the statistical properties of input features (Data Drift / Covariate Shift: P(X) changes while P(Y|X) remains constant) or changes in the underlying relationship between inputs and target labels (Concept Drift: P(Y|X) changes)"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: The degradation of model predictive performance over time caused by changes in the statistical properties of input features (Data Drift / Covariate Shift: P(X) changes while P(Y|X) remains constant) or changes in the underlying relationship between inputs and target labels (Concept Drift: P(Y|X) changes). Models degrade over time as real-world distributions evolve: (1) Data Drift (Covariate Shift): the distribution of inputs P(X) shifts (e.g. demographic changes in subscribers) while the relationship P(Y|X) stays the same; (2) Concept Drift: the underlying relationship P(Y|X) changes (e.g. consumer spending patterns change fundamentally after a pandemic or macroeconomic shift)."
+  },
+  {
+    "id": 39,
+    "question": "What statistical test is commonly used to monitor and detect 'Data Drift' (Covariate Shift) in continuous numerical features in production?",
+    "options": [
+      "Student's paired t-test",
+      "Kolmogorov-Smirnov (KS) Test or Population Stability Index (PSI)",
+      "Shapiro-Wilk test of normality",
+      "Durbin-Watson test of autocorrelation",
+      "Breusch-Pagan test of heteroscedasticity"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Kolmogorov-Smirnov (KS) Test or Population Stability Index (PSI). Monitoring pipelines detect covariate shift using distribution comparison metrics: (1) Two-sample Kolmogorov-Smirnov (KS) test: compares cumulative distributions of reference training data vs current inference data; (2) Population Stability Index (PSI): standard in financial credit risk (PSI < 0.10: stable; PSI 0.10–0.25: moderate shift; PSI > 0.25: significant drift requiring retraining)."
+  },
+  {
+    "id": 40,
+    "question": "What is 'Population Stability Index' (PSI) in credit risk and financial model governance?",
+    "options": [
+      "A census metric measuring birth rates across Indian districts during model training and cross-validation",
+      "The ratio of bank deposits to total loans under empirical risk minimization on the training set",
+      "A measure of financial market volatility during trading hours across out-of-sample validation datasets",
+      "A quantitative metric measuring how much a variable's distribution has shifted between a reference baseline sample and a current production sample: PSI = ∑ * ln",
+      "The percentage of subscribers enrolled in Atal Pension Yojana when evaluating unseen test instances"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: A quantitative metric measuring how much a variable's distribution has shifted between a reference baseline sample and a current production sample: PSI = ∑ (Actual% - Expected%) * ln(Actual% / Expected%); PSI > 0.25 signals significant shift requiring model recalibration or retraining. PSI measures distribution shift over time: PSI = ∑ (Actual_i - Expected_i) * ln(Actual_i / Expected_i), where data is binned into deciles. A PSI < 0.1 indicates no meaningful change; 0.1 ≤ PSI ≤ 0.25 indicates moderate shift; and PSI > 0.25 indicates significant population drift warranting model retraining."
+  },
+  {
+    "id": 41,
+    "question": "What is 'A/B Testing' in machine learning model deployment?",
+    "options": [
+      "A randomized controlled experiment where live production traffic is split to statistically evaluate which model yields superior business metrics under real-world conditions",
+      "Testing software code using two different monitors when optimizing the objective loss function",
+      "Testing a model on both Apple and Android devices within the neural network hidden layer architecture",
+      "Training a model using two different random seeds under parametric statistical learning assumptions",
+      "Testing code written in uppercase versus lowercase across multi-class probability distributions"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: A randomized controlled experiment where live production traffic is split (e.g. 50% to Model A / Control, 50% to Model B / Challenger) to statistically evaluate which model yields superior business metrics (e.g. click-through rate, loan conversion, default reduction) under real-world conditions. In A/B testing (online split testing), incoming live traffic is routed randomly between two versions: Model A (the incumbent baseline) and Model B (the challenger). Business KPIs and statistical metrics are tracked to determine whether Model B outperforms Model A with statistical significance."
+  },
+  {
+    "id": 42,
+    "question": "What is 'Canary Deployment' (Canary Testing) of an ML model?",
+    "options": [
+      "Using birds to monitor carbon monoxide in data centers when evaluating unseen test instances",
+      "Releasing the model exclusively to internal software developers during iterative hyperparameter tuning",
+      "A deployment strategy where a new model version is rolled out gradually to a tiny fraction of live users",
+      "Running model inference on battery power within the feature extraction and transformation pipeline",
+      "A method to delete old database backups during model training and cross-validation"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A deployment strategy where a new model version is rolled out gradually to a tiny fraction of live users (e.g. 2% to 5%) while the existing model handles the rest; performance, latency, and error logs are monitored, and traffic is incrementally increased to 100% if the model proves stable. Canary deployment (derived from the 'canary in a coal mine' idiom) routes a small fraction of live traffic (e.g. 1–5%) to the new candidate model. Telemetry, latency, and error rates are monitored in real time. If errors or degradations occur, traffic falls back to the baseline model without impacting the broader user base."
+  },
+  {
+    "id": 43,
+    "question": "What is 'Shadow Deployment' (Dark Launching) in machine learning operations (MLOps)?",
+    "options": [
+      "Deploying software secretly in violation of corporate policy across multi-class probability distributions",
+      "Running an ML model with the computer screen turned off during stochastic gradient descent weight updates",
+      "Deploying a model inside an encrypted virtual private network across high-dimensional input feature vectors",
+      "A technique that deletes model logs after 24 hours when optimizing the objective loss function",
+      "A deployment technique where incoming production requests are processed by both the incumbent production model and a new candidate model in parallel"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A deployment technique where incoming production requests are processed by both the incumbent production model and a new candidate model in parallel; the incumbent model serves live responses to users while the candidate model's predictions are recorded asynchronously in the background to monitor performance, latency, and outputs on real traffic with zero user impact. In Shadow Deployment, the new challenger model runs alongside the active production model in the background. It receives real-time production queries, but its outputs are logged rather than returned to users. This allows engineers to validate accuracy, latency, and resource utilization on live production traffic with zero operational risk."
+  },
+  {
+    "id": 44,
+    "question": "What is 'Human-in-the-Loop' (HITL) in responsible AI decision systems?",
+    "options": [
+      "A human physically holding computer cables during training",
+      "A governance and operational framework where automated AI predictions are combined with human review",
+      "Requiring humans to manually code all neural network weights under empirical risk minimization on the training set",
+      "A technique for converting manual ledger entries into digital databases across out-of-sample validation datasets",
+      "An AI system that mimics human handwriting when evaluating unseen test instances"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A governance and operational framework where automated AI predictions are combined with human review: high-confidence predictions may execute automatically, but low-confidence, borderline, or high-stakes decisions (e.g. denying a pension, rejecting a medical insurance claim) are routed to human experts for adjudication and oversight. Human-in-the-Loop (HITL) integrates human judgment into automated workflows. In high-stakes regulatory or financial domains (e.g. disability pension claims or credit denials), cases where the model's confidence falls below a threshold or flag high potential harm are escalated to human officers, ensuring accountability and mitigating automated errors."
+  },
+  {
+    "id": 45,
+    "question": "What is 'Data Provenance' and 'Data Lineage' in AI governance and auditability?",
+    "options": [
+      "The geographic city where the software developer was born when optimizing the objective loss function",
+      "The physical receipt issued when purchasing server hardware within the neural network hidden layer architecture",
+      "A copyright license for open-source datasets under parametric statistical learning assumptions",
+      "The documented, auditable lifecycle and historical record detailing the origin, movements, transformations, processing steps, and custodianship of data from its source to its consumption in an ML training or inference pipeline",
+      "The speed at which data travels through optical fiber cables across multi-class probability distributions"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The documented, auditable lifecycle and historical record detailing the origin, movements, transformations, processing steps, and custodianship of data from its source to its consumption in an ML training or inference pipeline. Data Lineage/Provenance tracks the complete audit trail of data: where it originated, how it was gathered, what preprocessing steps (cleaning, filtering, imputation, transformation) were applied, who accessed it, and which model version consumed it. This is essential for regulatory audits, debugging, and compliance under the DPDP Act."
+  },
+  {
+    "id": 46,
+    "question": "What is 'Algorithmic Auditing' in AI regulatory oversight?",
+    "options": [
+      "An independent, systematic evaluation of an AI/ML model's source code, training data, architecture, performance metrics, and outputs to assess compliance with legal regulations, ethical standards, safety benchmarks, and non-discrimination requirements",
+      "Auditing the financial tax returns of tech companies when evaluating unseen test instances",
+      "Checking whether an algorithm was written in Python or R during iterative hyperparameter tuning",
+      "A test of network latency across interbank clearing systems within the feature extraction and transformation pipeline",
+      "The process of calculating compound interest on corporate bonds during model training and cross-validation"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: An independent, systematic evaluation of an AI/ML model's source code, training data, architecture, performance metrics, and outputs to assess compliance with legal regulations, ethical standards, safety benchmarks, and non-discrimination requirements. Algorithmic auditing is an independent examination of an AI system's design, training data integrity, bias mitigation, security resilience, explainability mechanisms, and governance controls. Regulators (RBI, SEBI, PFRDA) require algorithmic audits to ensure automated systems operate within statutory boundaries."
+  },
+  {
+    "id": 47,
+    "question": "What is 'Model Card' (Mitchell et al., 2019) in machine learning documentation and transparency?",
+    "options": [
+      "A plastic identity badge worn by machine learning engineers across multi-class probability distributions",
+      "A credit card used to pay for cloud computing hours during stochastic gradient descent weight updates",
+      "A standardized, structured document accompanying a trained machine learning model that transparently reports its intended use cases, training data provenance, evaluation metrics, demographic performance breakdowns, ethical considerations, and operational limitations",
+      "A hardware component that accelerates neural network inference across high-dimensional input feature vectors",
+      "A software license agreement for commercial algorithms when optimizing the objective loss function"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A standardized, structured document accompanying a trained machine learning model that transparently reports its intended use cases, training data provenance, evaluation metrics, demographic performance breakdowns, ethical considerations, and operational limitations. Model Cards (Mitchell et al., Google Research, 2019) are standardized documentation artifacts for ML models, analogous to nutrition labels on food packaging. They document: intended use cases, out-of-scope applications, model architecture, training data details, quantitative performance across demographic slices, and known limitations."
+  },
+  {
+    "id": 48,
+    "question": "What is 'Datasheet for Datasets' (Gebru et al., 2021) in responsible AI data governance?",
+    "options": [
+      "An Excel spreadsheet containing financial balance sheets during model training and cross-validation",
+      "A catalog of computer hardware specifications under empirical risk minimization on the training set",
+      "A list of database passwords stored in cloud vaults across out-of-sample validation datasets",
+      "A user manual for operating server racks when evaluating unseen test instances",
+      "A standardized documentation framework that records the motivation, composition, collection process, preprocessing, uses, and distribution of a dataset, promoting transparency and accountability in machine learning data pipelines"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: A standardized documentation framework that records the motivation, composition, collection process, preprocessing, uses, and distribution of a dataset, promoting transparency and accountability in machine learning data pipelines. Modeled after datasheets in the electronics industry, 'Datasheets for Datasets' (Gebru et al., 2021) provides structured documentation for training datasets: who created it, what funding supported it, what demographic groups are represented, what consent was gathered, and what preprocessing was applied, helping prevent biased model development."
+  },
+  {
+    "id": 49,
+    "question": "In the context of the Digital Personal Data Protection (DPDP) Act, 2023, what is a 'Significant Data Fiduciary' (SDF)?",
+    "options": [
+      "Any individual who opens a bank account",
+      "A Data Fiduciary designated by the Central Government based on factors",
+      "A foreign company that has no customers in India",
+      "A commercial bank that has zero non-performing assets",
+      "A non-profit organization with fewer than 10 employees"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A Data Fiduciary designated by the Central Government based on factors such as volume of personal data processed, risk to the rights of data principals, potential impact on national security, public order, and electoral democracy; required to fulfill enhanced obligations such as appointing a resident Data Protection Officer (DPO), an independent data auditor, and conducting periodic Data Protection Impact Assessments (DPIA). Under Section 10 of the DPDP Act, 2023, the Central Government can notify any Data Fiduciary or class of Data Fiduciaries as a 'Significant Data Fiduciary' (SDF) based on data volume, sensitivity, and systemic risk. SDFs must: (a) appoint an India-resident DPO; (b) appoint an independent data auditor; and (c) conduct periodic DPIAs and audits."
+  },
+  {
+    "id": 50,
+    "question": "What is 'Green AI' (Schwartz et al., 2020) and why is it increasingly relevant in large-scale AI deployment?",
+    "options": [
+      "Using AI to identify plant species in botanical gardens when evaluating unseen test instances",
+      "A legal mandate requiring server cases to be painted green during iterative hyperparameter tuning",
+      "A machine learning algorithm that predicts solar flare activity within the feature extraction and transformation pipeline",
+      "An AI development paradigm that prioritizes energy efficiency, reduction in computational carbon footprints, and environmental sustainability as primary evaluation metrics alongside traditional accuracy, countering the exponential rise in electricity consumption of training multi-billion parameter foundation models",
+      "A regulatory ban on computers in government offices during model training and cross-validation"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: An AI development paradigm that prioritizes energy efficiency, reduction in computational carbon footprints, and environmental sustainability as primary evaluation metrics alongside traditional accuracy, countering the exponential rise in electricity consumption of training multi-billion parameter foundation models. While 'Red AI' focuses solely on maximizing raw accuracy by scaling up compute and parameters regardless of cost, 'Green AI' (Schwartz et al., 2020) focuses on achieving competitive performance with reduced computational costs, energy consumption, and carbon footprints, advocating for efficient architectures, pruning, and quantization."
+  }
+];
+
+/**
+ * LOGIC SECTION
+ */
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60; // 40 minutes for 50 questions (PFRDA Paper 2 format)
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - AI & Machine Learning Mock 5",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log("Result logged successfully");
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    // Hide Timer and Live Legend
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    // Post-Submission Result Legend
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    // Calculate score
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    // Reset UI for review mode
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - AI & Machine Learning Mock 5";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br /><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br /><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br /><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br /><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+// Initialize app
+init();
+
+// ]]>
+</script>
+</body>
+</html>

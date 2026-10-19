@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFRDA Finance Mock Test 4 - SHIVAM</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --gray: #e5e7eb;
+            --dark: #1f2937;
+            --info: #3b82f6;
+            --review: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+        .hidden { display: none !important; }
+
+        .app-header {
+            background: white;
+            padding: 12px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .brand-badge {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .exam-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        #start-page {
+            max-width: 680px;
+            margin: 40px auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .start-heading {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .start-subheading {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .rules-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 25px 0;
+        }
+        .rules-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .rule-metric {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        .rule-metric span {
+            color: #64748b;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .rule-metric b {
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        #test-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            min-height: 480px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .q-header h3 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .q-marks-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-item {
+            border: 1.5px solid var(--gray);
+            padding: 14px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+            color: #1e40af;
+        }
+        .opt-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-controls {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        button {
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        .btn-clear {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-clear:hover {
+            background: #e2e8f0;
+        }
+        .btn-review {
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+        }
+        .btn-review:hover {
+            background: #ddd6fe;
+        }
+
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timer-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #991b1b;
+            letter-spacing: 0.5px;
+        }
+        .timer {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--danger);
+            font-variant-numeric: tabular-nums;
+            margin-top: 2px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        .q-num {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+        .q-num:hover {
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+        .q-num.visited {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #f87171;
+        }
+        .q-num.attempted {
+            background: var(--success);
+            color: white;
+            border-color: #16a34a;
+        }
+        .q-num.marked {
+            background: var(--review);
+            color: white;
+            border-color: #7c3aed;
+        }
+        .q-num.current {
+            outline: 2.5px solid #0f172a;
+            outline-offset: 1px;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+        }
+
+        .q-num.res-correct {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .q-num.res-wrong {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+        .q-num.res-none {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #64748b !important;
+        }
+
+        .legend {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            font-weight: 500;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        #submit-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        #submit-btn:hover {
+            background: #0f172a;
+        }
+
+        #scorecard {
+            margin-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .score-box {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .score-box b {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-top: 2px;
+            display: block;
+        }
+        .final-total {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            border: none;
+            padding: 16px;
+        }
+        .final-total b {
+            color: #38bdf8;
+            font-size: 1.8rem;
+        }
+
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #166534 !important;
+            font-weight: 600;
+        }
+        .option-item.correct .opt-letter {
+            background: var(--success) !important;
+            color: white !important;
+        }
+        .option-item.wrong {
+            background: #fee2e2 !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+        .option-item.wrong .opt-letter {
+            background: var(--danger) !important;
+            color: white !important;
+        }
+        .explanation-card {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            border-radius: 0 8px 8px 0;
+            color: #14532d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .explanation-card strong {
+            color: #166534;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            #test-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- PFRDA PORTAL UNIFIED NAV -->
+<div class="pfrda-portal-nav no-print" style="background:#ffffff;border-bottom:1px solid #e2e8f0;padding:8px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;position:sticky;top:0;z-index:9999;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="background:#0f172a;color:#38bdf8;font-weight:800;font-size:0.76rem;padding:4px 9px;border-radius:4px;letter-spacing:0.6px;">PFRDA 2026</span>
+    <span style="font-weight:700;font-size:0.88rem;color:#0f172a;">Subject E: Finance</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">🏠 Syllabus Portal</a><a href="PFRDA_Finance_Comprehensive_Master_Study_Notes.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📘 Comprehensive Notes</a><a href="PFRDA_Finance_Master_Revision_Sheet.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">⚡ Revision Sheet</a><a href="PFRDA_Finance_Mock_1.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 1</a><a href="PFRDA_Finance_Mock_2.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 2</a><a href="PFRDA_Finance_Mock_3.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 3</a><a href="PFRDA_Finance_Mock_4.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#2563eb;color:#ffffff;border-color:#2563eb;box-shadow:0 1px 4px rgba(37,99,235,0.25);transition:all 0.15s;">📝 Mock 4</a><a href="PFRDA_Finance_Mock_5.html" style="text-decoration:none;padding:6px 12px;border-radius:6px;font-size:0.82rem;font-weight:600;border:1px solid;background:#f8fafc;color:#1e293b;border-color:#cbd5e1;transition:all 0.15s;">📝 Mock 5</a>
+  </div>
+</div>
+<!-- END PFRDA PORTAL UNIFIED NAV -->
+
+<header class="app-header">
+    <div class="brand-badge">PFRDA &middot; SHIVAM</div>
+    <div class="exam-tag">PFRDA / SEBI Grade A &middot; Paper 2 &middot; Finance Mock 4</div>
+</header>
+
+<div id="start-page">
+    <h1 class="start-heading">Subject E &mdash; Finance: Mock Test 4</h1>
+    <p class="start-subheading">Full 50 Questions &middot; Balanced Options (10 A, 10 B, 10 C, 10 D, 10 E) &middot; In-Depth Distractor Explanations &middot; PFRDA Grade A Level</p>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+        <div class="input-group">
+            <label for="user-name">Candidate Name:</label>
+            <input type="text" id="user-name" placeholder="Enter Full Name" value="Aspirant" />
+        </div>
+        <div class="input-group">
+            <label for="user-email">Email Address:</label>
+            <input type="email" id="user-email" placeholder="Enter Email Address" value="aspirant@regulatorycompass.com" />
+        </div>
+        
+        <div class="rules-card">
+            <h4>Syllabus Covered &amp; Exam Scheme:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #334155;">
+                <li><b>Accounting System:</b> Financial information system, bookkeeping vs accounting, concepts, conventions, capital vs revenue, errors.</li>
+                <li><b>Accounting Standards:</b> Depreciation (AS 10 / Ind AS 16), Inventories (AS 2 / Ind AS 2), Revenue Recognition (AS 9 / Ind AS 115), PPE (AS 10), Forex (AS 11 / Ind AS 21), Investments (AS 13).</li>
+                <li><b>Cash Flow &amp; Fund Flow:</b> Operating/Investing/Financing activities, Direct &amp; Indirect methods, Statement of Changes in Working Capital.</li>
+                <li><b>Ratio Analysis:</b> Liquidity, Solvency, Turnover, Profitability, and DuPont 3-stage / 5-stage models.</li>
+                <li><b>Share Capital &amp; Corporate Actions:</b> Share issue/forfeiture/reissue, Bonus shares (Sec 63), Rights issue (Sec 62), ESOPs, Buy-back (Sec 68-70).</li>
+                <li><b>Company Final Accounts:</b> Schedule III Balance Sheet and Statement of Profit &amp; Loss structure, operating cycle, and notes.</li>
+            </ul>
+
+            <div class="rules-grid">
+                <div class="rule-metric">
+                    <span>Total Questions</span>
+                    <b id="info-count">50 MCQs</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Time Allowed</span>
+                    <b>40 Minutes</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Correct Answer</span>
+                    <b style="color: var(--success);">+1.0 Mark</b>
+                </div>
+                <div class="rule-metric">
+                    <span>Negative Marking</span>
+                    <b style="color: var(--danger);">-0.25 Mark</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn-primary" onclick="validateAndStart()" style="padding: 16px 48px; font-size: 1.1rem; border-radius: 8px;">
+        Start Pension Sector Mock Test 1 Now
+    </button>
+</div>
+
+<div id="test-interface" class="hidden">
+    <div id="test-container">
+        <main>
+            <div class="question-card">
+                <div>
+                    <div class="q-header">
+                        <h3 id="q-title">Question 1 of 50</h3>
+                        <span class="q-marks-tag">+1.0 / -0.25</span>
+                    </div>
+                    <div id="q-text" class="q-text"></div>
+                    <div id="options-container" class="options-list"></div>
+                    
+                    <div id="result-info" class="hidden">
+                        <div class="explanation-card">
+                            <strong>Detailed Solution &amp; Reference:</strong>
+                            <div id="explanation-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="btn-clear" onclick="prevQuestion()">Previous</button>
+                    <button class="btn-primary" onclick="nextQuestion()">Next</button>
+                    <button class="btn-clear" onclick="clearResponse()" id="clear-btn">Clear Response</button>
+                    <button class="btn-review" onclick="toggleReview()" id="review-btn">Mark for Review</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="timer-box">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">40:00</div>
+            </div>
+
+            <div class="stats">
+                <span>Attempted: <b id="stat-attempted" style="color: var(--success);">0</b></span>
+                <span>Remaining: <b id="stat-left">50</b></span>
+            </div>
+            
+            <div class="question-grid" id="q-grid"></div>
+            
+            <div class="legend" id="live-legend">
+                <div class="legend-item"><div class="dot" style="background: white; border: 1px solid #cbd5e1;"></div> Not Visited</div>
+                <div class="legend-item"><div class="dot" style="background: #fee2e2; border: 1px solid #f87171;"></div> Not Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Answered</div>
+                <div class="legend-item"><div class="dot" style="background: var(--review);"></div> Marked</div>
+            </div>
+            
+            <button class="btn-primary" id="submit-btn" onclick="endTest()">Submit Test</button>
+
+            <div id="scorecard" class="hidden">
+                <div class="score-grid">
+                    <div class="score-box"><span>Attempted</span><b id="res-attempted">0</b></div>
+                    <div class="score-box"><span>Correct</span><b id="res-correct" style="color: var(--success);">0</b></div>
+                    <div class="score-box"><span>Incorrect</span><b id="res-incorrect" style="color: var(--danger);">0</b></div>
+                    <div class="score-box"><span>Accuracy</span><b id="res-accuracy">0%</b></div>
+                    <div class="score-box final-total">
+                        <span style="color: #cbd5e1;">Final Net Score</span>
+                        <b id="res-score">0.00 / 50.00</b>
+                    </div>
+                </div>
+                <button class="btn-primary" id="download-report-btn" onclick="generateSummarySheet()" style="width: 100%; margin-top: 15px; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">
+                    Generate Full Summary Sheet (PDF)
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+const questionsData = [
+  {
+    "id": 1,
+    "question": "Under Section 42(1) of the RBI Act, 1934, what is the maximum statutory ceiling on the Cash Reserve Ratio (CRR) that the RBI is legally permitted to prescribe?",
+    "options": [
+      "Maximum ceiling of 15% of NDTL",
+      "Maximum ceiling of 20% of NDTL",
+      "Maximum ceiling of 8% of NDTL",
+      "Maximum ceiling of 25% of NDTL",
+      "There is no statutory floor or ceiling on CRR"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: There is no statutory floor or ceiling on CRR (RBI has full discretion). Correct Answer: Option E. Key Rule: Following the amendment to the RBI Act in 2006, the statutory floor (formerly 3%) and ceiling (formerly 20%) on CRR were completely removed. The RBI now has full legal discretion to set the CRR at any percentage without statutory bounds. Why other options are incorrect: Options B, C, D, and E cite outdated or arbitrary percentage caps that no longer exist under the amended RBI Act."
+  },
+  {
+    "id": 2,
+    "question": "What is the primary function of the Financial Sector Legislative Reforms Commission (FSLRC) constituted under Justice B.N. Srikrishna?",
+    "options": [
+      "To fix GST rates for digital payments in accordance with the FRBM macro-fiscal consolidation path",
+      "To review, harmonize, and rewrite the legal and regulatory architecture of the Indian financial sector",
+      "To manage the asset reconstruction company for stressed public sector banks for institutional and retail market participants",
+      "To regulate retail mutual funds on the Bombay Stock Exchange within the regulated financial market infrastructure",
+      "To oversee national rural employment guarantees under the regulatory guidelines issued by RBI and SEBI"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: To review, harmonize, and rewrite the legal and regulatory architecture of the Indian financial sector (proposing the Indian Financial Code). Correct Answer: Option B. Key Rule: The FSLRC was set up in 2011 to overhaul the fragmented legal and regulatory framework governing Indian financial markets, recommending a unified financial regulatory architecture through the draft Indian Financial Code (IFC). Why other options are incorrect: Options A, C, D, and E relate to unrelated operational domains."
+  },
+  {
+    "id": 3,
+    "question": "Under the SEBI (Credit Rating Agencies) Regulations, 1999, which of the following is strictly PROHIBITED for a credit rating agency in India?",
+    "options": [
+      "Rating commercial paper issued by corporates on a mark-to-market daily settlement basis",
+      "Rating corporate bonds and debentures subject to periodic review by the regulator",
+      "Publishing default rates on its public website across primary and secondary capital market segments",
+      "Rating an entity or instrument where the CRA or its promoter has a common director or conflict of interest",
+      "Maintaining a rating committee composed of professional analysts subject to statutory capital adequacy and prudential norms"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: Rating an entity or instrument where the CRA or its promoter has a common director or conflict of interest. Correct Answer: Option D. Key Rule: SEBI regulations strictly prohibit CRAs from assigning ratings to securities issued by its promoters or clients where significant conflict of interest, common directorship, or advisory relationships exist. Why other options are incorrect: Options A, B, D, and E are core mandatory activities and compliance disclosures for rating agencies."
+  },
+  {
+    "id": 4,
+    "question": "Which regulatory authority in India is responsible for the regulation of the International Financial Services Centre (IFSC) at GIFT City in Gujarat?",
+    "options": [
+      "International Financial Services Centres Authority (IFSCA)",
+      "Reserve Bank of India (RBI) exclusively",
+      "Securities and Exchange Board of India (SEBI) exclusively",
+      "Ministry of Commerce and Industry",
+      "Pension Fund Regulatory and Development Authority (PFRDA)"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A (IFSCA). Key Rule: The International Financial Services Centres Authority (IFSCA) was established in April 2020 under the IFSCA Act, 2019 as a unified statutory regulator for the development and regulation of financial products, financial services, and financial institutions in IFSCs in India. Why other options are incorrect: Options A, B, and E were the previous separate regulators whose powers in GIFT City were unified and transferred to IFSCA. Option C is a government ministry."
+  },
+  {
+    "id": 5,
+    "question": "Under the RBI's Prompt Corrective Action (PCA) framework for NBFCs, which of the following triggers placement of an NBFC into PCA?",
+    "options": [
+      "Having more than 100 retail branches across India subject to statutory capital adequacy and prudential norms",
+      "Issuing Commercial Paper above ₹100 Crore through recognized clearing corporations and depositories",
+      "CRAR falling below 15% or Net NPA exceeding 6.0% for middle and upper layer deposit/non-deposit taking NBFCs",
+      "Investing more than 20% in G-Secs under the Flexible Inflation Targeting (FIT) monetary framework",
+      "Opening an Account Aggregator subsidiary on a mark-to-market daily settlement basis"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: CRAR falling below 15% or Net NPA exceeding 6.0% for middle and upper layer deposit/non-deposit taking NBFCs. Correct Answer: Option C. Key Rule: Under the SBR PCA framework for NBFCs (Middle, Upper, and Top Layers), breach of risk thresholds occurs if CRAR drops below 15% (Tier 1 < 10%) or Net NPAs exceed 6.0%. Why other options are incorrect: Options A, B, C, and D are standard commercial operations and do not trigger supervisory enforcement."
+  },
+  {
+    "id": 6,
+    "question": "Which of the following money market instruments is backed by the sovereign guarantee of the Central Government and issued at a discount with zero coupon?",
+    "options": [
+      "Commercial Paper (CP)",
+      "Certificates of Deposit (CD)",
+      "Inter-Corporate Deposits (ICD)",
+      "Bankers' Acceptance",
+      "Treasury Bills (T-Bills)"
+    ],
+    "answer": 4,
+    "explanation": "Correct Answer: Option E (T-Bills). Key Rule: T-Bills are sovereign short-term debt instruments issued by the Central Government via RBI at a discount to face value with zero coupon. Why other options are incorrect: Option B (CP) is an unsecured corporate instrument. Option C (CD) is issued by banks. Option D (ICD) is unsecured borrowing between two companies. Option E is trade finance debt."
+  },
+  {
+    "id": 7,
+    "question": "What is the maximum period for which a bank can borrow under the Marginal Standing Facility (MSF) of the RBI under standard operating conditions?",
+    "options": [
+      "Up to 14 days",
+      "Overnight (1 business day)",
+      "Up to 91 days",
+      "Up to 1 year",
+      "Up to 30 days"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Overnight (1 business day). Correct Answer: Option B (Overnight). Key Rule: Marginal Standing Facility (MSF) is an overnight liquidity window through which scheduled commercial banks can borrow funds from the RBI by dipping into their Statutory Liquidity Ratio (SLR) portfolio up to a prescribed limit (currently 2% of NDTL). Why other options are incorrect: Option A describes Term Repo. Option C describes T-Bill auctions. Options D and E are long-term liquidity operations."
+  },
+  {
+    "id": 8,
+    "question": "What is the interest rate paid on Cash Reserve Ratio (CRR) balances maintained by commercial banks with the Reserve Bank of India?",
+    "options": [
+      "Equal to the Repo Rate",
+      "Equal to the SDF rate",
+      "Equal to the 91-day T-bill cut-off yield",
+      "0% (Zero percent - RBI pays no interest on CRR balances)",
+      "Equal to the Bank Rate"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: 0% (Zero percent - RBI pays no interest on CRR balances). Correct Answer: Option D (Zero percent). Key Rule: Following the amendment to Section 42 of the RBI Act in 2006, the RBI does not pay any interest to banks on the cash balances maintained under the Cash Reserve Ratio (CRR). Why other options are incorrect: Options A, B, D, and E are incorrect because CRR is completely unremunerated."
+  },
+  {
+    "id": 9,
+    "question": "If a 10-year G-Sec bond has a coupon rate of 7.26% paid semi-annually and its Yield to Maturity (YTM) drops from 7.50% to 7.00%, what happens to the bond's price?",
+    "options": [
+      "The bond's price rises above its previous market price",
+      "The bond's price drops below par value",
+      "The bond's price remains completely unchanged",
+      "The bond's price fluctuates randomly with zero net change",
+      "The bond's price drops to zero"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A. Key Rule: There is an inverse relationship between bond prices and yields. When YTM decreases (yield falls), the present value of future coupon and principal cash flows increases, causing the bond price to rise. Why other options are incorrect: Options A, B, C, and E violate the fundamental bond pricing equation."
+  },
+  {
+    "id": 10,
+    "question": "Which of the following bonds has the lowest price volatility (lowest duration) for a given change in market interest rates?",
+    "options": [
+      "A 10-year zero-coupon bond",
+      "A 10-year bond with 5% coupon",
+      "A 1-year Treasury Bill",
+      "A 10-year bond with 7% coupon",
+      "A 20-year bond with 10% coupon"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C (1-year Treasury Bill). Key Rule: Duration (price volatility) decreases as the maturity of the bond decreases. A 1-year T-Bill has a duration of less than 1 year, making its price far less sensitive to interest rate fluctuations than 10-year or 20-year bonds. Why other options are incorrect: Options A, B, C, and D are all long-dated bonds with much higher duration and interest rate risk."
+  },
+  {
+    "id": 11,
+    "question": "What is the maximum investment limit for a retail investor applying for shares through the 'Retail Individual Investor' (RII) portion in an equity public issue?",
+    "options": [
+      "₹5,00,000",
+      "₹1,00,000",
+      "₹10,00,000",
+      "₹50,000",
+      "₹2,00,000"
+    ],
+    "answer": 4,
+    "explanation": "Correct Answer: Option E (₹2,00,000). Key Rule: Under SEBI (ICDR) Regulations, an application where the total bid value does not exceed ₹2,00,000 qualifies as a Retail Individual Investor application. Why other options are incorrect: Options B, C, D, and E are incorrect monetary thresholds under SEBI guidelines."
+  },
+  {
+    "id": 12,
+    "question": "Under the SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015, what is the mandatory quorum for a meeting of the Board of Directors of top listed entities?",
+    "options": [
+      "One-fourth of total strength of the board",
+      "One-third of total strength or three directors, whichever is higher",
+      "One-half of total strength without independent directors",
+      "Five directors minimum regardless of total board size",
+      "Two directors only"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: One-third of total strength or three directors, whichever is higher, including at least one independent director. Correct Answer: Option B. Key Rule: Regulation 17(2A) of SEBI (LODR) specifies that for top 2,000 listed entities, the quorum for every meeting of the Board of Directors shall be one-third of its total strength or three directors, whichever is higher, including at least one independent director. Why other options are incorrect: Options A, C, D, and E do not reflect SEBI's enhanced corporate governance mandate."
+  },
+  {
+    "id": 13,
+    "question": "What is the maximum permissible foreign portfolio investment (FPI) limit in the outstanding stock of corporate bonds in India?",
+    "options": [
+      "5% of outstanding stock",
+      "10% of outstanding stock",
+      "25% of outstanding stock",
+      "15% of outstanding stock of corporate bonds",
+      "100% with no ceiling"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: 15% of outstanding stock of corporate bonds. Correct Answer: Option D (15%). Key Rule: The RBI and SEBI prescribe that the general limit for FPI investments in corporate bonds is capped at 15% of the outstanding stock of corporate bonds. Why other options are incorrect: Options A, B, D, and E state inaccurate foreign portfolio debt investment quotas."
+  },
+  {
+    "id": 14,
+    "question": "What does the 'Price Band' in a book-built Initial Public Offering (IPO) represent?",
+    "options": [
+      "The range between the Floor Price and the Cap Price within which investors can bid for shares",
+      "The fixed price determined exclusively by the stock exchange in accordance with the FRBM macro-fiscal consolidation path",
+      "The range between the previous day's open and close price for institutional and retail market participants",
+      "The maximum limit on brokerage fees payable by underwriters within the regulated financial market infrastructure",
+      "The range of dividend payments promised by the promoter under the regulatory guidelines issued by RBI and SEBI"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The range between the Floor Price and the Cap Price within which investors can bid for shares (where Cap Price cannot exceed 120% of Floor Price). Correct Answer: Option A. Key Rule: In a book-built issue, the issuer announces a price band having a floor price and a cap price. SEBI ICDR regulations stipulate that the cap price cannot be more than 120% of the floor price (a maximum 20% spread). Why other options are incorrect: Options A, B, C, and E misdefine price band mechanics."
+  },
+  {
+    "id": 15,
+    "question": "What is the function of the Investor Education and Protection Fund (IEPF) established under Section 125 of the Companies Act, 2013?",
+    "options": [
+      "To bail out bankrupt stockbrokers on the exchange",
+      "To pay dividends to foreign sovereign wealth funds subject to periodic review by the regulator",
+      "To promote investor awareness and refund unclaimed dividends, matured deposits, and debentures to rightful investors",
+      "To finance government infrastructure through green bonds across primary and secondary capital market segments",
+      "To purchase corporate bonds during market crashes subject to statutory capital adequacy and prudential norms"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: To promote investor awareness and refund unclaimed dividends, matured deposits, and debentures to rightful investors. Correct Answer: Option C. Key Rule: Section 125 of the Companies Act, 2013 mandates the IEPF to credit unpaid/unclaimed dividends, matured deposits, debentures, and share application money lying unclaimed for 7 consecutive years, and utilize them for investor education and claims processing. Why other options are incorrect: Options A, B, C, and D state fictitious functions unrelated to investor protection."
+  },
+  {
+    "id": 16,
+    "question": "If the price of an underlying stock is ₹450, a 3-month Call option with a strike price of ₹400 trades at ₹65. What is the Intrinsic Value and Time Value of the option?",
+    "options": [
+      "Intrinsic Value = ₹65; Time Value = ₹0",
+      "Intrinsic Value = ₹15; Time Value = ₹50",
+      "Intrinsic Value = ₹0; Time Value = ₹65",
+      "Intrinsic Value = ₹50; Time Value = ₹50",
+      "Intrinsic Value = ₹50; Time Value = ₹15"
+    ],
+    "answer": 4,
+    "explanation": "Correct Answer: Option E. Key Rule: Intrinsic Value of a Call = Max(0, S &minus; K) = Max(0, 450 &minus; 400) = ₹50. Total Option Premium = Intrinsic Value + Time Value &rArr; Time Value = ₹65 &minus; ₹50 = ₹15. Why other options are incorrect: Options B, C, D, and E represent mathematical miscalculations of intrinsic and time value components."
+  },
+  {
+    "id": 17,
+    "question": "Which of the following option positions has unlimited profit potential and strictly limited loss potential?",
+    "options": [
+      "Short Call Option",
+      "Long Call Option",
+      "Short Put Option",
+      "Short Straddle",
+      "Bear Call Spread"
+    ],
+    "answer": 1,
+    "explanation": "Correct Answer: Option B (Long Call Option). Key Rule: When buying a call option (Long Call), maximum loss is strictly limited to the premium paid, while the profit potential is theoretically unlimited as the stock price can rise indefinitely. Why other options are incorrect: Option A (Short Call) has strictly limited profit (premium) and unlimited loss. Option C (Short Put) has limited profit and substantial downside risk. Option D and E have capped profit potential."
+  },
+  {
+    "id": 18,
+    "question": "What is the Delta of a Long Put Option?",
+    "options": [
+      "Strictly positive between 0 and +1.0",
+      "Always equal to zero",
+      "Equal to +0.50 at all times",
+      "Strictly negative between -1.0 and 0",
+      "Always greater than +1.0"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D (Between -1.0 and 0). Key Rule: Because a put option's value increases when the underlying stock price drops (and decreases when stock price rises), its Delta (&part;P/&part;S) is negative, ranging from -1.0 (deep ITM) to 0 (deep OTM). At-the-money put delta is &approx; -0.50. Why other options are incorrect: Option A describes Call delta. Option B is deep OTM. Option D is ATM call delta. Option E is mathematically impossible."
+  },
+  {
+    "id": 19,
+    "question": "Under SEBI derivative trading regulations, which of the following measures was introduced to safeguard retail investors from excessive losses in index options?",
+    "options": [
+      "Mandating upfront collection of Extreme Loss Margin (ELM) and minimum contract value norms",
+      "Banning all institutional investors from trading futures on a mark-to-market daily settlement basis",
+      "Allowing unlimited naked option writing without margin subject to periodic review by the regulator",
+      "Eliminating daily mark-to-market settlements",
+      "Fixing option premiums by government decree subject to statutory capital adequacy and prudential norms"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Mandating upfront collection of Extreme Loss Margin (ELM) and minimum contract value norms. Correct Answer: Option A. Key Rule: SEBI mandates robust risk containment including Initial Margin (SPAN margin), Exposure Margin, Extreme Loss Margin (ELM), client-level position limits, and enhanced contract values to ensure systemic stability in equity derivatives. Why other options are incorrect: Options A, B, C, and E state absurd and non-existent regulatory interventions."
+  },
+  {
+    "id": 20,
+    "question": "In an Interest Rate Swap (IRS), what benchmark rate is commonly used as the floating rate leg in domestic Indian rupee swaps?",
+    "options": [
+      "SOFR",
+      "Federal Funds Rate",
+      "FBIL-Overnight MIBOR",
+      "EURIBOR",
+      "SONIA"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C (FBIL-Overnight MIBOR). Key Rule: In Indian domestic interest rate swaps (specifically Overnight Index Swaps - OIS), the overnight MIBOR administered by Financial Benchmarks India Private Limited (FBIL) serves as the universal floating rate reference leg. Why other options are incorrect: Option A (SOFR) is the US dollar benchmark. Option B is US Fed rate. Option C is Euro benchmark. Option D is UK Sterling benchmark."
+  },
+  {
+    "id": 21,
+    "question": "Under the RBI guidelines, what is the minimum entry capital requirement for setting up a Small Finance Bank (SFB) in India?",
+    "options": [
+      "₹50 Crore",
+      "₹500 Crore",
+      "₹1,000 Crore",
+      "₹20 Crore",
+      "₹200 Crore (₹100 Crore for UCBs transitioning to SFBs)"
+    ],
+    "answer": 4,
+    "explanation": "Complete Answer Detail: ₹200 Crore (₹100 Crore for UCBs transitioning to SFBs). Correct Answer: Option E. Key Rule: The minimum paid-up voting equity capital for small finance banks is ₹200 Crore. For Primary Urban Co-operative Banks (UCBs) desirous of voluntarily transitioning into SFBs, the initial net worth requirement is ₹100 Crore, which must be increased to ₹200 Crore within five years. Why other options are incorrect: Option B, C, D, and E state inaccurate entry capital figures (₹500 Crore is the minimum capital for universal commercial banks)."
+  },
+  {
+    "id": 22,
+    "question": "What is the primary feature of the 'AePS' (Aadhaar Enabled Payment System) operated by NPCI?",
+    "options": [
+      "It allows trading of crypto-assets via biometric scans in accordance with the FRBM macro-fiscal consolidation path",
+      "It enables bank customers to access basic banking services at micro-ATMs/BC points using their Aadhaar number and biometric authentication",
+      "It eliminates the need for maintaining bank accounts entirely for institutional and retail market participants",
+      "It provides automatic crop insurance subsidies to large corporate farming firms within the regulated financial market infrastructure",
+      "It issues sovereign debt certificates to rural cooperatives under the regulatory guidelines issued by RBI and SEBI"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: It enables bank customers to access basic banking services (cash withdrawal, deposit, balance enquiry, fund transfer) at micro-ATMs/BC points using their Aadhaar number and biometric authentication. Correct Answer: Option B. Key Rule: AePS is a bank-led model developed by NPCI that allows online interoperable financial transactions at PoS/Micro-ATMs through Business Correspondents (Bank Mitras) using Aadhaar authentication. Why other options are incorrect: Options A, C, D, and E state inaccurate descriptions unrelated to AePS."
+  },
+  {
+    "id": 23,
+    "question": "Under the Priority Sector Lending guidelines, what is the mandatory sub-target for lending to 'Micro Enterprises' for domestic scheduled commercial banks?",
+    "options": [
+      "10% of ANBC",
+      "18% of ANBC",
+      "12% of ANBC",
+      "7.5% of ANBC or CEOBE, whichever is higher",
+      "5% of ANBC"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: 7.5% of ANBC or CEOBE, whichever is higher. Correct Answer: Option D (7.5% of ANBC). Key Rule: The sub-target for Micro Enterprises under Priority Sector Lending for commercial banks is 7.5% of ANBC or CEOBE. Why other options are incorrect: Option A (10%) is for Small and Marginal Farmers. Option B (18%) is total Agriculture. Option D (12%) is for Weaker Sections. Option E is an obsolete figure."
+  },
+  {
+    "id": 24,
+    "question": "What is the maximum overdraft limit permitted under PMJDY accounts for eligible individuals without requiring any conditions or assessment?",
+    "options": [
+      "₹2,000",
+      "₹10,000",
+      "₹5,000",
+      "₹1,000",
+      "₹500"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A (₹2,000). Key Rule: While the overall overdraft ceiling under PMJDY is ₹10,000, overdraft up to ₹2,000 is granted without requiring any conditions or credit assessment to provide immediate emergency liquidity to poor households. Why other options are incorrect: Option A (₹10,000) is the total maximum overdraft limit. Option B (₹5,000) was the older ceiling. Options C and E are incorrect."
+  },
+  {
+    "id": 25,
+    "question": "Which of the following is NOT an eligible category under the Priority Sector Lending guidelines issued by the Reserve Bank of India?",
+    "options": [
+      "Agriculture",
+      "Micro, Small and Medium Enterprises (MSMEs)",
+      "Speculative Real Estate and Equity Margin Financing",
+      "Export Credit",
+      "Education and Housing (up to specified limits)"
+    ],
+    "answer": 2,
+    "explanation": "Correct Answer: Option C. Key Rule: Speculative real estate investments, equity margin trading, and speculative capital market exposures are strictly non-priority and ineligible for PSL classification. Priority sectors include Agriculture, MSME, Export Credit, Education, Housing, Social Infrastructure, Renewable Energy, and Others. Why other options are incorrect: Options A, B, C, and D are all authentic statutory categories under the RBI PSL Master Directions."
+  },
+  {
+    "id": 26,
+    "question": "Under SEBI regulations, what is the maximum number of angel investors that an 'Angel Fund' is permitted to pool together in a single venture capital undertaking?",
+    "options": [
+      "Up to 50 angel investors",
+      "Up to 20 angel investors",
+      "Up to 500 angel investors",
+      "Unlimited angel investors",
+      "Up to 200 angel investors"
+    ],
+    "answer": 4,
+    "explanation": "Correct Answer: Option E (Up to 200 angel investors). Key Rule: Under the SEBI (Alternative Investment Funds) Regulations, 2012, an angel fund can invest in a venture capital undertaking with contributions from up to 200 angel investors (increased from the earlier cap of 49). Why other options are incorrect: Option B (50) was the historical company law limit for private placement. Options C, D, and E state inaccurate numbers."
+  },
+  {
+    "id": 27,
+    "question": "In a Public-Private Partnership (PPP) executed on a Build-Operate-Transfer (BOT) Annuity model, which party bears the traffic and revenue risk?",
+    "options": [
+      "The private concessionaire bears 100% of the traffic risk on a mark-to-market daily settlement basis",
+      "The Government / Project Authority bears the traffic and revenue risk, as it pays fixed annuities regardless of actual toll collection",
+      "The commercial banks financing the project bear the traffic risk subject to periodic review by the regulator",
+      "The toll-paying motorists bear the entire risk through variable surcharges across primary and secondary capital market segments",
+      "The International Monetary Fund guarantees the toll revenue subject to statutory capital adequacy and prudential norms"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: The Government / Project Authority bears the traffic and revenue risk, as it pays fixed annuities regardless of actual toll collection. Correct Answer: Option B. Key Rule: In BOT-Annuity, the government takes on the commercial/traffic risk by committing to pay predetermined, semi-annual annuity payments to the concessionaire over the concession period. The concessionaire bears only construction and maintenance risk. In contrast, in BOT-Toll, the concessionaire bears traffic risk. Why other options are incorrect: Option A describes BOT-Toll. Options C, D, and E misidentify risk bearers."
+  },
+  {
+    "id": 28,
+    "question": "What is the minimum asset value required for an Infrastructure Investment Trust (InvIT) or REIT to launch an Initial Public Offer (IPO) of units under SEBI regulations?",
+    "options": [
+      "₹100 Crore",
+      "₹250 Crore",
+      "₹1,000 Crore",
+      "₹500 Crore",
+      "₹50 Crore"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D (₹500 Crore). Key Rule: Under SEBI REIT and InvIT Regulations, the value of assets holding by the trust shall not be less than ₹500 Crore at the time of making the initial public offer of units. Why other options are incorrect: Options A, B, D, and E state incorrect statutory valuation thresholds."
+  },
+  {
+    "id": 29,
+    "question": "Which of the following instruments is issued by an infrastructure entity to raise debt capital where the interest rate and repayment are directly linked to meeting pre-defined Environmental, Social, and Governance (ESG) performance targets?",
+    "options": [
+      "Sustainability-Linked Bonds (SLBs)",
+      "Convertible Debentures",
+      "Commercial Paper",
+      "Treasury Bills",
+      "Zero Coupon Notes"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Sustainability-Linked Bonds (SLBs). Correct Answer: Option A (Sustainability-Linked Bonds - SLBs). Key Rule: Sustainability-Linked Bonds are forward-looking, performance-based debt instruments where structural features (e.g. coupon interest rate step-up) depend on whether the issuer achieves predefined sustainability performance targets (SPTs) within a timeline. Why other options are incorrect: Options A, B, C, and E are conventional instruments without ESG metric coupon step-up mechanics."
+  },
+  {
+    "id": 30,
+    "question": "Under the SEBI framework for the Social Stock Exchange, which of the following entities is strictly INELIGIBLE to register or raise funds through the SSE?",
+    "options": [
+      "Non-Profit Organisations (NPOs) registered as Section 8 companies in accordance with the FRBM macro-fiscal consolidation path",
+      "Charitable trusts registered under State Public Trust Acts for institutional and retail market participants",
+      "Corporate foundations acting solely as front entities for commercial corporate marketing with no direct social impact",
+      "Societies registered under Societies Registration Act, 1860 within the regulated financial market infrastructure",
+      "For-Profit Social Enterprises (FPSEs)"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: Corporate foundations acting solely as front entities for commercial corporate marketing with no direct social impact. Correct Answer: Option C. Key Rule: SEBI SSE regulations mandate that corporate foundations, political/religious organizations, trade associations, and entities dependent purely on corporate commercial sponsorships are strictly ineligible to register as social enterprises on the SSE. Why other options are incorrect: Options A, B, C, and D are eligible legal forms for social enterprises on the SSE."
+  },
+  {
+    "id": 31,
+    "question": "Under Article 280 of the Constitution of India, who determines the qualifications requisite for appointment as members of the Finance Commission?",
+    "options": [
+      "The Union Finance Minister by executive order",
+      "The Comptroller and Auditor General (CAG)",
+      "The Governor of the Reserve Bank of India",
+      "The NITI Aayog Governing Council",
+      "Parliament by law"
+    ],
+    "answer": 4,
+    "explanation": "Correct Answer: Option E (Parliament by law). Key Rule: Article 280(2) states that Parliament may by law determine the qualifications requisite for appointment as members of the Commission and the manner in which they shall be selected. Parliament enacted the Finance Commission (Miscellaneous Provisions) Act, 1951 for this purpose. Why other options are incorrect: Options B, C, D, and E are executive or regulatory offices with no legislative constitutional powers to set FC qualifications."
+  },
+  {
+    "id": 32,
+    "question": "What is the income tax rebate threshold under Section 87A of the Income Tax Act for individuals opting for the New Tax Regime (Section 115BAC)?",
+    "options": [
+      "Up to taxable income of ₹5,00,000",
+      "Up to taxable income of ₹7,00,000",
+      "Up to taxable income of ₹10,00,000",
+      "Up to taxable income of ₹3,00,000",
+      "Up to taxable income of ₹12,00,000"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Up to taxable income of ₹7,00,000 (effective zero tax liability for income up to ₹7.75 Lakh with standard deduction). Correct Answer: Option B (Up to ₹7,00,000). Key Rule: Under Section 87A for the New Tax Regime, resident individuals with total taxable income up to ₹7,00,000 receive a rebate of up to ₹25,000, resulting in zero tax liability. Combined with the ₹75,000 standard deduction, a salaried individual earning up to ₹7.75 Lakh pays zero income tax. Why other options are incorrect: Option A (₹5,00,000) was the limit under the Old Tax Regime. Options C, D, and E are incorrect thresholds."
+  },
+  {
+    "id": 33,
+    "question": "Which of the following components carries a weightage of 10.0% in the 15th Finance Commission horizontal tax devolution criteria?",
+    "options": [
+      "Income Distance",
+      "Demographic Performance",
+      "Area",
+      "Forest and Ecology",
+      "Tax Effort"
+    ],
+    "answer": 3,
+    "explanation": "Correct Answer: Option D (Forest and Ecology). Key Rule: In the 15th FC formula, Forest & Ecology carries a 10.0% weight (calculated as dense forest area). Why other options are incorrect: Income Distance is 45.0%. Demographic Performance is 12.5%. Area is 15.0%. Tax Effort is 2.5%."
+  },
+  {
+    "id": 34,
+    "question": "What does the 'Equalisation Levy' in the Indian tax system primarily target?",
+    "options": [
+      "Digital advertising services and e-commerce supply transactions undertaken by non-resident tech corporations with no physical permanent establishment in India",
+      "Domestic agricultural income above ₹50 Lakh in accordance with the FRBM macro-fiscal consolidation path",
+      "Inter-state movement of hazardous industrial goods for institutional and retail market participants",
+      "Sales tax on petroleum products within the regulated financial market infrastructure",
+      "Dividends paid by public sector banks under the regulatory guidelines issued by RBI and SEBI"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: Digital advertising services and e-commerce supply transactions undertaken by non-resident tech corporations with no physical permanent establishment in India. Correct Answer: Option A. Key Rule: The Equalisation Levy was introduced via the Finance Act, 2016 (at 6% on online advertising) and expanded in 2020 (at 2% on e-commerce supply) to tax digital economic activity of non-resident multinational tech enterprises operating without a physical permanent establishment (PE) in India. Why other options are incorrect: Options A, B, C, and E are unrelated domestic tax domains."
+  },
+  {
+    "id": 35,
+    "question": "Which of the following is NOT an allowed ground for triggering the 'Escape Clause' under the amended Fiscal Responsibility and Budget Management (FRBM) Act?",
+    "options": [
+      "Acts of War",
+      "National Calamity",
+      "A general election year requiring enhanced welfare expenditure by the incumbent government",
+      "Severe collapse of agriculture severely affecting farm output across primary and secondary capital market segments",
+      "Structural reforms in the economy with unanticipated fiscal implications subject to statutory capital adequacy and prudential norms"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: A general election year requiring enhanced welfare expenditure by the incumbent government. Correct Answer: Option C. Key Rule: The statutory Escape Clause under Section 4(2) of the FRBM Act specifies 5 exhaustive grounds for deviating up to 0.5% of GDP: (1) National security, (2) Acts of war, (3) National calamity, (4) Collapse of agriculture, (5) Structural reforms with fiscal shock. Political election cycles are strictly prohibited as grounds for fiscal slippage. Why other options are incorrect: Options A, B, C, and D are all authentic statutory grounds under the FRBM Act."
+  },
+  {
+    "id": 36,
+    "question": "Under the Flexible Inflation Targeting framework, what is the statutory duration of the tenure of external members appointed to the Monetary Policy Committee (MPC)?",
+    "options": [
+      "3 years, with option for one reappointment",
+      "5 years, eligible for reappointment",
+      "2 years only",
+      "6 years, coterminous with Rajya Sabha members",
+      "4 years, with no eligibility for reappointment"
+    ],
+    "answer": 4,
+    "explanation": "Correct Answer: Option E (4 years, non-reappointable). Key Rule: As per Section 45ZC(2) of the RBI Act, 1934, external members of the MPC appointed by the Central Government hold office for a period of 4 years from the date of appointment and are NOT eligible for reappointment, ensuring complete institutional independence. Why other options are incorrect: Options B, C, D, and E state inaccurate tenures or allow illegal reappointments."
+  },
+  {
+    "id": 37,
+    "question": "Which of the following price indices in India uses the Laspeyres base-weighted formula and captures price changes at the consumer retail level?",
+    "options": [
+      "Wholesale Price Index (WPI)",
+      "Consumer Price Index",
+      "Producer Price Index (PPI)",
+      "Export-Import Unit Value Index",
+      "Sensex Price Index"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Consumer Price Index (CPI - Combined). Correct Answer: Option B (CPI - Combined). Key Rule: The All-India CPI (Combined) compiled by NSO uses the modified Laspeyres formula with base year 2012 to track retail consumer prices paid by households. Why other options are incorrect: Option A is WPI (wholesale level). Option C (PPI) tracks producer factory output prices. Option D tracks trade unit values. Option E is a stock market capitalisation index."
+  },
+  {
+    "id": 38,
+    "question": "What is the primary operational target of the RBI's daily monetary policy operations under the liquidity management framework?",
+    "options": [
+      "The 10-year G-Sec benchmark yield in accordance with the FRBM macro-fiscal consolidation path",
+      "The USD/INR spot exchange rate for institutional and retail market participants",
+      "The Sensex 30 index level within the regulated financial market infrastructure",
+      "The Weighted Average Call Money Rate (WACR) aligned to the policy Repo Rate",
+      "The commercial bank 1-year MCLR rate under the regulatory guidelines issued by RBI and SEBI"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: The Weighted Average Call Money Rate (WACR) aligned to the policy Repo Rate. Correct Answer: Option D (Weighted Average Call Money Rate - WACR). Key Rule: The operational target of monetary policy in India is the Weighted Average Call Rate (WACR) in the overnight interbank market. The RBI modulates market liquidity through variable rate repos and reverse repos to keep the WACR aligned closely to the policy Repo Rate. Why other options are incorrect: Option A is a market yield. Option B is a forex rate. Option D is an equity index. Option E is banks' internal lending benchmark."
+  },
+  {
+    "id": 39,
+    "question": "Which of the following statements regarding the Wholesale Price Index (WPI) is FALSE?",
+    "options": [
+      "WPI is the official target index used by the Monetary Policy Committee to decide the Repo Rate",
+      "WPI base year is currently 2011–12",
+      "WPI is released monthly by the Office of the Economic Adviser, DPIIT subject to periodic review by the regulator",
+      "WPI gives the highest weight to Manufactured Products (64.23%) across primary and secondary capital market segments",
+      "WPI covers a total of 697 commodities subject to statutory capital adequacy and prudential norms"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: WPI is the official target index used by the Monetary Policy Committee to decide the Repo Rate. Correct Answer: Option A (False statement). Key Rule: Statement D is false because the Consumer Price Index (CPI-Combined), not WPI, is the official statutory nominal anchor for the MPC under the Flexible Inflation Targeting framework. WPI was abandoned as the policy anchor following the Urjit Patel Committee report in 2014. Why other options are incorrect: Statements A, B, C, and E are all factually true statements regarding the WPI."
+  },
+  {
+    "id": 40,
+    "question": "What does the 'Phillips Curve' postulate regarding the macroeconomic relationship between inflation and unemployment in the short run?",
+    "options": [
+      "A direct positive relationship where higher unemployment causes higher inflation under the regulatory guidelines issued by RBI and SEBI",
+      "Zero correlation between inflation and unemployment in the Indian money and government securities market",
+      "An inverse relationship where lower unemployment is associated with higher inflation (trade-off)",
+      "A linear relationship where inflation equals GDP growth within the Liquidity Adjustment Facility (LAF) framework",
+      "A vertical line at all times in both short run and long run in accordance with the FRBM macro-fiscal consolidation path"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: An inverse relationship where lower unemployment is associated with higher inflation (trade-off). Correct Answer: Option C. Key Rule: The classical short-run Phillips Curve demonstrates an inverse relationship between inflation and unemployment. When unemployment is low, labour markets are tight, wages rise, and demand-pull pressures drive up inflation. In the long run, according to Friedman and Phelps, the curve is vertical at the Natural Rate of Unemployment (NAIRU). Why other options are incorrect: Option A is false (it describes stagflation, not the Phillips curve). Option B, C, and D contradict macroeconomic theory."
+  },
+  {
+    "id": 41,
+    "question": "In financial futures, what is the term used to describe the situation when the futures price is trading at a premium above the spot price of the underlying asset?",
+    "options": [
+      "Backwardation",
+      "Arbitrage Equilibrium",
+      "Short Squeeze",
+      "Negative Basis",
+      "Contango"
+    ],
+    "answer": 4,
+    "explanation": "Correct Answer: Option E (Contango). Key Rule: In commodity and financial futures markets, 'Contango' refers to a market condition where the futures price is higher than the current spot price, reflecting the positive cost of carry (financing, storage, insurance). The opposite condition is 'Backwardation' (futures below spot). Why other options are incorrect: Option B (Backwardation) occurs when spot exceeds futures. Option C is pure parity. Option D is a market positioning squeeze. Option E refers to the numerical spread, not the market state."
+  },
+  {
+    "id": 42,
+    "question": "What is the legal structure required for an entity to issue Real Estate Investment Trusts (REITs) in India under SEBI regulations?",
+    "options": [
+      "A joint liability partnership under the Partnership Act, 1932 in accordance with the FRBM macro-fiscal consolidation path",
+      "A Trust established under the Indian Trusts Act, 1882, registered with SEBI",
+      "A Society registered under the Societies Registration Act for institutional and retail market participants",
+      "A Cooperative Housing Society",
+      "A Sole Proprietorship registered with the Registrar of Companies"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: A Trust established under the Indian Trusts Act, 1882, registered with SEBI. Correct Answer: Option B. Key Rule: Under SEBI (REIT) Regulations, 2014, a REIT must be set up as a Trust under the provisions of the Indian Trusts Act, 1882, and registered with SEBI. The trust has four key parties: Sponsor, Trustee, Manager, and Principal Valuer. Why other options are incorrect: Options A, C, D, and E are ineligible legal forms under SEBI REIT Regulations."
+  },
+  {
+    "id": 43,
+    "question": "What is the maximum investment limit for a single investor in an equity-oriented Crowdfunding or Angel investment without accredited investor status?",
+    "options": [
+      "₹1 Crore",
+      "₹50 Lakh",
+      "₹5 Lakh",
+      "₹25 Lakh (under SEBI Angel Fund norms for minimum commitment)",
+      "₹10 Lakh"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: ₹25 Lakh (under SEBI Angel Fund norms for minimum commitment). Correct Answer: Option D (₹25 Lakh). Key Rule: Under SEBI AIF Regulations for Angel Funds, the minimum investment by an angel investor in an angel fund is ₹25 Lakh. For regular AIFs, the minimum investment is ₹1 Crore. Why other options are incorrect: Option A is the threshold for regular Category I/II/III AIFs. Options B, D, and E state non-standard thresholds."
+  },
+  {
+    "id": 44,
+    "question": "Which of the following is a key requirement for a company seeking to list its commercial paper on a stock exchange?",
+    "options": [
+      "The company must obtain a credit rating of minimum A3, have a working capital limit, and maintain a tangible net worth of not less than ₹4 Crore",
+      "The company must be a central public sector undertaking only",
+      "The company must issue CPs with maturity of at least 3 years in the Indian money and government securities market",
+      "The company must pay 50% dividend for 3 consecutive years within the Liquidity Adjustment Facility (LAF) framework",
+      "The company must have a physical office in Mumbai"
+    ],
+    "answer": 0,
+    "explanation": "Complete Answer Detail: The company must obtain a credit rating of minimum A3, have a working capital limit, and maintain a tangible net worth of not less than ₹4 Crore. Correct Answer: Option A. Key Rule: Under RBI Directions on Commercial Paper, an eligible corporate issuer must have: (a) Tangible net worth of not less than ₹4 Crore; (b) Sanctioned working capital limit by banks/AIFIs; (c) Credit rating of minimum A3 from an approved CRA; and (d) The borrowal account classified as Standard. Why other options are incorrect: Options A, B, C, and E state fabricated or incorrect prerequisites."
+  },
+  {
+    "id": 45,
+    "question": "What is the primary economic benefit of introducing Public-Private Partnerships (PPP) in large infrastructure projects instead of purely public sector funding?",
+    "options": [
+      "It completely eliminates the public debt of the government forever subject to statutory capital adequacy and prudential norms",
+      "It allows private companies to levy arbitrary taxes on citizens through recognized clearing corporations and depositories",
+      "It leverages private capital, introduces operational efficiency and technology, and achieves risk allocation between public and private partners",
+      "It exempts private contractors from all environmental regulations under the Flexible Inflation Targeting (FIT) monetary framework",
+      "It allows the government to privatize sovereign monetary policy"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: It leverages private capital, introduces operational efficiency and technology, and achieves risk allocation between public and private partners. Correct Answer: Option C. Key Rule: PPPs bring private sector managerial efficiency, innovation, and technological prowess while mobilizing private capital for long-gestation infrastructure. Crucially, PPP contracts achieve optimal risk allocation (transferring construction and commercial risks to the private partner who can manage them best, while the public authority retains regulatory and land risks). Why other options are incorrect: Options A, B, C, and D state absurd or factually incorrect claims."
+  },
+  {
+    "id": 46,
+    "question": "Under the Foreign Exchange Management Act (FEMA), 1999, which account transactions are generally permitted unless specifically restricted or prohibited?",
+    "options": [
+      "Capital Account Transactions (Section 6)",
+      "Hawala Transactions",
+      "Speculative offshore betting transactions",
+      "Unapproved foreign political donations",
+      "Current Account Transactions (Section 5)"
+    ],
+    "answer": 4,
+    "explanation": "Correct Answer: Option E (Current Account Transactions). Key Rule: In the Indian foreign exchange regulatory architecture, Current Account transactions are generally freely permitted under Section 5 of FEMA, unless specifically restricted under the Current Account Rules. In contrast, Capital Account transactions (Section 6) are prohibited unless explicitly permitted by the RBI. Why other options are incorrect: Option B (Capital Account) is regulated on a negative list / restrictive basis. Options C, D, and E are strictly illegal/prohibited."
+  },
+  {
+    "id": 47,
+    "question": "What is the primary difference between a 'Direct Quotation' and an 'Indirect Quotation' in the foreign exchange market?",
+    "options": [
+      "Direct quote is in US dollars; indirect quote is in Euros on a mark-to-market daily settlement basis",
+      "Direct quote expresses the price of 1 unit of foreign currency in terms of variable units of domestic currency; Indirect quote expresses 1 unit of domestic currency in variable units of foreign currency",
+      "Direct quote is given by RBI; indirect quote is given by private money changers subject to periodic review by the regulator",
+      "Direct quote has zero spread; indirect quote has wide bid-ask spread across primary and secondary capital market segments",
+      "Direct quote applies only to cash; indirect quote applies to traveler cheques subject to statutory capital adequacy and prudential norms"
+    ],
+    "answer": 1,
+    "explanation": "Complete Answer Detail: Direct quote expresses the price of 1 unit of foreign currency in terms of variable units of domestic currency; Indirect quote expresses 1 unit of domestic currency in variable units of foreign currency. Correct Answer: Option B. Key Rule: In a Direct Quote, the foreign currency is fixed (1 unit) and domestic currency varies (e.g. 1 USD = ₹84.00). In an Indirect Quote, domestic currency is fixed and foreign currency varies (e.g. ₹100 = 1.19 USD). In India, forex rates are quoted directly. Why other options are incorrect: Options A, C, D, and E state inaccurate and irrelevant distinctions."
+  },
+  {
+    "id": 48,
+    "question": "Under the RBI guidelines, what is a 'Special Rupee Vostro Account' (SRVA) used for in international trade settlement?",
+    "options": [
+      "To store physical gold reserves in foreign vaults under the regulatory guidelines issued by RBI and SEBI",
+      "To enable Indian tourists to withdraw cash in Dubai without cards in the Indian money and government securities market",
+      "To bypass FATF anti-money laundering monitoring within the Liquidity Adjustment Facility (LAF) framework",
+      "To facilitate settlement of international trade in Indian Rupees (INR) with foreign partner countries",
+      "To pay interest on sovereign green bonds in US Dollars"
+    ],
+    "answer": 3,
+    "explanation": "Complete Answer Detail: To facilitate settlement of international trade in Indian Rupees (INR) with foreign partner countries. Correct Answer: Option D. Key Rule: The RBI introduced the mechanism for international trade settlement in Indian Rupees (INR) in July 2022. Under this mechanism, foreign correspondent banks open Special Rupee Vostro Accounts (SRVA) with Authorized Dealer banks in India to facilitate invoice and settlement of bilateral trade in Rupees, promoting the internationalisation of the Rupee. Why other options are incorrect: Options A, B, D, and E are unrelated to bilateral rupee trade settlement."
+  },
+  {
+    "id": 49,
+    "question": "Which of the following formulas correctly describes the relationship between Macaulay Duration (D_mac), Modified Duration (MD), and Yield to Maturity (y) for an annually compounding bond?",
+    "options": [
+      "MD = D_mac / (1 + y)",
+      "MD = D_mac &times; (1 + y)",
+      "MD = D_mac / y^2",
+      "MD = D_mac &times; y",
+      "MD = D_mac &times; (1 + y)^2"
+    ],
+    "answer": 0,
+    "explanation": "Correct Answer: Option A. Key Rule: Modified Duration = Macaulay Duration / (1 + y/m). For an annually compounding bond (m = 1), Modified Duration = D_mac / (1 + y). It provides the percentage change in bond price for a 1-unit change in yield. Why other options are incorrect: Options A, B, C, and E state incorrect algebraic transformations of the duration equation."
+  },
+  {
+    "id": 50,
+    "question": "Under the Fiscal Responsibility and Budget Management (FRBM) Act, what are the three mandatory fiscal policy statements required to be laid before Parliament along with the Annual Financial Statement?",
+    "options": [
+      "The Railway Budget, the Defence Whitepaper, and the Economic Survey in accordance with the FRBM macro-fiscal consolidation path",
+      "The Balance of Payments Report, the Inflation Outlook, and the Currency Chest Audit for institutional and retail market participants",
+      "The Medium-term Fiscal Policy Statement, the Fiscal Policy Strategy Statement, and the Macroeconomic Framework Statement",
+      "The Corporate Tax Report, the GST Collection Audit, and the Disinvestment Strategy within the regulated financial market infrastructure",
+      "The RBI Annual Report, the SEBI Annual Report, and the IRDAI Review under the regulatory guidelines issued by RBI and SEBI"
+    ],
+    "answer": 2,
+    "explanation": "Complete Answer Detail: The Medium-term Fiscal Policy Statement, the Fiscal Policy Strategy Statement, and the Macroeconomic Framework Statement. Correct Answer: Option C. Key Rule: Section 3 of the FRBM Act, 2003 mandates the Central Government to lay three policy statements before Parliament along with the Budget: (1) Medium-term Fiscal Policy Statement, (2) Fiscal Policy Strategy Statement, and (3) Macroeconomic Framework Statement. (A Medium-Term Expenditure Framework Statement is also presented). Why other options are incorrect: Options A, B, C, and D list reports governed by different conventions and statutory mandates."
+  }
+];
+
+
+let currentIdx = 0;
+let userResponses = new Array(questionsData.length).fill(null);
+let timeLeft = 40 * 60;
+let timerInterval;
+let isSubmitted = false;
+let markedForReview = new Array(questionsData.length).fill(false);
+let visitedQuestions = new Array(questionsData.length).fill(false);
+
+const letters = ['A', 'B', 'C', 'D', 'E'];
+
+function init() {
+    document.getElementById('info-count').innerText = `${questionsData.length} MCQs`;
+    document.getElementById('stat-left').innerText = questionsData.length;
+    renderGrid();
+}
+
+function validateAndStart() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    
+    if (name.length < 2) {
+        alert("Please enter your name to begin.");
+        return;
+    }
+    
+    userInfo.name = name;
+    userInfo.email = email;
+    startTest();
+}
+
+function startTest() {
+    document.getElementById('start-page').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    loadQuestion(0);
+    startTimer();
+}
+
+function loadQuestion(idx) {
+    currentIdx = idx;
+    visitedQuestions[idx] = true;
+    const q = questionsData[idx];
+    
+    document.getElementById('q-title').innerText = `Question ${idx + 1} of ${questionsData.length}`;
+    document.getElementById('q-text').innerText = q.question;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = `option-item ${userResponses[idx] === i ? 'selected' : ''}`;
+        
+        if(isSubmitted) {
+            if(i === q.answer) div.classList.add('correct');
+            if(userResponses[idx] === i && i !== q.answer) div.classList.add('wrong');
+        } else {
+            div.onclick = () => selectOption(i);
+        }
+        
+        div.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        container.appendChild(div);
+    });
+
+    const reviewBtn = document.getElementById('review-btn');
+    if(reviewBtn) reviewBtn.innerText = markedForReview[idx] ? "Unmark Review" : "Mark for Review";
+
+    const resInfo = document.getElementById('result-info');
+    if(isSubmitted) {
+        resInfo.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation;
+        document.getElementById('clear-btn').classList.add('hidden');
+        if(reviewBtn) reviewBtn.classList.add('hidden');
+    }
+
+    updateGridStyles();
+}
+
+function toggleReview() {
+    if(isSubmitted) return;
+    markedForReview[currentIdx] = !markedForReview[currentIdx];
+    loadQuestion(currentIdx);
+}
+
+function selectOption(optIdx) {
+    if(isSubmitted) return;
+    userResponses[currentIdx] = optIdx;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function clearResponse() {
+    userResponses[currentIdx] = null;
+    markedForReview[currentIdx] = false;
+    loadQuestion(currentIdx);
+    updateStats();
+}
+
+function renderGrid() {
+    const grid = document.getElementById('q-grid');
+    grid.innerHTML = '';
+    questionsData.forEach((_, i) => {
+        const btn = document.createElement('div');
+        btn.className = 'q-num';
+        btn.innerText = i + 1;
+        btn.onclick = () => loadQuestion(i);
+        grid.appendChild(btn);
+    });
+    updateStats();
+}
+
+function updateGridStyles() {
+    const nodes = document.getElementById('q-grid').children;
+    for(let i=0; i<nodes.length; i++) {
+        nodes[i].className = 'q-num';
+        
+        if (isSubmitted) {
+            if (userResponses[i] === null) {
+                nodes[i].classList.add('res-none');
+            } else if (userResponses[i] === questionsData[i].answer) {
+                nodes[i].classList.add('res-correct');
+            } else {
+                nodes[i].classList.add('res-wrong');
+            }
+        } else {
+            if (markedForReview[i]) nodes[i].classList.add('marked');
+            else if (userResponses[i] !== null) nodes[i].classList.add('attempted');
+            else if (visitedQuestions[i]) nodes[i].classList.add('visited');
+        }
+        
+        if (i === currentIdx) nodes[i].classList.add('current');
+    }
+}
+
+function updateStats() {
+    const attempted = userResponses.filter(r => r !== null).length;
+    document.getElementById('stat-attempted').innerText = attempted;
+    document.getElementById('stat-left').innerText = questionsData.length - attempted;
+}
+
+function nextQuestion() {
+    if(currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1);
+}
+
+function prevQuestion() {
+    if(currentIdx > 0) loadQuestion(currentIdx - 1);
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if(timeLeft <= 300) {
+            document.querySelector('.timer-box').style.background = '#fee2e2';
+        }
+        if(timeLeft <= 0) endTest(true);
+    }, 1000);
+}
+
+function calculateScore() {
+    let correct = 0;
+    let incorrect = 0;
+    let attempted = 0;
+
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+    });
+
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+    const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+    document.getElementById('res-attempted').innerText = attempted;
+    document.getElementById('res-correct').innerText = correct;
+    document.getElementById('res-incorrect').innerText = incorrect;
+    document.getElementById('res-accuracy').innerText = accuracy + "%";
+    document.getElementById('res-score').innerText = `${finalScore.toFixed(2)} / ${questionsData.length}`;
+}
+
+let userInfo = { name: "Aspirant", email: "shivam@pfrda.gov.in" };
+
+async function sendDataToGoogle(correct, incorrect, attempted, finalScore) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwY8YWhWtE2JdFDserSmXX1HrM5Nb574HdXOi3oTNolHlJMZyj1mY2FOBBUxm19y9Zg/exec';
+    const unattempted = questionsData.length - attempted;
+    const payload = {
+        testName: "PFRDA - SHIVAM - Pension Sector Mock 1",
+        userName: userInfo.name,
+        userEmail: userInfo.email,
+        score: finalScore.toFixed(2),
+        stats: `(C: ${correct}, I: ${incorrect}, U: ${unattempted})`
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        });
+    } catch (e) {
+        console.warn("Analytics logging skipped", e);
+    }
+}
+
+function endTest(isAuto = false) {
+    if(!isAuto && !confirm("Are you sure you want to submit your test?")) return;
+    
+    clearInterval(timerInterval);
+    isSubmitted = true;
+    
+    document.getElementById('timer').style.display = 'none';
+    const liveLegend = document.getElementById('live-legend');
+    if(liveLegend) liveLegend.style.display = 'none';
+
+    const sidebar = document.querySelector('.sidebar');
+    const resultLegend = document.createElement('div');
+    resultLegend.className = 'legend';
+    resultLegend.style.marginTop = '20px';
+    resultLegend.innerHTML = `
+        <div style="grid-column: span 2; font-weight: bold; margin-bottom: 5px; color: var(--dark);">Result Key:</div>
+        <div class="legend-item"><div class="dot" style="background: var(--success);"></div> Correct</div>
+        <div class="legend-item"><div class="dot" style="background: var(--danger);"></div> Wrong</div>
+        <div class="legend-item"><div class="dot" style="background: #cbd5e1;"></div> Unattempted</div>
+    `;
+    sidebar.appendChild(resultLegend);
+
+    let correct = 0, incorrect = 0, attempted = 0;
+    userResponses.forEach((resp, i) => {
+        if(resp !== null) {
+            attempted++;
+            if(resp === questionsData[i].answer) correct++;
+            else incorrect++;
+        }
+    });
+    const finalScore = (correct * 1) - (incorrect * 0.25);
+
+    sendDataToGoogle(correct, incorrect, attempted, finalScore);
+    calculateScore();
+
+    document.getElementById('submit-btn').classList.add('hidden');
+    document.getElementById('scorecard').classList.remove('hidden');
+    
+    loadQuestion(0);
+}
+
+function generateSummarySheet() {
+    const examName = "PFRDA - SHIVAM - Pension Sector Mock 1";
+    const fileName = "Summary - " + examName;
+    
+    let reportHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${fileName}</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; background: #fff; }
+                .header { text-align: center; border-bottom: 3px solid #2563eb; padding-bottom: 15px; margin-bottom: 25px; }
+                .header h1 { margin: 0; color: #1e3a8a; font-size: 1.8rem; }
+                .summary { display: flex; justify-content: space-around; background: #f8fafc; padding: 18px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 35px; }
+                .summary div { text-align: center; font-size: 0.9rem; color: #64748b; }
+                .summary div b { display: block; font-size: 1.3rem; color: #0f172a; margin-top: 4px; }
+                .q-block { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid; }
+                .question { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+                .correct { color: #16a34a; font-weight: 700; }
+                .wrong { color: #dc2626; font-weight: 700; }
+                .exp { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-top: 10px; font-size: 0.95rem; color: #1e3a8a; border-radius: 0 6px 6px 0; }
+                @media print { .no-print { display: none; } body { padding: 0; } }
+            </style>
+        </head>
+        <body>
+            <div class="no-print" style="text-align:center; background:#fef3c7; padding:12px; border:1px solid #fde68a; margin-bottom:20px; border-radius:6px; color: #92400e; font-weight: 600;">
+                Press <b>CTRL + P</b> (or Cmd+P) to Print or Save this Performance Summary as a PDF.
+            </div>
+            <div class="header">
+                <h1>${examName}</h1>
+                <p style="margin: 6px 0 0 0; color: #64748b;"><b>Candidate:</b> ${userInfo.name} | <b>Email:</b> ${userInfo.email} | <b>Date:</b> ${new Date().toLocaleDateString()}</p>
+            </div>
+            <div class="summary">
+                <div>Final Score: <br><b style="color: #2563eb;">${document.getElementById('res-score').innerText}</b></div>
+                <div>Correct: <br><b style="color: #16a34a;">${document.getElementById('res-correct').innerText}</b></div>
+                <div>Incorrect: <br><b style="color: #dc2626;">${document.getElementById('res-incorrect').innerText}</b></div>
+                <div>Accuracy: <br><b>${document.getElementById('res-accuracy').innerText}</b></div>
+            </div>
+    `;
+
+    questionsData.forEach((q, i) => {
+        const uAns = userResponses[i];
+        const isCorr = uAns === q.answer;
+        const statusText = uAns === null ? "Unattempted" : (isCorr ? "Correct (+1.0)" : "Incorrect (-0.25)");
+        const statusClass = isCorr ? "correct" : (uAns === null ? "" : "wrong");
+
+        reportHtml += `
+            <div class="q-block">
+                <div class="question">Q${i+1}: ${q.question}</div>
+                <p style="margin: 6px 0;"><b>Your Answer:</b> <span class="${statusClass}">${uAns !== null ? '(' + letters[uAns] + ') ' + q.options[uAns] : 'Not Answered'}</span> <i>(${statusText})</i></p>
+                <p style="margin: 6px 0;"><b>Correct Answer:</b> <span class="correct">(${letters[q.answer]}) ${q.options[q.answer]}</span></p>
+                <div class="exp"><b>Detailed Explanation:</b> ${q.explanation}</div>
+            </div>
+        `;
+    });
+
+    reportHtml += `</body></html>`;
+
+    const win = window.open('', '_blank');
+    win.document.write(reportHtml);
+    win.document.close();
+    win.onload = function() {
+        setTimeout(() => { win.print(); }, 400);
+    };
+}
+
+init();
+</script>
+</body>
+</html>
